@@ -1,0 +1,1160 @@
+{
+ "id": "2026-11-02_2206_student",
+ "date": "2026-11-02T22:08",
+ "sujet": "Réussite scolaire",
+ "question": "Qu'est-ce qui distingue les élèves qui réussissent malgré un contexte défavorable ?",
+ "keywords": [
+  "student",
+  "school",
+  "education",
+  "exam",
+  "academic"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des datasets sur la réussite scolaire met en évidence des corrélations très fortes entre les notes successives (G1, G2, G3) ainsi qu'un impact massif des absences sur les performances (GPA, GradeClass). Les interactions en ligne (raisedhands, VisITedResources) jouent également un rôle déterminant dans l'engagement et la réussite des élèves. Ces résultats confirment la centralité de l'assiduité et de l'engagement continu pour comprendre la trajectoire académique.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La note G2 est par définition très corrélée à la note finale G3 dans le même cours.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une corrélation très forte et négative relie le nombre d'absences au GPA, soulignant le coût académique de l'absentéisme.",
+    "hypothese": "La relation entre les absences et le GPA est-elle atténuée par un fort soutien parental (ParentalSupport) chez les élèves en difficulté ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'une corrélation directe entre deux notes successives (G1 et G2) d'un même élève.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "La corrélation entre la première évaluation (G1) et la note finale (G3) est mécanique et connue.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "artefact",
+    "explication": "Le GPA et la classe de note (GradeClass) mesurent fondamentalement la même variable avec un encodage inversé.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "L'association entre les absences et la classe de note découle directement de la définition du succès académique.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "La nationalité et le lieu de naissance coïncident presque toujours parfaitement dans ce type de base de données.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Les élèves qui lèvent la main en classe visitent aussi davantage les ressources pédagogiques en ligne.",
+    "hypothese": "La corrélation entre raisedhands et VisITedResources varie-t-elle selon le niveau de satisfaction des parents (ParentschoolSatisfaction) ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "L'engagement actif (raisedhands) et la consultation des annonces (AnnouncementsView) mesurent deux facettes complémentaires de l'implication de l'élève.",
+    "hypothese": "La relation entre raisedhands et AnnouncementsView diffère-t-elle selon le type de semestre (Semester) ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Il existe une forte homogénéité du niveau d'éducation entre conjoints (assortative mating éducatif).",
+    "hypothese": "La corrélation Medu~Fedu modère-t-elle l'effet du temps d'étude hebdomadaire (studytime) sur la réussite (G3) ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Les jours d'absence sont fortement associés à la classe de réussite finale, confirmant l'importance de la présence.",
+    "hypothese": "L'association entre StudentAbsenceDays et Class est-elle différente selon le genre (gender) de l'élève ?"
+   }
+  },
+  "pistes": [
+   "Étudier comment l'engagement numérique compense un niveau d'éducation parental faible.",
+   "Analyser l'effet modérateur du soutien familial sur la corrélation entre absences et GPA.",
+   "Identifier les profils d'élèves résilients qui réussissent malgré un taux d'absence élevé."
+  ],
+  "nouveautes": {
+   "4": {
+    "id": "H4",
+    "nouveaute": "deja_connu",
+    "explication": "La littérature médicale documente largement l'effet du diabète sur les paramètres biologiques rénaux."
+   },
+   "5": {
+    "id": "H5",
+    "nouveaute": "partiellement_etudie",
+    "explication": "Plusieurs études explorent l'hypertension et la créatinine, mais l'interaction précise avec l'hémoglobine reste peu formalisée."
+   },
+   "6": {
+    "id": "H6",
+    "nouveaute": "deja_connu",
+    "explication": "Le vieillissement et son impact sur la fonction rénale et la créatinine sont amplement décrits en néphrologie."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "46255",
+    "x": "Absences",
+    "y": "GPA",
+    "groupe": "ParentalSupport",
+    "seuil": null,
+    "enonce": "La relation négative entre les absences et le GPA est-elle atténuée chez les élèves bénéficiant d'un fort soutien parental ?",
+    "requete_biblio": "student absences GPA parental support resilience academic performance"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43415",
+    "x": "raisedhands",
+    "y": "VisITedResources",
+    "groupe": "ParentschoolSatisfaction",
+    "seuil": null,
+    "enonce": "La corrélation entre la participation en classe et l'utilisation des ressources en ligne dépend-elle de la satisfaction des parents envers l'école ?",
+    "requete_biblio": "student engagement online resources participation parent satisfaction"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "42351",
+    "x": "studytime",
+    "y": "G3",
+    "groupe": "higher",
+    "seuil": null,
+    "enonce": "L'impact du temps d'étude sur la note finale G3 est-il plus prononcé pour les élèves ayant l'intention de faire des études supérieures ?",
+    "requete_biblio": "study time final grade higher education aspirations student performance"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "correlation",
+   "vars": "G2 ~ G3",
+   "stat": 0.944,
+   "score": 0.7555609493538016,
+   "detail": {
+    "spearman": 0.944,
+    "pearson": 0.919,
+    "n": 649,
+    "q": 0.0
+   },
+   "dataset": "UCI-student-performance-por",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La note G2 est par définition très corrélée à la note finale G3 dans le même cours.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Absences ~ GPA",
+   "stat": -0.925,
+   "score": 0.7403734902768672,
+   "detail": {
+    "spearman": -0.925,
+    "pearson": -0.919,
+    "n": 2392,
+    "q": 0.0
+   },
+   "dataset": "Student_Performance_Dataset",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une corrélation très forte et négative relie le nombre d'absences au GPA, soulignant le coût académique de l'absentéisme.",
+    "hypothese": "La relation entre les absences et le GPA est-elle atténuée par un fort soutien parental (ParentalSupport) chez les élèves en difficulté ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "G1 ~ G2",
+   "stat": 0.893,
+   "score": 0.714451904245514,
+   "detail": {
+    "spearman": 0.893,
+    "pearson": 0.865,
+    "n": 649,
+    "q": 8.1e-225
+   },
+   "dataset": "UCI-student-performance-por",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'une corrélation directe entre deux notes successives (G1 et G2) d'un même élève.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "G1 ~ G3",
+   "stat": 0.883,
+   "score": 0.7066301099965083,
+   "detail": {
+    "spearman": 0.883,
+    "pearson": 0.826,
+    "n": 649,
+    "q": 2e-213
+   },
+   "dataset": "UCI-student-performance-por",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "La corrélation entre la première évaluation (G1) et la note finale (G3) est mécanique et connue.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "GPA ~ GradeClass",
+   "stat": -0.823,
+   "score": 0.6580804287535807,
+   "detail": {
+    "spearman": -0.823,
+    "pearson": -0.783,
+    "n": 2392,
+    "q": 0.0
+   },
+   "dataset": "Student_Performance_Dataset",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "artefact",
+    "explication": "Le GPA et la classe de note (GradeClass) mesurent fondamentalement la même variable avec un encodage inversé.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Absences ~ GradeClass",
+   "stat": 0.768,
+   "score": 0.6146230927924276,
+   "detail": {
+    "spearman": 0.768,
+    "pearson": 0.729,
+    "n": 2392,
+    "q": 0.0
+   },
+   "dataset": "Student_Performance_Dataset",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "L'association entre les absences et la classe de note découle directement de la définition du succès académique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "NationalITy ~ PlaceofBirth",
+   "stat": 0.874,
+   "score": 0.6118321958471815,
+   "detail": {
+    "cramers_v": 0.874,
+    "p": 0.0
+   },
+   "dataset": "Students-Academic-Performance-Dataset",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "La nationalité et le lieu de naissance coïncident presque toujours parfaitement dans ce type de base de données.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "raisedhands ~ VisITedResources",
+   "stat": 0.662,
+   "score": 0.5299812506089373,
+   "detail": {
+    "spearman": 0.662,
+    "pearson": 0.692,
+    "n": 480,
+    "q": 3.5e-61
+   },
+   "dataset": "Students-Academic-Performance-Dataset",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Les élèves qui lèvent la main en classe visitent aussi davantage les ressources pédagogiques en ligne.",
+    "hypothese": "La corrélation entre raisedhands et VisITedResources varie-t-elle selon le niveau de satisfaction des parents (ParentschoolSatisfaction) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "raisedhands ~ AnnouncementsView",
+   "stat": 0.653,
+   "score": 0.5220181809674195,
+   "detail": {
+    "spearman": 0.653,
+    "pearson": 0.644,
+    "n": 480,
+    "q": 4.4e-59
+   },
+   "dataset": "Students-Academic-Performance-Dataset",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "L'engagement actif (raisedhands) et la consultation des annonces (AnnouncementsView) mesurent deux facettes complémentaires de l'implication de l'élève.",
+    "hypothese": "La relation entre raisedhands et AnnouncementsView diffère-t-elle selon le type de semestre (Semester) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Medu ~ Fedu",
+   "stat": 0.647,
+   "score": 0.5177553316609628,
+   "detail": {
+    "spearman": 0.647,
+    "pearson": 0.647,
+    "n": 649,
+    "q": 8.1e-77
+   },
+   "dataset": "UCI-student-performance-por",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Il existe une forte homogénéité du niveau d'éducation entre conjoints (assortative mating éducatif).",
+    "hypothese": "La corrélation Medu~Fedu modère-t-elle l'effet du temps d'étude hebdomadaire (studytime) sur la réussite (G3) ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "StudentAbsenceDays ~ Class",
+   "stat": 0.685,
+   "score": 0.4794753242680119,
+   "detail": {
+    "cramers_v": 0.685,
+    "p": 1.3e-49
+   },
+   "dataset": "Students-Academic-Performance-Dataset",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Les jours d'absence sont fortement associés à la classe de réussite finale, confirmant l'importance de la présence.",
+    "hypothese": "L'association entre StudentAbsenceDays et Class est-elle différente selon le genre (gender) de l'élève ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Student_Performance_Dataset",
+    "target": null,
+    "description": "Description: The Student_performance_data_.csv dataset is a comprehensive collection of data aimed at analyzing the factors influencing student performance across various dimensions. This dataset encapsulates a variety of attributes including demographic information, study habits, participation in extracurricular activities, and academic outcomes for a sample of students. The purpose of this datas",
+    "url": "https://www.openml.org/d/46255",
+    "did": "46255",
+    "colonnes": {
+     "num": [
+      "Age",
+      "Gender",
+      "Ethnicity",
+      "ParentalEducation",
+      "StudyTimeWeekly",
+      "Absences",
+      "Tutoring",
+      "ParentalSupport",
+      "Extracurricular",
+      "Sports",
+      "Music",
+      "Volunteering",
+      "GPA",
+      "GradeClass"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 2392,
+   "colonnes": 15,
+   "fig": "2026-11-02_Student_Performance_Dataset.png",
+   "n_findings": 3,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "Absences ~ GPA",
+     "stat": -0.925,
+     "score": 0.7403734902768672,
+     "detail": {
+      "spearman": -0.925,
+      "pearson": -0.919,
+      "n": 2392,
+      "q": 0.0
+     },
+     "dataset": "Student_Performance_Dataset",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Une corrélation très forte et négative relie le nombre d'absences au GPA, soulignant le coût académique de l'absentéisme.",
+      "hypothese": "La relation entre les absences et le GPA est-elle atténuée par un fort soutien parental (ParentalSupport) chez les élèves en difficulté ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "GPA ~ GradeClass",
+     "stat": -0.823,
+     "score": 0.6580804287535807,
+     "detail": {
+      "spearman": -0.823,
+      "pearson": -0.783,
+      "n": 2392,
+      "q": 0.0
+     },
+     "dataset": "Student_Performance_Dataset",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "artefact",
+      "explication": "Le GPA et la classe de note (GradeClass) mesurent fondamentalement la même variable avec un encodage inversé.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Absences ~ GradeClass",
+     "stat": 0.768,
+     "score": 0.6146230927924276,
+     "detail": {
+      "spearman": 0.768,
+      "pearson": 0.729,
+      "n": 2392,
+      "q": 0.0
+     },
+     "dataset": "Student_Performance_Dataset",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "L'association entre les absences et la classe de note découle directement de la définition du succès académique.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Students-Academic-Performance-Dataset",
+    "target": null,
+    "description": "Students' Academic Performance Dataset (xAPI-Edu-Data) Data Set Characteristics: Multivariate Number of Instances: 480 Area: E-learning, Education, Predictive models, Educational Data Mining Attribute Characteristics: Integer/Categorical Number of Attributes: 16 Date: 2016-11-8 Associated Tasks: Classification Missing Values? No File formats: xAPI-Edu-Data.csv Source: Elaf Abu Amrieh, Thair Hamtin",
+    "url": "https://www.openml.org/d/43415",
+    "did": "43415",
+    "colonnes": {
+     "num": [
+      "raisedhands",
+      "VisITedResources",
+      "AnnouncementsView",
+      "Discussion"
+     ],
+     "groupes": [
+      "gender",
+      "StageID",
+      "SectionID",
+      "Semester",
+      "Relation",
+      "ParentAnsweringSurvey",
+      "ParentschoolSatisfaction",
+      "StudentAbsenceDays",
+      "Class"
+     ]
+    }
+   },
+   "lignes": 480,
+   "colonnes": 17,
+   "fig": "2026-11-02_Students_Academic_Performance_Dataset.png",
+   "n_findings": 14,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "NationalITy ~ PlaceofBirth",
+     "stat": 0.874,
+     "score": 0.6118321958471815,
+     "detail": {
+      "cramers_v": 0.874,
+      "p": 0.0
+     },
+     "dataset": "Students-Academic-Performance-Dataset",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "La nationalité et le lieu de naissance coïncident presque toujours parfaitement dans ce type de base de données.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "raisedhands ~ VisITedResources",
+     "stat": 0.662,
+     "score": 0.5299812506089373,
+     "detail": {
+      "spearman": 0.662,
+      "pearson": 0.692,
+      "n": 480,
+      "q": 3.5e-61
+     },
+     "dataset": "Students-Academic-Performance-Dataset",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "Les élèves qui lèvent la main en classe visitent aussi davantage les ressources pédagogiques en ligne.",
+      "hypothese": "La corrélation entre raisedhands et VisITedResources varie-t-elle selon le niveau de satisfaction des parents (ParentschoolSatisfaction) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "raisedhands ~ AnnouncementsView",
+     "stat": 0.653,
+     "score": 0.5220181809674195,
+     "detail": {
+      "spearman": 0.653,
+      "pearson": 0.644,
+      "n": 480,
+      "q": 4.4e-59
+     },
+     "dataset": "Students-Academic-Performance-Dataset",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "L'engagement actif (raisedhands) et la consultation des annonces (AnnouncementsView) mesurent deux facettes complémentaires de l'implication de l'élève.",
+      "hypothese": "La relation entre raisedhands et AnnouncementsView diffère-t-elle selon le type de semestre (Semester) ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "StudentAbsenceDays ~ Class",
+     "stat": 0.685,
+     "score": 0.4794753242680119,
+     "detail": {
+      "cramers_v": 0.685,
+      "p": 1.3e-49
+     },
+     "dataset": "Students-Academic-Performance-Dataset",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Les jours d'absence sont fortement associés à la classe de réussite finale, confirmant l'importance de la présence.",
+      "hypothese": "L'association entre StudentAbsenceDays et Class est-elle différente selon le genre (gender) de l'élève ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "VisITedResources ~ AnnouncementsView",
+     "stat": 0.573,
+     "score": 0.45817218015491457,
+     "detail": {
+      "spearman": 0.573,
+      "pearson": 0.595,
+      "n": 480,
+      "q": 7e-43
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "SectionID ~ Topic",
+     "stat": 0.56,
+     "score": 0.3916501231508986,
+     "detail": {
+      "cramers_v": 0.56,
+      "p": 9.6e-51
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "StageID ~ Topic",
+     "stat": 0.536,
+     "score": 0.3752517692088938,
+     "detail": {
+      "cramers_v": 0.536,
+      "p": 9.2e-46
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "ParentAnsweringSurvey ~ ParentschoolSatisfaction",
+     "stat": 0.536,
+     "score": 0.3749011333773696,
+     "detail": {
+      "cramers_v": 0.536,
+      "p": 8.6e-32
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Topic ~ Semester",
+     "stat": 0.528,
+     "score": 0.36948205452512517,
+     "detail": {
+      "cramers_v": 0.528,
+      "p": 3.1e-23
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "GradeID ~ Topic",
+     "stat": 0.523,
+     "score": 0.36606742985191587,
+     "detail": {
+      "cramers_v": 0.523,
+      "p": 9.2e-185
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "AnnouncementsView ~ Discussion",
+     "stat": 0.402,
+     "score": 0.3219584403016672,
+     "detail": {
+      "spearman": 0.402,
+      "pearson": 0.417,
+      "n": 480,
+      "q": 6.1e-20
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "ParentAnsweringSurvey ~ Class",
+     "stat": 0.446,
+     "score": 0.31201187958943505,
+     "detail": {
+      "cramers_v": 0.446,
+      "p": 2e-21
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Relation ~ Class",
+     "stat": 0.412,
+     "score": 0.28820245873870864,
+     "detail": {
+      "cramers_v": 0.412,
+      "p": 2.1e-18
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "GradeID ~ SectionID",
+     "stat": 0.4,
+     "score": 0.2801469143085719,
+     "detail": {
+      "cramers_v": 0.4,
+      "p": 1.4e-23
+     },
+     "dataset": "Students-Academic-Performance-Dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "UCI-student-performance-por",
+    "target": "G3",
+    "description": "**Author**: P. Cortez and A. Silva **Source**: [original](http://archive.ics.uci.edu/ml/datasets/Student+Performance) - 2008 **Please cite**: P. Cortez and A. Silva. Using Data Mining to Predict Secondary School Student Performance. In A. Brito and J. Teixeira Eds., Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) pp. 5-12, Porto, Portugal, April, 2008, EUROSIS, ISBN 978-907",
+    "url": "https://www.openml.org/d/42351",
+    "did": "42351",
+    "colonnes": {
+     "num": [
+      "age",
+      "Medu",
+      "Fedu",
+      "traveltime",
+      "studytime",
+      "failures",
+      "famrel",
+      "freetime",
+      "goout",
+      "Dalc",
+      "Walc",
+      "health",
+      "absences",
+      "G1",
+      "G2",
+      "G3"
+     ],
+     "groupes": [
+      "school",
+      "sex",
+      "address",
+      "famsize",
+      "Pstatus",
+      "Mjob",
+      "Fjob",
+      "reason",
+      "guardian",
+      "schoolsup"
+     ]
+    }
+   },
+   "lignes": 649,
+   "colonnes": 33,
+   "fig": "2026-11-02_UCI_student_performance_por.png",
+   "n_findings": 8,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "G2 ~ G3",
+     "stat": 0.944,
+     "score": 0.7555609493538016,
+     "detail": {
+      "spearman": 0.944,
+      "pearson": 0.919,
+      "n": 649,
+      "q": 0.0
+     },
+     "dataset": "UCI-student-performance-por",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "La note G2 est par définition très corrélée à la note finale G3 dans le même cours.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "G1 ~ G2",
+     "stat": 0.893,
+     "score": 0.714451904245514,
+     "detail": {
+      "spearman": 0.893,
+      "pearson": 0.865,
+      "n": 649,
+      "q": 8.1e-225
+     },
+     "dataset": "UCI-student-performance-por",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "trivial",
+      "explication": "Il s'agit d'une corrélation directe entre deux notes successives (G1 et G2) d'un même élève.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "G1 ~ G3",
+     "stat": 0.883,
+     "score": 0.7066301099965083,
+     "detail": {
+      "spearman": 0.883,
+      "pearson": 0.826,
+      "n": 649,
+      "q": 2e-213
+     },
+     "dataset": "UCI-student-performance-por",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "La corrélation entre la première évaluation (G1) et la note finale (G3) est mécanique et connue.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Medu ~ Fedu",
+     "stat": 0.647,
+     "score": 0.5177553316609628,
+     "detail": {
+      "spearman": 0.647,
+      "pearson": 0.647,
+      "n": 649,
+      "q": 8.1e-77
+     },
+     "dataset": "UCI-student-performance-por",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "Il existe une forte homogénéité du niveau d'éducation entre conjoints (assortative mating éducatif).",
+      "hypothese": "La corrélation Medu~Fedu modère-t-elle l'effet du temps d'étude hebdomadaire (studytime) sur la réussite (G3) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Dalc ~ Walc",
+     "stat": 0.613,
+     "score": 0.4904448874301046,
+     "detail": {
+      "spearman": 0.613,
+      "pearson": 0.617,
+      "n": 649,
+      "q": 7.4e-67
+     },
+     "dataset": "UCI-student-performance-por"
+    },
+    {
+     "kind": "correlation",
+     "vars": "failures ~ G3",
+     "stat": -0.448,
+     "score": 0.35868824006466615,
+     "detail": {
+      "spearman": -0.448,
+      "pearson": -0.393,
+      "n": 649,
+      "q": 4.1e-32
+     },
+     "dataset": "UCI-student-performance-por"
+    },
+    {
+     "kind": "correlation",
+     "vars": "failures ~ G2",
+     "stat": -0.436,
+     "score": 0.34859240278438575,
+     "detail": {
+      "spearman": -0.436,
+      "pearson": -0.386,
+      "n": 649,
+      "q": 3.2e-30
+     },
+     "dataset": "UCI-student-performance-por"
+    },
+    {
+     "kind": "correlation",
+     "vars": "failures ~ G1",
+     "stat": -0.432,
+     "score": 0.34594584980349335,
+     "detail": {
+      "spearman": -0.432,
+      "pearson": -0.384,
+      "n": 649,
+      "q": 8.9e-30
+     },
+     "dataset": "UCI-student-performance-por"
+    }
+   ]
+  }
+ ],
+ "echecs": [],
+ "hypotheses_testees": [
+  {
+   "id": 4,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "42972",
+    "x": "bgr",
+    "y": "sc",
+    "groupe": "dm",
+    "seuil": null,
+    "enonce": "La relation entre bgr (glucose) et sc (créatinine) diffère-t-elle selon le statut diabétique (dm) ?"
+   },
+   "statut": "non concluante",
+   "resume": "Dans chronic-kidney-disease, la corrélation bgr~sc vaut +0.27 pour « dm = no » contre +0.09 pour « dm = yes » (écart 0.19, p = 0.25). [Testé sur : moitié de confirmation (182 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "dm = no": {
+      "rho": 0.273,
+      "pearson": 0.166,
+      "n": 95
+     },
+     "dm = yes": {
+      "rho": 0.087,
+      "pearson": -0.038,
+      "n": 63
+     }
+    },
+    "p_difference": 0.245,
+    "donnees_test": "moitié de confirmation (182 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.24, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "The Effect of Vitamin E, &Bgr;-Carotene, and Acidophilus Probiotics on The Salivary Gland Flow Rate in Streptozotocin-Induced Diabetes in Rats: An in-vivo Study",
+     "annee": 2025,
+     "citations": 2,
+     "url": "https://doi.org/10.2147/ccide.s528114"
+    },
+    {
+     "titre": "Intelligent Diagnostic Prediction and Classification Models for Detection of Kidney Disease",
+     "annee": 2022,
+     "citations": 104,
+     "url": "https://doi.org/10.3390/healthcare10020371"
+    },
+    {
+     "titre": "PreCKD_ML: Machine Learning Based Development of Prediction Model for Chronic Kidney Disease and Identify Significant Risk Factors",
+     "annee": 2023,
+     "citations": 3,
+     "url": "https://doi.org/10.1007/978-3-031-34619-4_10"
+    },
+    {
+     "titre": "New Method Based Pre-Processing to Tackle Missing and High Dimensional Data of CRISP-DM Approach",
+     "annee": 2020,
+     "citations": 3,
+     "url": "https://doi.org/10.1088/1742-6596/1471/1/012012"
+    },
+    {
+     "titre": "DIABETES RISK FACTORS FOR CHRONIC KIDNEY PATIENTS",
+     "annee": 2016,
+     "citations": 0,
+     "url": "https://doi.org/10.15436/2376-0494.16.1055"
+    }
+   ],
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La littérature médicale documente largement l'effet du diabète sur les paramètres biologiques rénaux.",
+   "sujet": "Santé métabolique",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 5,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "42972",
+    "x": "sc",
+    "y": "hemo",
+    "groupe": "htn",
+    "seuil": null,
+    "enonce": "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle modifiée par la présence d'une hypertension (htn) ?"
+   },
+   "statut": "non concluante",
+   "resume": "Dans chronic-kidney-disease, la corrélation sc~hemo vaut -0.43 pour « htn = no » contre -0.58 pour « htn = yes » (écart 0.14, p = 0.093).",
+   "stats": {
+    "groupes": {
+     "htn = no": {
+      "rho": -0.435,
+      "n": 206
+     },
+     "htn = yes": {
+      "rho": -0.576,
+      "n": 129
+     }
+    },
+    "p_difference": 0.0932,
+    "holm": "p = 0.093, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Intelligent Diagnostic Prediction and Classification Models for Detection of Kidney Disease",
+     "annee": 2022,
+     "citations": 104,
+     "url": "https://doi.org/10.3390/healthcare10020371"
+    },
+    {
+     "titre": "PreCKD_ML: Machine Learning Based Development of Prediction Model for Chronic Kidney Disease and Identify Significant Risk Factors",
+     "annee": 2023,
+     "citations": 3,
+     "url": "https://doi.org/10.1007/978-3-031-34619-4_10"
+    },
+    {
+     "titre": "Data Analysis and Prediction of Chronic Kidney Disease Using Machine and Deep Learning Techniques",
+     "annee": 2024,
+     "citations": 0,
+     "url": "https://openalex.org/W7216895400"
+    },
+    {
+     "titre": "Implementasi Data Mining untuk Deteksi Penyakit Ginjal Kronis (PGK) menggunakan K-Nearest Neighbor (KNN) dengan Backward Elimination",
+     "annee": 2020,
+     "citations": 4,
+     "url": "https://doi.org/10.25126/jtiik.2020721896"
+    },
+    {
+     "titre": "Renal functional reserve and renal hemodynamics in hypertensive patients",
+     "annee": 2016,
+     "citations": 20,
+     "url": "https://doi.org/10.1080/0886022x.2016.1214052"
+    }
+   ],
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "Plusieurs études explorent l'hypertension et la créatinine, mais l'interaction précise avec l'hémoglobine reste peu formalisée.",
+   "sujet": "Santé métabolique",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 6,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "42972",
+    "x": "age",
+    "y": "sc",
+    "seuil": 60,
+    "enonce": "La corrélation entre l'âge et la créatinine sérique est-elle plus prononcée chez les patients de plus de 60 ans ?"
+   },
+   "statut": "réfutée",
+   "resume": "Dans chronic-kidney-disease, la corrélation age~sc vaut +0.11 pour « age > 60 » contre +0.41 pour « age ≤ 60 » (p = 0.0032) : effet INVERSE de celui prédit.",
+   "stats": {
+    "groupes": {
+     "age ≤ 60": {
+      "rho": 0.406,
+      "n": 246
+     },
+     "age > 60": {
+      "rho": 0.106,
+      "n": 128
+     }
+    },
+    "groupe_predit_plus_fort": "age > 60",
+    "p_difference": 0.00321,
+    "holm": "p = 0.0032, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "SERNA Checklist SC230 v1.0 — Brain-Network Integrity in Aging (SC-BNI)",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.5281/zenodo.19403965"
+    },
+    {
+     "titre": "SERNA Checklist SC199 v1.0 — Brain Changes in Cognitive Aging (SC-BCA)",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.5281/zenodo.19403333"
+    },
+    {
+     "titre": "SERNA Checklist SC136 v1.0 — Social Network Influence on Brain Aging (SC-SNB)",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.5281/zenodo.19403010"
+    },
+    {
+     "titre": "SERNA Checklist SC136 v1.0 — Social Network Influence on Brain Aging (SC-SNB)",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.5281/zenodo.19403678"
+    },
+    {
+     "titre": "The effect of Sc additions on the microstructure and age hardening behaviour of as cast Al–Sc alloys",
+     "annee": 2012,
+     "citations": 137,
+     "url": "https://doi.org/10.1016/j.matdes.2012.06.019"
+    }
+   ],
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Le vieillissement et son impact sur la fonction rénale et la créatinine sont amplement décrits en néphrologie.",
+   "sujet": "Santé métabolique",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}

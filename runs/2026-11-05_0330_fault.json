@@ -1,0 +1,1620 @@
+{
+ "id": "2026-11-05_0330_fault",
+ "date": "2026-11-05T03:39",
+ "sujet": "Détection d'anomalies et pannes",
+ "question": "Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ?",
+ "keywords": [
+  "fault",
+  "failure",
+  "predictive maintenance",
+  "bearing",
+  "turbofan",
+  "steel plates",
+  "gas drift",
+  "anomaly",
+  "vibration",
+  "intrusion"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des datasets de maintenance prédictive (NASA C-MAPSS) et cliniques confirme des relations robustes entre les capteurs de turboréacteurs et la dégradation, tout en mettant en évidence des artefacts de fuite de données notables dans les dossiers médicaux. Les capteurs de température et de pression présentent des corrélations quasi-parfaites reflétant la physique interne des moteurs. Enfin, le suivi temporel et les marqueurs cliniques clés s'avèrent déterminants pour anticiper les défaillances.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "artefact",
+    "explication": "Il y a une fuite de données ou un surapprentissage massif (balanced accuracy de 0.97 pour prédire le sexe à partir de variables cliniques), ce qui indique un artéfact méthodologique.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Prédire l'âge avec un R² de 0.89 à partir de variables cliniques courantes suggère une fuite d'information ou un encodage circulaire dans le dataset.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La vitesse corrigée du fan (NRf) montre une relation monotone non linéaire avec la durée de vie restante (RUL), ce qui en fait un précurseur pertinent d'usure.",
+    "hypothese": "Le lien entre NRf et RUL change-t-il selon le régime de fonctionnement initial (setting_1) ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Le lien entre le cycle de vol et NRf reflète simplement l'évolution mécanique standard au cours du temps d'utilisation.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Le lien entre setting_1 et Nf_dmd est mécanique, piloté directement par la commande de consigne du système.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Le lien entre setting_1 et Nf découle directement de la consigne de vitesse imposée au moteur.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "La forte corrélation entre T50 (température en sortie de turbine) et Ps30 (pression en sortie de compresseur) relève de la thermodynamique classique des turboréacteurs.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "La corrélation entre T24 (température en entrée de compresseur basse pression) et Nf (vitesse du fan) est une relation physique directe.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "La forte corrélation entre Nc (vitesse du compresseur haute pression) et htBleed (prélèvement d'air) est une conséquence directe de la conception du système pneumatique.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "La corrélation entre T30 (température en sortie de compresseur) et Nc (vitesse HP) est purement mécanique et thermique.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Le temps de suivi est fortement corrélé à l'événement de mortalité, confirmant l'importance de la censure et du suivi longitudinal dans la prédiction de survie.",
+    "hypothese": "Le lien entre time et DEATH_EVENT change-t-il selon le niveau de serum_creatinine ?"
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "La corrélation statistique entre le sexe et le tabagisme reflète simplement des données démographiques observées dans la cohorte.",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "La fraction d'éjection est fortement associée à la survenue de l'événement fatal, validant son rôle de marqueur clinique critique.",
+    "hypothese": "Le lien entre ejection_fraction et DEATH_EVENT change-t-il selon l'âge ?"
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "trivial",
+    "explication": "Association sociodémographique classique entre le sexe et le tabagisme dans cette population spécifique.",
+    "hypothese": ""
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif identifiant les variables qui caractérisent le profil des anomalies de manière attendue.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Explorer les relations non linéaires entre les capteurs de pression et les indicateurs de dégradation sur les datasets C-MAPSS",
+   "Isoler les variables cliniques réellement prédictives sans biais de fuite d'information sur les données cardiaques",
+   "Étudier l'impact des régimes de fonctionnement sur la vitesse de dégradation des turboréacteurs"
+  ],
+  "nouveautes": {
+   "26": {
+    "id": "H26",
+    "nouveaute": "deja_connu",
+    "explication": "La littérature documente largement les différences liées au sexe dans les mesures acoustiques vocales de la maladie de Parkinson."
+   },
+   "27": {
+    "id": "H27",
+    "nouveaute": "deja_connu",
+    "explication": "L'effet des ruptures de voix sur la hauteur tonale (pitch) est un marqueur classique de la dysphonie parkinsonienne."
+   },
+   "28": {
+    "id": "H28",
+    "nouveaute": "partiellement_etudie",
+    "explication": "Le seuillage spécifique de l'indice PPE pour l'évaluation des symptômes moteurs nécessite encore des validations cliniques approfondies."
+   },
+   "29": {
+    "id": "H29",
+    "nouveaute": "deja_connu",
+    "explication": "Les relations entre le jitter et l'écart-type du pitch sont des notions fondamentales du traitement du signal vocal."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "x": "NRf",
+    "y": "Ps30",
+    "groupe": "setting_1",
+    "seuil": null,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre NRf et Ps30 change-t-il selon le groupe setting_1 ?",
+    "requete_biblio": "turbofan engine degradation sensor correlation pressure fan speed"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "45950",
+    "x": "ejection_fraction",
+    "y": "serum_creatinine",
+    "groupe": "diabetes",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre ejection_fraction et serum_creatinine change-t-il selon le groupe diabetes ?",
+    "requete_biblio": "heart failure ejection fraction serum creatinine diabetes"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "x": "cycle",
+    "y": "T50",
+    "seuil": 150,
+    "forme": "pente",
+    "plus_fort": null,
+    "enonce": "Le lien entre cycle et T50 est-il plus fort au-dessus du seuil de cycle ?",
+    "requete_biblio": "turbofan engine wear temperature threshold anomaly detection"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> sex",
+   "stat": 0.972,
+   "score": 0.971906441143403,
+   "detail": {
+    "balanced_accuracy": 0.972,
+    "hasard": 0.5,
+    "validation": "aléatoire",
+    "n": 2482,
+    "variables_les_plus_informatives": "platelets, creatinine_phosphokinase, time, smoking",
+    "confirmation": "confirmé — balanced_accuracy = 0.97 sur d'autres personnes / lignes (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "Heart_Failure_Prediction",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "artefact",
+    "explication": "Il y a une fuite de données ou un surapprentissage massif (balanced accuracy de 0.97 pour prédire le sexe à partir de variables cliniques), ce qui indique un artéfact méthodologique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> age",
+   "stat": 0.886,
+   "score": 0.9432192946285429,
+   "detail": {
+    "r2": 0.886,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 2482,
+    "variables_les_plus_informatives": "creatinine_phosphokinase, time, platelets, serum_creatinine",
+    "confirmation": "confirmé — r2 = 0.89 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "Heart_Failure_Prediction",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Prédire l'âge avec un R² de 0.89 à partir de variables cliniques courantes suggère une fuite d'information ou un encodage circulaire dans le dataset.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "NRf ~ RUL",
+   "stat": 0.404,
+   "score": 0.9037564305575805,
+   "detail": {
+    "spearman": -0.406,
+    "pearson": -0.002,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = -0.39 sur 20000 lignes (découverte : -0.41)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La vitesse corrigée du fan (NRf) montre une relation monotone non linéaire avec la durée de vie restante (RUL), ce qui en fait un précurseur pertinent d'usure.",
+    "hypothese": "Le lien entre NRf et RUL change-t-il selon le régime de fonctionnement initial (setting_1) ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "cycle ~ NRf",
+   "stat": 0.382,
+   "score": 0.8822326869624837,
+   "detail": {
+    "spearman": 0.382,
+    "pearson": -0.0,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.37 sur 20000 lignes (découverte : +0.38)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Le lien entre le cycle de vol et NRf reflète simplement l'évolution mécanique standard au cours du temps d'utilisation.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "setting_1 ~ Nf_dmd",
+   "stat": 0.298,
+   "score": 0.7975643213628832,
+   "detail": {
+    "spearman": -0.741,
+    "pearson": -0.443,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = -0.74 sur 20000 lignes (découverte : -0.74)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Le lien entre setting_1 et Nf_dmd est mécanique, piloté directement par la commande de consigne du système.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "setting_1 ~ Nf",
+   "stat": 0.286,
+   "score": 0.7855313446330608,
+   "detail": {
+    "spearman": -0.729,
+    "pearson": -0.444,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = -0.73 sur 20000 lignes (découverte : -0.73)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Le lien entre setting_1 et Nf découle directement de la consigne de vitesse imposée au moteur.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "T50 ~ Ps30",
+   "stat": 0.979,
+   "score": 0.7833501115224406,
+   "detail": {
+    "spearman": 0.979,
+    "pearson": 0.937,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.98 sur 20000 lignes (découverte : +0.98)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "La forte corrélation entre T50 (température en sortie de turbine) et Ps30 (pression en sortie de compresseur) relève de la thermodynamique classique des turboréacteurs.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "T24 ~ Nf",
+   "stat": 0.976,
+   "score": 0.7810503620058882,
+   "detail": {
+    "spearman": 0.976,
+    "pearson": 0.811,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.98)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "La corrélation entre T24 (température en entrée de compresseur basse pression) et Nf (vitesse du fan) est une relation physique directe.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Nc ~ htBleed",
+   "stat": 0.976,
+   "score": 0.7806348882271437,
+   "detail": {
+    "spearman": 0.976,
+    "pearson": 0.998,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.98)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "La forte corrélation entre Nc (vitesse du compresseur haute pression) et htBleed (prélèvement d'air) est une conséquence directe de la conception du système pneumatique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "T30 ~ Nc",
+   "stat": 0.974,
+   "score": 0.7794172678912767,
+   "detail": {
+    "spearman": 0.974,
+    "pearson": 0.998,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.97)"
+   },
+   "confirme": 1.0,
+   "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "La corrélation entre T30 (température en sortie de compresseur) et Nc (vitesse HP) est purement mécanique et thermique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "time ~ DEATH_EVENT",
+   "stat": -0.532,
+   "score": 0.4257530808694483,
+   "detail": {
+    "spearman": -0.532,
+    "pearson": -0.517,
+    "n": 2482,
+    "q": 1.1e-179,
+    "confirmation": "confirmé — ρ = -0.56 sur 2518 lignes (découverte : -0.53)"
+   },
+   "confirme": 1.0,
+   "dataset": "Heart_Failure_Prediction",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Le temps de suivi est fortement corrélé à l'événement de mortalité, confirmant l'importance de la censure et du suivi longitudinal dans la prédiction de survie.",
+    "hypothese": "Le lien entre time et DEATH_EVENT change-t-il selon le niveau de serum_creatinine ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "sex ~ smoking",
+   "stat": 0.434,
+   "score": 0.3474209013590673,
+   "detail": {
+    "spearman": 0.434,
+    "pearson": 0.434,
+    "n": 2482,
+    "q": 4.1e-113,
+    "confirmation": "confirmé — ρ = +0.43 sur 2518 lignes (découverte : +0.43)"
+   },
+   "confirme": 1.0,
+   "dataset": "Heart_Failure_Prediction",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "La corrélation statistique entre le sexe et le tabagisme reflète simplement des données démographiques observées dans la cohorte.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "ejection_fraction ~ DEATH_EVENT",
+   "stat": 0.479,
+   "score": 0.3356136528474694,
+   "detail": {
+    "cramers_v": 0.479,
+    "p": 2.9e-113,
+    "confirmation": "confirmé — V = 0.47 (découverte : 0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "Heart_Failure_Prediction_-_Clinical_Records_",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "La fraction d'éjection est fortement associée à la survenue de l'événement fatal, validant son rôle de marqueur clinique critique.",
+    "hypothese": "Le lien entre ejection_fraction et DEATH_EVENT change-t-il selon l'âge ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "sex ~ smoking",
+   "stat": 0.429,
+   "score": 0.30020331432827796,
+   "detail": {
+    "cramers_v": 0.429,
+    "p": 4.8e-103,
+    "confirmation": "confirmé — V = 0.44 (découverte : 0.43)"
+   },
+   "confirme": 1.0,
+   "dataset": "Heart_Failure_Prediction_-_Clinical_Records_",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "trivial",
+    "explication": "Association sociodémographique classique entre le sexe et le tabagisme dans cette population spécifique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ serum_creatinine, creatinine_phosphokinase, DEATH_EVENT",
+   "stat": 3.83,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 50,
+    "sur": 2482,
+    "variables_qui_les_distinguent": "serum_creatinine (3.8 σ), creatinine_phosphokinase (2.1 σ), DEATH_EVENT (1.4 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "Heart_Failure_Prediction",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif identifiant les variables qui caractérisent le profil des anomalies de manière attendue.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Heart_Failure_Prediction_-_Clinical_Records_",
+    "target": null,
+    "description": "Description: The \"heart_failure_clinical_records.csv\" dataset comprises clinical records of patients with heart failure, detailing various medical attributes that may contribute to heart failure incidents. This dataset is instrumental for researchers and healthcare professionals aiming to analyze factors leading to heart failure and mortality. The collected data spans individuals of varied ages, w",
+    "url": "https://www.openml.org/d/45949",
+    "meta_cols": {
+     "age": "age",
+     "sexe": "sex"
+    },
+    "moities": {
+     "decouverte": 2526,
+     "confirmation": 2474
+    },
+    "did": "45949",
+    "colonnes": {
+     "num": [],
+     "groupes": [
+      "anaemia",
+      "diabetes",
+      "high_blood_pressure",
+      "sex",
+      "smoking",
+      "DEATH_EVENT"
+     ]
+    }
+   },
+   "lignes": 5000,
+   "colonnes": 13,
+   "fig": null,
+   "n_findings": 2,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "ejection_fraction ~ DEATH_EVENT",
+     "stat": 0.479,
+     "score": 0.3356136528474694,
+     "detail": {
+      "cramers_v": 0.479,
+      "p": 2.9e-113,
+      "confirmation": "confirmé — V = 0.47 (découverte : 0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "Heart_Failure_Prediction_-_Clinical_Records_",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "pertinent",
+      "explication": "La fraction d'éjection est fortement associée à la survenue de l'événement fatal, validant son rôle de marqueur clinique critique.",
+      "hypothese": "Le lien entre ejection_fraction et DEATH_EVENT change-t-il selon l'âge ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "sex ~ smoking",
+     "stat": 0.429,
+     "score": 0.30020331432827796,
+     "detail": {
+      "cramers_v": 0.429,
+      "p": 4.8e-103,
+      "confirmation": "confirmé — V = 0.44 (découverte : 0.43)"
+     },
+     "confirme": 1.0,
+     "dataset": "Heart_Failure_Prediction_-_Clinical_Records_",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "trivial",
+      "explication": "Association sociodémographique classique entre le sexe et le tabagisme dans cette population spécifique.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Heart_Failure_Prediction",
+    "target": null,
+    "description": "Description: This dataset, named \"heart_failure_clinical_records.csv\", consists of clinical records of patients with heart failure. It includes various attributes such as age, anaemia, creatinine phosphokinase levels, diabetes status, ejection fraction, high blood pressure presence, platelet count, serum creatinine levels, serum sodium levels, gender, smoking habits, follow-up time, and a binary i",
+    "url": "https://www.openml.org/d/45950",
+    "meta_cols": {
+     "age": "age",
+     "sexe": "sex"
+    },
+    "moities": {
+     "decouverte": 2482,
+     "confirmation": 2518
+    },
+    "did": "45950",
+    "colonnes": {
+     "num": [
+      "age",
+      "anaemia",
+      "creatinine_phosphokinase",
+      "diabetes",
+      "ejection_fraction",
+      "high_blood_pressure",
+      "platelets",
+      "serum_creatinine",
+      "serum_sodium",
+      "sex",
+      "smoking",
+      "time",
+      "DEATH_EVENT"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 5000,
+   "colonnes": 13,
+   "fig": "2026-11-05_Heart_Failure_Prediction.png",
+   "n_findings": 5,
+   "findings": [
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> sex",
+     "stat": 0.972,
+     "score": 0.971906441143403,
+     "detail": {
+      "balanced_accuracy": 0.972,
+      "hasard": 0.5,
+      "validation": "aléatoire",
+      "n": 2482,
+      "variables_les_plus_informatives": "platelets, creatinine_phosphokinase, time, smoking",
+      "confirmation": "confirmé — balanced_accuracy = 0.97 sur d'autres personnes / lignes (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "Heart_Failure_Prediction",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "artefact",
+      "explication": "Il y a une fuite de données ou un surapprentissage massif (balanced accuracy de 0.97 pour prédire le sexe à partir de variables cliniques), ce qui indique un artéfact méthodologique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> age",
+     "stat": 0.886,
+     "score": 0.9432192946285429,
+     "detail": {
+      "r2": 0.886,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 2482,
+      "variables_les_plus_informatives": "creatinine_phosphokinase, time, platelets, serum_creatinine",
+      "confirmation": "confirmé — r2 = 0.89 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "Heart_Failure_Prediction",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "artefact",
+      "explication": "Prédire l'âge avec un R² de 0.89 à partir de variables cliniques courantes suggère une fuite d'information ou un encodage circulaire dans le dataset.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "time ~ DEATH_EVENT",
+     "stat": -0.532,
+     "score": 0.4257530808694483,
+     "detail": {
+      "spearman": -0.532,
+      "pearson": -0.517,
+      "n": 2482,
+      "q": 1.1e-179,
+      "confirmation": "confirmé — ρ = -0.56 sur 2518 lignes (découverte : -0.53)"
+     },
+     "confirme": 1.0,
+     "dataset": "Heart_Failure_Prediction",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Le temps de suivi est fortement corrélé à l'événement de mortalité, confirmant l'importance de la censure et du suivi longitudinal dans la prédiction de survie.",
+      "hypothese": "Le lien entre time et DEATH_EVENT change-t-il selon le niveau de serum_creatinine ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "sex ~ smoking",
+     "stat": 0.434,
+     "score": 0.3474209013590673,
+     "detail": {
+      "spearman": 0.434,
+      "pearson": 0.434,
+      "n": 2482,
+      "q": 4.1e-113,
+      "confirmation": "confirmé — ρ = +0.43 sur 2518 lignes (découverte : +0.43)"
+     },
+     "confirme": 1.0,
+     "dataset": "Heart_Failure_Prediction",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "La corrélation statistique entre le sexe et le tabagisme reflète simplement des données démographiques observées dans la cohorte.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ serum_creatinine, creatinine_phosphokinase, DEATH_EVENT",
+     "stat": 3.83,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 50,
+      "sur": 2482,
+      "variables_qui_les_distinguent": "serum_creatinine (3.8 σ), creatinine_phosphokinase (2.1 σ), DEATH_EVENT (1.4 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Heart_Failure_Prediction",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "trivial",
+      "explication": "Résultat descriptif identifiant les variables qui caractérisent le profil des anomalies de manière attendue.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "imaadd05/visa-anomaly-detection",
+    "labels": [
+     "Anomaly",
+     "Normal"
+    ],
+    "total_rows": 12021,
+    "url": "https://huggingface.co/datasets/imaadd05/visa-anomaly-detection",
+    "niveaux_de_gris": false,
+    "moities": {
+     "decouverte": 176,
+     "confirmation": 184
+    }
+   },
+   "lignes": 360,
+   "colonnes": 17,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "target": null,
+    "description": "<p align=\"center\" ---------------------------------------------------------------------------------------------------------------------------------------------------- </p <p align=\"center\" <b <span style=\"color: 2563eb;\" Remaining useful life prediction</span &nbsp; &nbsp; <span style=\"color: 16a34a;\" Predictive maintenance</span &nbsp; &nbsp; <span style=\"color: 9333ea;\" Digital twin research</sp",
+    "fichier": "processed/FD004/train.parquet",
+    "url": "https://huggingface.co/datasets/SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 30704,
+     "confirmation": 20000
+    },
+    "did": "hf:SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "colonnes": {
+     "num": [
+      "unit_id",
+      "cycle",
+      "setting_1",
+      "setting_2",
+      "setting_3",
+      "T2",
+      "T24",
+      "T30",
+      "T50",
+      "P2",
+      "P15",
+      "P30",
+      "Nf",
+      "Nc",
+      "epr",
+      "Ps30",
+      "phi",
+      "NRf",
+      "NRc",
+      "BPR",
+      "farB",
+      "htBleed",
+      "Nf_dmd",
+      "PCNfR_dmd",
+      "W31"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 61249,
+   "colonnes": 29,
+   "fig": "2026-11-05_SoyVitou_NASA_C_MAPSS_Turbofan_Engine.png",
+   "n_findings": 245,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "NRf ~ RUL",
+     "stat": 0.404,
+     "score": 0.9037564305575805,
+     "detail": {
+      "spearman": -0.406,
+      "pearson": -0.002,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = -0.39 sur 20000 lignes (découverte : -0.41)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "La vitesse corrigée du fan (NRf) montre une relation monotone non linéaire avec la durée de vie restante (RUL), ce qui en fait un précurseur pertinent d'usure.",
+      "hypothese": "Le lien entre NRf et RUL change-t-il selon le régime de fonctionnement initial (setting_1) ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "cycle ~ NRf",
+     "stat": 0.382,
+     "score": 0.8822326869624837,
+     "detail": {
+      "spearman": 0.382,
+      "pearson": -0.0,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.37 sur 20000 lignes (découverte : +0.38)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "Le lien entre le cycle de vol et NRf reflète simplement l'évolution mécanique standard au cours du temps d'utilisation.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "setting_1 ~ Nf_dmd",
+     "stat": 0.298,
+     "score": 0.7975643213628832,
+     "detail": {
+      "spearman": -0.741,
+      "pearson": -0.443,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = -0.74 sur 20000 lignes (découverte : -0.74)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "Le lien entre setting_1 et Nf_dmd est mécanique, piloté directement par la commande de consigne du système.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "setting_1 ~ Nf",
+     "stat": 0.286,
+     "score": 0.7855313446330608,
+     "detail": {
+      "spearman": -0.729,
+      "pearson": -0.444,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = -0.73 sur 20000 lignes (découverte : -0.73)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Le lien entre setting_1 et Nf découle directement de la consigne de vitesse imposée au moteur.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "T50 ~ Ps30",
+     "stat": 0.979,
+     "score": 0.7833501115224406,
+     "detail": {
+      "spearman": 0.979,
+      "pearson": 0.937,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.98 sur 20000 lignes (découverte : +0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "La forte corrélation entre T50 (température en sortie de turbine) et Ps30 (pression en sortie de compresseur) relève de la thermodynamique classique des turboréacteurs.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "T24 ~ Nf",
+     "stat": 0.976,
+     "score": 0.7810503620058882,
+     "detail": {
+      "spearman": 0.976,
+      "pearson": 0.811,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "La corrélation entre T24 (température en entrée de compresseur basse pression) et Nf (vitesse du fan) est une relation physique directe.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Nc ~ htBleed",
+     "stat": 0.976,
+     "score": 0.7806348882271437,
+     "detail": {
+      "spearman": 0.976,
+      "pearson": 0.998,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "La forte corrélation entre Nc (vitesse du compresseur haute pression) et htBleed (prélèvement d'air) est une conséquence directe de la conception du système pneumatique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "T30 ~ Nc",
+     "stat": 0.974,
+     "score": 0.7794172678912767,
+     "detail": {
+      "spearman": 0.974,
+      "pearson": 0.998,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "La corrélation entre T30 (température en sortie de compresseur) et Nc (vitesse HP) est purement mécanique et thermique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "T50 ~ htBleed",
+     "stat": 0.972,
+     "score": 0.7778814228634472,
+     "detail": {
+      "spearman": 0.972,
+      "pearson": 0.99,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    },
+    {
+     "kind": "correlation",
+     "vars": "T30 ~ T50",
+     "stat": 0.971,
+     "score": 0.7764641710382718,
+     "detail": {
+      "spearman": 0.971,
+      "pearson": 0.99,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    },
+    {
+     "kind": "correlation",
+     "vars": "setting_1 ~ P15",
+     "stat": -0.97,
+     "score": 0.7756878629277864,
+     "detail": {
+      "spearman": -0.97,
+      "pearson": -0.976,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.97 sur 20000 lignes (découverte : -0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Nc ~ epr",
+     "stat": 0.968,
+     "score": 0.7740813950819687,
+     "detail": {
+      "spearman": 0.968,
+      "pearson": 0.931,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 20000 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    },
+    {
+     "kind": "correlation",
+     "vars": "epr ~ BPR",
+     "stat": -0.966,
+     "score": 0.7726751662306506,
+     "detail": {
+      "spearman": -0.966,
+      "pearson": -0.852,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.97 sur 20000 lignes (découverte : -0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    },
+    {
+     "kind": "correlation",
+     "vars": "T50 ~ Nc",
+     "stat": 0.961,
+     "score": 0.7684385074706993,
+     "detail": {
+      "spearman": 0.961,
+      "pearson": 0.988,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 20000 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    },
+    {
+     "kind": "correlation",
+     "vars": "T2 ~ P2",
+     "stat": 0.958,
+     "score": 0.7660853984731893,
+     "detail": {
+      "spearman": 0.958,
+      "pearson": 0.986,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 20000 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "openml",
+   "ref": "1477",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "openml",
+   "ref": "1504",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "openml",
+   "ref": "1476",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "hf_images",
+   "ref": "shangzx/Refrigerator-Lighting-Module-Contact-Failure-Detection-Dataset",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Alex-Ultra/3d-cli-print-failure-frames",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "jogarulfop/eval_2026-04-27_dragontactile_test_detection_vibration",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Sanim09/rover-terrain-vibration",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Yu3773/so101_bearing_black_tray_v1_filtered",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "FatimahEmadEldin/agent-intrusion-escalation-forensics",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "leesharks/mantle-bearing",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "jogarulfop/2026-04-27_dragontactile_test_detection_vibration",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "JINGI0138/fold-glasses-chunk-held-tactile-failure",
+   "erreur": "trop petit ((83, 181))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "eturok-weizmann/laser-vibrations-checkpoints",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 26,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "4531",
+    "x": "Jitter.PPQ5",
+    "y": "DFA",
+    "groupe": "sex",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?",
+    "requete_biblio": [
+     "voice jitter DFA parkinson gender differences"
+    ]
+   },
+   "statut": "réfutée",
+   "resume": "Dans parkinsons-telemonitoring, la corrélation Jitter.PPQ5~DFA vaut +0.30 pour « sex = 1 » contre +0.56 pour « sex = 0 » (p = 7.3e-16) : effet INVERSE de celui prédit. Attention : relation non linéaire ou valeurs extrêmes dans « sex = 1 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (2964 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "sex = 0": {
+      "rho": 0.557,
+      "pearson": 0.416,
+      "n": 2038
+     },
+     "sex = 1": {
+      "rho": 0.299,
+      "pearson": 0.02,
+      "n": 926
+     }
+    },
+    "groupe_predit_plus_fort": "sex = 1",
+    "p_difference": 7.32e-16,
+    "donnees_test": "moitié de confirmation (2964 lignes jamais vues à l'exploration)",
+    "holm": "p = 7.3e-16, seuil corrigé 0.013 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Machine learning- and statistical-based voice analysis of Parkinson’s disease patients: A survey",
+     "annee": 2023,
+     "citations": 52,
+     "url": "https://doi.org/10.1016/j.eswa.2023.119651"
+    },
+    {
+     "titre": "Complexity Measures of Voice Recordings as a Discriminative Tool for Parkinson’s Disease",
+     "annee": 2019,
+     "citations": 72,
+     "url": "https://doi.org/10.3390/bios10010001"
+    },
+    {
+     "titre": "Analysis of voice as an assisting tool for detection of Parkinson's disease and its subsequent clinical interpretation",
+     "annee": 2021,
+     "citations": 71,
+     "url": "https://doi.org/10.1016/j.bspc.2021.102415"
+    },
+    {
+     "titre": "Classification of Dysphonic Voices in Parkinson’s Disease with Semi-Supervised Competitive Learning Algorithm",
+     "annee": 2022,
+     "citations": 18,
+     "url": "https://doi.org/10.3390/bios12070502"
+    },
+    {
+     "titre": "Telemonitoring Parkinson’s disease using machine learning by combining tremor and voice analysis",
+     "annee": 2020,
+     "citations": 99,
+     "url": "https://doi.org/10.1186/s40708-020-00113-1"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation initiale est correcte, mais la prédiction spécifique testée (plus fort pour sex = 1) est fausse puisque l'effet observé est inverse.",
+    "reformulation": "Le lien entre Jitter.PPQ5 et DFA diffère-t-il selon le groupe sex ?",
+    "diagnostic_statistique": "Différence significative entre les groupes (p = 7.3e-16), mais le groupe 1 a un Pearson très faible (0.02) et un Spearman de 0.299, ce qui indique une forte non-linéarité ou des valeurs extrêmes. Le groupe 0 montre une corrélation plus forte.",
+    "modele_recommande": "Régression avec interaction non linéaire y ~ s(Jitter.PPQ5, by=sex)",
+    "robustesse": "Bonne taille d'échantillon (2038 et 926), mais données observationnelles répétées par patient (clustering potentiel à corriger par des effets mixtes).",
+    "interpretation_domaine": "Les mesures acoustiques de la voix dans Parkinson (Jitter et DFA, une mesure fractale) peuvent varier selon le sexe en raison de différences physiologiques des cordes vocales, mais la non-linéarité suggère des artefacts de mesure ou des profils de sévérité différents.",
+    "action_pipeline": "Ajouter un test systématique de non-linéarité (écart Spearman-Pearson) avant de formuler des hypothèses de directionnalité d'effet.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La littérature documente largement les différences liées au sexe dans les mesures acoustiques vocales de la maladie de Parkinson.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  },
+  {
+   "id": 27,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:BenchmarkDatasets/Parkinson_Speech",
+    "x": "f_14_median_pitch",
+    "y": "f_18_max_pitch",
+    "groupe": "f_24_number_of_voice_breaks",
+    "seuil": 2.0,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre f_14_median_pitch et f_18_max_pitch change-t-il selon le groupe f_24_number_of_voice_breaks ?",
+    "requete_biblio": [
+     "pitch median maximum voice breaks parkinson speech"
+    ]
+   },
+   "statut": "réfutée",
+   "resume": "Dans BenchmarkDatasets/Parkinson_Speech, la corrélation f_14_median_pitch~f_18_max_pitch vaut +0.19 pour « f_24_number_of_voice_breaks > 2 » contre +0.71 pour « f_24_number_of_voice_breaks ≤ 2 » (p = 4.3e-05) : effet INVERSE de celui prédit. Attention : relation non linéaire ou valeurs extrêmes dans « f_24_number_of_voice_breaks ≤ 2 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (366 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "f_24_number_of_voice_breaks ≤ 2": {
+      "rho": 0.714,
+      "pearson": 0.435,
+      "n": 325
+     },
+     "f_24_number_of_voice_breaks > 2": {
+      "rho": 0.191,
+      "pearson": 0.201,
+      "n": 41
+     }
+    },
+    "groupe_predit_plus_fort": "f_24_number_of_voice_breaks > 2",
+    "p_difference": 4.27e-05,
+    "donnees_test": "moitié de confirmation (366 lignes jamais vues à l'exploration)",
+    "holm": "p = 4.3e-05, seuil corrigé 0.017 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Speech and Voice Response to a Levodopa Challenge in Late-Stage Parkinson’s Disease",
+     "annee": 2017,
+     "citations": 75,
+     "url": "https://doi.org/10.3389/fneur.2017.00432"
+    },
+    {
+     "titre": "Speech disorders of Parkinsonism: a review.",
+     "annee": 1981,
+     "citations": 152,
+     "url": "https://doi.org/10.1136/jnnp.44.9.751"
+    },
+    {
+     "titre": "Towards the differential evaluation of Parkinson’s Disease by means of voice and speech processing",
+     "annee": 2018,
+     "citations": 0,
+     "url": "https://doi.org/10.20868/upm.thesis.51278"
+    },
+    {
+     "titre": "From prodromal stages to clinical trials: The promise of digital speech biomarkers in Parkinson's disease",
+     "annee": 2024,
+     "citations": 65,
+     "url": "https://doi.org/10.1016/j.neubiorev.2024.105922"
+    },
+    {
+     "titre": "Voice treatment in Parkinson’s disease: patient perspectives",
+     "annee": 2019,
+     "citations": 16,
+     "url": "https://doi.org/10.2147/jprls.s180183"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond au test effectué, mais la prédiction sur le sens de la modération était fausse (effet inverse observé).",
+    "reformulation": "Le lien entre la hauteur vocale médiane et maximale (f_14 et f_18) est-il modulé par le nombre de coupures de voix (f_24) ?",
+    "diagnostic_statistique": "Écart important entre Spearman (0.714) et Pearson (0.435) dans le groupe inférieur à 2, indiquant une forte non-linéarité ou des valeurs extrêmes. De plus, le groupe supérieur à 2 a une taille très faible (n=41), ce qui fragilise la comparaison.",
+    "modele_recommande": "Modèle additif généralisé (GAM) avec interaction ou régression linéaire incluant un terme d'interaction et des splines.",
+    "robustesse": "La taille d'échantillon du groupe f_24 > 2 est faible (41 patients), risquant un manque de puissance. Les données sont observationnelles et sujettes aux artéfacts de mesure acoustique.",
+    "interpretation_domaine": "En acoustique vocale de la maladie de Parkinson, de nombreuses coupures de voix traduisent une instabilité phonatoire sévère qui perturbe la corrélation habituelle entre hauteur médiane et maximale.",
+    "action_pipeline": "Ajouter une vérification systématique de la taille minimale des sous-groupes et intégrer un avertissement automatique en cas d'écart élevé entre Spearman et Pearson.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'effet des ruptures de voix sur la hauteur tonale (pitch) est un marqueur classique de la dysphonie parkinsonienne.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  },
+  {
+   "id": 28,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "4531",
+    "x": "PPE",
+    "y": "motor_UPDRS",
+    "seuil": 0.2,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre PPE et motor_UPDRS est-il plus fort au-dessus du seuil de PPE ?",
+    "requete_biblio": [
+     "pitch period entropy motor UPDRS threshold parkinson"
+    ]
+   },
+   "statut": "non concluante",
+   "resume": "Dans parkinsons-telemonitoring, la corrélation PPE~motor_UPDRS vaut +0.14 pour « PPE > 0.2 » contre +0.04 pour « PPE ≤ 0.2 » (p = 0.0061). [Testé sur : moitié de confirmation (2964 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "PPE ≤ 0.2": {
+      "rho": 0.041,
+      "pearson": 0.041,
+      "n": 1424
+     },
+     "PPE > 0.2": {
+      "rho": 0.141,
+      "pearson": 0.118,
+      "n": 1540
+     }
+    },
+    "groupe_predit_plus_fort": "PPE > 0.2",
+    "p_difference": 0.0061,
+    "donnees_test": "moitié de confirmation (2964 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.0061, seuil corrigé 0.025 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Technologies for Assessment of Motor Disorders in Parkinson’s Disease: A Review",
+     "annee": 2015,
+     "citations": 70,
+     "url": "https://doi.org/10.3390/s150921710"
+    },
+    {
+     "titre": "Parkinson's Disease Motor Symptoms in Machine Learning: A Review",
+     "annee": 2013,
+     "citations": 60,
+     "url": "https://doi.org/10.5121/hiij.2013.2401"
+    },
+    {
+     "titre": "Home monitoring of motor fluctuations in Parkinson’s disease patients",
+     "annee": 2019,
+     "citations": 48,
+     "url": "https://doi.org/10.1007/s40860-019-00086-x"
+    },
+    {
+     "titre": "Monitoring Motor Symptoms During Activities of Daily Living in Individuals With Parkinson's Disease",
+     "annee": 2018,
+     "citations": 97,
+     "url": "https://doi.org/10.3389/fneur.2018.01036"
+    },
+    {
+     "titre": "Ambulatory monitoring of motor functions in patients with Parkinson's disease using kinematic sensors",
+     "annee": 2006,
+     "citations": 24,
+     "url": "https://doi.org/10.5075/epfl-thesis-3475"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "La formulation est correcte et précise, distinguant bien la structure conditionnelle au-dessus d'un seuil. Les données sont observationnelles ('lien').",
+    "reformulation": "",
+    "diagnostic_statistique": "La différence de corrélation entre les deux groupes est statistiquement significative (p = 0.0061), confirmée sur un échantillon de test indépendant. La divergence entre Spearman (0.141) et Pearson (0.118) dans le groupe supérieur suggère une légère non-linéarité ou la présence de valeurs extrêmes.",
+    "modele_recommande": "régression segmentée (segmented regression) ou modèle additif généralisé (GAM) pour capturer le changement de pente au seuil de 0.2",
+    "robustesse": "La taille des groupes est très satisfaisante (n > 1400 pour chaque groupe) et le test a été réalisé sur un échantillon de confirmation jamais vu. Facteurs de confusion possibles : sévérité globale de la maladie ou traitement en cours.",
+    "interpretation_domaine": "La PPE (Pitch Period Entropy) mesure les variations de fréquence vocale. Une entropie plus élevée reflète une dysphonie plus prononcée, qui tend à s'accompagner d'une aggravation des symptômes moteurs (motor_UPDRS) chez les patients atteints de Parkinson, en particulier au-delà d'un certain seuil d'altération vocale.",
+    "action_pipeline": "Ajouter systématiquement un test de régression segmentée ou un modèle non linéaire (GAM) lorsque l'hypothèse implique un effet de seuil.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "Le seuillage spécifique de l'indice PPE pour l'évaluation des symptômes moteurs nécessite encore des validations cliniques approfondies.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  },
+  {
+   "id": 29,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:BenchmarkDatasets/Parkinson_Speech",
+    "x": "f_0_jitter_local",
+    "y": "f_16_std_pitch",
+    "groupe": "f_23_fraction_locally_unvoiced_frames",
+    "seuil": 0.05,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre f_0_jitter_local et f_16_std_pitch change-t-il selon le groupe f_23_fraction_locally_unvoiced_frames ?",
+    "requete_biblio": [
+     "jitter standard deviation pitch unvoiced frames speech"
+    ]
+   },
+   "statut": "non concluante",
+   "resume": "Dans BenchmarkDatasets/Parkinson_Speech, la corrélation f_0_jitter_local~f_16_std_pitch vaut +0.35 pour « f_23_fraction_locally_unvoiced_frames > 0.05 » contre +0.35 pour « f_23_fraction_locally_unvoiced_frames ≤ 0.05 » (p = 0.98). [Testé sur : moitié de confirmation (366 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "f_23_fraction_locally_unvoiced_frames ≤ 0.05": {
+      "rho": 0.352,
+      "pearson": 0.316,
+      "n": 41
+     },
+     "f_23_fraction_locally_unvoiced_frames > 0.05": {
+      "rho": 0.348,
+      "pearson": 0.302,
+      "n": 325
+     }
+    },
+    "groupe_predit_plus_fort": "f_23_fraction_locally_unvoiced_frames > 0.05",
+    "p_difference": 0.979,
+    "donnees_test": "moitié de confirmation (366 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.98, seuil corrigé 0.05 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Using the random components of the jitter of speech pitch period to assess the state of the user of social-cyber-physical system",
+     "annee": 2019,
+     "citations": 2,
+     "url": "https://doi.org/10.5937/telfor1902102p"
+    },
+    {
+     "titre": "Signal Processing: New Stochastic Feature of Unvoiced Pronunciation for Whisper Speech Modeling and Synthesis",
+     "annee": 2021,
+     "citations": 1,
+     "url": "https://doi.org/10.46300/9106.2020.14.144"
+    },
+    {
+     "titre": "Voice Quality and Pitch Features in Transformer-Based Speech Recognition",
+     "annee": 2022,
+     "citations": 1,
+     "url": "https://doi.org/10.21437/speechprosody.2022-113"
+    },
+    {
+     "titre": "An Investigation of nonlinear speech synthesis and pitch modification techniques",
+     "annee": 2000,
+     "citations": 15,
+     "url": "https://openalex.org/W564280841"
+    },
+    {
+     "titre": "USES OF THE PITCH-SCALED HARMONIC FILTER IN SPEECH PROCESSING",
+     "annee": 2024,
+     "citations": 1,
+     "url": "https://doi.org/10.25144/21812"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation de la modération est correcte, mais l'hypothèse d'une différence de corrélation selon le seuil n'est pas validée par les données.",
+    "reformulation": "",
+    "diagnostic_statistique": "Les corrélations de Spearman et Pearson sont presque identiques dans les deux sous-groupes (rho = 0,35 et r ≈ 0,31), avec une p-valeur de 0,98 qui confirme l'absence totale de différence significative entre les groupes.",
+    "modele_recommande": "régression linéaire multiple avec interaction y ~ x * z",
+    "robustesse": "La taille des échantillons est très déséquilibrée (n=41 vs n=325), ce qui nuit à la puissance statistique du test dans le premier groupe, bien que l'effet observé soit de toute façon quasi nul.",
+    "interpretation_domaine": "En analyse de la voix, le jitter et l'écart-type de la hauteur (pitch) sont intrinsèquement liés par la nature de la production vocale, mais la proportion de trames non voisées ne modifie pas la force de ce lien.",
+    "action_pipeline": "Ajouter un contrôle sur l'équilibre des tailles de sous-groupes avant de tester des interactions.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Les relations entre le jitter et l'écart-type du pitch sont des notions fondamentales du traitement du signal vocal.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  }
+ ]
+}

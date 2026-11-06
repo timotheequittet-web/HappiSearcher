@@ -1,0 +1,2614 @@
+{
+ "id": "2026-11-04_0330_voice",
+ "date": "2026-11-04T03:35",
+ "sujet": "Ce que dit la voix",
+ "question": "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?",
+ "keywords": [
+  "voice",
+  "speech",
+  "vowel",
+  "gender recognition by voice",
+  "parkinson",
+  "speaker",
+  "emotion speech"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des jeux de données vocaux confirme de fortes corrélations mathématiques entre des paramètres acoustiques standard de la voix (jitter, shimmer, pitch, période) et met en évidence la détectabilité de la maladie de Parkinson ou des métadonnées démographiques via des caractéristiques de spectrogrammes ou de signaux. De nombreuses relations entre mesures de perturbation de fréquence et d'amplitude sont redondantes, constituant des évidences méthodologiques. L'exploration ouvre la voie à une meilleure modélisation des biomarqueurs vocaux de pathologies neurodégénératives.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "artefact",
+    "explication": "Forte fuite de données ou correspondance directe avec la variable cible dans le dataset de texte.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "La variable identifiant du sujet permet de tricher et de prédire mécaniquement le sexe ou d'autres attributs constants.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "artefact",
+    "explication": "L'identifiant du patient (subject.) permet de deviner l'âge car l'âge est constant par patient, ce qui constitue une fuite par identifiant.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "La proportion claire des représentations visuelles (spectrogrammes) diffère significativement entre sujets sains et malades de Parkinson.",
+    "hypothese": "Le lien entre proportion_claire et classe change-t-il selon l'âge des sujets ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "artefact",
+    "explication": "Correspondance biunivoque ou variable dérivée masquée permettant de prédire parfaitement la cible.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La saturation des images de spectrogrammes acoustiques est liée au statut de Parkinson.",
+    "hypothese": "Le lien entre saturation et classe change-t-il selon le type d'enregistrement vocal ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Lien mécanique direct entre le pitch maximum et le nombre d'impulsions détectées dans le signal.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Relation mathématique évidente entre la fréquence maximale et le nombre de périodes d'onde.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Lien non linéaire entre la perturbation de hauteur (Jitter.PPQ5) et l'exposant de fractalité (DFA) de la voix.",
+    "hypothese": "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Mesures de Shimmer hautement corrélées car elles quantifient la même variation d'amplitude sous des formules presque identiques.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Redondance entre deux formulations différentes de la mesure de Shimmer local.",
+    "hypothese": ""
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Redondance entre mesures de Shimmer (dB et DDA).",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Redondance entre indices de variation d'amplitude (Shimmer).",
+    "hypothese": ""
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "trivial",
+    "explication": "Forte colinéarité entre coefficients d'autocorrélation et de bruit harmonique dans le signal vocal.",
+    "hypothese": ""
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Redondance entre différentes variantes de calcul du Shimmer.",
+    "hypothese": ""
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "trivial",
+    "explication": "Redondance entre indicateurs de Jitter mesurant les micro-variations de fréquence.",
+    "hypothese": ""
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "trivial",
+    "explication": "Lien mathématique direct entre la médiane du pitch et son maximum.",
+    "hypothese": ""
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "trivial",
+    "explication": "Relation inverse parfaite et mécanique entre la fréquence (pitch) et la période du signal vocal.",
+    "hypothese": ""
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Redondance entre deux algorithmes proches de calcul du Jitter (PPQ5 et DDP).",
+    "hypothese": ""
+   },
+   "F20": {
+    "id": "F20",
+    "verdict": "trivial",
+    "explication": "Redondance entre estimateurs du Jitter (RAP et PPQ5).",
+    "hypothese": ""
+   },
+   "F21": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "L'entropie visuelle du spectrogramme est corrélée à la présence de la maladie de Parkinson.",
+    "hypothese": "Le lien entre entropie et classe change-t-il selon l'âge du patient ?"
+   },
+   "F22": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "La composante bleue des spectrogrammes acoustiques diffère entre les groupes sains et malades.",
+    "hypothese": "Le lien entre bleu et classe change-t-il selon le genre du locuteur ?"
+   },
+   "F23": {
+    "id": "F23",
+    "verdict": "artefact",
+    "explication": "Biais d'échantillonnage ou de métadonnées dans la répartition des types de textes.",
+    "hypothese": ""
+   },
+   "F24": {
+    "id": "F24",
+    "verdict": "artefact",
+    "explication": "Biais structurel lié aux vagues de génération de données.",
+    "hypothese": ""
+   },
+   "F25": {
+    "id": "F25",
+    "verdict": "artefact",
+    "explication": "Artefact de partitionnement des données (split test).",
+    "hypothese": ""
+   },
+   "F26": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Combinaison de statistiques visuelles sur les images de spectrogrammes permettant de classifier la pathologie vocale.",
+    "hypothese": "Le lien entre nettete et classe change-t-il selon le groupe de traitement ?"
+   },
+   "F27": {
+    "id": "F27",
+    "verdict": "pertinent",
+    "explication": "La composante rouge des images de spectrogrammes présente un écart notable selon la classe de pathologie.",
+    "hypothese": "Le lien entre rouge et classe change-t-il selon le niveau de sévérité de la maladie ?"
+   },
+   "F28": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "La netteté des spectrogrammes varie entre patients sains et atteints de Parkinson.",
+    "hypothese": "Le lien entre nettete et classe change-t-il selon l'âge des sujets ?"
+   },
+   "F29": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "La vivacité des couleurs (colorfulness) des spectrogrammes distingue la pathologie vocale.",
+    "hypothese": "Le lien entre colorfulness et classe change-t-il selon le sexe du locuteur ?"
+   },
+   "F30": {
+    "id": "F30",
+    "verdict": "artefact",
+    "explication": "Fuite de données évidente permettant de prédire la cible de manière parfaite.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Explorer l'utilisation de caractéristiques de couleur et d'entropie sur les spectrogrammes pour la détection non invasive de la maladie de Parkinson.",
+   "Étudier la non-linéarité entre les mesures de micro-perturbation (Jitter/Shimmer) et les indices fractals (DFA) indépendamment de l'effet sujet.",
+   "Analyser la robustesse des classifieurs basés sur des images de spectrogrammes face à la variabilité inter-locuteurs."
+  ],
+  "nouveautes": {
+   "22": {
+    "id": "H22",
+    "nouveaute": "deja_connu",
+    "explication": "La relation entre la fréquence fondamentale moyenne (meanfreq) et la déviation standard (sd) de la voix est un classique de la biométrie vocale liée au genre."
+   },
+   "23": {
+    "id": "H23",
+    "nouveaute": "deja_connu",
+    "explication": "Le lien entre la fréquence fondamentale moyenne (meanfun) et maximale (maxfun) est largement documenté dans l'analyse de la hauteur vocale."
+   },
+   "24": {
+    "id": "H24",
+    "nouveaute": "deja_connu",
+    "explication": "La dynamique des coefficients cepstraux (MFCC) pour la reconnaissance de voyelles et de locuteurs est un standard établi du traitement de la parole."
+   },
+   "25": {
+    "id": "H25",
+    "nouveaute": "partiellement_etudie",
+    "explication": "L'entropie spectrale et son interaction avec la fréquence moyenne dans les voix pathologiques manquent de caractérisation sous forme de seuils précis."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "4531",
+    "x": "Jitter.PPQ5",
+    "y": "DFA",
+    "groupe": "sex",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?",
+    "requete_biblio": [
+     "voice jitter DFA parkinson gender differences"
+    ]
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:BenchmarkDatasets/Parkinson_Speech",
+    "x": "f_14_median_pitch",
+    "y": "f_18_max_pitch",
+    "groupe": "f_24_number_of_voice_breaks",
+    "seuil": 2.0,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre f_14_median_pitch et f_18_max_pitch change-t-il selon le groupe f_24_number_of_voice_breaks ?",
+    "requete_biblio": [
+     "pitch median maximum voice breaks parkinson speech"
+    ]
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "4531",
+    "x": "PPE",
+    "y": "motor_UPDRS",
+    "seuil": 0.2,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre PPE et motor_UPDRS est-il plus fort au-dessus du seuil de PPE ?",
+    "requete_biblio": [
+     "pitch period entropy motor UPDRS threshold parkinson"
+    ]
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:BenchmarkDatasets/Parkinson_Speech",
+    "x": "f_0_jitter_local",
+    "y": "f_16_std_pitch",
+    "groupe": "f_23_fraction_locally_unvoiced_frames",
+    "seuil": 0.05,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre f_0_jitter_local et f_16_std_pitch change-t-il selon le groupe f_23_fraction_locally_unvoiced_frames ?",
+    "requete_biblio": [
+     "jitter standard deviation pitch unvoiced frames speech"
+    ]
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "type -> label",
+   "stat": 0.691,
+   "score": 1,
+   "detail": {
+    "mutual_info": 0.691,
+    "part_de_l_info": 0.87,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "artefact",
+    "explication": "Forte fuite de données ou correspondance directe avec la variable cible dans le dataset de texte.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> sex",
+   "stat": 0.999,
+   "score": 0.9989350372736955,
+   "detail": {
+    "balanced_accuracy": 0.999,
+    "hasard": 0.5,
+    "validation": "aléatoire",
+    "n": 2911,
+    "variables_les_plus_informatives": "subject., test_time, total_UPDRS, motor_UPDRS",
+    "confirmation": "confirmé — balanced_accuracy = 1.00 sur d'autres personnes / lignes (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "La variable identifiant du sujet permet de tricher et de prédire mécaniquement le sexe ou d'autres attributs constants.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> age",
+   "stat": 0.945,
+   "score": 0.9725877661005451,
+   "detail": {
+    "r2": 0.945,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 2911,
+    "variables_les_plus_informatives": "subject., motor_UPDRS, total_UPDRS, test_time",
+    "confirmation": "confirmé — r2 = 0.97 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "artefact",
+    "explication": "L'identifiant du patient (subject.) permet de deviner l'âge car l'âge est constant par patient, ce qui constitue une fuite par identifiant.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "proportion_claire -> classe",
+   "stat": 0.602,
+   "score": 0.9023211221284488,
+   "detail": {
+    "eta2": 0.602,
+    "p": 1.3e-25,
+    "famille": "normalisé",
+    "classe_min": "healthy (0.019)",
+    "classe_max": "parkinsons (0.148)",
+    "confirmation": "confirmé — η² = 0.51, p = 1.6e-21 sur 178 autres images (découverte : 0.602)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "La proportion claire des représentations visuelles (spectrogrammes) diffère significativement entre sujets sains et malades de Parkinson.",
+    "hypothese": "Le lien entre proportion_claire et classe change-t-il selon l'âge des sujets ?"
+   }
+  },
+  {
+   "kind": "cible_expliquee_par_une_variable",
+   "vars": "type -> label",
+   "stat": 1.0,
+   "score": 0.9,
+   "detail": {
+    "score_1_variable": 1.0,
+    "score_toutes": 1.0,
+    "note": "relation forte ou fuite de données",
+    "confirmation": "confirmé — balanced_accuracy = 1.00 sur des données jamais vues (hasard 0.50, découverte 1.0)"
+   },
+   "confirme": 1.0,
+   "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "artefact",
+    "explication": "Correspondance biunivoque ou variable dérivée masquée permettant de prédire parfaitement la cible.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "saturation -> classe",
+   "stat": 0.5600000023841858,
+   "score": 0.8604618906974792,
+   "detail": {
+    "eta2": 0.5600000023841858,
+    "p": 5.9e-24,
+    "famille": "couleur",
+    "classe_min": "healthy (0.174)",
+    "classe_max": "parkinsons (0.756)",
+    "confirmation": "confirmé — η² = 0.46, p = 1.2e-19 sur 178 autres images (découverte : 0.5600000023841858)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La saturation des images de spectrogrammes acoustiques est liée au statut de Parkinson.",
+    "hypothese": "Le lien entre saturation et classe change-t-il selon le type d'enregistrement vocal ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "f_18_max_pitch ~ f_19_number_of_pulses",
+   "stat": 0.346,
+   "score": 0.8455963639650854,
+   "detail": {
+    "spearman": 0.442,
+    "pearson": 0.096,
+    "n": 362,
+    "confirmation": "confirmé — ρ = +0.43 sur 366 lignes (découverte : +0.44)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Lien mécanique direct entre le pitch maximum et le nombre d'impulsions détectées dans le signal.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "f_18_max_pitch ~ f_20_number_of_periods",
+   "stat": 0.333,
+   "score": 0.8333991558977113,
+   "detail": {
+    "spearman": 0.417,
+    "pearson": 0.084,
+    "n": 362,
+    "confirmation": "confirmé — ρ = +0.39 sur 366 lignes (découverte : +0.42)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Relation mathématique évidente entre la fréquence maximale et le nombre de périodes d'onde.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Jitter.PPQ5 ~ DFA",
+   "stat": 0.309,
+   "score": 0.809116224384416,
+   "detail": {
+    "spearman": 0.482,
+    "pearson": 0.173,
+    "n": 2911,
+    "confirmation": "confirmé — ρ = +0.48 sur 2964 lignes (découverte : +0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Lien non linéaire entre la perturbation de hauteur (Jitter.PPQ5) et l'exposant de fractalité (DFA) de la voix.",
+    "hypothese": "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Shimmer.dB. ~ Shimmer.APQ5",
+   "stat": 0.974,
+   "score": 0.7792438630598775,
+   "detail": {
+    "spearman": 0.974,
+    "pearson": 0.979,
+    "n": 2911,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 2964 lignes (découverte : +0.97)"
+   },
+   "confirme": 1.0,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Mesures de Shimmer hautement corrélées car elles quantifient la même variation d'amplitude sous des formules presque identiques.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "f_5_shimmer_local ~ f_6_shimmer_local_db",
+   "stat": 0.966,
+   "score": 0.7726749348699937,
+   "detail": {
+    "spearman": 0.966,
+    "pearson": 0.96,
+    "n": 362,
+    "q": 1.9e-211,
+    "confirmation": "confirmé — ρ = +0.96 sur 366 lignes (découverte : +0.97)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Redondance entre deux formulations différentes de la mesure de Shimmer local.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Shimmer.dB. ~ Shimmer.DDA",
+   "stat": 0.964,
+   "score": 0.7708277963853156,
+   "detail": {
+    "spearman": 0.964,
+    "pearson": 0.968,
+    "n": 2911,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Redondance entre mesures de Shimmer (dB et DDA).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Shimmer.dB. ~ Shimmer.APQ3",
+   "stat": 0.964,
+   "score": 0.7708243090889755,
+   "detail": {
+    "spearman": 0.964,
+    "pearson": 0.968,
+    "n": 2911,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Redondance entre indices de variation d'amplitude (Shimmer).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "f_11_ac ~ f_13_htn",
+   "stat": 0.963,
+   "score": 0.7706325348921459,
+   "detail": {
+    "spearman": 0.963,
+    "pearson": 0.907,
+    "n": 362,
+    "q": 5.5e-206,
+    "confirmation": "confirmé — ρ = +0.96 sur 366 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "trivial",
+    "explication": "Forte colinéarité entre coefficients d'autocorrélation et de bruit harmonique dans le signal vocal.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Shimmer ~ Shimmer.APQ11",
+   "stat": 0.962,
+   "score": 0.7696870693690743,
+   "detail": {
+    "spearman": 0.962,
+    "pearson": 0.935,
+    "n": 2911,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Redondance entre différentes variantes de calcul du Shimmer.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Jitter... ~ Jitter.PPQ5",
+   "stat": 0.96,
+   "score": 0.7683100979358692,
+   "detail": {
+    "spearman": 0.96,
+    "pearson": 0.972,
+    "n": 2911,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "parkinsons-telemonitoring",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "trivial",
+    "explication": "Redondance entre indicateurs de Jitter mesurant les micro-variations de fréquence.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "f_14_median_pitch ~ f_18_max_pitch",
+   "stat": 0.267,
+   "score": 0.7673059870895333,
+   "detail": {
+    "spearman": 0.691,
+    "pearson": 0.423,
+    "n": 362,
+    "confirmation": "confirmé — ρ = +0.64 sur 366 lignes (découverte : +0.69)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "trivial",
+    "explication": "Lien mathématique direct entre la médiane du pitch et son maximum.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "f_14_median_pitch ~ f_21_mean_period",
+   "stat": -0.948,
+   "score": 0.7587821828031105,
+   "detail": {
+    "spearman": -0.948,
+    "pearson": -0.882,
+    "n": 362,
+    "q": 3.9e-180,
+    "confirmation": "confirmé — ρ = -0.95 sur 366 lignes (découverte : -0.95)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "trivial",
+    "explication": "Relation inverse parfaite et mécanique entre la fréquence (pitch) et la période du signal vocal.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "f_3_jitter_ppq5 ~ f_4_jitter_ddp",
+   "stat": 0.944,
+   "score": 0.7550274605957698,
+   "detail": {
+    "spearman": 0.944,
+    "pearson": 0.893,
+    "n": 362,
+    "q": 1.3e-173,
+    "confirmation": "confirmé — ρ = +0.95 sur 366 lignes (découverte : +0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Redondance entre deux algorithmes proches de calcul du Jitter (PPQ5 et DDP).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "f_2_jitter_rap ~ f_3_jitter_ppq5",
+   "stat": 0.944,
+   "score": 0.7550261047566327,
+   "detail": {
+    "spearman": 0.944,
+    "pearson": 0.893,
+    "n": 362,
+    "q": 1.3e-173,
+    "confirmation": "confirmé — ρ = +0.95 sur 366 lignes (découverte : +0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "BenchmarkDatasets/Parkinson_Speech",
+   "id": "F20",
+   "avis": {
+    "id": "F20",
+    "verdict": "trivial",
+    "explication": "Redondance entre estimateurs du Jitter (RAP et PPQ5).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "entropie -> classe",
+   "stat": 0.449,
+   "score": 0.7490158945126622,
+   "detail": {
+    "eta2": 0.449,
+    "p": 1.5e-19,
+    "famille": "normalisé",
+    "classe_min": "healthy (1.361)",
+    "classe_max": "parkinsons (3.849)",
+    "confirmation": "confirmé — η² = 0.36, p = 8.6e-16 sur 178 autres images (découverte : 0.449)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F21",
+   "avis": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "L'entropie visuelle du spectrogramme est corrélée à la présence de la maladie de Parkinson.",
+    "hypothese": "Le lien entre entropie et classe change-t-il selon l'âge du patient ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "bleu -> classe",
+   "stat": 0.4449999928474426,
+   "score": 0.7451874017715454,
+   "detail": {
+    "eta2": 0.4449999928474426,
+    "p": 2.1e-19,
+    "famille": "couleur",
+    "classe_min": "parkinsons (0.324)",
+    "classe_max": "healthy (0.707)",
+    "confirmation": "confirmé — η² = 0.37, p = 5.6e-16 sur 178 autres images (découverte : 0.4449999928474426)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F22",
+   "avis": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "La composante bleue des spectrogrammes acoustiques diffère entre les groupes sains et malades.",
+    "hypothese": "Le lien entre bleu et classe change-t-il selon le genre du locuteur ?"
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> type = notgiven",
+   "stat": 3.8,
+   "score": 0.6900116482236459,
+   "detail": {
+    "taux_dans_ce_groupe": "7.6%",
+    "taux_global": "2.0%",
+    "p": 5.9e-145,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+   "id": "F23",
+   "avis": {
+    "id": "F23",
+    "verdict": "artefact",
+    "explication": "Biais d'échantillonnage ou de métadonnées dans la répartition des types de textes.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> round = 1",
+   "stat": 3.4,
+   "score": 0.6703481842006739,
+   "detail": {
+    "taux_dans_ce_groupe": "6.8%",
+    "taux_global": "2.0%",
+    "p": 1.6e-184,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+   "id": "F24",
+   "avis": {
+    "id": "F24",
+    "verdict": "artefact",
+    "explication": "Biais structurel lié aux vagues de génération de données.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> split = test",
+   "stat": 3.0,
+   "score": 0.6501937984496124,
+   "detail": {
+    "taux_dans_ce_groupe": "6.0%",
+    "taux_global": "2.0%",
+    "p": 1.2e-80,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+   "id": "F25",
+   "avis": {
+    "id": "F25",
+    "verdict": "artefact",
+    "explication": "Artefact de partitionnement des données (split test).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "classe_predictible_par_stats_simples",
+   "vars": "17 stats visuelles -> classe",
+   "stat": 0.802,
+   "score": 0.6460761460761459,
+   "detail": {
+    "balanced_accuracy_toutes": 0.802,
+    "balanced_accuracy_normalisees_seules": 0.823,
+    "hasard": 0.5,
+    "n_images": 182,
+    "confirmation": "confirmé — précision 0.94 sur d'autres images (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F26",
+   "avis": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Combinaison de statistiques visuelles sur les images de spectrogrammes permettant de classifier la pathologie vocale.",
+    "hypothese": "Le lien entre nettete et classe change-t-il selon le groupe de traitement ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "rouge -> classe",
+   "stat": 0.3409999907016754,
+   "score": 0.6414588689804077,
+   "detail": {
+    "eta2": 0.3409999907016754,
+    "p": 2.7e-15,
+    "famille": "couleur",
+    "classe_min": "parkinsons (0.386)",
+    "classe_max": "healthy (0.760)",
+    "confirmation": "confirmé — η² = 0.29, p = 5.2e-13 sur 178 autres images (découverte : 0.3409999907016754)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F27",
+   "avis": {
+    "id": "F27",
+    "verdict": "pertinent",
+    "explication": "La composante rouge des images de spectrogrammes présente un écart notable selon la classe de pathologie.",
+    "hypothese": "Le lien entre rouge et classe change-t-il selon le niveau de sévérité de la maladie ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "nettete -> classe",
+   "stat": 0.327,
+   "score": 0.6266642429267777,
+   "detail": {
+    "eta2": 0.327,
+    "p": 1.1e-14,
+    "famille": "normalisé",
+    "classe_min": "healthy (0.223)",
+    "classe_max": "parkinsons (0.361)",
+    "confirmation": "confirmé — η² = 0.37, p = 5.3e-16 sur 178 autres images (découverte : 0.327)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F28",
+   "avis": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "La netteté des spectrogrammes varie entre patients sains et atteints de Parkinson.",
+    "hypothese": "Le lien entre nettete et classe change-t-il selon l'âge des sujets ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "colorfulness -> classe",
+   "stat": 0.3089999854564667,
+   "score": 0.6093945503234863,
+   "detail": {
+    "eta2": 0.3089999854564667,
+    "p": 5.1e-14,
+    "famille": "couleur",
+    "classe_min": "healthy (0.106)",
+    "classe_max": "parkinsons (0.272)",
+    "confirmation": "confirmé — η² = 0.23, p = 1.5e-10 sur 178 autres images (découverte : 0.3089999854564667)"
+   },
+   "confirme": 1.0,
+   "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+   "id": "F29",
+   "avis": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "La vivacité des couleurs (colorfulness) des spectrogrammes distingue la pathologie vocale.",
+    "hypothese": "Le lien entre colorfulness et classe change-t-il selon le sexe du locuteur ?"
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> label",
+   "stat": 1.0,
+   "score": 0.4,
+   "detail": {
+    "balanced_accuracy": 1.0,
+    "baseline": 0.5,
+    "avec_seulement_type": 1.0,
+    "confirmation": "confirmé — balanced_accuracy = 1.00 sur des données jamais vues (hasard 0.50, découverte 1.0)"
+   },
+   "confirme": 1.0,
+   "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+   "id": "F30",
+   "avis": {
+    "id": "F30",
+    "verdict": "artefact",
+    "explication": "Fuite de données évidente permettant de prédire la cible de manière parfaite.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Dynamically-Generated-Hate-Speech-Dataset",
+    "target": "label",
+    "description": "The Dynamically Generated Hate Speech Dataset is provided in one table. 'acl.id' is the unique ID of the entry. 'Text' is the content which has been entered. All content is synthetic. 'Label' is a binary variable, indicating whether or not the content has been identified as hateful. It takes two values: hate, nothate. 'Type' is a categorical variable, providing a secondary label for hateful conten",
+    "url": "https://www.openml.org/d/46683",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 20464,
+     "confirmation": 20000
+    },
+    "did": "46683",
+    "colonnes": {
+     "num": [
+      "extra.id",
+      "X1",
+      "round.base"
+     ],
+     "groupes": [
+      "label",
+      "type",
+      "level",
+      "split",
+      "round"
+     ]
+    }
+   },
+   "lignes": 41144,
+   "colonnes": 13,
+   "fig": null,
+   "n_findings": 7,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "type -> label",
+     "stat": 0.691,
+     "score": 1,
+     "detail": {
+      "mutual_info": 0.691,
+      "part_de_l_info": 0.87,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "artefact",
+      "explication": "Forte fuite de données ou correspondance directe avec la variable cible dans le dataset de texte.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "cible_expliquee_par_une_variable",
+     "vars": "type -> label",
+     "stat": 1.0,
+     "score": 0.9,
+     "detail": {
+      "score_1_variable": 1.0,
+      "score_toutes": 1.0,
+      "note": "relation forte ou fuite de données",
+      "confirmation": "confirmé — balanced_accuracy = 1.00 sur des données jamais vues (hasard 0.50, découverte 1.0)"
+     },
+     "confirme": 1.0,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "artefact",
+      "explication": "Correspondance biunivoque ou variable dérivée masquée permettant de prédire parfaitement la cible.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> type = notgiven",
+     "stat": 3.8,
+     "score": 0.6900116482236459,
+     "detail": {
+      "taux_dans_ce_groupe": "7.6%",
+      "taux_global": "2.0%",
+      "p": 5.9e-145,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+     "id": "F23",
+     "avis": {
+      "id": "F23",
+      "verdict": "artefact",
+      "explication": "Biais d'échantillonnage ou de métadonnées dans la répartition des types de textes.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> round = 1",
+     "stat": 3.4,
+     "score": 0.6703481842006739,
+     "detail": {
+      "taux_dans_ce_groupe": "6.8%",
+      "taux_global": "2.0%",
+      "p": 1.6e-184,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+     "id": "F24",
+     "avis": {
+      "id": "F24",
+      "verdict": "artefact",
+      "explication": "Biais structurel lié aux vagues de génération de données.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> split = test",
+     "stat": 3.0,
+     "score": 0.6501937984496124,
+     "detail": {
+      "taux_dans_ce_groupe": "6.0%",
+      "taux_global": "2.0%",
+      "p": 1.2e-80,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+     "id": "F25",
+     "avis": {
+      "id": "F25",
+      "verdict": "artefact",
+      "explication": "Artefact de partitionnement des données (split test).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> label",
+     "stat": 1.0,
+     "score": 0.4,
+     "detail": {
+      "balanced_accuracy": 1.0,
+      "baseline": 0.5,
+      "avec_seulement_type": 1.0,
+      "confirmation": "confirmé — balanced_accuracy = 1.00 sur des données jamais vues (hasard 0.50, découverte 1.0)"
+     },
+     "confirme": 1.0,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset",
+     "id": "F30",
+     "avis": {
+      "id": "F30",
+      "verdict": "artefact",
+      "explication": "Fuite de données évidente permettant de prédire la cible de manière parfaite.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ round.base, extra.id, X1",
+     "stat": 1.09,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 400,
+      "sur": 20000,
+      "variables_qui_les_distinguent": "round.base (1.1 σ), extra.id (0.5 σ), X1 (0.3 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Dynamically-Generated-Hate-Speech-Dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "hate-speech-and-offensive-language",
+    "target": "class",
+    "description": "The \"hate-speech-and-offensive-language\" dataset, introduced in the paper \"Automated Hate Speech Detection and the Problem of Offensive Language\" by Davidson et al. (2017), classifies tweets into three categories based on the \"Class\" column: 0: The tweet is labeled as neither hate speech nor offensive. It is considered benign or neutral. 1: The tweet is labeled as offensive language but not hate s",
+    "url": "https://www.openml.org/d/46685",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 12332,
+     "confirmation": 12451
+    },
+    "did": "46685",
+    "colonnes": {
+     "num": [
+      "count",
+      "class"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 24783,
+   "colonnes": 3,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "parkinsons-telemonitoring",
+    "target": null,
+    "description": "**Author**: Athanasios Tsanas (tsanasthanasis '@' gmail.com) and Max Little (littlem '@' physics.ox.ac.uk) **Source**: UCI **Please cite**: Source: The dataset was created by Athanasios Tsanas (tsanasthanasis '@' gmail.com) and Max Little (littlem '@' physics.ox.ac.uk) of the University of Oxford, in collaboration with 10 medical centers in the US and Intel Corporation who developed the telemonito",
+    "url": "https://www.openml.org/d/4531",
+    "meta_cols": {
+     "age": "age",
+     "sexe": "sex"
+    },
+    "moities": {
+     "decouverte": 2911,
+     "confirmation": 2964
+    },
+    "did": "4531",
+    "colonnes": {
+     "num": [
+      "subject.",
+      "age",
+      "sex",
+      "test_time",
+      "motor_UPDRS",
+      "total_UPDRS",
+      "Jitter...",
+      "Jitter.Abs.",
+      "Jitter.RAP",
+      "Jitter.PPQ5",
+      "Jitter.DDP",
+      "Shimmer",
+      "Shimmer.dB.",
+      "Shimmer.APQ3",
+      "Shimmer.APQ5",
+      "Shimmer.APQ11",
+      "Shimmer.DDA",
+      "NHR",
+      "HNR",
+      "RPDE",
+      "DFA",
+      "PPE"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 5875,
+   "colonnes": 22,
+   "fig": "2026-11-04_parkinsons_telemonitoring.png",
+   "n_findings": 111,
+   "findings": [
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> sex",
+     "stat": 0.999,
+     "score": 0.9989350372736955,
+     "detail": {
+      "balanced_accuracy": 0.999,
+      "hasard": 0.5,
+      "validation": "aléatoire",
+      "n": 2911,
+      "variables_les_plus_informatives": "subject., test_time, total_UPDRS, motor_UPDRS",
+      "confirmation": "confirmé — balanced_accuracy = 1.00 sur d'autres personnes / lignes (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "artefact",
+      "explication": "La variable identifiant du sujet permet de tricher et de prédire mécaniquement le sexe ou d'autres attributs constants.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> age",
+     "stat": 0.945,
+     "score": 0.9725877661005451,
+     "detail": {
+      "r2": 0.945,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 2911,
+      "variables_les_plus_informatives": "subject., motor_UPDRS, total_UPDRS, test_time",
+      "confirmation": "confirmé — r2 = 0.97 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "artefact",
+      "explication": "L'identifiant du patient (subject.) permet de deviner l'âge car l'âge est constant par patient, ce qui constitue une fuite par identifiant.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Jitter.PPQ5 ~ DFA",
+     "stat": 0.309,
+     "score": 0.809116224384416,
+     "detail": {
+      "spearman": 0.482,
+      "pearson": 0.173,
+      "n": 2911,
+      "confirmation": "confirmé — ρ = +0.48 sur 2964 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Lien non linéaire entre la perturbation de hauteur (Jitter.PPQ5) et l'exposant de fractalité (DFA) de la voix.",
+      "hypothese": "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Shimmer.dB. ~ Shimmer.APQ5",
+     "stat": 0.974,
+     "score": 0.7792438630598775,
+     "detail": {
+      "spearman": 0.974,
+      "pearson": 0.979,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 2964 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "Mesures de Shimmer hautement corrélées car elles quantifient la même variation d'amplitude sous des formules presque identiques.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Shimmer.dB. ~ Shimmer.DDA",
+     "stat": 0.964,
+     "score": 0.7708277963853156,
+     "detail": {
+      "spearman": 0.964,
+      "pearson": 0.968,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Redondance entre mesures de Shimmer (dB et DDA).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Shimmer.dB. ~ Shimmer.APQ3",
+     "stat": 0.964,
+     "score": 0.7708243090889755,
+     "detail": {
+      "spearman": 0.964,
+      "pearson": 0.968,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "trivial",
+      "explication": "Redondance entre indices de variation d'amplitude (Shimmer).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Shimmer ~ Shimmer.APQ11",
+     "stat": 0.962,
+     "score": 0.7696870693690743,
+     "detail": {
+      "spearman": 0.962,
+      "pearson": 0.935,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "trivial",
+      "explication": "Redondance entre différentes variantes de calcul du Shimmer.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Jitter... ~ Jitter.PPQ5",
+     "stat": 0.96,
+     "score": 0.7683100979358692,
+     "detail": {
+      "spearman": 0.96,
+      "pearson": 0.972,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "trivial",
+      "explication": "Redondance entre indicateurs de Jitter mesurant les micro-variations de fréquence.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Jitter... ~ Jitter.DDP",
+     "stat": 0.958,
+     "score": 0.7666663093751376,
+     "detail": {
+      "spearman": 0.958,
+      "pearson": 0.986,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Jitter... ~ Jitter.RAP",
+     "stat": 0.958,
+     "score": 0.7666605718455891,
+     "detail": {
+      "spearman": 0.958,
+      "pearson": 0.986,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Shimmer.APQ5 ~ Shimmer.APQ11",
+     "stat": 0.958,
+     "score": 0.7665872738071459,
+     "detail": {
+      "spearman": 0.958,
+      "pearson": 0.937,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    },
+    {
+     "kind": "correlation",
+     "vars": "motor_UPDRS ~ total_UPDRS",
+     "stat": 0.956,
+     "score": 0.7651535096847293,
+     "detail": {
+      "spearman": 0.956,
+      "pearson": 0.946,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 2964 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Shimmer.dB. ~ Shimmer.APQ11",
+     "stat": 0.952,
+     "score": 0.7612961067943923,
+     "detail": {
+      "spearman": 0.952,
+      "pearson": 0.937,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 2964 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Jitter.PPQ5 ~ Jitter.DDP",
+     "stat": 0.951,
+     "score": 0.7606577352399685,
+     "detail": {
+      "spearman": 0.951,
+      "pearson": 0.954,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 2964 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Jitter.RAP ~ Jitter.PPQ5",
+     "stat": 0.951,
+     "score": 0.7606468487323758,
+     "detail": {
+      "spearman": 0.951,
+      "pearson": 0.954,
+      "n": 2911,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 2964 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "parkinsons-telemonitoring"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "mdimamhosen/pd-voice-full-multimodal-dataset",
+    "labels": [
+     "healthy",
+     "parkinsons"
+    ],
+    "total_rows": 11340,
+    "url": "https://huggingface.co/datasets/mdimamhosen/pd-voice-full-multimodal-dataset",
+    "niveaux_de_gris": false,
+    "moities": {
+     "decouverte": 182,
+     "confirmation": 178
+    }
+   },
+   "lignes": 360,
+   "colonnes": 17,
+   "fig": "2026-11-04_mdimamhosen_pd_voice_full_multimodal_dat.png",
+   "n_findings": 14,
+   "findings": [
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "proportion_claire -> classe",
+     "stat": 0.602,
+     "score": 0.9023211221284488,
+     "detail": {
+      "eta2": 0.602,
+      "p": 1.3e-25,
+      "famille": "normalisé",
+      "classe_min": "healthy (0.019)",
+      "classe_max": "parkinsons (0.148)",
+      "confirmation": "confirmé — η² = 0.51, p = 1.6e-21 sur 178 autres images (découverte : 0.602)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "La proportion claire des représentations visuelles (spectrogrammes) diffère significativement entre sujets sains et malades de Parkinson.",
+      "hypothese": "Le lien entre proportion_claire et classe change-t-il selon l'âge des sujets ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "saturation -> classe",
+     "stat": 0.5600000023841858,
+     "score": 0.8604618906974792,
+     "detail": {
+      "eta2": 0.5600000023841858,
+      "p": 5.9e-24,
+      "famille": "couleur",
+      "classe_min": "healthy (0.174)",
+      "classe_max": "parkinsons (0.756)",
+      "confirmation": "confirmé — η² = 0.46, p = 1.2e-19 sur 178 autres images (découverte : 0.5600000023841858)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "La saturation des images de spectrogrammes acoustiques est liée au statut de Parkinson.",
+      "hypothese": "Le lien entre saturation et classe change-t-il selon le type d'enregistrement vocal ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "entropie -> classe",
+     "stat": 0.449,
+     "score": 0.7490158945126622,
+     "detail": {
+      "eta2": 0.449,
+      "p": 1.5e-19,
+      "famille": "normalisé",
+      "classe_min": "healthy (1.361)",
+      "classe_max": "parkinsons (3.849)",
+      "confirmation": "confirmé — η² = 0.36, p = 8.6e-16 sur 178 autres images (découverte : 0.449)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F21",
+     "avis": {
+      "id": "F21",
+      "verdict": "pertinent",
+      "explication": "L'entropie visuelle du spectrogramme est corrélée à la présence de la maladie de Parkinson.",
+      "hypothese": "Le lien entre entropie et classe change-t-il selon l'âge du patient ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "bleu -> classe",
+     "stat": 0.4449999928474426,
+     "score": 0.7451874017715454,
+     "detail": {
+      "eta2": 0.4449999928474426,
+      "p": 2.1e-19,
+      "famille": "couleur",
+      "classe_min": "parkinsons (0.324)",
+      "classe_max": "healthy (0.707)",
+      "confirmation": "confirmé — η² = 0.37, p = 5.6e-16 sur 178 autres images (découverte : 0.4449999928474426)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F22",
+     "avis": {
+      "id": "F22",
+      "verdict": "pertinent",
+      "explication": "La composante bleue des spectrogrammes acoustiques diffère entre les groupes sains et malades.",
+      "hypothese": "Le lien entre bleu et classe change-t-il selon le genre du locuteur ?"
+     }
+    },
+    {
+     "kind": "classe_predictible_par_stats_simples",
+     "vars": "17 stats visuelles -> classe",
+     "stat": 0.802,
+     "score": 0.6460761460761459,
+     "detail": {
+      "balanced_accuracy_toutes": 0.802,
+      "balanced_accuracy_normalisees_seules": 0.823,
+      "hasard": 0.5,
+      "n_images": 182,
+      "confirmation": "confirmé — précision 0.94 sur d'autres images (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F26",
+     "avis": {
+      "id": "F26",
+      "verdict": "pertinent",
+      "explication": "Combinaison de statistiques visuelles sur les images de spectrogrammes permettant de classifier la pathologie vocale.",
+      "hypothese": "Le lien entre nettete et classe change-t-il selon le groupe de traitement ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "rouge -> classe",
+     "stat": 0.3409999907016754,
+     "score": 0.6414588689804077,
+     "detail": {
+      "eta2": 0.3409999907016754,
+      "p": 2.7e-15,
+      "famille": "couleur",
+      "classe_min": "parkinsons (0.386)",
+      "classe_max": "healthy (0.760)",
+      "confirmation": "confirmé — η² = 0.29, p = 5.2e-13 sur 178 autres images (découverte : 0.3409999907016754)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F27",
+     "avis": {
+      "id": "F27",
+      "verdict": "pertinent",
+      "explication": "La composante rouge des images de spectrogrammes présente un écart notable selon la classe de pathologie.",
+      "hypothese": "Le lien entre rouge et classe change-t-il selon le niveau de sévérité de la maladie ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "nettete -> classe",
+     "stat": 0.327,
+     "score": 0.6266642429267777,
+     "detail": {
+      "eta2": 0.327,
+      "p": 1.1e-14,
+      "famille": "normalisé",
+      "classe_min": "healthy (0.223)",
+      "classe_max": "parkinsons (0.361)",
+      "confirmation": "confirmé — η² = 0.37, p = 5.3e-16 sur 178 autres images (découverte : 0.327)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F28",
+     "avis": {
+      "id": "F28",
+      "verdict": "pertinent",
+      "explication": "La netteté des spectrogrammes varie entre patients sains et atteints de Parkinson.",
+      "hypothese": "Le lien entre nettete et classe change-t-il selon l'âge des sujets ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "colorfulness -> classe",
+     "stat": 0.3089999854564667,
+     "score": 0.6093945503234863,
+     "detail": {
+      "eta2": 0.3089999854564667,
+      "p": 5.1e-14,
+      "famille": "couleur",
+      "classe_min": "healthy (0.106)",
+      "classe_max": "parkinsons (0.272)",
+      "confirmation": "confirmé — η² = 0.23, p = 1.5e-10 sur 178 autres images (découverte : 0.3089999854564667)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+     "id": "F29",
+     "avis": {
+      "id": "F29",
+      "verdict": "pertinent",
+      "explication": "La vivacité des couleurs (colorfulness) des spectrogrammes distingue la pathologie vocale.",
+      "hypothese": "Le lien entre colorfulness et classe change-t-il selon le sexe du locuteur ?"
+     }
+    },
+    {
+     "kind": "quasi_doublons",
+     "vars": "images",
+     "stat": 29,
+     "score": 0.5197802197802197,
+     "detail": {
+      "paires_quasi_identiques": 29,
+      "images_concernees": 40,
+      "sur": 182,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "proportion_sombre -> classe",
+     "stat": 0.205,
+     "score": 0.5047937639914158,
+     "detail": {
+      "eta2": 0.205,
+      "p": 7.6e-10,
+      "famille": "normalisé",
+      "classe_min": "healthy (0.079)",
+      "classe_max": "parkinsons (0.116)",
+      "confirmation": "confirmé — η² = 0.20, p = 1.6e-09 sur 178 autres images (découverte : 0.205)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "luminosite -> classe",
+     "stat": 0.46000000834465027,
+     "score": 0.45582112669944763,
+     "detail": {
+      "eta2": 0.46000000834465027,
+      "p": 5.6e-20,
+      "famille": "brut",
+      "classe_min": "parkinsons (0.274)",
+      "classe_max": "healthy (0.692)",
+      "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+      "confirmation": "confirmé — η² = 0.37, p = 3.9e-16 sur 178 autres images (découverte : 0.46000000834465027)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "asymetrie_intensites -> classe",
+     "stat": 0.147,
+     "score": 0.44664559733127074,
+     "detail": {
+      "eta2": 0.147,
+      "p": 1.7e-07,
+      "famille": "normalisé",
+      "classe_min": "healthy (-2.929)",
+      "classe_max": "parkinsons (0.033)",
+      "confirmation": "confirmé — η² = 0.08, p = 0.00015 sur 178 autres images (découverte : 0.147)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "symetrie_gauche_droite -> classe",
+     "stat": 0.125,
+     "score": 0.4250964320813833,
+     "detail": {
+      "eta2": 0.125,
+      "p": 1.2e-06,
+      "famille": "normalisé",
+      "classe_min": "healthy (0.524)",
+      "classe_max": "parkinsons (0.876)",
+      "confirmation": "NON confirmé — η² = 0.06, p = 0.00087 sur 178 autres images (découverte : 0.125)"
+     },
+     "confirme": 0.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "part_fond -> classe",
+     "stat": 0.266,
+     "score": 0.33973930466600605,
+     "detail": {
+      "eta2": 0.266,
+      "p": 2.7e-12,
+      "famille": "cadrage",
+      "classe_min": "healthy (0.146)",
+      "classe_max": "parkinsons (0.434)",
+      "attention": "dépend du recadrage / du cadrage des images (biais de préparation possible)",
+      "confirmation": "confirmé — η² = 0.29, p = 7.7e-13 sur 178 autres images (découverte : 0.266)"
+     },
+     "confirme": 1.0,
+     "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "BenchmarkDatasets/Parkinson_Speech",
+    "target": "target",
+    "description": "",
+    "fichier": "data/train.parquet",
+    "url": "https://huggingface.co/datasets/BenchmarkDatasets/Parkinson_Speech",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 362,
+     "confirmation": 366
+    },
+    "did": "hf:BenchmarkDatasets/Parkinson_Speech",
+    "colonnes": {
+     "num": [
+      "f_0_jitter_local",
+      "f_1_jitter_local_absolute",
+      "f_2_jitter_rap",
+      "f_3_jitter_ppq5",
+      "f_4_jitter_ddp",
+      "f_5_shimmer_local",
+      "f_6_shimmer_local_db",
+      "f_7_shimmer_apq3",
+      "f_8_shimmer_apq5",
+      "f_9_shimmer_apq11",
+      "f_10_shimmer_dda",
+      "f_11_ac",
+      "f_12_nth",
+      "f_13_htn",
+      "f_14_median_pitch",
+      "f_15_mean_pitch",
+      "f_16_std_pitch",
+      "f_17_min_pitch",
+      "f_18_max_pitch",
+      "f_19_number_of_pulses",
+      "f_20_number_of_periods",
+      "f_21_mean_period",
+      "f_22_std_period",
+      "f_23_fraction_locally_unvoiced_frames",
+      "f_24_number_of_voice_breaks"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 728,
+   "colonnes": 28,
+   "fig": "2026-11-04_BenchmarkDatasets_Parkinson_Speech.png",
+   "n_findings": 162,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "f_18_max_pitch ~ f_19_number_of_pulses",
+     "stat": 0.346,
+     "score": 0.8455963639650854,
+     "detail": {
+      "spearman": 0.442,
+      "pearson": 0.096,
+      "n": 362,
+      "confirmation": "confirmé — ρ = +0.43 sur 366 lignes (découverte : +0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Lien mécanique direct entre le pitch maximum et le nombre d'impulsions détectées dans le signal.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "f_18_max_pitch ~ f_20_number_of_periods",
+     "stat": 0.333,
+     "score": 0.8333991558977113,
+     "detail": {
+      "spearman": 0.417,
+      "pearson": 0.084,
+      "n": 362,
+      "confirmation": "confirmé — ρ = +0.39 sur 366 lignes (découverte : +0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "Relation mathématique évidente entre la fréquence maximale et le nombre de périodes d'onde.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_5_shimmer_local ~ f_6_shimmer_local_db",
+     "stat": 0.966,
+     "score": 0.7726749348699937,
+     "detail": {
+      "spearman": 0.966,
+      "pearson": 0.96,
+      "n": 362,
+      "q": 1.9e-211,
+      "confirmation": "confirmé — ρ = +0.96 sur 366 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "trivial",
+      "explication": "Redondance entre deux formulations différentes de la mesure de Shimmer local.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_11_ac ~ f_13_htn",
+     "stat": 0.963,
+     "score": 0.7706325348921459,
+     "detail": {
+      "spearman": 0.963,
+      "pearson": 0.907,
+      "n": 362,
+      "q": 5.5e-206,
+      "confirmation": "confirmé — ρ = +0.96 sur 366 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "trivial",
+      "explication": "Forte colinéarité entre coefficients d'autocorrélation et de bruit harmonique dans le signal vocal.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "f_14_median_pitch ~ f_18_max_pitch",
+     "stat": 0.267,
+     "score": 0.7673059870895333,
+     "detail": {
+      "spearman": 0.691,
+      "pearson": 0.423,
+      "n": 362,
+      "confirmation": "confirmé — ρ = +0.64 sur 366 lignes (découverte : +0.69)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F17",
+     "avis": {
+      "id": "F17",
+      "verdict": "trivial",
+      "explication": "Lien mathématique direct entre la médiane du pitch et son maximum.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_14_median_pitch ~ f_21_mean_period",
+     "stat": -0.948,
+     "score": 0.7587821828031105,
+     "detail": {
+      "spearman": -0.948,
+      "pearson": -0.882,
+      "n": 362,
+      "q": 3.9e-180,
+      "confirmation": "confirmé — ρ = -0.95 sur 366 lignes (découverte : -0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F18",
+     "avis": {
+      "id": "F18",
+      "verdict": "trivial",
+      "explication": "Relation inverse parfaite et mécanique entre la fréquence (pitch) et la période du signal vocal.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_3_jitter_ppq5 ~ f_4_jitter_ddp",
+     "stat": 0.944,
+     "score": 0.7550274605957698,
+     "detail": {
+      "spearman": 0.944,
+      "pearson": 0.893,
+      "n": 362,
+      "q": 1.3e-173,
+      "confirmation": "confirmé — ρ = +0.95 sur 366 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F19",
+     "avis": {
+      "id": "F19",
+      "verdict": "trivial",
+      "explication": "Redondance entre deux algorithmes proches de calcul du Jitter (PPQ5 et DDP).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_2_jitter_rap ~ f_3_jitter_ppq5",
+     "stat": 0.944,
+     "score": 0.7550261047566327,
+     "detail": {
+      "spearman": 0.944,
+      "pearson": 0.893,
+      "n": 362,
+      "q": 1.3e-173,
+      "confirmation": "confirmé — ρ = +0.95 sur 366 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech",
+     "id": "F20",
+     "avis": {
+      "id": "F20",
+      "verdict": "trivial",
+      "explication": "Redondance entre estimateurs du Jitter (RAP et PPQ5).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_14_median_pitch ~ f_15_mean_pitch",
+     "stat": 0.936,
+     "score": 0.7490297087984911,
+     "detail": {
+      "spearman": 0.936,
+      "pearson": 0.937,
+      "n": 362,
+      "q": 3.7e-164,
+      "confirmation": "confirmé — ρ = +0.93 sur 366 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_0_jitter_local ~ f_2_jitter_rap",
+     "stat": 0.936,
+     "score": 0.7484620772297516,
+     "detail": {
+      "spearman": 0.936,
+      "pearson": 0.927,
+      "n": 362,
+      "q": 2.2e-163,
+      "confirmation": "confirmé — ρ = +0.94 sur 366 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_0_jitter_local ~ f_4_jitter_ddp",
+     "stat": 0.936,
+     "score": 0.7484543396277024,
+     "detail": {
+      "spearman": 0.936,
+      "pearson": 0.927,
+      "n": 362,
+      "q": 2.2e-163,
+      "confirmation": "confirmé — ρ = +0.94 sur 366 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "f_15_mean_pitch ~ f_19_number_of_pulses",
+     "stat": 0.246,
+     "score": 0.7461583018074703,
+     "detail": {
+      "spearman": 0.474,
+      "pearson": 0.228,
+      "n": 362,
+      "confirmation": "confirmé — ρ = +0.47 sur 366 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "f_17_min_pitch ~ f_18_max_pitch",
+     "stat": 0.245,
+     "score": 0.7454401975579852,
+     "detail": {
+      "spearman": 0.514,
+      "pearson": 0.269,
+      "n": 362,
+      "confirmation": "confirmé — ρ = +0.53 sur 366 lignes (découverte : +0.51)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    },
+    {
+     "kind": "correlation",
+     "vars": "f_12_nth ~ f_13_htn",
+     "stat": -0.932,
+     "score": 0.745210146466873,
+     "detail": {
+      "spearman": -0.932,
+      "pearson": -0.855,
+      "n": 362,
+      "q": 8.4e-159,
+      "confirmation": "confirmé — ρ = -0.93 sur 366 lignes (découverte : -0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "f_15_mean_pitch ~ f_20_number_of_periods",
+     "stat": 0.242,
+     "score": 0.741929627997561,
+     "detail": {
+      "spearman": 0.463,
+      "pearson": 0.221,
+      "n": 362,
+      "confirmation": "confirmé — ρ = +0.44 sur 366 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "BenchmarkDatasets/Parkinson_Speech"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "wwydmanski/ParkinsonsDisease",
+    "target": null,
+    "description": "",
+    "fichier": "pd_speech_features.csv",
+    "url": "https://huggingface.co/datasets/wwydmanski/ParkinsonsDisease",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 379,
+     "confirmation": 378
+    },
+    "did": "hf:wwydmanski/ParkinsonsDisease",
+    "colonnes": {
+     "num": [],
+     "groupes": []
+    }
+   },
+   "lignes": 757,
+   "colonnes": 755,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "DynamicSuperb/PhonologicalFeatureClassification_VoxAngeles-VowelFrontness",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "macwhinney/Italian_Parkinsons_Voice_and_Speech",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "MLCommons/peoples_speech",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "UniqueData/speech-emotion-recognition-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "VoiceOfML/VOMEBOOK",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "ebook2audiobook/E2A-Voices",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "nsr51324/Speech_Emotion_Recognition",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 22,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43437",
+    "x": "meanfreq",
+    "y": "sd",
+    "groupe": "label",
+    "seuil": null,
+    "plus_fort": "male",
+    "enonce": "Le lien entre meanfreq et sd change-t-il selon le groupe label ?",
+    "requete_biblio": "voice frequency mean standard deviation gender recognition"
+   },
+   "statut": "réfutée",
+   "resume": "Dans Gender-Recognition-by-Voice, la corrélation meanfreq~sd vaut -0.63 pour « label = male » contre -0.57 pour « label = female » (p = 0.12). [Testé sur : moitié de confirmation (1488 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "label = male": {
+      "rho": -0.627,
+      "pearson": -0.698,
+      "n": 747
+     },
+     "label = female": {
+      "rho": -0.575,
+      "pearson": -0.702,
+      "n": 741
+     }
+    },
+    "groupe_predit_plus_fort": "label = male",
+    "p_difference": 0.117,
+    "donnees_test": "moitié de confirmation (1488 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.12, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Voice Gender Recognition Using Deep Learning",
+     "annee": 2016,
+     "citations": 67,
+     "url": "https://doi.org/10.2991/msota-16.2016.90"
+    },
+    {
+     "titre": "Analysis And Voice Recognition In Indonesian Language Using MFCC And SVM Method",
+     "annee": 2016,
+     "citations": 6,
+     "url": "https://doi.org/10.21512/comtech.v7i2.2252"
+    },
+    {
+     "titre": "Implementation of Yin Algorithm to Detect Human Voice Emotions According to Gender: Implementation of Yin Algorithm to Detect Human Voice Emotions According to Gender",
+     "annee": 2020,
+     "citations": 0,
+     "url": "https://openalex.org/W3120406532"
+    },
+    {
+     "titre": "A Hybrid Ensemble Stacking Model for Gender Voice Recognition Approach",
+     "annee": 2022,
+     "citations": 31,
+     "url": "https://doi.org/10.3390/electronics11111750"
+    },
+    {
+     "titre": "Voice-Based Gender Recognition Model Using FRT and Light GBM",
+     "annee": 2022,
+     "citations": 3,
+     "url": "https://doi.org/10.17559/tv-20220302182704"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond bien au test de modération, mais emploie un vocabulaire factuel adapté. Attention toutefois à ne pas surinterpréter les différences de coefficients non significatives.",
+    "reformulation": "Le lien entre la fréquence moyenne (meanfreq) et l'écart-type (sd) de la voix diffère-t-il significativement entre les groupes de genre (label) ?",
+    "diagnostic_statistique": "La différence entre les corrélations n'est pas statistiquement significative (p = 0.12). De plus, l'écart entre Pearson (-0.698) et Spearman (-0.627) dans le groupe male (|diff| = 0.071) suggère une légère non-linéarité ou la présence de valeurs atypiques.",
+    "modele_recommande": "Régression linéaire avec interaction y ~ x * z ou modèle additif généralisé (GAM) pour capturer les non-linéarités.",
+    "robustesse": "La taille des échantillons est bonne (~740 par groupe) sur un jeu de test non vu. Cependant, le test global de différence des coefficients échoue au seuil alpha classique (0.12 > 0.05).",
+    "interpretation_domaine": "En acoustique vocale, la fréquence fondamentale moyenne et sa dispersion (écart-type) sont structurellement corrélées en raison de la physiologie du tractus vocal humain, les voix masculines ayant généralement des fréquences plus basses et une variabilité différente. La littérature (ex: analyses MFCC) montre des distributions bimodales selon le genre, mais la modulation de cette corrélation précise entre les groupes n'est pas statistiquement avérée ici.",
+    "action_pipeline": "Ajouter un test formel d'égalité des coefficients de corrélation (ex: test de Z de Fisher) avant de valider l'hypothèse d'une modification par sous-groupe, et exiger p < 0.05.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La relation entre la fréquence fondamentale moyenne (meanfreq) et la déviation standard (sd) de la voix est un classique de la biométrie vocale liée au genre.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  },
+  {
+   "id": 23,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43437",
+    "x": "meanfun",
+    "y": "maxfun",
+    "groupe": "label",
+    "seuil": null,
+    "plus_fort": "female",
+    "enonce": "Le lien entre meanfun et maxfun change-t-il selon le groupe label ?",
+    "requete_biblio": "fundamental frequency maximum pitch gender differences speech"
+   },
+   "statut": "réfutée",
+   "resume": "Dans Gender-Recognition-by-Voice, la corrélation meanfun~maxfun vaut +0.15 pour « label = female » contre +0.57 pour « label = male » (p = 2.8e-21) : effet INVERSE de celui prédit. [Testé sur : moitié de confirmation (1488 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "label = male": {
+      "rho": 0.567,
+      "pearson": 0.455,
+      "n": 747
+     },
+     "label = female": {
+      "rho": 0.15,
+      "pearson": 0.192,
+      "n": 741
+     }
+    },
+    "groupe_predit_plus_fort": "label = female",
+    "p_difference": 2.82e-21,
+    "donnees_test": "moitié de confirmation (1488 lignes jamais vues à l'exploration)",
+    "holm": "p = 2.8e-21, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Prediction of speaking fundamental frequency using the voice and speech range profiles in normal adults*",
+     "annee": 2019,
+     "citations": 6,
+     "url": "https://doi.org/10.13064/ksss.2019.11.3.049"
+    },
+    {
+     "titre": "Pitch Perfect: Vocal Pitch and the Emotional Intensity of Congressional Speech",
+     "annee": 2019,
+     "citations": 154,
+     "url": "https://doi.org/10.1017/s0003055419000467"
+    },
+    {
+     "titre": "No Pitch Left Behind: Addressing Gender Unbalance In Automatic Speech Recognition Through Pitch Manipulation",
+     "annee": 2023,
+     "citations": 8,
+     "url": "https://doi.org/10.1109/asru57964.2023.10389767"
+    },
+    {
+     "titre": "Vocal Fundamental Frequency and Sound Pressure Level in Charismatic Speech: A Cross-Gender and -Language Study",
+     "annee": 2019,
+     "citations": 20,
+     "url": "https://doi.org/10.1016/j.jvoice.2019.04.007"
+    },
+    {
+     "titre": "SPEAKER DATABASE TEST AND FUNDAMENTAL FREQUENCY IN SPEECH",
+     "annee": 1998,
+     "citations": 0,
+     "url": "https://doi.org/10.3176/lu.1998.3.05"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé teste correctement une modération (variation du lien selon le groupe), mais la prédiction initiale sur le sens de la force du lien était inversée par rapport aux données.",
+    "reformulation": "Le lien entre la fréquence fondamentale moyenne (meanfun) et maximale (maxfun) diffère-t-il selon le genre (label) ?",
+    "diagnostic_statistique": "Pour le groupe 'label = male', |Spearman (0.567) - Pearson (0.455)| > 0.15, ce qui suggère une non-linéarité ou la présence de valeurs extrêmes. Le lien est significativement plus fort chez les hommes que chez les femmes, contrairement à l'hypothèse initiale.",
+    "modele_recommande": "Modèle linéaire avec interaction (maxfun ~ meanfun * label) ou GAM pour capturer la non-linéarité chez les hommes.",
+    "robustesse": "Bonne taille d'échantillon (environ 740 observations par groupe). Données observationnelles issues d'un échantillon vocal, avec un risque de biais de sélection des locuteurs.",
+    "interpretation_domaine": "En physiologie vocale, les hommes et les femmes présentent des plages de fréquences fondamentales différentes. La physiologie des cordes vocales masculines montre une relation plus rigide entre moyenne et maximum dans cette base de données, un phénomène documenté dans les études sur le pitch vocal.",
+    "action_pipeline": "Corriger l'heuristique de prédiction du groupe le plus fort en amont en intégrant les connaissances physiologiques sur la voix humaine.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Le lien entre la fréquence fondamentale moyenne (meanfun) et maximale (maxfun) est largement documenté dans l'analyse de la hauteur vocale.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  },
+  {
+   "id": 24,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "375",
+    "x": "coefficient1",
+    "y": "coefficient2",
+    "groupe": "utterance",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre coefficient1 et coefficient2 change-t-il selon le groupe utterance ?",
+    "requete_biblio": "japanese vowels lpc coefficients speaker recognition dynamics"
+   },
+   "statut": "réfutée",
+   "resume": "Dans JapaneseVowels, la corrélation coefficient1~coefficient2 vaut -0.01 pour « utterance ≤ 18 » contre -0.05 pour « utterance > 18 » (écart 0.04, p = 0.15). [Testé sur : moitié de confirmation (4940 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "utterance ≤ 18": {
+      "rho": -0.009,
+      "pearson": -0.025,
+      "n": 2560
+     },
+     "utterance > 18": {
+      "rho": -0.05,
+      "pearson": -0.065,
+      "n": 2380
+     }
+    },
+    "p_difference": 0.15,
+    "donnees_test": "moitié de confirmation (4940 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.15, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Recognition of vowels in continuous speech based on the dynamic characteristics of WLR distance trajectories.",
+     "annee": 1986,
+     "citations": 5,
+     "url": "https://doi.org/10.1250/ast.7.29"
+    },
+    {
+     "titre": "Speaker Recognition through Deep Learning Techniques",
+     "annee": 2023,
+     "citations": 15,
+     "url": "https://doi.org/10.3311/ppee.20971"
+    },
+    {
+     "titre": "Articulatory and acoustic dynamics of fronted back vowels in American English",
+     "annee": 2024,
+     "citations": 6,
+     "url": "https://doi.org/10.1121/10.0025461"
+    },
+    {
+     "titre": "Speaker Recognition Using Shift ed MFCC",
+     "annee": 2012,
+     "citations": 4,
+     "url": "https://openalex.org/W1535846839"
+    },
+    {
+     "titre": "Biomimetic multi-resolution analysis for robust speaker recognition",
+     "annee": 2012,
+     "citations": 6,
+     "url": "https://doi.org/10.1186/1687-4722-2012-22"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation pose correctement la question d'une modération par le groupe utterance, mais utilise le terme générique 'lien'.",
+    "reformulation": "Le lien entre coefficient1 et coefficient2 diffère-t-il selon la période d'énonciation (utterance) ?",
+    "diagnostic_statistique": "Les corrélations de Pearson et Spearman sont très faibles et proches de zéro dans les deux groupes (rho entre -0.01 et -0.05). L'écart n'est pas statistiquement significatif (p = 0.15). L'écart entre Spearman et Pearson est inférieur à 0.15, donc pas de non-linéarité majeure détectée, mais l'absence de corrélation linéaire est évidente.",
+    "modele_recommande": "Aucun modèle requis car il n'y a pas de relation significative à modéliser.",
+    "robustesse": "Testé sur un échantillon de confirmation robuste (4940 lignes). La puissance statistique est suffisante mais l'effet recherché est pratiquement nul.",
+    "interpretation_domaine": "En analyse acoustique (coefficients LPC des voyelles japonaises), ces coefficients représentent des dimensions spectrales indépendantes ou orthogonales pour capturer le timbre, ce qui explique l'absence de corrélation linéaire entre eux, indépendamment du numéro d'énonciation.",
+    "action_pipeline": "Filtrer en amont les paires de variables dont la corrélation globale est quasi-nulle pour éviter de tester des interactions non pertinentes.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La dynamique des coefficients cepstraux (MFCC) pour la reconnaissance de voyelles et de locuteurs est un standard établi du traitement de la parole.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  },
+  {
+   "id": 25,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "43437",
+    "x": "sp.ent",
+    "y": "meanfreq",
+    "seuil": 0.5,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre sp.ent et meanfreq est-il plus fort au-dessus du seuil de 0.5 ?",
+    "requete_biblio": "spectral entropy mean frequency voice classification threshold"
+   },
+   "statut": "non testable",
+   "resume": "pas assez de données dans les sous-groupes [Testé sur : moitié de confirmation (1488 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "donnees_test": "moitié de confirmation (1488 lignes jamais vues à l'exploration)"
+   },
+   "biblio": [
+    {
+     "titre": "Spectral envelope first peak and periodic component in pathological voices: A spectral analysis",
+     "annee": 2018,
+     "citations": 14,
+     "url": "https://doi.org/10.1016/j.procs.2018.10.010"
+    },
+    {
+     "titre": "Spectral Entropy Employment In Speech Enhancement Based On Wavelet Packet",
+     "annee": 2007,
+     "citations": 5,
+     "url": "https://doi.org/10.5281/zenodo.1057300"
+    },
+    {
+     "titre": "Effect of vowel context in cepstral and entropy analysis of pathological voices",
+     "annee": 2018,
+     "citations": 23,
+     "url": "https://doi.org/10.1016/j.bspc.2018.08.021"
+    },
+    {
+     "titre": "Voice Activity Detection Using Fuzzy Entropy and Support Vector Machine",
+     "annee": 2016,
+     "citations": 24,
+     "url": "https://doi.org/10.3390/e18080298"
+    },
+    {
+     "titre": "Voice Frequency-Based Gender Classification Using Convolutional Neural Network",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.65521/ijacect.v15i1.2382"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé est correct et utilise le terme 'lien' adapté aux données observationnelles, mais le test a échoué par manque d'effectif dans le sous-groupe.",
+    "reformulation": "Le lien entre sp.ent et meanfreq varie-t-il selon que sp.ent est supérieur ou inférieur à 0.5 ?",
+    "diagnostic_statistique": "Impossible de calculer les métriques de corrélation ou de régression en raison d'un effectif insuffisant dans l'un des sous-groupes définis par le seuil de 0.5.",
+    "modele_recommande": "régression segmentée ou modèle linéaire généralisé avec spline (GAM) pour capturer les effets de seuil sans diviser arbitrairement l'échantillon.",
+    "robustesse": "Faible à cause de la taille insuffisante de l'échantillon de confirmation dans la strate définie, ce qui pose un problème de puissance statistique.",
+    "interpretation_domaine": "En acoustique vocale, l'entropie spectrale (sp.ent) et la fréquence moyenne (meanfreq) sont liées aux caractéristiques harmoniques et au bruit de la voix, mais un seuil fixe de 0.5 peut isoler une zone creuse de la distribution.",
+    "action_pipeline": "Vérifier la distribution de la variable de seuil avant de segmenter et privilégier des modèles continus non-linéaires (splines) plutôt qu'une coupure binaire si les effectifs par strate sont trop faibles.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "L'entropie spectrale et son interaction avec la fréquence moyenne dans les voix pathologiques manquent de caractérisation sous forme de seuils précis.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "sujet": "Ce que dit la voix"
+  }
+ ]
+}

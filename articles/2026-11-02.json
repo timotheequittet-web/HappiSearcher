@@ -1,0 +1,362 @@
+{
+ "date": "2026-11-02",
+ "faits": {
+  "date": "2026-11-02",
+  "date_longue": "2 novembre 2026",
+  "sujets": [
+   "Inégalités de revenus",
+   "Réussite scolaire",
+   "Santé métabolique",
+   "Signatures dans la démarche (IMU)"
+  ],
+  "questions": [
+   "Les signaux d'accéléromètre et de gyroscope (téléphone, montre) trahissent-ils le genre, l'âge ou l'identité de la personne, et quels axes portent cette information ?",
+   "Qu'est-ce qui distingue les élèves qui réussissent malgré un contexte défavorable ?",
+   "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?",
+   "À diplôme égal, quels facteurs creusent ou réduisent les écarts de salaire ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "thyroid-dis",
+    "lignes": 2800,
+    "colonnes": 27,
+    "resultats_bruts": 14,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "cardiotocography",
+    "lignes": 2126,
+    "colonnes": 36,
+    "resultats_bruts": 61,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "thyroid-allhyper",
+    "lignes": 2800,
+    "colonnes": 27,
+    "resultats_bruts": 14,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Diabetes(scikit-learn)",
+    "lignes": 442,
+    "colonnes": 11,
+    "resultats_bruts": 20,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "diabetes_risk_prediction_dataset",
+    "lignes": 520,
+    "colonnes": 17,
+    "resultats_bruts": 16,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "medical_cost",
+    "lignes": 1338,
+    "colonnes": 7,
+    "resultats_bruts": 4,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Indian-Liver-Patient-Records",
+    "lignes": 583,
+    "colonnes": 11,
+    "resultats_bruts": 18,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "chronic-kidney-disease",
+    "lignes": 400,
+    "colonnes": 26,
+    "resultats_bruts": 29,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Medical-Appointment",
+    "lignes": 61214,
+    "colonnes": 19,
+    "resultats_bruts": 12,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Student_Performance_Dataset",
+    "lignes": 2392,
+    "colonnes": 15,
+    "resultats_bruts": 3,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Students-Academic-Performance-Dataset",
+    "lignes": 480,
+    "colonnes": 17,
+    "resultats_bruts": 14,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "UCI-student-performance-por",
+    "lignes": 649,
+    "colonnes": 33,
+    "resultats_bruts": 8,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "StudentsPerformance",
+    "lignes": 1000,
+    "colonnes": 8,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Global-School-Closures-for-COVID-19",
+    "lignes": 41714,
+    "colonnes": 4,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "law-school-admission-bianry",
+    "lignes": 20800,
+    "colonnes": 12,
+    "resultats_bruts": 5,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Sample---Employees-Monthly-Salary",
+    "lignes": 1802,
+    "colonnes": 12,
+    "resultats_bruts": 13,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "data_scientist_salary",
+    "lignes": 15841,
+    "colonnes": 7,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "cps_85_wages",
+    "lignes": 534,
+    "colonnes": 11,
+    "resultats_bruts": 5,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Adult-Census-Income",
+    "lignes": 32561,
+    "colonnes": 15,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "autism-adult-data",
+    "lignes": 704,
+    "colonnes": 21,
+    "resultats_bruts": 7,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Govt.-of-India-Census-2001-District-Wise",
+    "lignes": 590,
+    "colonnes": 82,
+    "resultats_bruts": 653,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "NetherlandsForensicInstitute/NFI_FARED_IMU",
+    "lignes": 200000,
+    "colonnes": 17,
+    "resultats_bruts": 8,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "liguo12/Tencent_Fall_Detection",
+    "lignes": 35441,
+    "colonnes": 13,
+    "resultats_bruts": 30,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "issai/IMUWiFine",
+    "lignes": 57837,
+    "colonnes": 203,
+    "resultats_bruts": 8,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 10,
+  "hypotheses_testees": [
+   {
+    "id": "H1",
+    "enonce": "L'effet de l'indice de masse corporelle (bmi) sur les charges médicales est-il différent selon que le patient est fumeur ou non ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans medical_cost, la corrélation bmi~charges vaut +0.81 pour « smoker = yes » contre +0.11 pour « smoker = no » (écart 0.70, p = 3.5e-25).",
+    "bloque_a": "Nouveau : nouveauté non évaluée",
+    "litterature": null
+   },
+   {
+    "id": "H2",
+    "enonce": "La probabilité de diagnostic positif du diabète augmente-t-elle brusquement au-dessus de 45 ans ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans diabetes_risk_prediction_dataset, class vaut en moyenne 0.603 juste en dessous de Age = 45 et 0.669 juste au-dessus (écart +0.13 écart-type, p = 0.22, fenêtre ±11.1).",
+    "bloque_a": null,
+    "litterature": null
+   },
+   {
+    "id": "H3",
+    "enonce": "La relation entre la bilirubine totale et l'alamine aminotransferase diffère-t-elle selon le genre des patients atteints de troubles hépatiques ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans Indian-Liver-Patient-Records, la corrélation Total_Bilirubin~Alamine_Aminotransferase vaut +0.42 pour « Gender = Male » contre +0.41 pour « Gender = Female » (écart 0.01, p = 0.94).",
+    "bloque_a": null,
+    "litterature": null
+   },
+   {
+    "id": "H4",
+    "enonce": "La relation entre bgr (glucose) et sc (créatinine) diffère-t-elle selon le statut diabétique (dm) ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans chronic-kidney-disease, la corrélation bgr~sc vaut +0.27 pour « dm = no » contre +0.09 pour « dm = yes » (écart 0.19, p = 0.25).",
+    "bloque_a": null,
+    "litterature": "La littérature médicale documente largement l'effet du diabète sur les paramètres biologiques rénaux."
+   },
+   {
+    "id": "H5",
+    "enonce": "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle modifiée par la présence d'une hypertension (htn) ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans chronic-kidney-disease, la corrélation sc~hemo vaut -0.43 pour « htn = no » contre -0.58 pour « htn = yes » (écart 0.14, p = 0.093).",
+    "bloque_a": null,
+    "litterature": "Plusieurs études explorent l'hypertension et la créatinine, mais l'interaction précise avec l'hémoglobine reste peu formalisée."
+   },
+   {
+    "id": "H6",
+    "enonce": "La corrélation entre l'âge et la créatinine sérique est-elle plus prononcée chez les patients de plus de 60 ans ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans chronic-kidney-disease, la corrélation age~sc vaut +0.11 pour « age > 60 » contre +0.41 pour « age ≤ 60 » (p = 0.0032) : effet INVERSE de celui prédit.",
+    "bloque_a": null,
+    "litterature": "Le vieillissement et son impact sur la fonction rénale et la créatinine sont amplement décrits en néphrologie."
+   },
+   {
+    "id": "H7",
+    "enonce": "La relation négative entre les absences et le GPA est-elle atténuée chez les élèves bénéficiant d'un fort soutien parental ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans Student_Performance_Dataset, la corrélation Absences~GPA vaut -0.94 pour « ParentalSupport = 1 » contre -0.94 pour « ParentalSupport = 2 » (écart 0.01, p = 0.38).",
+    "bloque_a": null,
+    "litterature": "La littérature aborde la résilience académique et le soutien parental, mais l'absence d'effet modérateur direct sur la corrélation absences-GPA reste peu documentée de cette façon."
+   },
+   {
+    "id": "H8",
+    "enonce": "La corrélation entre la participation en classe et l'utilisation des ressources en ligne dépend-elle de la satisfaction des parents envers l'école ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans Students-Academic-Performance-Dataset, la corrélation raisedhands~VisITedResources vaut +0.77 pour « ParentschoolSatisfaction = Bad » contre +0.54 pour « ParentschoolSatisfaction = Good » (écart 0.23, p = 0.0026).",
+    "bloque_a": "Non trivial : avis d'expert : A_TESTER_AUTREMENT",
+    "litterature": "Le rôle de la satisfaction et de l'engagement en ligne dans la réussite et l'interaction des étudiants est largement documenté dans la recherche sur l'e-learning."
+   },
+   {
+    "id": "H9",
+    "enonce": "L'impact du temps d'étude sur la note finale G3 est-il plus prononcé pour les élèves ayant l'intention de faire des études supérieures ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans UCI-student-performance-por, la corrélation studytime~G3 vaut +0.23 pour « higher = yes » contre +0.19 pour « higher = no » (écart 0.04, p = 0.75).",
+    "bloque_a": null,
+    "litterature": "Le lien entre aspirations d'études supérieures et temps d'étude a fait l'objet de quelques études d'impact, mais sans consensus clair sur la modération."
+   },
+   {
+    "id": "H10",
+    "enonce": "Le lien entre math score et reading score change-t-il selon le niveau d'éducation des parents (parental level of education) ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans StudentsPerformance, la corrélation math score~reading score vaut +0.78 pour « parental level of education = bachelor's degree » contre +0.87 pour « parental level of education = master's degree » (p = 0.069).",
+    "bloque_a": null,
+    "litterature": "L'effet du niveau d'éducation des parents sur les performances est documenté, mais son rôle modérateur précis sur la corrélation entre compétences mathématiques et de lecture reste peu formalisé."
+   },
+   {
+    "id": "H11",
+    "enonce": "Le lien entre math score et writing score change-t-il selon le type de repas (lunch) ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans StudentsPerformance, la corrélation math score~writing score vaut +0.75 pour « lunch = standard » contre +0.79 pour « lunch = free/reduced » (p = 0.14).",
+    "bloque_a": null,
+    "litterature": null
+   },
+   {
+    "id": "H12",
+    "enonce": "Le lien entre reading score et writing score change-t-il selon la participation au cours de préparation (test preparation course) ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans StudentsPerformance, la corrélation reading score~writing score vaut +0.94 pour « test preparation course = completed » contre +0.95 pour « test preparation course = none » (p = 0.15).",
+    "bloque_a": null,
+    "litterature": null
+   },
+   {
+    "id": "H13",
+    "enonce": "Le lien entre lsat et ugpa change-t-il selon le statut d'étude à temps plein ou partiel (fulltime) ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans law-school-admission-bianry, la corrélation lsat~ugpa vaut +0.23 pour « fulltime = 1 » contre +0.03 pour « fulltime = 2 » (p = 4.4e-08).",
+    "bloque_a": "Nouveau : nouveauté non évaluée",
+    "litterature": null
+   }
+  ],
+  "bilan_tests": {
+   "confirmée": 3,
+   "réfutée": 6,
+   "non concluante": 4
+  },
+  "resultats_solides": [
+   "H1",
+   "H13"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 17,
+  "nouvelles_hypotheses": [
+   "L'effet de l'indice de masse corporelle (bmi) sur les charges médicales est-il différent selon que le patient est fumeur ou non ?",
+   "La probabilité de diagnostic positif du diabète augmente-t-elle brusquement au-dessus de 45 ans ?",
+   "La relation entre la bilirubine totale et l'alamine aminotransferase diffère-t-elle selon le genre des patients atteints de troubles hépatiques ?",
+   "La relation entre bgr (glucose) et sc (créatinine) diffère-t-elle selon le statut diabétique (dm) ?",
+   "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle modifiée par la présence d'une hypertension (htn) ?"
+  ],
+  "runs": [
+   "2026-11-02_2153_diabet",
+   "2026-11-02_2156_diabet",
+   "2026-11-02_2158_diabet",
+   "2026-11-02_2206_student",
+   "2026-11-02_2229_student",
+   "2026-11-02_2324_adult",
+   "2026-11-02_2331_imu"
+  ]
+ },
+ "en_chiffres": [
+  "24 datasets analysés, 10 écartés (illisibles, hors sujet ou indisponibles)",
+  "13 hypothèses testées : 6 réfutée, 4 non concluante, 3 confirmée",
+  "2 résultats solides (niveau ≥ 3/6)",
+  "17 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne : quand les données mettent à l'épreuve nos hypothèses",
+ "chapo": "Cette nuit, la Raspberry Pi a mené l'enquête à travers de multiples jeux de données pour tester des liens complexes en santé, éducation et économie.",
+ "paragraphes": [
+  "L'investigation a passé au crible 13 hypothèses de travail. Le bilan fait état de 3 confirmations, 6 réfutations et 4 cas non conclusants. Parmi les pistes explorées, l'enquête s'est penchée sur la santé métabolique et la réussite scolaire. Un des faits marquants de la nuit concerne l'analyse de l'effet de l'indice de masse corporelle sur les charges médicales : le test a fourni un résultat solide à ce stade, montrant un lien bien plus prononcé chez les fumeurs que chez les non-fumeurs. Un autre résultat solide à ce stade a émergé concernant le lien entre le test d'admission lsat et les notes universitaires ugpa selon le statut d'étude.",
+  "Cependant, l'enquête montre aussi que plusieurs pistes n'ont pas résisté à la vérification. Par exemple, l'idée d'une augmentation brusque de la probabilité de diagnostic positif du diabète au-dessus de 45 ans a été réfutée, tout comme l'hypothèse d'une différence liée au genre dans la relation entre certains indicateurs hépatiques. De plus, la relation entre l'âge et la créatinine sérique a présenté un effet inverse de celui prédit chez les patients de plus de 60 ans. Loin d'être des échecs, ces réfutations apportent des informations utiles pour recadrer les pistes fragiles et réajuster le tir pour les prochaines nuits d'analyse."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+}

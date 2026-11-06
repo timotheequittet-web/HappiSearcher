@@ -1,0 +1,207 @@
+{
+ "date": "2026-11-03",
+ "faits": {
+  "date": "2026-11-03",
+  "date_longue": "3 novembre 2026",
+  "sujets": [
+   "Ce que dit la voix",
+   "Imagerie médicale et attributs cachés"
+  ],
+  "questions": [
+   "Les images médicales (peau, radio, IRM) permettent-elles de retrouver le sexe ou l'âge du patient, et ces informations biaisent-elles les diagnostics ?",
+   "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "dermatology",
+    "lignes": 366,
+    "colonnes": 35,
+    "resultats_bruts": 35,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Srizon1/Alzheimer_MRI",
+    "lignes": 240,
+    "colonnes": 12,
+    "resultats_bruts": 19,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "sasi2004/chest-xrays-indiana-university",
+    "lignes": 2748,
+    "colonnes": 4,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "lignes": 4353,
+    "colonnes": 15,
+    "resultats_bruts": 12,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "Gender-Recognition-by-Voice",
+    "lignes": 3168,
+    "colonnes": 21,
+    "resultats_bruts": 92,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "JapaneseVowels",
+    "lignes": 9961,
+    "colonnes": 15,
+    "resultats_bruts": 22,
+    "confirmes_sur_moitie_independante": 11
+   },
+   {
+    "nom": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "lignes": 1039,
+    "colonnes": 29,
+    "resultats_bruts": 157,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 18,
+  "hypotheses_testees": [
+   {
+    "id": "H14",
+    "enonce": "Le lien entre acc x rug et acc y rug change-t-il selon label activity ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans NetherlandsForensicInstitute/NFI_FARED_IMU, la corrélation acc x rug~acc y rug vaut +0.12 pour « label activity = running » contre +0.42 pour « label activity = sitting » (p = 0) : effet INVERSE de celui prédit.",
+    "bloque_a": null,
+    "litterature": "La variation des corrélations accélérométriques selon l'activité physique est un phénomène documenté en reconnaissance d'activité."
+   },
+   {
+    "id": "H15",
+    "enonce": "Le lien entre rot x rug et rot y rug change-t-il selon label activity ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans NetherlandsForensicInstitute/NFI_FARED_IMU, la corrélation rot x rug~rot y rug vaut +0.06 pour « label activity = running » contre -0.10 pour « label activity = sitting » (p = 9.3e-93). Attention : relation non linéaire ou valeurs extrêmes dans « label activity = sitting » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "Les non-linéarités et artefacts de capteurs dans les signaux de gyroscope selon l'activité nécessitent des approches par splines ou modèles non linéaires."
+   },
+   {
+    "id": "H16",
+    "enonce": "Peut-on prédire la cible y avec SEULEMENT ces variables ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans issai/IMUWiFine, prédire y avec ax, ay, az, gx, gy, gz donne r2 = 0.23 (hasard ≈ 0.00, p = 0.048 sur 20 permutations, validation aléatoire).",
+    "bloque_a": "Non trivial : avis d'expert : NON",
+    "litterature": "La prédiction de cibles à partir de données inertielles brutes est une tâche standard en localisation et suivi d'activité."
+   },
+   {
+    "id": "H17",
+    "enonce": "La relation se retrouve-t-elle dans d'autres datasets ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Aucun autre dataset contenant à la fois « mx » et « y » n'a été trouvé.",
+    "bloque_a": null,
+    "litterature": "La recherche de généralisation inter-datasets pour les capteurs de smartphones est un axe classique mais difficile en raison de l'hétérogénéité."
+   },
+   {
+    "id": "H18",
+    "enonce": "Le lien entre CRP_Level et Age change-t-il selon le groupe Gender ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans, la corrélation CRP_Level~Age vaut +0.03 pour « Gender = Male » contre -0.00 pour « Gender = Female » (p = 0.51).",
+    "bloque_a": null,
+    "litterature": "La relation entre l'âge, les marqueurs inflammatoires et le genre dans les pathologies respiratoires est largement documentée en milieu clinique."
+   },
+   {
+    "id": "H19",
+    "enonce": "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe erythema ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans dermatology, la corrélation Age~elongation_of_the_rete_ridges vaut -0.23 pour « erythema = 1 » contre +0.41 pour « erythema = 3 » (p = 0.0063) : effet INVERSE de celui prédit.",
+    "bloque_a": null,
+    "litterature": null
+   },
+   {
+    "id": "H20",
+    "enonce": "Peut-on prédire la cible Gender avec SEULEMENT ces variables ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans, prédire Gender avec CRP_Level, WBC_Count, Age donne balanced_accuracy = 0.53 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire).",
+    "bloque_a": null,
+    "litterature": "L'utilisation de données cliniques combinées pour prédire des variables démographiques comme le genre fait l'objet de nombreux travaux d'apprentissage automatique."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 3,
+   "non concluante": 3,
+   "confirmée": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "variables": "X187.576 ~ X160",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Il existe un lien non linéaire confirmé entre deux mesures de fréquence ou d'amplitude vocale dans le dataset de Parkinson.",
+    "detail": "confirmé — ρ = +0.36 sur 517 lignes (découverte : +0.48)"
+   },
+   {
+    "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "variables": "X187.576 ~ X159",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Une relation non linéaire similaire est observée entre des paramètres acoustiques de la voix dans le contexte de la maladie de Parkinson.",
+    "detail": "confirmé — ρ = +0.32 sur 517 lignes (découverte : +0.44)"
+   },
+   {
+    "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "variables": "X164.781 ~ X160",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Corrélation non linéaire confirmée entre des caractéristiques de signaux vocaux enregistrés chez des patients atteints de Parkinson.",
+    "detail": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.49)"
+   },
+   {
+    "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "variables": "X164.781 ~ X159",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien robuste entre des variables de propriétés acoustiques dans le dataset de Parkinson.",
+    "detail": "confirmé — ρ = +0.41 sur 517 lignes (découverte : +0.46)"
+   },
+   {
+    "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "variables": "X166.533 ~ X160",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Relation non linéaire confirmée entre des descripteurs de signaux vocaux.",
+    "detail": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.48)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 8,
+  "nouvelles_hypotheses": [
+   "Le lien entre CRP_Level et Age change-t-il selon le groupe Gender ?",
+   "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe erythema ?",
+   "Peut-on prédire la cible Gender avec SEULEMENT ces variables ?",
+   "Le lien entre rouge et bleu change-t-il selon le groupe classe ?",
+   "Le lien entre meanfreq et sd change-t-il selon le groupe label ?"
+  ],
+  "runs": [
+   "2026-11-03_0330_ham10000",
+   "2026-11-03_0930_voice"
+  ]
+ },
+ "en_chiffres": [
+  "7 datasets analysés, 18 écartés (illisibles, hors sujet ou indisponibles)",
+  "7 hypothèses testées : 3 réfutée, 3 non concluante, 1 confirmée",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "8 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Ce que la voix et l'imagerie médicale révèlent de nos données",
+ "chapo": "Cette nuit, la Raspberry a enquêté sur les liens cachés dans la voix et l'imagerie médicale, entre pistes fragiles et hypothèses réfutées.",
+ "paragraphes": [
+  "L'enquête s'est penchée sur la voix et l'imagerie médicale pour comprendre ce que ces données révèlent. Du côté des tests d'hypothèses, 3 ont été réfutées, 3 sont restées non concluantes, et 1 seule a été confirmée, qualifiée de piste fragile de niveau 2 sur 6. Par exemple, l'hypothèse testant si le lien entre l'âge et un indicateur cutané changeait selon un symptôme a montré un effet inverse de celui prédit. De même, l'analyse d'un dataset sur les radiographies pulmonaires a révélé une alerte qualité : tenter d'y prédire le genre à l'aide de variables cliniques n'a donné qu'une précision très proche du hasard, tout comme l'évaluation du lien entre marqueurs inflammatoires et âge selon le genre.",
+  "Malgré ces difficultés, l'exploration de données vocales a permis d'isoler des pistes intéressantes, notamment des relations non linéaires confirmées entre différentes mesures de fréquence ou d'amplitude de la voix dans un dataset sur la maladie de Parkinson. Un test portant sur la prédiction d'une cible à partir de données de mouvements a également fourni une piste fragile. Rappelons qu'un test réfuté reste une information utile pour orienter les futures analyses de la Raspberry."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+}

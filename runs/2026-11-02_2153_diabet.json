@@ -1,0 +1,1219 @@
+{
+ "id": "2026-11-02_2153_diabet",
+ "date": "2026-11-02T21:53",
+ "sujet": "Santé métabolique",
+ "keywords": [
+  "diabet",
+  "heart",
+  "cancer",
+  "breast",
+  "hepatitis",
+  "kidney",
+  "indian-liver",
+  "stroke",
+  "parkinson",
+  "alzheimer",
+  "cardio",
+  "thyroid",
+  "dermatology",
+  "chest x-ray",
+  "malaria",
+  "skin lesion"
+ ],
+ "analyse": {
+  "synthese": "L'analyse automatisée de ces bases de données biomédicales (cardiotocographie, diabète et thyroïde) révèle un mélange de redondances mécaniques entre variables cliniques et de liens prédictifs intéressants. De fortes corrélations traduisent souvent la mesure d'indicateurs physiologiques très proches, tandis que des variables comme l'indice de masse corporelle confirment leur rôle clé dans les pathologies métaboliques. Un regard critique est indispensable pour séparer la véritable découverte biologique du simple artefact de codage.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Il existe une association non linéaire modérée entre ces deux paramètres de surveillance fœtale lors de l'accouchement.",
+    "hypothese": "Les variations de la variable V11 amplifient de manière non linéaire la réponse mesurée par V24 en cas de souffrance fœtale."
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une relation non linéaire lie ces deux mesures obstétricales enregistrées par cardiotocographie.",
+    "hypothese": "L'augmentation progressive du paramètre V6 induit un seuil critique au-delà duquel V24 réagit de façon disproportionnée."
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Ces deux variables du fœtoprogramme mesurent des aspects quasi identiques de la fréquence cardiaque fœtale.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'une forte colinéarité mécanique entre deux descripteurs similaires de l'activité cardiaque fœtale.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Ces deux variables sanguines mesurent des fractions ou des sous-types très proches du cholestérol chez les patients diabétiques.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Cette forte corrélation négative lie deux métriques standardisées du profil lipidique mesurées lors de l'étude sur le diabète.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "L'indice de masse corporelle (BMI) apporte une information prédictive significative sur la sévérité ou la présence du diabète.",
+    "hypothese": "Un dépassement du seuil de BMI de 30 augmente de manière non linéaire le risque métabolique mesuré par la variable cible."
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "La variable s5 (mesure liée aux triglycérides ou à l'inflammation) détient un pouvoir informatif notable sur la progression du diabète.",
+    "hypothese": "Le taux de s5 agit comme un médiateur clé entre l'insulinorésistance et les complications cliniques associées."
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Forte redondance statistique entre deux attributs biochimiques décrivant la fonction thyroïdienne dans la même base de données.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Identique à F9, cette corrélation provient de la structure similaire ou dupliquée des fichiers de données sur la thyroïde.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Le test clinique V20 fournit une quantité d'information utile pour classifier les différents types de dysfonctionnements thyroïdiens.",
+    "hypothese": "L'intégration de V20 dans un algorithme de diagnostic améliore la détection précoce de l'hypothyroïdie subclinique."
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "Comme pour F11, le marqueur V20 retient un pouvoir discriminant important pour identifier les pathologies thyroïdiennes.",
+    "hypothese": "La valeur seuil de V20 permet de séparer efficacement les patients sains des sujets en hyperthyroïdie."
+   }
+  },
+  "pistes": [
+   "Étudier la nature exacte des transformations mathématiques ou des redondances dans les bases de données thyroïdiennes pour éliminer les biais de duplication.",
+   "Approfondir l'analyse non linéaire entre les variables de cardiotocographie pour améliorer la prédiction de l'asphyxie fœtale.",
+   "Examiner l'intéraction combinée du BMI et du marqueur s5 pour affiner le profilage des patients à haut risque de diabète sévère."
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "V11 ~ V24",
+   "stat": 0.368,
+   "score": 0.8684880508067663,
+   "detail": {
+    "spearman": -0.65,
+    "pearson": -0.282,
+    "n": 2126
+   },
+   "dataset": "cardiotocography",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Il existe une association non linéaire modérée entre ces deux paramètres de surveillance fœtale lors de l'accouchement.",
+    "hypothese": "Les variations de la variable V11 amplifient de manière non linéaire la réponse mesurée par V24 en cas de souffrance fœtale."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "V6 ~ V24",
+   "stat": 0.284,
+   "score": 0.7843836937715812,
+   "detail": {
+    "spearman": 0.396,
+    "pearson": 0.112,
+    "n": 2126
+   },
+   "dataset": "cardiotocography",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une relation non linéaire lie ces deux mesures obstétricales enregistrées par cardiotocographie.",
+    "hypothese": "L'augmentation progressive du paramètre V6 induit un seuil critique au-delà duquel V24 réagit de façon disproportionnée."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "V21 ~ V23",
+   "stat": 0.961,
+   "score": 0.7689455954824354,
+   "detail": {
+    "spearman": 0.961,
+    "pearson": 0.933,
+    "n": 2126,
+    "q": 0.0
+   },
+   "dataset": "cardiotocography",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Ces deux variables du fœtoprogramme mesurent des aspects quasi identiques de la fréquence cardiaque fœtale.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "V22 ~ V23",
+   "stat": 0.958,
+   "score": 0.7662063544901495,
+   "detail": {
+    "spearman": 0.958,
+    "pearson": 0.948,
+    "n": 2126,
+    "q": 0.0
+   },
+   "dataset": "cardiotocography",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'une forte colinéarité mécanique entre deux descripteurs similaires de l'activité cardiaque fœtale.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s1 ~ s2",
+   "stat": 0.879,
+   "score": 0.703034289220867,
+   "detail": {
+    "spearman": 0.879,
+    "pearson": 0.897,
+    "n": 442,
+    "q": 1e-141
+   },
+   "dataset": "Diabetes(scikit-learn)",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Ces deux variables sanguines mesurent des fractions ou des sous-types très proches du cholestérol chez les patients diabétiques.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s3 ~ s4",
+   "stat": -0.79,
+   "score": 0.6317553215329474,
+   "detail": {
+    "spearman": -0.79,
+    "pearson": -0.738,
+    "n": 442,
+    "q": 5.8e-94
+   },
+   "dataset": "Diabetes(scikit-learn)",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Cette forte corrélation négative lie deux métriques standardisées du profil lipidique mesurées lors de l'étude sur le diabète.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "bmi -> class",
+   "stat": 0.171,
+   "score": 0.6254818283114842,
+   "detail": {
+    "mutual_info": 0.171,
+    "part_de_l_info": 0.23
+   },
+   "dataset": "Diabetes(scikit-learn)",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "L'indice de masse corporelle (BMI) apporte une information prédictive significative sur la sévérité ou la présence du diabète.",
+    "hypothese": "Un dépassement du seuil de BMI de 30 augmente de manière non linéaire le risque métabolique mesuré par la variable cible."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "s5 -> class",
+   "stat": 0.144,
+   "score": 0.5896988856300562,
+   "detail": {
+    "mutual_info": 0.144,
+    "part_de_l_info": 0.19
+   },
+   "dataset": "Diabetes(scikit-learn)",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "La variable s5 (mesure liée aux triglycérides ou à l'inflammation) détient un pouvoir informatif notable sur la progression du diabète.",
+    "hypothese": "Le taux de s5 agit comme un médiateur clé entre l'insulinorésistance et les complications cliniques associées."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "V22 ~ V26",
+   "stat": 0.719,
+   "score": 0.5751005484404592,
+   "detail": {
+    "spearman": 0.719,
+    "pearson": 0.78,
+    "n": 2800,
+    "q": 0.0
+   },
+   "dataset": "thyroid-dis",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Forte redondance statistique entre deux attributs biochimiques décrivant la fonction thyroïdienne dans la même base de données.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "V22 ~ V26",
+   "stat": 0.719,
+   "score": 0.5751005484404592,
+   "detail": {
+    "spearman": 0.719,
+    "pearson": 0.78,
+    "n": 2800,
+    "q": 0.0
+   },
+   "dataset": "thyroid-allhyper",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Identique à F9, cette corrélation provient de la structure similaire ou dupliquée des fichiers de données sur la thyroïde.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "V20 -> Class",
+   "stat": 0.145,
+   "score": 0.5658612483632648,
+   "detail": {
+    "mutual_info": 0.145,
+    "part_de_l_info": 0.17
+   },
+   "dataset": "thyroid-dis",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Le test clinique V20 fournit une quantité d'information utile pour classifier les différents types de dysfonctionnements thyroïdiens.",
+    "hypothese": "L'intégration de V20 dans un algorithme de diagnostic améliore la détection précoce de l'hypothyroïdie subclinique."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "V20 -> Class",
+   "stat": 0.145,
+   "score": 0.5658612483632648,
+   "detail": {
+    "mutual_info": 0.145,
+    "part_de_l_info": 0.17
+   },
+   "dataset": "thyroid-allhyper",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "Comme pour F11, le marqueur V20 retient un pouvoir discriminant important pour identifier les pathologies thyroïdiennes.",
+    "hypothese": "La valeur seuil de V20 permet de séparer efficacement les patients sains des sujets en hyperthyroïdie."
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "thyroid-dis",
+    "target": "Class",
+    "description": "General Description of Thyroid Disease Databases and Related Files This directory contains 6 databases, corresponding test set, and corresponding documentation. They were left at the University of California at Irvine by Ross Quinlan during his visit in 1987 for the 1987 Machine Learning Workshop. The documentation files (with file extension &quot;names&quot;) are formatted to be read by Quinlan's",
+    "url": "https://www.openml.org/d/40478"
+   },
+   "lignes": 2800,
+   "colonnes": 27,
+   "fig": "2026-11-02_thyroid_dis.png",
+   "n_findings": 14,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "V22 ~ V26",
+     "stat": 0.719,
+     "score": 0.5751005484404592,
+     "detail": {
+      "spearman": 0.719,
+      "pearson": 0.78,
+      "n": 2800,
+      "q": 0.0
+     },
+     "dataset": "thyroid-dis",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "Forte redondance statistique entre deux attributs biochimiques décrivant la fonction thyroïdienne dans la même base de données.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "V20 -> Class",
+     "stat": 0.145,
+     "score": 0.5658612483632648,
+     "detail": {
+      "mutual_info": 0.145,
+      "part_de_l_info": 0.17
+     },
+     "dataset": "thyroid-dis",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Le test clinique V20 fournit une quantité d'information utile pour classifier les différents types de dysfonctionnements thyroïdiens.",
+      "hypothese": "L'intégration de V20 dans un algorithme de diagnostic améliore la détection précoce de l'hypothyroïdie subclinique."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V21 ~ V23",
+     "stat": 0.763,
+     "score": 0.534024973846599,
+     "detail": {
+      "cramers_v": 0.763,
+      "p": 0.0
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V21 ~ V25",
+     "stat": 0.761,
+     "score": 0.5327637952523514,
+     "detail": {
+      "cramers_v": 0.761,
+      "p": 0.0
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "V16 -> Class",
+     "stat": 0.093,
+     "score": 0.5061407857539096,
+     "detail": {
+      "mutual_info": 0.093,
+      "part_de_l_info": 0.11
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "V1 -> Class",
+     "stat": 0.082,
+     "score": 0.49434665592273686,
+     "detail": {
+      "mutual_info": 0.082,
+      "part_de_l_info": 0.09
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V21",
+     "stat": 0.677,
+     "score": 0.4740277604189325,
+     "detail": {
+      "cramers_v": 0.677,
+      "p": 3.4e-281
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V16 ~ Class",
+     "stat": 0.559,
+     "score": 0.39120931787334107,
+     "detail": {
+      "cramers_v": 0.559,
+      "p": 5.5e-188
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V25",
+     "stat": 0.522,
+     "score": 0.36569393979301573,
+     "detail": {
+      "cramers_v": 0.522,
+      "p": 3.3e-168
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V23",
+     "stat": 0.52,
+     "score": 0.36406061181679356,
+     "detail": {
+      "cramers_v": 0.52,
+      "p": 1e-166
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V22 ~ V24",
+     "stat": 0.407,
+     "score": 0.3256411619489104,
+     "detail": {
+      "spearman": 0.407,
+      "pearson": 0.426,
+      "n": 2800,
+      "q": 2.4e-111
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V19",
+     "stat": 0.443,
+     "score": 0.30994848386882573,
+     "detail": {
+      "cramers_v": 0.443,
+      "p": 2.1e-121
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V19 ~ V21",
+     "stat": 0.422,
+     "score": 0.29547377977729994,
+     "detail": {
+      "cramers_v": 0.422,
+      "p": 1.7e-110
+     },
+     "dataset": "thyroid-dis"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> Class",
+     "stat": 0.435,
+     "score": 0.1882379763256866,
+     "detail": {
+      "balanced_accuracy": 0.435,
+      "baseline": 0.2,
+      "avec_seulement_V20": 0.268
+     },
+     "dataset": "thyroid-dis"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "cardiotocography",
+    "target": "Class",
+    "description": "**Author**: J. P. Marques de Sá, J. Bernardes, D. Ayers de Campos. **Source**: [UCI](https://archive.ics.uci.edu/ml/datasets/Cardiotocography) **Please cite**: Ayres de Campos et al. (2000) SisPorto 2.0 A Program for Automated Analysis of Cardiotocograms. J Matern Fetal Med 5:311-318, [UCI](https://archive.ics.uci.edu/ml/citation_policy.html) 2126 fetal cardiotocograms (CTGs) were automatically pr",
+    "url": "https://www.openml.org/d/1466"
+   },
+   "lignes": 2126,
+   "colonnes": 36,
+   "fig": "2026-11-02_cardiotocography.png",
+   "n_findings": 61,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "V11 ~ V24",
+     "stat": 0.368,
+     "score": 0.8684880508067663,
+     "detail": {
+      "spearman": -0.65,
+      "pearson": -0.282,
+      "n": 2126
+     },
+     "dataset": "cardiotocography",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Il existe une association non linéaire modérée entre ces deux paramètres de surveillance fœtale lors de l'accouchement.",
+      "hypothese": "Les variations de la variable V11 amplifient de manière non linéaire la réponse mesurée par V24 en cas de souffrance fœtale."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "V6 ~ V24",
+     "stat": 0.284,
+     "score": 0.7843836937715812,
+     "detail": {
+      "spearman": 0.396,
+      "pearson": 0.112,
+      "n": 2126
+     },
+     "dataset": "cardiotocography",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Une relation non linéaire lie ces deux mesures obstétricales enregistrées par cardiotocographie.",
+      "hypothese": "L'augmentation progressive du paramètre V6 induit un seuil critique au-delà duquel V24 réagit de façon disproportionnée."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "V21 ~ V23",
+     "stat": 0.961,
+     "score": 0.7689455954824354,
+     "detail": {
+      "spearman": 0.961,
+      "pearson": 0.933,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "trivial",
+      "explication": "Ces deux variables du fœtoprogramme mesurent des aspects quasi identiques de la fréquence cardiaque fœtale.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "V22 ~ V23",
+     "stat": 0.958,
+     "score": 0.7662063544901495,
+     "detail": {
+      "spearman": 0.958,
+      "pearson": 0.948,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "Il s'agit d'une forte colinéarité mécanique entre deux descripteurs similaires de l'activité cardiaque fœtale.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "V21 ~ V22",
+     "stat": 0.908,
+     "score": 0.7267725363482817,
+     "detail": {
+      "spearman": 0.908,
+      "pearson": 0.893,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V16 ~ V17",
+     "stat": -0.905,
+     "score": 0.7236134931327993,
+     "detail": {
+      "spearman": -0.905,
+      "pearson": -0.899,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "V10 ~ V24",
+     "stat": 0.223,
+     "score": 0.7227517341160212,
+     "detail": {
+      "spearman": 0.779,
+      "pearson": 0.556,
+      "n": 2126
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> Class",
+     "stat": 1.0,
+     "score": 0.7200000000000001,
+     "detail": {
+      "balanced_accuracy": 1.0,
+      "baseline": 0.1,
+      "avec_seulement_V6": 0.193
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "V10 ~ V11",
+     "stat": 0.215,
+     "score": 0.7149041425111236,
+     "detail": {
+      "spearman": -0.685,
+      "pearson": -0.47,
+      "n": 2126
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "V16 ~ V24",
+     "stat": 0.214,
+     "score": 0.7142330320662565,
+     "detail": {
+      "spearman": 0.83,
+      "pearson": 0.616,
+      "n": 2126
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "V17 ~ V24",
+     "stat": 0.206,
+     "score": 0.7059038979056712,
+     "detail": {
+      "spearman": -0.751,
+      "pearson": -0.545,
+      "n": 2126
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V2 ~ V3",
+     "stat": 0.847,
+     "score": 0.6776197916410587,
+     "detail": {
+      "spearman": 0.847,
+      "pearson": 0.945,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V4 ~ V23",
+     "stat": 0.841,
+     "score": 0.6724262435378202,
+     "detail": {
+      "spearman": 0.841,
+      "pearson": 0.789,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V5 ~ V23",
+     "stat": 0.841,
+     "score": 0.6724262435378202,
+     "detail": {
+      "spearman": 0.841,
+      "pearson": 0.789,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V16 ~ V24",
+     "stat": 0.83,
+     "score": 0.6640934712752493,
+     "detail": {
+      "spearman": 0.83,
+      "pearson": 0.616,
+      "n": 2126,
+      "q": 0.0
+     },
+     "dataset": "cardiotocography"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "thyroid-allhyper",
+    "target": "Class",
+    "description": "General Description of Thyroid Disease Databases and Related Files This directory contains 6 databases, corresponding test set, and corresponding documentation. They were left at the University of California at Irvine by Ross Quinlan during his visit in 1987 for the 1987 Machine Learning Workshop. The documentation files (with file extension &quot;names&quot;) are formatted to be read by Quinlan's",
+    "url": "https://www.openml.org/d/40475"
+   },
+   "lignes": 2800,
+   "colonnes": 27,
+   "fig": "2026-11-02_thyroid_allhyper.png",
+   "n_findings": 14,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "V22 ~ V26",
+     "stat": 0.719,
+     "score": 0.5751005484404592,
+     "detail": {
+      "spearman": 0.719,
+      "pearson": 0.78,
+      "n": 2800,
+      "q": 0.0
+     },
+     "dataset": "thyroid-allhyper",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "Identique à F9, cette corrélation provient de la structure similaire ou dupliquée des fichiers de données sur la thyroïde.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "V20 -> Class",
+     "stat": 0.145,
+     "score": 0.5658612483632648,
+     "detail": {
+      "mutual_info": 0.145,
+      "part_de_l_info": 0.17
+     },
+     "dataset": "thyroid-allhyper",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "pertinent",
+      "explication": "Comme pour F11, le marqueur V20 retient un pouvoir discriminant important pour identifier les pathologies thyroïdiennes.",
+      "hypothese": "La valeur seuil de V20 permet de séparer efficacement les patients sains des sujets en hyperthyroïdie."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V21 ~ V23",
+     "stat": 0.763,
+     "score": 0.534024973846599,
+     "detail": {
+      "cramers_v": 0.763,
+      "p": 0.0
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V21 ~ V25",
+     "stat": 0.761,
+     "score": 0.5327637952523514,
+     "detail": {
+      "cramers_v": 0.761,
+      "p": 0.0
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "V16 -> Class",
+     "stat": 0.093,
+     "score": 0.5061407857539096,
+     "detail": {
+      "mutual_info": 0.093,
+      "part_de_l_info": 0.11
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "V1 -> Class",
+     "stat": 0.082,
+     "score": 0.49434665592273686,
+     "detail": {
+      "mutual_info": 0.082,
+      "part_de_l_info": 0.09
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V21",
+     "stat": 0.677,
+     "score": 0.4740277604189325,
+     "detail": {
+      "cramers_v": 0.677,
+      "p": 3.4e-281
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V16 ~ Class",
+     "stat": 0.559,
+     "score": 0.39120931787334107,
+     "detail": {
+      "cramers_v": 0.559,
+      "p": 5.5e-188
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V25",
+     "stat": 0.522,
+     "score": 0.36569393979301573,
+     "detail": {
+      "cramers_v": 0.522,
+      "p": 3.3e-168
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V23",
+     "stat": 0.52,
+     "score": 0.36406061181679356,
+     "detail": {
+      "cramers_v": 0.52,
+      "p": 1e-166
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "correlation",
+     "vars": "V22 ~ V24",
+     "stat": 0.407,
+     "score": 0.3256411619489104,
+     "detail": {
+      "spearman": 0.407,
+      "pearson": 0.426,
+      "n": 2800,
+      "q": 2.4e-111
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V17 ~ V19",
+     "stat": 0.443,
+     "score": 0.30994848386882573,
+     "detail": {
+      "cramers_v": 0.443,
+      "p": 2.1e-121
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "V19 ~ V21",
+     "stat": 0.422,
+     "score": 0.29547377977729994,
+     "detail": {
+      "cramers_v": 0.422,
+      "p": 1.7e-110
+     },
+     "dataset": "thyroid-allhyper"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> Class",
+     "stat": 0.435,
+     "score": 0.1882379763256866,
+     "detail": {
+      "balanced_accuracy": 0.435,
+      "baseline": 0.2,
+      "avec_seulement_V20": 0.268
+     },
+     "dataset": "thyroid-allhyper"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Diabetes(scikit-learn)",
+    "target": "class",
+    "description": ".. _diabetes_dataset: Diabetes dataset ---------------- Ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements were obtained for each of n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline. **Data Set Characteristics:** :Number of Instances: 442 :Number of Attribut",
+    "url": "https://www.openml.org/d/41514"
+   },
+   "lignes": 442,
+   "colonnes": 11,
+   "fig": "2026-11-02_Diabetes_scikit_learn_.png",
+   "n_findings": 20,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "s1 ~ s2",
+     "stat": 0.879,
+     "score": 0.703034289220867,
+     "detail": {
+      "spearman": 0.879,
+      "pearson": 0.897,
+      "n": 442,
+      "q": 1e-141
+     },
+     "dataset": "Diabetes(scikit-learn)",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "Ces deux variables sanguines mesurent des fractions ou des sous-types très proches du cholestérol chez les patients diabétiques.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s3 ~ s4",
+     "stat": -0.79,
+     "score": 0.6317553215329474,
+     "detail": {
+      "spearman": -0.79,
+      "pearson": -0.738,
+      "n": 442,
+      "q": 5.8e-94
+     },
+     "dataset": "Diabetes(scikit-learn)",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Cette forte corrélation négative lie deux métriques standardisées du profil lipidique mesurées lors de l'étude sur le diabète.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "bmi -> class",
+     "stat": 0.171,
+     "score": 0.6254818283114842,
+     "detail": {
+      "mutual_info": 0.171,
+      "part_de_l_info": 0.23
+     },
+     "dataset": "Diabetes(scikit-learn)",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "L'indice de masse corporelle (BMI) apporte une information prédictive significative sur la sévérité ou la présence du diabète.",
+      "hypothese": "Un dépassement du seuil de BMI de 30 augmente de manière non linéaire le risque métabolique mesuré par la variable cible."
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "s5 -> class",
+     "stat": 0.144,
+     "score": 0.5896988856300562,
+     "detail": {
+      "mutual_info": 0.144,
+      "part_de_l_info": 0.19
+     },
+     "dataset": "Diabetes(scikit-learn)",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "La variable s5 (mesure liée aux triglycérides ou à l'inflammation) détient un pouvoir informatif notable sur la progression du diabète.",
+      "hypothese": "Le taux de s5 agit comme un médiateur clé entre l'insulinorésistance et les complications cliniques associées."
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "s4 -> class",
+     "stat": 0.113,
+     "score": 0.5491606833130614,
+     "detail": {
+      "mutual_info": 0.113,
+      "part_de_l_info": 0.15
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s2 ~ s4",
+     "stat": 0.652,
+     "score": 0.5218264742452294,
+     "detail": {
+      "spearman": 0.652,
+      "pearson": 0.66,
+      "n": 442,
+      "q": 1.2e-53
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s4 ~ s5",
+     "stat": 0.64,
+     "score": 0.5123118300990073,
+     "detail": {
+      "spearman": 0.64,
+      "pearson": 0.618,
+      "n": 442,
+      "q": 3e-51
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s5 ~ class",
+     "stat": 0.589,
+     "score": 0.471532488279883,
+     "detail": {
+      "spearman": 0.589,
+      "pearson": 0.566,
+      "n": 442,
+      "q": 1.2e-41
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "bmi ~ class",
+     "stat": 0.561,
+     "score": 0.4491056080852494,
+     "detail": {
+      "spearman": 0.561,
+      "pearson": 0.586,
+      "n": 442,
+      "q": 4.2e-37
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s1 ~ s4",
+     "stat": 0.521,
+     "score": 0.4165394761561596,
+     "detail": {
+      "spearman": 0.521,
+      "pearson": 0.542,
+      "n": 442,
+      "q": 3.5e-31
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s1 ~ s5",
+     "stat": 0.513,
+     "score": 0.4102909220231715,
+     "detail": {
+      "spearman": 0.513,
+      "pearson": 0.516,
+      "n": 442,
+      "q": 3.5e-30
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "bmi ~ s5",
+     "stat": 0.492,
+     "score": 0.3932870494093662,
+     "detail": {
+      "spearman": 0.492,
+      "pearson": 0.446,
+      "n": 442,
+      "q": 1.7e-27
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "bmi ~ s4",
+     "stat": 0.459,
+     "score": 0.3672544969322687,
+     "detail": {
+      "spearman": 0.459,
+      "pearson": 0.414,
+      "n": 442,
+      "q": 1.1e-23
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s5 ~ s6",
+     "stat": 0.453,
+     "score": 0.3624185973921083,
+     "detail": {
+      "spearman": 0.453,
+      "pearson": 0.465,
+      "n": 442,
+      "q": 4.7e-23
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s3 ~ s5",
+     "stat": -0.45,
+     "score": 0.36033573676794267,
+     "detail": {
+      "spearman": -0.45,
+      "pearson": -0.399,
+      "n": 442,
+      "q": 8.3e-23
+     },
+     "dataset": "Diabetes(scikit-learn)"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "Falah/Alzheimer_MRI",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=Falah%2FAlzheimer_MRI&config=default&sp"
+  },
+  {
+   "source": "hf_images",
+   "ref": "marmal88/skin_cancer",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=marmal88%2Fskin_cancer&config=default&s"
+  },
+  {
+   "source": "hf_images",
+   "ref": "huseyincavus/Brain_Cancer_MRI_Classsification",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=huseyincavus%2FBrain_Cancer_MRI_Classsi"
+  },
+  {
+   "source": "hf_images",
+   "ref": "BTX24/tekno21-brain-stroke-dataset-multi",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=BTX24%2Ftekno21-brain-stroke-dataset-mu"
+  },
+  {
+   "source": "hf_images",
+   "ref": "realzdlegend/breast_cancer_xray",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=realzdlegend%2Fbreast_cancer_xray&confi"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Srizon1/Alzheimer_MRI",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=Srizon1%2FAlzheimer_MRI&config=default&"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Lakera/autotrain-data-cancer-lakera",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=Lakera%2Fautotrain-data-cancer-lakera&c"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Thinnaphat/CHEST-XRAY-CPE-OPH2025",
+   "erreur": "503 Server Error: Service Temporarily Unavailable for url: https://datasets-server.huggingface.co/rows?dataset=Thinnaphat%2FCHEST-XRAY-CPE-OPH2025&con"
+  }
+ ],
+ "question": "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?"
+}

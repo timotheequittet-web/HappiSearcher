@@ -1,0 +1,934 @@
+{
+ "id": "2026-11-02_2156_diabet",
+ "date": "2026-11-02T21:58",
+ "sujet": "Santé métabolique",
+ "keywords": [
+  "diabet",
+  "heart",
+  "cancer",
+  "breast",
+  "hepatitis",
+  "kidney",
+  "indian-liver",
+  "stroke",
+  "parkinson",
+  "alzheimer",
+  "cardio",
+  "thyroid",
+  "dermatology",
+  "obesity",
+  "insurance",
+  "medical"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des facteurs de risque et des coûts médicaux met en évidence des relations cliniques et économiques cohérentes. Le tabagisme apparaît comme le principal moteur des coûts de santé, tandis que la polyurie et la polydipsie se confirment comme des marqueurs majeurs du risque de diabète. Les données hépatiques révèlent également de fortes corrélations mécaniques entre les différents tests de bilirubine.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Le statut de fumeur est un déterminant majeur et documenté des dépenses de santé globales.",
+    "hypothese": "L'impact du tabagisme sur les charges de santé varie-t-il significativement selon la région ?"
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "L'élévation concomitante de ces enzymes hépatiques traduit des dysfonctionnements biliaires ou hépatiques communs.",
+    "hypothese": "La relation entre Alkaline_Phosphotase et Alamine_Aminotransferase est-elle modifiée par l'âge des patients ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Le lien entre bilirubine totale et enzymes hépatiques reflète la sévérité globale de l'atteinte du foie.",
+    "hypothese": "La corrélation entre Total_Bilirubin et Aspartate_Aminotransferase diffère-t-elle selon le genre ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "La bilirubine directe étant une composante directe de la bilirubine totale, cette forte corrélation est purement mécanique.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "La fraction directe de la bilirubine évolue en cohérence avec les marqueurs de nécrose hépatique comme l'ASAT.",
+    "hypothese": "La relation entre Direct_Bilirubin et Aspartate_Aminotransferase dépend-elle du niveau d'Albumin ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Le sexe montre une influence modérée mais notable sur les coûts médicaux facturés.",
+    "hypothese": "L'effet du sexe sur les charges de santé est-il médié par le statut de fumeur ou l'indice de masse corporelle (bmi) ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "La polydipsie (soif excessive) est l'un des symptômes classiques annonciateurs d'un diabète non contrôlé.",
+    "hypothese": "Le pouvoir prédictif de Polydipsia sur le risque de diabète varie-t-il selon l'âge ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "La polyurie (besoin fréquent d'uriner) est un symptôme cardinal directement lié au déclenchement du diabète.",
+    "hypothese": "L'association entre Polyuria et le risque de diabète est-elle constante quel que soit le genre ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Le nombre d'enfants à charge influence l'utilisation des services de santé et les primes d'assurance.",
+    "hypothese": "L'impact du nombre d'enfants sur les charges médicales est-il plus prononcé dans certaines régions ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "L'ensemble des caractéristiques démographiques et comportementales explique une grande partie de la variance des coûts, le tabagisme jouant le rôle prépondérant.",
+    "hypothese": "Au-dessus d'un certain seuil de bmi, la prédictibilité globale des charges médicales est-elle renforcée ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Le risque de développer un diabète augmente progressivement avec l'âge.",
+    "hypothese": "À partir d'un certain seuil d'âge, le risque de diabète augmente-t-il de manière non linéaire ?"
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "La présence de polyurie est extrêmement prédictive de la classification positive au diabète dans cette cohorte.",
+    "hypothese": "La relation entre Polyuria et le diagnostic de diabète est-elle modulée par la présence d'autres symptômes comme la faiblesse (weakness) ?"
+   }
+  },
+  "pistes": [
+   "Analyser l'interaction entre l'indice de masse corporelle (bmi) et le tabagisme sur les coûts médicaux.",
+   "Explorer la synergie entre la polyurie et la polydipsie pour affiner le diagnostic précoce du diabète.",
+   "Étudier l'impact combiné des différents types de bilirubine et des protéines sériques sur les pathologies hépatiques."
+  ],
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "46289",
+    "x": "bmi",
+    "y": "charges",
+    "groupe": "smoker",
+    "seuil": null,
+    "enonce": "L'effet de l'indice de masse corporelle (bmi) sur les charges médicales est-il différent selon que le patient est fumeur ou non ?"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "46733",
+    "x": "Age",
+    "y": "class",
+    "seuil": 45.0,
+    "enonce": "La probabilité de diagnostic positif du diabète augmente-t-elle brusquement au-dessus de 45 ans ?"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43665",
+    "x": "Total_Bilirubin",
+    "y": "Alamine_Aminotransferase",
+    "groupe": "Gender",
+    "seuil": null,
+    "enonce": "La relation entre la bilirubine totale et l'alamine aminotransferase diffère-t-elle selon le genre des patients atteints de troubles hépatiques ?"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "smoker -> charges",
+   "stat": 0.369,
+   "score": 0.8313360951245714,
+   "detail": {
+    "mutual_info": 0.369,
+    "part_de_l_info": 0.43
+   },
+   "dataset": "medical_cost",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Le statut de fumeur est un déterminant majeur et documenté des dépenses de santé globales.",
+    "hypothese": "L'impact du tabagisme sur les charges de santé varie-t-il significativement selon la région ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Alkaline_Phosphotase ~ Alamine_Aminotransferase",
+   "stat": 0.285,
+   "score": 0.7850724745970463,
+   "detail": {
+    "spearman": 0.411,
+    "pearson": 0.126,
+    "n": 583
+   },
+   "dataset": "Indian-Liver-Patient-Records",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "L'élévation concomitante de ces enzymes hépatiques traduit des dysfonctionnements biliaires ou hépatiques communs.",
+    "hypothese": "La relation entre Alkaline_Phosphotase et Alamine_Aminotransferase est-elle modifiée par l'âge des patients ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Total_Bilirubin ~ Aspartate_Aminotransferase",
+   "stat": 0.271,
+   "score": 0.7710376065787703,
+   "detail": {
+    "spearman": 0.509,
+    "pearson": 0.238,
+    "n": 583
+   },
+   "dataset": "Indian-Liver-Patient-Records",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Le lien entre bilirubine totale et enzymes hépatiques reflète la sévérité globale de l'atteinte du foie.",
+    "hypothese": "La corrélation entre Total_Bilirubin et Aspartate_Aminotransferase diffère-t-elle selon le genre ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Total_Bilirubin ~ Direct_Bilirubin",
+   "stat": 0.959,
+   "score": 0.7673729448766973,
+   "detail": {
+    "spearman": 0.959,
+    "pearson": 0.875,
+    "n": 583,
+    "q": 0.0
+   },
+   "dataset": "Indian-Liver-Patient-Records",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "La bilirubine directe étant une composante directe de la bilirubine totale, cette forte corrélation est purement mécanique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Direct_Bilirubin ~ Aspartate_Aminotransferase",
+   "stat": 0.247,
+   "score": 0.7465939733825642,
+   "detail": {
+    "spearman": 0.504,
+    "pearson": 0.258,
+    "n": 583
+   },
+   "dataset": "Indian-Liver-Patient-Records",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "La fraction directe de la bilirubine évolue en cohérence avec les marqueurs de nécrose hépatique comme l'ASAT.",
+    "hypothese": "La relation entre Direct_Bilirubin et Aspartate_Aminotransferase dépend-elle du niveau d'Albumin ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "sex -> charges",
+   "stat": 0.177,
+   "score": 0.606407779778323,
+   "detail": {
+    "mutual_info": 0.177,
+    "part_de_l_info": 0.21
+   },
+   "dataset": "medical_cost",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Le sexe montre une influence modérée mais notable sur les coûts médicaux facturés.",
+    "hypothese": "L'effet du sexe sur les charges de santé est-il médié par le statut de fumeur ou l'indice de masse corporelle (bmi) ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "Polydipsia -> class",
+   "stat": 0.256,
+   "score": 0.5990881098261956,
+   "detail": {
+    "mutual_info": 0.256,
+    "part_de_l_info": 0.2
+   },
+   "dataset": "diabetes_risk_prediction_dataset",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "La polydipsie (soif excessive) est l'un des symptômes classiques annonciateurs d'un diabète non contrôlé.",
+    "hypothese": "Le pouvoir prédictif de Polydipsia sur le risque de diabète varie-t-il selon l'âge ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "Polyuria -> class",
+   "stat": 0.249,
+   "score": 0.5934337262882665,
+   "detail": {
+    "mutual_info": 0.249,
+    "part_de_l_info": 0.19
+   },
+   "dataset": "diabetes_risk_prediction_dataset",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "La polyurie (besoin fréquent d'uriner) est un symptôme cardinal directement lié au déclenchement du diabète.",
+    "hypothese": "L'association entre Polyuria et le risque de diabète est-elle constante quel que soit le genre ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "children -> charges",
+   "stat": 0.162,
+   "score": 0.5890321651530752,
+   "detail": {
+    "mutual_info": 0.162,
+    "part_de_l_info": 0.19
+   },
+   "dataset": "medical_cost",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Le nombre d'enfants à charge influence l'utilisation des services de santé et les primes d'assurance.",
+    "hypothese": "L'impact du nombre d'enfants sur les charges médicales est-il plus prononcé dans certaines régions ?"
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> charges",
+   "stat": 0.715,
+   "score": 0.5736543169977545,
+   "detail": {
+    "r2": 0.715,
+    "baseline": -0.002,
+    "avec_seulement_smoker": 0.619
+   },
+   "dataset": "medical_cost",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "L'ensemble des caractéristiques démographiques et comportementales explique une grande partie de la variance des coûts, le tabagisme jouant le rôle prépondérant.",
+    "hypothese": "Au-dessus d'un certain seuil de bmi, la prédictibilité globale des charges médicales est-elle renforcée ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "Age -> class",
+   "stat": 0.138,
+   "score": 0.5071156244653414,
+   "detail": {
+    "mutual_info": 0.138,
+    "part_de_l_info": 0.11
+   },
+   "dataset": "diabetes_risk_prediction_dataset",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Le risque de développer un diabète augmente progressivement avec l'âge.",
+    "hypothese": "À partir d'un certain seuil d'âge, le risque de diabète augmente-t-il de manière non linéaire ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Polyuria ~ class",
+   "stat": 0.662,
+   "score": 0.46337860639158973,
+   "detail": {
+    "cramers_v": 0.662,
+    "p": 1.7e-51
+   },
+   "dataset": "diabetes_risk_prediction_dataset",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "La présence de polyurie est extrêmement prédictive de la classification positive au diabète dans cette cohorte.",
+    "hypothese": "La relation entre Polyuria et le diagnostic de diabète est-elle modulée par la présence d'autres symptômes comme la faiblesse (weakness) ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "diabetes_risk_prediction_dataset",
+    "target": "class",
+    "description": "Dataset Description: Early Stage Diabetes Risk Prediction This dataset comprises crucial sign and symptom data of individuals who either exhibit early signs of diabetes or are at risk of developing diabetes. The variables included in the dataset provide valuable insights into potential indicators of diabetes onset. The dataset encompasses diverse information, ranging from demographic details to sp",
+    "url": "https://www.openml.org/d/46733",
+    "did": "46733",
+    "colonnes": {
+     "num": [
+      "Age"
+     ],
+     "groupes": [
+      "Gender",
+      "Polyuria",
+      "Polydipsia",
+      "sudden weight loss",
+      "weakness",
+      "Polyphagia",
+      "Genital thrush",
+      "visual blurring",
+      "Itching",
+      "Irritability"
+     ]
+    }
+   },
+   "lignes": 520,
+   "colonnes": 17,
+   "fig": null,
+   "n_findings": 16,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Polydipsia -> class",
+     "stat": 0.256,
+     "score": 0.5990881098261956,
+     "detail": {
+      "mutual_info": 0.256,
+      "part_de_l_info": 0.2
+     },
+     "dataset": "diabetes_risk_prediction_dataset",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "La polydipsie (soif excessive) est l'un des symptômes classiques annonciateurs d'un diabète non contrôlé.",
+      "hypothese": "Le pouvoir prédictif de Polydipsia sur le risque de diabète varie-t-il selon l'âge ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Polyuria -> class",
+     "stat": 0.249,
+     "score": 0.5934337262882665,
+     "detail": {
+      "mutual_info": 0.249,
+      "part_de_l_info": 0.19
+     },
+     "dataset": "diabetes_risk_prediction_dataset",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "La polyurie (besoin fréquent d'uriner) est un symptôme cardinal directement lié au déclenchement du diabète.",
+      "hypothese": "L'association entre Polyuria et le risque de diabète est-elle constante quel que soit le genre ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Age -> class",
+     "stat": 0.138,
+     "score": 0.5071156244653414,
+     "detail": {
+      "mutual_info": 0.138,
+      "part_de_l_info": 0.11
+     },
+     "dataset": "diabetes_risk_prediction_dataset",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Le risque de développer un diabète augmente progressivement avec l'âge.",
+      "hypothese": "À partir d'un certain seuil d'âge, le risque de diabète augmente-t-il de manière non linéaire ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ class",
+     "stat": 0.662,
+     "score": 0.46337860639158973,
+     "detail": {
+      "cramers_v": 0.662,
+      "p": 1.7e-51
+     },
+     "dataset": "diabetes_risk_prediction_dataset",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "pertinent",
+      "explication": "La présence de polyurie est extrêmement prédictive de la classification positive au diabète dans cette cohorte.",
+      "hypothese": "La relation entre Polyuria et le diagnostic de diabète est-elle modulée par la présence d'autres symptômes comme la faiblesse (weakness) ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polydipsia ~ class",
+     "stat": 0.645,
+     "score": 0.45133157694532466,
+     "detail": {
+      "cramers_v": 0.645,
+      "p": 6.2e-49
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ Polydipsia",
+     "stat": 0.595,
+     "score": 0.41631934743848853,
+     "detail": {
+      "cramers_v": 0.595,
+      "p": 6.7e-42
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> class",
+     "stat": 0.958,
+     "score": 0.3664532055102567,
+     "detail": {
+      "balanced_accuracy": 0.958,
+      "baseline": 0.5,
+      "avec_seulement_Polydipsia": 0.832
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Itching ~ delayed healing",
+     "stat": 0.449,
+     "score": 0.3146194005189577,
+     "detail": {
+      "cramers_v": 0.449,
+      "p": 1.2e-24
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Gender ~ class",
+     "stat": 0.445,
+     "score": 0.31159657425990844,
+     "detail": {
+      "cramers_v": 0.445,
+      "p": 3.3e-24
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ sudden weight loss",
+     "stat": 0.443,
+     "score": 0.3103149000906604,
+     "detail": {
+      "cramers_v": 0.443,
+      "p": 5e-24
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polydipsia ~ partial paresis",
+     "stat": 0.438,
+     "score": 0.30684115159894926,
+     "detail": {
+      "cramers_v": 0.438,
+      "p": 1.6e-23
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ partial paresis",
+     "stat": 0.438,
+     "score": 0.3064459312782896,
+     "detail": {
+      "cramers_v": 0.438,
+      "p": 1.8e-23
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "sudden weight loss ~ class",
+     "stat": 0.433,
+     "score": 0.3027920989733407,
+     "detail": {
+      "cramers_v": 0.433,
+      "p": 6e-23
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "partial paresis ~ class",
+     "stat": 0.428,
+     "score": 0.29980743001265653,
+     "detail": {
+      "cramers_v": 0.428,
+      "p": 1.6e-22
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "visual blurring ~ muscle stiffness",
+     "stat": 0.408,
+     "score": 0.2858622512682708,
+     "detail": {
+      "cramers_v": 0.408,
+      "p": 1.3e-20
+     },
+     "dataset": "diabetes_risk_prediction_dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "medical_cost",
+    "target": "charges",
+    "description": "From original source: ----- Context Machine Learning with R by Brett Lantz is a book that provides an introduction to machine learning using R. As far as I can tell, Packt Publishing does not make its datasets available online unless you buy the book and create a user account which can be a problem if you are checking the book out from the library or borrowing the book from a friend. All of these ",
+    "url": "https://www.openml.org/d/46289",
+    "did": "46289",
+    "colonnes": {
+     "num": [
+      "bmi",
+      "children",
+      "charges"
+     ],
+     "groupes": [
+      "sex",
+      "smoker",
+      "region"
+     ]
+    }
+   },
+   "lignes": 1338,
+   "colonnes": 7,
+   "fig": null,
+   "n_findings": 4,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "smoker -> charges",
+     "stat": 0.369,
+     "score": 0.8313360951245714,
+     "detail": {
+      "mutual_info": 0.369,
+      "part_de_l_info": 0.43
+     },
+     "dataset": "medical_cost",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Le statut de fumeur est un déterminant majeur et documenté des dépenses de santé globales.",
+      "hypothese": "L'impact du tabagisme sur les charges de santé varie-t-il significativement selon la région ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "sex -> charges",
+     "stat": 0.177,
+     "score": 0.606407779778323,
+     "detail": {
+      "mutual_info": 0.177,
+      "part_de_l_info": 0.21
+     },
+     "dataset": "medical_cost",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "Le sexe montre une influence modérée mais notable sur les coûts médicaux facturés.",
+      "hypothese": "L'effet du sexe sur les charges de santé est-il médié par le statut de fumeur ou l'indice de masse corporelle (bmi) ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "children -> charges",
+     "stat": 0.162,
+     "score": 0.5890321651530752,
+     "detail": {
+      "mutual_info": 0.162,
+      "part_de_l_info": 0.19
+     },
+     "dataset": "medical_cost",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Le nombre d'enfants à charge influence l'utilisation des services de santé et les primes d'assurance.",
+      "hypothese": "L'impact du nombre d'enfants sur les charges médicales est-il plus prononcé dans certaines régions ?"
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> charges",
+     "stat": 0.715,
+     "score": 0.5736543169977545,
+     "detail": {
+      "r2": 0.715,
+      "baseline": -0.002,
+      "avec_seulement_smoker": 0.619
+     },
+     "dataset": "medical_cost",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "L'ensemble des caractéristiques démographiques et comportementales explique une grande partie de la variance des coûts, le tabagisme jouant le rôle prépondérant.",
+      "hypothese": "Au-dessus d'un certain seuil de bmi, la prédictibilité globale des charges médicales est-elle renforcée ?"
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Indian-Liver-Patient-Records",
+    "target": "Dataset",
+    "description": "Context Patients with Liver disease have been continuously increasing because of excessive consumption of alcohol, inhale of harmful gases, intake of contaminated food, pickles and drugs. This dataset was used to evaluate prediction algorithms in an effort to reduce burden on doctors. Content This data set contains 416 liver patient records and 167 non liver patient records collected from North Ea",
+    "url": "https://www.openml.org/d/43665",
+    "did": "43665",
+    "colonnes": {
+     "num": [
+      "Age",
+      "Total_Bilirubin",
+      "Direct_Bilirubin",
+      "Alkaline_Phosphotase",
+      "Alamine_Aminotransferase",
+      "Aspartate_Aminotransferase",
+      "Total_Protiens",
+      "Albumin",
+      "Albumin_and_Globulin_Ratio",
+      "Dataset"
+     ],
+     "groupes": [
+      "Gender"
+     ]
+    }
+   },
+   "lignes": 583,
+   "colonnes": 11,
+   "fig": "2026-11-02_Indian_Liver_Patient_Records.png",
+   "n_findings": 18,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Alkaline_Phosphotase ~ Alamine_Aminotransferase",
+     "stat": 0.285,
+     "score": 0.7850724745970463,
+     "detail": {
+      "spearman": 0.411,
+      "pearson": 0.126,
+      "n": 583
+     },
+     "dataset": "Indian-Liver-Patient-Records",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "L'élévation concomitante de ces enzymes hépatiques traduit des dysfonctionnements biliaires ou hépatiques communs.",
+      "hypothese": "La relation entre Alkaline_Phosphotase et Alamine_Aminotransferase est-elle modifiée par l'âge des patients ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Total_Bilirubin ~ Aspartate_Aminotransferase",
+     "stat": 0.271,
+     "score": 0.7710376065787703,
+     "detail": {
+      "spearman": 0.509,
+      "pearson": 0.238,
+      "n": 583
+     },
+     "dataset": "Indian-Liver-Patient-Records",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Le lien entre bilirubine totale et enzymes hépatiques reflète la sévérité globale de l'atteinte du foie.",
+      "hypothese": "La corrélation entre Total_Bilirubin et Aspartate_Aminotransferase diffère-t-elle selon le genre ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Total_Bilirubin ~ Direct_Bilirubin",
+     "stat": 0.959,
+     "score": 0.7673729448766973,
+     "detail": {
+      "spearman": 0.959,
+      "pearson": 0.875,
+      "n": 583,
+      "q": 0.0
+     },
+     "dataset": "Indian-Liver-Patient-Records",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "La bilirubine directe étant une composante directe de la bilirubine totale, cette forte corrélation est purement mécanique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Direct_Bilirubin ~ Aspartate_Aminotransferase",
+     "stat": 0.247,
+     "score": 0.7465939733825642,
+     "detail": {
+      "spearman": 0.504,
+      "pearson": 0.258,
+      "n": 583
+     },
+     "dataset": "Indian-Liver-Patient-Records",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "La fraction directe de la bilirubine évolue en cohérence avec les marqueurs de nécrose hépatique comme l'ASAT.",
+      "hypothese": "La relation entre Direct_Bilirubin et Aspartate_Aminotransferase dépend-elle du niveau d'Albumin ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Alkaline_Phosphotase ~ Aspartate_Aminotransferase",
+     "stat": 0.229,
+     "score": 0.7285363402468911,
+     "detail": {
+      "spearman": 0.396,
+      "pearson": 0.167,
+      "n": 583
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Total_Bilirubin ~ Alamine_Aminotransferase",
+     "stat": 0.223,
+     "score": 0.7225209707343464,
+     "detail": {
+      "spearman": 0.437,
+      "pearson": 0.214,
+      "n": 583
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Aspartate_Aminotransferase -> Dataset",
+     "stat": 0.08,
+     "score": 0.6479177649728689,
+     "detail": {
+      "mutual_info": 0.08,
+      "part_de_l_info": 0.25
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Age -> Dataset",
+     "stat": 0.072,
+     "score": 0.6244395109284473,
+     "detail": {
+      "mutual_info": 0.072,
+      "part_de_l_info": 0.22
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Alamine_Aminotransferase -> Dataset",
+     "stat": 0.072,
+     "score": 0.6237444630376093,
+     "detail": {
+      "mutual_info": 0.072,
+      "part_de_l_info": 0.22
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Total_Protiens ~ Albumin",
+     "stat": 0.779,
+     "score": 0.6232612381521316,
+     "detail": {
+      "spearman": 0.779,
+      "pearson": 0.784,
+      "n": 583,
+      "q": 1.5e-118
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Alamine_Aminotransferase ~ Aspartate_Aminotransferase",
+     "stat": 0.774,
+     "score": 0.6188888461701281,
+     "detail": {
+      "spearman": 0.774,
+      "pearson": 0.792,
+      "n": 583,
+      "q": 4.8e-116
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Albumin ~ Albumin_and_Globulin_Ratio",
+     "stat": 0.754,
+     "score": 0.6033123148902553,
+     "detail": {
+      "spearman": 0.754,
+      "pearson": 0.69,
+      "n": 579,
+      "q": 2.1e-106
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Total_Bilirubin ~ Aspartate_Aminotransferase",
+     "stat": 0.509,
+     "score": 0.40709514328800234,
+     "detail": {
+      "spearman": 0.509,
+      "pearson": 0.238,
+      "n": 583,
+      "q": 9e-39
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Direct_Bilirubin ~ Aspartate_Aminotransferase",
+     "stat": 0.504,
+     "score": 0.4033103635811317,
+     "detail": {
+      "spearman": 0.504,
+      "pearson": 0.258,
+      "n": 583,
+      "q": 4.9e-38
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Total_Bilirubin ~ Alamine_Aminotransferase",
+     "stat": 0.437,
+     "score": 0.34926856873438317,
+     "detail": {
+      "spearman": 0.437,
+      "pearson": 0.214,
+      "n": 583,
+      "q": 1e-27
+     },
+     "dataset": "Indian-Liver-Patient-Records"
+    }
+   ]
+  }
+ ],
+ "echecs": [],
+ "hypotheses_testees": [],
+ "question": "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?"
+}

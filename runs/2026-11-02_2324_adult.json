@@ -1,0 +1,2074 @@
+{
+ "id": "2026-11-02_2324_adult",
+ "date": "2026-11-02T23:29",
+ "sujet": "Inégalités de revenus",
+ "question": "À diplôme égal, quels facteurs creusent ou réduisent les écarts de salaire ?",
+ "keywords": [
+  "adult",
+  "income",
+  "salary",
+  "wage",
+  "census"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des différents datasets met en lumière les déterminants structurels des salaires et des revenus, en particulier le rôle clé de l'éducation, de l'expérience et de l'occupation. On observe également des corrélations mécaniques importantes entre l'âge et l'expérience, ou entre le salaire brut et net, qui doivent être contrôlées. Enfin, la structure familiale et le genre apparaissent fortement associés aux statuts socio-économiques, confirmant des inégalités systémiques.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Il existe un lien fort entre la population sans niveau d'éducation et la population sous le niveau primaire selon les districts.",
+    "hypothese": "Le lien entre Data.without.level et Below.Primary varie selon le taux d'urbanisation du district."
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La population sans niveau d'éducation est corrélée au nombre de travailleurs marginaux dans les régions.",
+    "hypothese": "Le lien entre Data.without.level et Marginal.workers est plus fort dans les zones rurales."
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La proportion de personnes sans niveau d'éducation est liée à la tranche d'âge des 5-14 ans par district.",
+    "hypothese": "Le lien entre Data.without.level et X5...14.years change selon le taux d'alphabétisation global."
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Il existe une co-variation entre la population sans niveau d'éducation et les jeunes enfants de 0-4 ans.",
+    "hypothese": "Le lien entre Data.without.level et X0...4.years varie selon la taille moyenne des ménages."
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Le volume de population masculine est associé au nombre de personnes sans niveau d'éducation.",
+    "hypothese": "Le lien entre Males et Data.without.level dépend du ratio de masculinité du district."
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La population sans niveau d'éducation est liée au volume de non-travailleurs.",
+    "hypothese": "Le lien entre Data.without.level et Non.workers change selon le niveau de développement économique."
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "La population totale est liée au nombre de personnes sans niveau d'éducation.",
+    "hypothese": "Le lien entre Persons et Data.without.level varie selon la densité de population."
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Le volume de population féminine est associé au nombre de personnes sans niveau d'éducation.",
+    "hypothese": "Le lien entre Females et Data.without.level change selon le taux d'activité des femmes."
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "L'expérience professionnelle et l'âge mesurent globalement la même dimension temporelle de la vie d'un individu.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Le salaire net est mécaniquement déduit du salaire brut.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Le montant des déductions est mathématiquement lié au pourcentage de déduction appliqué.",
+    "hypothese": ""
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Les déductions salariales augmentent mécaniquement avec le salaire brut.",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "L'occupation professionnelle est un facteur clé pour expliquer la variance des salaires.",
+    "hypothese": "Le lien entre OCCUPATION et WAGE varie selon le secteur d'activité."
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "Le niveau d'éducation apporte une information importante pour prédire le salaire.",
+    "hypothese": "Le lien entre EDUCATION et WAGE diffère selon le genre des salariés."
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "L'âge est un indicateur clé de l'évolution des revenus au cours de la vie active.",
+    "hypothese": "Le lien entre AGE et WAGE change selon le niveau d'éducation."
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "trivial",
+    "explication": "L'ajustement entre le salaire net et les déductions relève d'une identité comptable.",
+    "hypothese": ""
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "L'âge est corrélé au salaire brut en raison de l'accumulation d'expérience.",
+    "hypothese": "Le lien entre Age et GROSS varie selon le genre des employés."
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "Le pourcentage de déduction est lié au salaire brut, reflétant la progressivité des prélèvements.",
+    "hypothese": "Le lien entre GROSS et Deduction_percentage change selon l'ancienneté dans l'organisation."
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "pertinent",
+    "explication": "L'âge est positivement corrélé au salaire net perçu par les employés.",
+    "hypothese": "Le lien entre Age et Net_Pay varie selon le niveau de salaire brut."
+   },
+   "F20": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "Les déductions augmentent avec l'âge en raison de l'élévation des revenus.",
+    "hypothese": "Le lien entre Age et Deduction change selon le type de contrat."
+   },
+   "F21": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Il existe une forte association statistique entre la situation familiale (relationship) et le genre (sex).",
+    "hypothese": "Le lien entre relationship et sex varie selon le niveau de revenu."
+   },
+   "F22": {
+    "id": "F22",
+    "verdict": "artefact",
+    "explication": "Le score à un test spécifique (A9_Score) est directement utilisé pour poser le diagnostic de classe d'autisme.",
+    "hypothese": ""
+   },
+   "F23": {
+    "id": "F23",
+    "verdict": "artefact",
+    "explication": "Le score A6_Score fait partie des critères diagnostiques constitutifs de la classe d'autisme.",
+    "hypothese": ""
+   },
+   "F24": {
+    "id": "F24",
+    "verdict": "artefact",
+    "explication": "Le score A5_Score contribue directement à la détermination de la classe d'autisme.",
+    "hypothese": ""
+   },
+   "F25": {
+    "id": "F25",
+    "verdict": "trivial",
+    "explication": "Le statut marital et la variable de relation au sein du foyer mesurent des concepts socio-démographiques très proches.",
+    "hypothese": ""
+   },
+   "F26": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Il existe une cohérence de réponses entre différents items du questionnaire de dépistage de l'autisme.",
+    "hypothese": "Le lien entre A6_Score et A9_Score varie selon l'âge des participants."
+   },
+   "F27": {
+    "id": "F27",
+    "verdict": "artefact",
+    "explication": "Le score A4_Score est un composant direct du score global menant à la classe d'autisme.",
+    "hypothese": ""
+   },
+   "F28": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "Le statut marital est fortement structuré par le genre dans les données de recensement.",
+    "hypothese": "Le lien entre marital.status et sex varie selon le niveau d'éducation."
+   },
+   "F29": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "La position dans le ménage est fortement associée au niveau de revenu perçu.",
+    "hypothese": "Le lien entre relationship et income varie selon le genre."
+   },
+   "F30": {
+    "id": "F30",
+    "verdict": "pertinent",
+    "explication": "Le statut marital est un marqueur associé aux disparités de revenus des ménages.",
+    "hypothese": "Le lien entre marital.status et income change selon le nombre d'heures travaillées par semaine."
+   }
+  },
+  "pistes": [
+   "Analyser l'interaction entre le niveau d'éducation et l'expérience sur les disparités salariales.",
+   "Étudier l'impact de la structure familiale (marital.status, relationship) sur les écarts de salaires entre genres.",
+   "Examiner l'effet des déductions et prélèvements sur les inégalités de revenu net au sein des organisations."
+  ],
+  "hypotheses": [],
+  "nouveautes": {
+   "10": {
+    "id": "H10",
+    "nouveaute": "partiellement_etudie",
+    "explication": "L'effet du niveau d'éducation des parents sur les performances est documenté, mais son rôle modérateur précis sur la corrélation entre compétences mathématiques et de lecture reste peu formalisé."
+   }
+  },
+  "modele": "gemini-3.5-flash-lite",
+  "recupere": true
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Data.without.level ~ Below.Primary",
+   "stat": 0.44,
+   "score": 0.9400669277533953,
+   "detail": {
+    "spearman": 0.749,
+    "pearson": 0.309,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Il existe un lien fort entre la population sans niveau d'éducation et la population sous le niveau primaire selon les districts.",
+    "hypothese": "Le lien entre Data.without.level et Below.Primary varie selon le taux d'urbanisation du district."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Data.without.level ~ Marginal.workers",
+   "stat": 0.419,
+   "score": 0.9191459783105984,
+   "detail": {
+    "spearman": 0.726,
+    "pearson": 0.306,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La population sans niveau d'éducation est corrélée au nombre de travailleurs marginaux dans les régions.",
+    "hypothese": "Le lien entre Data.without.level et Marginal.workers est plus fort dans les zones rurales."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Data.without.level ~ X5...14.years",
+   "stat": 0.418,
+   "score": 0.917858602022811,
+   "detail": {
+    "spearman": 0.821,
+    "pearson": 0.403,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La proportion de personnes sans niveau d'éducation est liée à la tranche d'âge des 5-14 ans par district.",
+    "hypothese": "Le lien entre Data.without.level et X5...14.years change selon le taux d'alphabétisation global."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Data.without.level ~ X0...4.years",
+   "stat": 0.415,
+   "score": 0.9145183878706605,
+   "detail": {
+    "spearman": 0.822,
+    "pearson": 0.407,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Il existe une co-variation entre la population sans niveau d'éducation et les jeunes enfants de 0-4 ans.",
+    "hypothese": "Le lien entre Data.without.level et X0...4.years varie selon la taille moyenne des ménages."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Males ~ Data.without.level",
+   "stat": 0.377,
+   "score": 0.8768665989348334,
+   "detail": {
+    "spearman": 0.811,
+    "pearson": 0.434,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Le volume de population masculine est associé au nombre de personnes sans niveau d'éducation.",
+    "hypothese": "Le lien entre Males et Data.without.level dépend du ratio de masculinité du district."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Data.without.level ~ Non.workers",
+   "stat": 0.374,
+   "score": 0.873756137514178,
+   "detail": {
+    "spearman": 0.79,
+    "pearson": 0.416,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La population sans niveau d'éducation est liée au volume de non-travailleurs.",
+    "hypothese": "Le lien entre Data.without.level et Non.workers change selon le niveau de développement économique."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Persons ~ Data.without.level",
+   "stat": 0.373,
+   "score": 0.8733495884593883,
+   "detail": {
+    "spearman": 0.813,
+    "pearson": 0.44,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "La population totale est liée au nombre de personnes sans niveau d'éducation.",
+    "hypothese": "Le lien entre Persons et Data.without.level varie selon la densité de population."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Females ~ Data.without.level",
+   "stat": 0.37,
+   "score": 0.8703548092187443,
+   "detail": {
+    "spearman": 0.815,
+    "pearson": 0.444,
+    "n": 587
+   },
+   "dataset": "Govt.-of-India-Census-2001-District-Wise",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Le volume de population féminine est associé au nombre de personnes sans niveau d'éducation.",
+    "hypothese": "Le lien entre Females et Data.without.level change selon le taux d'activité des femmes."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "EXPERIENCE ~ AGE",
+   "stat": 0.973,
+   "score": 0.7782866213074495,
+   "detail": {
+    "spearman": 0.973,
+    "pearson": 0.978,
+    "n": 534,
+    "q": 0.0
+   },
+   "dataset": "cps_85_wages",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "L'expérience professionnelle et l'âge mesurent globalement la même dimension temporelle de la vie d'un individu.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "GROSS ~ Net_Pay",
+   "stat": 0.933,
+   "score": 0.7462380808232734,
+   "detail": {
+    "spearman": 0.933,
+    "pearson": 0.914,
+    "n": 1802,
+    "q": 0.0
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Le salaire net est mécaniquement déduit du salaire brut.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Deduction ~ Deduction_percentage",
+   "stat": 0.924,
+   "score": 0.7392241738856147,
+   "detail": {
+    "spearman": 0.924,
+    "pearson": 0.776,
+    "n": 1802,
+    "q": 0.0
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Le montant des déductions est mathématiquement lié au pourcentage de déduction appliqué.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "GROSS ~ Deduction",
+   "stat": 0.886,
+   "score": 0.7085966378147734,
+   "detail": {
+    "spearman": 0.886,
+    "pearson": 0.91,
+    "n": 1802,
+    "q": 0.0
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Les déductions salariales augmentent mécaniquement avec le salaire brut.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "OCCUPATION -> WAGE",
+   "stat": 0.154,
+   "score": 0.6894343527621172,
+   "detail": {
+    "mutual_info": 0.154,
+    "part_de_l_info": 0.29
+   },
+   "dataset": "cps_85_wages",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "L'occupation professionnelle est un facteur clé pour expliquer la variance des salaires.",
+    "hypothese": "Le lien entre OCCUPATION et WAGE varie selon le secteur d'activité."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "EDUCATION -> WAGE",
+   "stat": 0.099,
+   "score": 0.5869517082662263,
+   "detail": {
+    "mutual_info": 0.099,
+    "part_de_l_info": 0.19
+   },
+   "dataset": "cps_85_wages",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "Le niveau d'éducation apporte une information importante pour prédire le salaire.",
+    "hypothese": "Le lien entre EDUCATION et WAGE diffère selon le genre des salariés."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "AGE -> WAGE",
+   "stat": 0.084,
+   "score": 0.558636305188476,
+   "detail": {
+    "mutual_info": 0.084,
+    "part_de_l_info": 0.16
+   },
+   "dataset": "cps_85_wages",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "L'âge est un indicateur clé de l'évolution des revenus au cours de la vie active.",
+    "hypothese": "Le lien entre AGE et WAGE change selon le niveau d'éducation."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Net_Pay ~ Deduction",
+   "stat": 0.692,
+   "score": 0.5539706086042706,
+   "detail": {
+    "spearman": 0.692,
+    "pearson": 0.664,
+    "n": 1802,
+    "q": 6.1e-257
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "trivial",
+    "explication": "L'ajustement entre le salaire net et les déductions relève d'une identité comptable.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Age ~ GROSS",
+   "stat": 0.677,
+   "score": 0.5412668809671464,
+   "detail": {
+    "spearman": 0.677,
+    "pearson": 0.648,
+    "n": 1802,
+    "q": 4.9e-241
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "L'âge est corrélé au salaire brut en raison de l'accumulation d'expérience.",
+    "hypothese": "Le lien entre Age et GROSS varie selon le genre des employés."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "GROSS ~ Deduction_percentage",
+   "stat": 0.668,
+   "score": 0.5341995505267079,
+   "detail": {
+    "spearman": 0.668,
+    "pearson": 0.592,
+    "n": 1802,
+    "q": 1.2e-232
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "Le pourcentage de déduction est lié au salaire brut, reflétant la progressivité des prélèvements.",
+    "hypothese": "Le lien entre GROSS et Deduction_percentage change selon l'ancienneté dans l'organisation."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Age ~ Net_Pay",
+   "stat": 0.625,
+   "score": 0.4997799616463834,
+   "detail": {
+    "spearman": 0.625,
+    "pearson": 0.583,
+    "n": 1802,
+    "q": 2.7e-195
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "pertinent",
+    "explication": "L'âge est positivement corrélé au salaire net perçu par les employés.",
+    "hypothese": "Le lien entre Age et Net_Pay varie selon le niveau de salaire brut."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Age ~ Deduction",
+   "stat": 0.617,
+   "score": 0.4937521216433119,
+   "detail": {
+    "spearman": 0.617,
+    "pearson": 0.599,
+    "n": 1802,
+    "q": 2.1e-189
+   },
+   "dataset": "Sample---Employees-Monthly-Salary",
+   "id": "F20",
+   "avis": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "Les déductions augmentent avec l'âge en raison de l'élévation des revenus.",
+    "hypothese": "Le lien entre Age et Deduction change selon le type de contrat."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "relationship ~ sex",
+   "stat": 0.653,
+   "score": 0.45721618808785314,
+   "detail": {
+    "cramers_v": 0.653,
+    "p": 0.0
+   },
+   "dataset": "Adult-Census-Income",
+   "id": "F21",
+   "avis": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Il existe une forte association statistique entre la situation familiale (relationship) et le genre (sex).",
+    "hypothese": "Le lien entre relationship et sex varie selon le niveau de revenu."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "A9_Score ~ Class/ASD",
+   "stat": 0.632,
+   "score": 0.4425056896927675,
+   "detail": {
+    "cramers_v": 0.632,
+    "p": 3.9e-63
+   },
+   "dataset": "autism-adult-data",
+   "id": "F22",
+   "avis": {
+    "id": "F22",
+    "verdict": "artefact",
+    "explication": "Le score à un test spécifique (A9_Score) est directement utilisé pour poser le diagnostic de classe d'autisme.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "A6_Score ~ Class/ASD",
+   "stat": 0.589,
+   "score": 0.4119760922812038,
+   "detail": {
+    "cramers_v": 0.589,
+    "p": 5.7e-55
+   },
+   "dataset": "autism-adult-data",
+   "id": "F23",
+   "avis": {
+    "id": "F23",
+    "verdict": "artefact",
+    "explication": "Le score A6_Score fait partie des critères diagnostiques constitutifs de la classe d'autisme.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "A5_Score ~ Class/ASD",
+   "stat": 0.534,
+   "score": 0.3736593337999553,
+   "detail": {
+    "cramers_v": 0.534,
+    "p": 1.5e-45
+   },
+   "dataset": "autism-adult-data",
+   "id": "F24",
+   "avis": {
+    "id": "F24",
+    "verdict": "artefact",
+    "explication": "Le score A5_Score contribue directement à la détermination de la classe d'autisme.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "marital.status ~ relationship",
+   "stat": 0.49,
+   "score": 0.3431893429244245,
+   "detail": {
+    "cramers_v": 0.49,
+    "p": 0.0
+   },
+   "dataset": "Adult-Census-Income",
+   "id": "F25",
+   "avis": {
+    "id": "F25",
+    "verdict": "trivial",
+    "explication": "Le statut marital et la variable de relation au sein du foyer mesurent des concepts socio-démographiques très proches.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "A6_Score ~ A9_Score",
+   "stat": 0.476,
+   "score": 0.3332394776707448,
+   "detail": {
+    "cramers_v": 0.476,
+    "p": 1.4e-36
+   },
+   "dataset": "autism-adult-data",
+   "id": "F26",
+   "avis": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Il existe une cohérence de réponses entre différents items du questionnaire de dépistage de l'autisme.",
+    "hypothese": "Le lien entre A6_Score et A9_Score varie selon l'âge des participants."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "A4_Score ~ Class/ASD",
+   "stat": 0.467,
+   "score": 0.32671785658791375,
+   "detail": {
+    "cramers_v": 0.467,
+    "p": 3.2e-35
+   },
+   "dataset": "autism-adult-data",
+   "id": "F27",
+   "avis": {
+    "id": "F27",
+    "verdict": "artefact",
+    "explication": "Le score A4_Score est un composant direct du score global menant à la classe d'autisme.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "marital.status ~ sex",
+   "stat": 0.465,
+   "score": 0.32557664981199774,
+   "detail": {
+    "cramers_v": 0.465,
+    "p": 0.0
+   },
+   "dataset": "Adult-Census-Income",
+   "id": "F28",
+   "avis": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "Le statut marital est fortement structuré par le genre dans les données de recensement.",
+    "hypothese": "Le lien entre marital.status et sex varie selon le niveau d'éducation."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "relationship ~ income",
+   "stat": 0.452,
+   "score": 0.31607433582657557,
+   "detail": {
+    "cramers_v": 0.452,
+    "p": 0.0
+   },
+   "dataset": "Adult-Census-Income",
+   "id": "F29",
+   "avis": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "La position dans le ménage est fortement associée au niveau de revenu perçu.",
+    "hypothese": "Le lien entre relationship et income varie selon le genre."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "marital.status ~ income",
+   "stat": 0.446,
+   "score": 0.31206903992876056,
+   "detail": {
+    "cramers_v": 0.446,
+    "p": 0.0
+   },
+   "dataset": "Adult-Census-Income",
+   "id": "F30",
+   "avis": {
+    "id": "F30",
+    "verdict": "pertinent",
+    "explication": "Le statut marital est un marqueur associé aux disparités de revenus des ménages.",
+    "hypothese": "Le lien entre marital.status et income change selon le nombre d'heures travaillées par semaine."
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Sample---Employees-Monthly-Salary",
+    "target": null,
+    "description": "Context This is a sample dataset to explore key insights, EDA, and to perform statistical simulations. Content This Dataset contains Gross and Net salary of each Employee with Tax deduction Inspiration Do male employees earn significantly more than female employees? Are there any departments paying significantly low salaries in the organization? What is the relation between gender and leadership r",
+    "url": "https://www.openml.org/d/43543",
+    "did": "43543",
+    "colonnes": {
+     "num": [
+      "Age",
+      "Tenure_in_org_in_months",
+      "GROSS",
+      "Net_Pay",
+      "Deduction",
+      "Deduction_percentage"
+     ],
+     "groupes": [
+      "Gender"
+     ]
+    }
+   },
+   "lignes": 1802,
+   "colonnes": 12,
+   "fig": "2026-11-02_Sample___Employees_Monthly_Salary.png",
+   "n_findings": 13,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "GROSS ~ Net_Pay",
+     "stat": 0.933,
+     "score": 0.7462380808232734,
+     "detail": {
+      "spearman": 0.933,
+      "pearson": 0.914,
+      "n": 1802,
+      "q": 0.0
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F10",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "Deduction ~ Deduction_percentage",
+     "stat": 0.924,
+     "score": 0.7392241738856147,
+     "detail": {
+      "spearman": 0.924,
+      "pearson": 0.776,
+      "n": 1802,
+      "q": 0.0
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F11",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "GROSS ~ Deduction",
+     "stat": 0.886,
+     "score": 0.7085966378147734,
+     "detail": {
+      "spearman": 0.886,
+      "pearson": 0.91,
+      "n": 1802,
+      "q": 0.0
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F12",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "Net_Pay ~ Deduction",
+     "stat": 0.692,
+     "score": 0.5539706086042706,
+     "detail": {
+      "spearman": 0.692,
+      "pearson": 0.664,
+      "n": 1802,
+      "q": 6.1e-257
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F16",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "Age ~ GROSS",
+     "stat": 0.677,
+     "score": 0.5412668809671464,
+     "detail": {
+      "spearman": 0.677,
+      "pearson": 0.648,
+      "n": 1802,
+      "q": 4.9e-241
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F17",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "GROSS ~ Deduction_percentage",
+     "stat": 0.668,
+     "score": 0.5341995505267079,
+     "detail": {
+      "spearman": 0.668,
+      "pearson": 0.592,
+      "n": 1802,
+      "q": 1.2e-232
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F18",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "Age ~ Net_Pay",
+     "stat": 0.625,
+     "score": 0.4997799616463834,
+     "detail": {
+      "spearman": 0.625,
+      "pearson": 0.583,
+      "n": 1802,
+      "q": 2.7e-195
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F19",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "Age ~ Deduction",
+     "stat": 0.617,
+     "score": 0.4937521216433119,
+     "detail": {
+      "spearman": 0.617,
+      "pearson": 0.599,
+      "n": 1802,
+      "q": 2.1e-189
+     },
+     "dataset": "Sample---Employees-Monthly-Salary",
+     "id": "F20",
+     "avis": null
+    },
+    {
+     "kind": "correlation",
+     "vars": "Age ~ Tenure_in_org_in_months",
+     "stat": 0.539,
+     "score": 0.43152329327059535,
+     "detail": {
+      "spearman": 0.539,
+      "pearson": 0.556,
+      "n": 1802,
+      "q": 2.3e-136
+     },
+     "dataset": "Sample---Employees-Monthly-Salary"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Tenure_in_org_in_months ~ Deduction",
+     "stat": 0.469,
+     "score": 0.3752814222550054,
+     "detail": {
+      "spearman": 0.469,
+      "pearson": 0.427,
+      "n": 1802,
+      "q": 4.3e-99
+     },
+     "dataset": "Sample---Employees-Monthly-Salary"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Age ~ Deduction_percentage",
+     "stat": 0.463,
+     "score": 0.3702730107752463,
+     "detail": {
+      "spearman": 0.463,
+      "pearson": 0.459,
+      "n": 1802,
+      "q": 3.3e-96
+     },
+     "dataset": "Sample---Employees-Monthly-Salary"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Tenure_in_org_in_months ~ GROSS",
+     "stat": 0.422,
+     "score": 0.3372278356851368,
+     "detail": {
+      "spearman": 0.422,
+      "pearson": 0.417,
+      "n": 1802,
+      "q": 1.9e-78
+     },
+     "dataset": "Sample---Employees-Monthly-Salary"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Tenure_in_org_in_months ~ Deduction_percentage",
+     "stat": 0.412,
+     "score": 0.3293764794246935,
+     "detail": {
+      "spearman": 0.412,
+      "pearson": 0.394,
+      "n": 1802,
+      "q": 1.3e-74
+     },
+     "dataset": "Sample---Employees-Monthly-Salary"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "data_scientist_salary",
+    "target": "salary",
+    "description": "salary: Predict the salary range listed in data scientist job postings (in India) given the job description as well as other features like skill requirements and location. Intuitively, the best models will learn to identify valuable requirements from the text and high salary locations (via categorical modeling) as well as predictive interaction-effects. Representing a task with many text fields, t",
+    "url": "https://www.openml.org/d/46664",
+    "did": "46664",
+    "colonnes": {
+     "num": [],
+     "groupes": [
+      "salary"
+     ]
+    }
+   },
+   "lignes": 15841,
+   "colonnes": 7,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "cps_85_wages",
+    "target": "WAGE",
+    "description": "**Author**: **Source**: Unknown - Date unknown **Please cite**: Determinants of Wages from the 1985 Current Population Survey Summary: The Current Population Survey (CPS) is used to supplement census information between census years. These data consist of a random sample of 534 persons from the CPS, with information on wages and other characteristics of the workers, including sex, number of years ",
+    "url": "https://www.openml.org/d/534",
+    "did": "534",
+    "colonnes": {
+     "num": [
+      "EDUCATION",
+      "EXPERIENCE",
+      "WAGE",
+      "AGE"
+     ],
+     "groupes": [
+      "SOUTH",
+      "SEX",
+      "UNION",
+      "RACE",
+      "OCCUPATION",
+      "SECTOR",
+      "MARR"
+     ]
+    }
+   },
+   "lignes": 534,
+   "colonnes": 11,
+   "fig": "2026-11-02_cps_85_wages.png",
+   "n_findings": 5,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "EXPERIENCE ~ AGE",
+     "stat": 0.973,
+     "score": 0.7782866213074495,
+     "detail": {
+      "spearman": 0.973,
+      "pearson": 0.978,
+      "n": 534,
+      "q": 0.0
+     },
+     "dataset": "cps_85_wages",
+     "id": "F9",
+     "avis": null
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "OCCUPATION -> WAGE",
+     "stat": 0.154,
+     "score": 0.6894343527621172,
+     "detail": {
+      "mutual_info": 0.154,
+      "part_de_l_info": 0.29
+     },
+     "dataset": "cps_85_wages",
+     "id": "F13",
+     "avis": null
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "EDUCATION -> WAGE",
+     "stat": 0.099,
+     "score": 0.5869517082662263,
+     "detail": {
+      "mutual_info": 0.099,
+      "part_de_l_info": 0.19
+     },
+     "dataset": "cps_85_wages",
+     "id": "F14",
+     "avis": null
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "AGE -> WAGE",
+     "stat": 0.084,
+     "score": 0.558636305188476,
+     "detail": {
+      "mutual_info": 0.084,
+      "part_de_l_info": 0.16
+     },
+     "dataset": "cps_85_wages",
+     "id": "F15",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "SEX ~ OCCUPATION",
+     "stat": 0.418,
+     "score": 0.2928872034238342,
+     "detail": {
+      "cramers_v": 0.418,
+      "p": 1.2e-18
+     },
+     "dataset": "cps_85_wages"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Adult-Census-Income",
+    "target": null,
+    "description": "This data was extracted from the 1994 Census bureau database by Ronny Kohavi and Barry Becker (Data Mining and Visualization, Silicon Graphics). A set of reasonably clean records was extracted using the following conditions: ((AAGE16) (AGI100) (AFNLWGT1) (HRSWK0)). The prediction task is to determine whether a person makes over 50K a year. Description of fnlwgt (final weight) The weights on the Cu",
+    "url": "https://www.openml.org/d/43436",
+    "did": "43436",
+    "colonnes": {
+     "num": [
+      "age",
+      "fnlwgt",
+      "education.num",
+      "capital.gain",
+      "capital.loss",
+      "hours.per.week"
+     ],
+     "groupes": [
+      "workclass",
+      "marital.status",
+      "relationship",
+      "race",
+      "sex",
+      "income"
+     ]
+    }
+   },
+   "lignes": 32561,
+   "colonnes": 15,
+   "fig": null,
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "relationship ~ sex",
+     "stat": 0.653,
+     "score": 0.45721618808785314,
+     "detail": {
+      "cramers_v": 0.653,
+      "p": 0.0
+     },
+     "dataset": "Adult-Census-Income",
+     "id": "F21",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "marital.status ~ relationship",
+     "stat": 0.49,
+     "score": 0.3431893429244245,
+     "detail": {
+      "cramers_v": 0.49,
+      "p": 0.0
+     },
+     "dataset": "Adult-Census-Income",
+     "id": "F25",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "marital.status ~ sex",
+     "stat": 0.465,
+     "score": 0.32557664981199774,
+     "detail": {
+      "cramers_v": 0.465,
+      "p": 0.0
+     },
+     "dataset": "Adult-Census-Income",
+     "id": "F28",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "relationship ~ income",
+     "stat": 0.452,
+     "score": 0.31607433582657557,
+     "detail": {
+      "cramers_v": 0.452,
+      "p": 0.0
+     },
+     "dataset": "Adult-Census-Income",
+     "id": "F29",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "marital.status ~ income",
+     "stat": 0.446,
+     "score": 0.31206903992876056,
+     "detail": {
+      "cramers_v": 0.446,
+      "p": 0.0
+     },
+     "dataset": "Adult-Census-Income",
+     "id": "F30",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "occupation ~ sex",
+     "stat": 0.434,
+     "score": 0.30355700304354927,
+     "detail": {
+      "cramers_v": 0.434,
+      "p": 0.0
+     },
+     "dataset": "Adult-Census-Income"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "autism-adult-data",
+    "target": null,
+    "description": "Autistic Spectrum Disorder (ASD) is a neurodevelopment condition associated with significant healthcare costs, and early diagnosis can significantly reduce these. Unfortunately, waiting times for an ASD diagnosis are lengthy and procedures are not cost effective. The economic impact of autism and the increase in the number of ASD cases across the world reveals an urgent need for the development of",
+    "url": "https://www.openml.org/d/42878",
+    "did": "42878",
+    "colonnes": {
+     "num": [
+      "age",
+      "result"
+     ],
+     "groupes": [
+      "A1_Score",
+      "A2_Score",
+      "A3_Score",
+      "A4_Score",
+      "A5_Score",
+      "A6_Score",
+      "A7_Score",
+      "A8_Score",
+      "A9_Score",
+      "A10_Score"
+     ]
+    }
+   },
+   "lignes": 704,
+   "colonnes": 21,
+   "fig": null,
+   "n_findings": 7,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "A9_Score ~ Class/ASD",
+     "stat": 0.632,
+     "score": 0.4425056896927675,
+     "detail": {
+      "cramers_v": 0.632,
+      "p": 3.9e-63
+     },
+     "dataset": "autism-adult-data",
+     "id": "F22",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "A6_Score ~ Class/ASD",
+     "stat": 0.589,
+     "score": 0.4119760922812038,
+     "detail": {
+      "cramers_v": 0.589,
+      "p": 5.7e-55
+     },
+     "dataset": "autism-adult-data",
+     "id": "F23",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "A5_Score ~ Class/ASD",
+     "stat": 0.534,
+     "score": 0.3736593337999553,
+     "detail": {
+      "cramers_v": 0.534,
+      "p": 1.5e-45
+     },
+     "dataset": "autism-adult-data",
+     "id": "F24",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "A6_Score ~ A9_Score",
+     "stat": 0.476,
+     "score": 0.3332394776707448,
+     "detail": {
+      "cramers_v": 0.476,
+      "p": 1.4e-36
+     },
+     "dataset": "autism-adult-data",
+     "id": "F26",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "A4_Score ~ Class/ASD",
+     "stat": 0.467,
+     "score": 0.32671785658791375,
+     "detail": {
+      "cramers_v": 0.467,
+      "p": 3.2e-35
+     },
+     "dataset": "autism-adult-data",
+     "id": "F27",
+     "avis": null
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "A3_Score ~ Class/ASD",
+     "stat": 0.438,
+     "score": 0.3064997163672151,
+     "detail": {
+      "cramers_v": 0.438,
+      "p": 3.4e-31
+     },
+     "dataset": "autism-adult-data"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "A3_Score ~ A4_Score",
+     "stat": 0.41,
+     "score": 0.2869094701355334,
+     "detail": {
+      "cramers_v": 0.41,
+      "p": 1.5e-27
+     },
+     "dataset": "autism-adult-data"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Govt.-of-India-Census-2001-District-Wise",
+    "target": null,
+    "description": "Context Census of India is a rich database which can tell stories of over a billion Indians. It is important not only for research point of view, but commercially as well for the organizations that want to understand India's complex yet strongly knitted heterogeneity. However, nowhere on the web, there exists a single database that combines the district- wise information of all the variables (most",
+    "url": "https://www.openml.org/d/43707",
+    "did": "43707",
+    "colonnes": {
+     "num": [
+      "Persons",
+      "Males",
+      "Females",
+      "Number.of.households",
+      "Household.size..per.household.",
+      "Sex.ratio..females.per.1000.males.",
+      "Sex.ratio..0.6.years.",
+      "Persons..literate",
+      "Males..Literate",
+      "Females..Literate",
+      "Persons..literacy.rate",
+      "Males..Literatacy.Rate",
+      "Females..Literacy.Rate",
+      "Total.Educated",
+      "Data.without.level",
+      "Below.Primary",
+      "Primary",
+      "Middle",
+      "Matric.Higher.Secondary.Diploma",
+      "Graduate.and.Above",
+      "X0...4.years",
+      "X5...14.years",
+      "X15...59.years",
+      "X60.years.and.above..Incl..A.N.S..",
+      "Total.workers"
+     ],
+     "groupes": [
+      "Religeon.1.Name",
+      "Religeon.2.Name",
+      "Religeon.3.Name"
+     ]
+    }
+   },
+   "lignes": 590,
+   "colonnes": 82,
+   "fig": "2026-11-02_Govt__of_India_Census_2001_District_Wise.png",
+   "n_findings": 653,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Below.Primary",
+     "stat": 0.44,
+     "score": 0.9400669277533953,
+     "detail": {
+      "spearman": 0.749,
+      "pearson": 0.309,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F1",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Marginal.workers",
+     "stat": 0.419,
+     "score": 0.9191459783105984,
+     "detail": {
+      "spearman": 0.726,
+      "pearson": 0.306,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F2",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ X5...14.years",
+     "stat": 0.418,
+     "score": 0.917858602022811,
+     "detail": {
+      "spearman": 0.821,
+      "pearson": 0.403,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F3",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ X0...4.years",
+     "stat": 0.415,
+     "score": 0.9145183878706605,
+     "detail": {
+      "spearman": 0.822,
+      "pearson": 0.407,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F4",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Males ~ Data.without.level",
+     "stat": 0.377,
+     "score": 0.8768665989348334,
+     "detail": {
+      "spearman": 0.811,
+      "pearson": 0.434,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F5",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Non.workers",
+     "stat": 0.374,
+     "score": 0.873756137514178,
+     "detail": {
+      "spearman": 0.79,
+      "pearson": 0.416,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F6",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Persons ~ Data.without.level",
+     "stat": 0.373,
+     "score": 0.8733495884593883,
+     "detail": {
+      "spearman": 0.813,
+      "pearson": 0.44,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F7",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Females ~ Data.without.level",
+     "stat": 0.37,
+     "score": 0.8703548092187443,
+     "detail": {
+      "spearman": 0.815,
+      "pearson": 0.444,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise",
+     "id": "F8",
+     "avis": null
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Primary.school",
+     "stat": 0.369,
+     "score": 0.8687393157468432,
+     "detail": {
+      "spearman": 0.57,
+      "pearson": 0.202,
+      "n": 578
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ SC.1.Population",
+     "stat": 0.366,
+     "score": 0.8656906468546224,
+     "detail": {
+      "spearman": 0.686,
+      "pearson": 0.32,
+      "n": 574
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Total.workers",
+     "stat": 0.363,
+     "score": 0.8632404384773804,
+     "detail": {
+      "spearman": 0.818,
+      "pearson": 0.455,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Safe.Drinking.water",
+     "stat": 0.36,
+     "score": 0.8603132164550887,
+     "detail": {
+      "spearman": 0.514,
+      "pearson": 0.154,
+      "n": 578
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Religeon.2.Population",
+     "stat": 0.357,
+     "score": 0.8574588281864736,
+     "detail": {
+      "spearman": 0.567,
+      "pearson": 0.209,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Religeon.1.Population",
+     "stat": 0.356,
+     "score": 0.8558799447907627,
+     "detail": {
+      "spearman": 0.817,
+      "pearson": 0.461,
+      "n": 587
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Data.without.level ~ Total.Inhabited.Villages",
+     "stat": 0.354,
+     "score": 0.8539085372897726,
+     "detail": {
+      "spearman": 0.503,
+      "pearson": 0.149,
+      "n": 578
+     },
+     "dataset": "Govt.-of-India-Census-2001-District-Wise"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "Xjake555X/real-adult-male-nsfw-image-dataset",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/splits?dataset=Xjake555X%2Freal-adult-male-nsfw-image-dataset"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 10,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "45748",
+    "x": "math score",
+    "y": "reading score",
+    "groupe": "parental level of education",
+    "seuil": null,
+    "plus_fort": "bachelor's degree",
+    "enonce": "Le lien entre math score et reading score change-t-il selon le niveau d'éducation des parents (parental level of education) ?",
+    "requete_biblio": "parental education academic performance math reading correlation"
+   },
+   "statut": "non concluante",
+   "resume": "Dans StudentsPerformance, la corrélation math score~reading score vaut +0.78 pour « parental level of education = bachelor's degree » contre +0.87 pour « parental level of education = master's degree » (p = 0.069).",
+   "stats": {
+    "groupes": {
+     "parental level of education = some college": {
+      "rho": 0.783,
+      "pearson": 0.801,
+      "n": 226
+     },
+     "parental level of education = associate's degree": {
+      "rho": 0.796,
+      "pearson": 0.8,
+      "n": 222
+     },
+     "parental level of education = high school": {
+      "rho": 0.791,
+      "pearson": 0.802,
+      "n": 196
+     },
+     "parental level of education = some high school": {
+      "rho": 0.817,
+      "pearson": 0.833,
+      "n": 179
+     },
+     "parental level of education = bachelor's degree": {
+      "rho": 0.78,
+      "pearson": 0.817,
+      "n": 118
+     },
+     "parental level of education = master's degree": {
+      "rho": 0.872,
+      "pearson": 0.855,
+      "n": 59
+     }
+    },
+    "groupe_predit_plus_fort": "parental level of education = bachelor's degree",
+    "p_difference": 0.0693,
+    "holm": "p = 0.069, seuil corrigé 0.017 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Parental Expectations and Children's Academic Performance in Sociocultural Context",
+     "annee": 2010,
+     "citations": 579,
+     "url": "https://doi.org/10.1007/s10648-010-9121-z"
+    },
+    {
+     "titre": "Parental Education and Social and Cultural Capital in Academic Achievement",
+     "annee": 2011,
+     "citations": 69,
+     "url": "https://doi.org/10.5539/ijel.v1n2p50"
+    },
+    {
+     "titre": "Parental Involvement in Math Homework: Links to Children’s Performance and Motivation",
+     "annee": 2017,
+     "citations": 197,
+     "url": "https://doi.org/10.1080/00313831.2017.1324901"
+    },
+    {
+     "titre": "Math homework: Parental help and children’s academic outcomes",
+     "annee": 2019,
+     "citations": 56,
+     "url": "https://doi.org/10.1016/j.cedpsych.2019.101784"
+    },
+    {
+     "titre": "Gender Differences in How Family Income and Parental Education Relate to Reading Achievement in China: The Mediating Role of Parental Expectation and Parental Involvement",
+     "annee": 2018,
+     "citations": 109,
+     "url": "https://doi.org/10.3389/fpsyg.2018.00783"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé initial et le test évaluent correctement une modération observationnelle (« le lien change-t-il selon... »), mais le test échoue à valider l'hypothèse spécifique formulée.",
+    "reformulation": "Le lien entre le score en mathématiques et le score en lecture varie-t-il significativement selon le niveau d'éducation des parents ?",
+    "diagnostic_statistique": "Le test statistique montre une différence non significative (p = 0.069) entre les groupes. De plus, le groupe prédit comme le plus fort (bachelor's degree, r = 0.78) est en réalité surpassé par le groupe master's degree (r = 0.87). Les différences de coefficients de Pearson et Spearman sont faibles (< 0.15), indiquant des relations globalement linéaires.",
+    "modele_recommande": "régression linéaire avec interaction y ~ x * z (où z représente le niveau d'éducation des parents)",
+    "robustesse": "La taille des échantillons varie fortement selon les groupes (de n = 59 pour master's degree à n = 226 pour some college), ce qui fragilise la puissance statistique pour les catégories les plus élevées et peut expliquer le non-respect du seuil de significativité classique (p < 0.05).",
+    "interpretation_domaine": "En sociologie de l'éducation, le capital culturel des parents (souvent proxifié par leur niveau d'études) influence globalement la réussite académique, mais la littérature montre rarement une modulation aussi fine de la colinéarité entre compétences en mathématiques et en lecture selon ce seul facteur. Il s'agit ici probablement d'une variation aléatoire d'échantillonnage.",
+    "action_pipeline": "Ajouter une vérification de la taille minimale des sous-groupes avant d'effectuer des tests de comparaison de coefficients de corrélation, et affirmer le groupe prédit uniquement si la taille d'effet est robuste.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "L'effet du niveau d'éducation des parents sur les performances est documenté, mais son rôle modérateur précis sur la corrélation entre compétences mathématiques et de lecture reste peu formalisé."
+  },
+  {
+   "id": 11,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "45748",
+    "x": "math score",
+    "y": "writing score",
+    "groupe": "lunch",
+    "seuil": null,
+    "plus_fort": "standard",
+    "enonce": "Le lien entre math score et writing score change-t-il selon le type de repas (lunch) ?",
+    "requete_biblio": "lunch status socioeconomic status academic performance correlation"
+   },
+   "statut": "réfutée",
+   "resume": "Dans StudentsPerformance, la corrélation math score~writing score vaut +0.75 pour « lunch = standard » contre +0.79 pour « lunch = free/reduced » (p = 0.14).",
+   "stats": {
+    "groupes": {
+     "lunch = standard": {
+      "rho": 0.751,
+      "pearson": 0.775,
+      "n": 645
+     },
+     "lunch = free/reduced": {
+      "rho": 0.791,
+      "pearson": 0.811,
+      "n": 355
+     }
+    },
+    "groupe_predit_plus_fort": "lunch = standard",
+    "p_difference": 0.136,
+    "holm": "p = 0.14, seuil corrigé 0.025 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Effects of socioeconomic status on academic performance in Missouri public schools",
+     "annee": 2009,
+     "citations": 23,
+     "url": "https://openalex.org/W2282672246"
+    },
+    {
+     "titre": "Socio-economic status and academic performance in higher education: A systematic review",
+     "annee": 2019,
+     "citations": 268,
+     "url": "https://doi.org/10.1016/j.edurev.2019.100305"
+    },
+    {
+     "titre": "Influence of socioeconomic status on academic performance in virtual classroom settings",
+     "annee": 2022,
+     "citations": 1,
+     "url": "https://doi.org/10.59720/21-109"
+    },
+    {
+     "titre": "Correlation of socioeconomic group and academic performance.",
+     "annee": 2011,
+     "citations": 0,
+     "url": "https://doi.org/10.14288/1.0104478"
+    },
+    {
+     "titre": "The Effects of Socioeconomic Status on Growth Rates in Academic Achievement.",
+     "annee": 2007,
+     "citations": 3,
+     "url": "https://doi.org/10.12794/metadc5193"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond bien au test de modération, mais la formulation initiale supposait à tort un effet plus fort pour 'standard', ce que les données contredisent.",
+    "reformulation": "Le lien entre le score en mathématiques et le score en expression écrite diffère-t-il selon le type de repas (lunch) ?",
+    "diagnostic_statistique": "Les corrélations sont fortes et similaires dans les deux groupes (Pearson = 0.775 vs 0.811). L'écart n'est pas statistiquement significatif (p = 0.14). De plus, l'écart |Spearman - Pearson| est faible (< 0.05 partout), indiquant des relations globalement linéaires sans valeurs extrêmes majeures.",
+    "modele_recommande": "Régression linéaire multiple avec interaction : writing_score ~ math_score * lunch",
+    "robustesse": "Les tailles d'échantillon sont correctes (645 et 355). Toutefois, les données sont observationnelles (proxy du statut socio-économique via le programme de repas gratuits/réduits) et des facteurs de confusion comme le niveau d'éducation des parents ne sont pas contrôlés.",
+    "interpretation_domaine": "La littérature confirme que le statut socio-économique influence la performance académique globale, mais le couplage fort entre les compétences en mathématiques et en écriture reste invariant face à ce proxy socio-économique dans cet échantillon.",
+    "action_pipeline": "Ajouter un test formel d'interaction (test de Chow ou test de Fisher sur les coefficients) plutôt que de comparer uniquement des magnitudes de corrélation, et éviter d'affirmer un sens de différence sans support statistique significatif.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 12,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "45748",
+    "x": "reading score",
+    "y": "writing score",
+    "groupe": "test preparation course",
+    "seuil": null,
+    "plus_fort": "completed",
+    "enonce": "Le lien entre reading score et writing score change-t-il selon la participation au cours de préparation (test preparation course) ?",
+    "requete_biblio": "test preparation course academic achievement literacy scores"
+   },
+   "statut": "réfutée",
+   "resume": "Dans StudentsPerformance, la corrélation reading score~writing score vaut +0.94 pour « test preparation course = completed » contre +0.95 pour « test preparation course = none » (p = 0.15).",
+   "stats": {
+    "groupes": {
+     "test preparation course = none": {
+      "rho": 0.951,
+      "pearson": 0.957,
+      "n": 642
+     },
+     "test preparation course = completed": {
+      "rho": 0.941,
+      "pearson": 0.947,
+      "n": 358
+     }
+    },
+    "groupe_predit_plus_fort": "test preparation course = completed",
+    "p_difference": 0.149,
+    "holm": "p = 0.15, seuil corrigé 0.05 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "The Effect of Concept Map on Academic Achievement of Thinking and Media Literacy Course",
+     "annee": 2020,
+     "citations": 4,
+     "url": "https://doi.org/10.20511/pyr2020.v8nspe3.762"
+    },
+    {
+     "titre": "When Academic Achievement Is an Obligation",
+     "annee": 2013,
+     "citations": 177,
+     "url": "https://doi.org/10.1177/0022022113490072"
+    },
+    {
+     "titre": "Assessing the Value of Course-Embedded Information Literacy on Student Learning and Achievement",
+     "annee": 2016,
+     "citations": 36,
+     "url": "https://doi.org/10.5860/crl.77.2.164"
+    },
+    {
+     "titre": "Investigating academic achievement of English medium instruction courses in Turkey",
+     "annee": 2022,
+     "citations": 43,
+     "url": "https://doi.org/10.14746/ssllt.2022.12.1.6"
+    },
+    {
+     "titre": "Teacher Preparation and Student Achievement",
+     "annee": 2009,
+     "citations": 796,
+     "url": "https://doi.org/10.3102/0162373709353129"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation est correcte et utilise prudemment le terme 'lien' pour des données observationnelles, en testant une modération.",
+    "reformulation": "",
+    "diagnostic_statistique": "Les corrélations de Pearson et Spearman sont très proches dans les deux groupes (différence < 0.15), écartant une non-linéarité majeure. Cependant, la différence de corrélation entre les deux groupes n'est pas statistiquement significative (p = 0.15) et la direction observée (0.95 vs 0.94) est inverse de celle prédite ('completed' supposé plus fort).",
+    "modele_recommande": "régression linéaire multiple avec interaction y ~ x * z (où z est le cours de préparation)",
+    "robustesse": "Les tailles d'échantillon sont correctes (n=642 et n=358). Le biais d'échantillon potentiel réside dans le fait que la participation au cours de préparation est auto-sélectionnée, et les scores de lecture et d'écriture sont conceptuellement très proches, plafonnant la variance mesurable.",
+    "interpretation_domain": "En psychométrie, les compétences en lecture (reading) et en écriture (writing) sont fortement corrélées car elles reposent sur des aptitudes linguistiques générales communes. Le cours de préparation ne modifie pas significativement ce lien structurel fort, contrairement à l'hypothèse initiale.",
+    "action_pipeline": "Ajouter un contrôle systématique de la taille d'effet minimale pour éviter de surinterpréter des différences de corrélation non significatives sur des relations déjà quasi-parfaites.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 13,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43889",
+    "x": "lsat",
+    "y": "ugpa",
+    "groupe": "fulltime",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre lsat et ugpa change-t-il selon le statut d'étude à temps plein ou partiel (fulltime) ?",
+    "requete_biblio": "lsat ugpa correlation fulltime law students"
+   },
+   "statut": "confirmée",
+   "resume": "Dans law-school-admission-bianry, la corrélation lsat~ugpa vaut +0.23 pour « fulltime = 1 » contre +0.03 pour « fulltime = 2 » (p = 4.4e-08). [Testé sur : moitié de confirmation (10271 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "fulltime = 1": {
+      "rho": 0.231,
+      "pearson": 0.238,
+      "n": 9538
+     },
+     "fulltime = 2": {
+      "rho": 0.025,
+      "pearson": 0.027,
+      "n": 733
+     }
+    },
+    "groupe_predit_plus_fort": "fulltime = 1",
+    "p_difference": 4.38e-08,
+    "donnees_test": "moitié de confirmation (10271 lignes jamais vues à l'exploration)",
+    "confusion": "contrôle de age, gender : confirmée — Dans law-school-admission-bianry, la corrélation lsat~ugpa vaut +0.24 pour « fulltime = 1 » contre +0.06 pour « fulltime = 2 » (p = 1e-06).",
+    "generalisation": "aucun autre dataset avec les mêmes variables (lsat, ugpa, fulltime) parmi 8 essayés",
+    "holm": "p = 4.4e-08, seuil corrigé 0.013 (4 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "When LSAT Doesn't Matter: And Other Surprising Finds from a Deep Dive into Academic Probation in Law School",
+     "annee": 2025,
+     "citations": 0,
+     "url": "https://doi.org/10.2139/ssrn.5471266"
+    },
+    {
+     "titre": "Student Quality as Measured by LSAT Scores: Migration Patterns in the U.S. News Rankings Era",
+     "annee": 2006,
+     "citations": 5,
+     "url": "https://openalex.org/W1604566075"
+    },
+    {
+     "titre": "Relationship of Self-Efficacy Expectations to Academic Performance of Law Students",
+     "annee": 1990,
+     "citations": 0,
+     "url": "https://openalex.org/W2914929302"
+    },
+    {
+     "titre": "The Best and the Brightest?: Canadian Law School Admissions",
+     "annee": 1999,
+     "citations": 5,
+     "url": "https://doi.org/10.60082/2817-5069.1517"
+    },
+    {
+     "titre": "First-Generation Students in Law School: A Proven Success Model",
+     "annee": 2018,
+     "citations": 3,
+     "url": "https://doi.org/10.54119/alr.spkm1812"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé est correct et bien formulé sous forme d'une question de modération (« le lien change-t-il selon... »). Les données observationnelles sont correctement interprétées en termes de lien et non de causalité.",
+    "reformulation": "",
+    "diagnostic_statistique": "Les différences de coefficients de Pearson et de Spearman sont faibles dans les deux groupes (|Spearman - Pearson| < 0.05), ce qui indique l'absence de non-linéarité majeure ou de valeurs extrêmes problématiques. La différence de corrélation entre les deux groupes est hautement significative (p = 1.89e-12) malgré un déséquilibre de taille d'échantillon (n=19292 vs n=1508).",
+    "modele_recommande": "régression linéaire avec interaction y ~ lsat * fulltime",
+    "robustesse": "La taille de l'échantillon pour le groupe temps plein est excellente (n > 19000), garantissant une forte puissance statistique. Le groupe à temps partiel est plus petit (n = 1508) mais reste suffisant. Facteurs de confusion potentiels : le profil socio-économique et les obligations professionnelles des étudiants à temps partiel.",
+    "interpretation_domaine": "En sciences de l'éducation juridique, la corrélation plus forte entre les scores LSAT et la moyenne universitaire (UGPA) chez les étudiants à temps plein s'explique souvent par une focalisation exclusive sur les études. Pour les étudiants à temps partiel, d'autres facteurs (travail, famille) pèsent davantage sur la performance académique, affaiblissant le signal prédictif des tests d'entrée.",
+    "action_pipeline": "Conserver le générateur d'hypothèses de modération sous cette forme, car il détecte efficacement des hétérogénéités de relations valides sur de grands échantillons.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 4.4e-08, seuil corrigé 0.013 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": true,
+      "note": "contrôle de age, gender : confirmée — Dans law-school-admission-bianry, la corrélation lsat~ugpa vaut +0.24 pour « fulltime = 1 » contre +0.06 pour « fulltime = 2 » (p = 1e-06)."
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun autre dataset avec les mêmes variables (lsat, ugpa, fulltime) parmi 8 essayés"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "date": "2026-11-05",
+ "faits": {
+  "date": "2026-11-05",
+  "date_longue": "5 novembre 2026",
+  "sujets": [
+   "Détection d'anomalies et pannes"
+  ],
+  "questions": [
+   "Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Heart_Failure_Prediction_-_Clinical_Records_",
+    "lignes": 5000,
+    "colonnes": 13,
+    "resultats_bruts": 2,
+    "confirmes_sur_moitie_independante": 2
+   },
+   {
+    "nom": "Heart_Failure_Prediction",
+    "lignes": 5000,
+    "colonnes": 13,
+    "resultats_bruts": 5,
+    "confirmes_sur_moitie_independante": 4
+   },
+   {
+    "nom": "imaadd05/visa-anomaly-detection",
+    "lignes": 360,
+    "colonnes": 17,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "lignes": 61249,
+    "colonnes": 29,
+    "resultats_bruts": 245,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 13,
+  "hypotheses_testees": [
+   {
+    "id": "H26",
+    "enonce": "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans parkinsons-telemonitoring, la corrélation Jitter.PPQ5~DFA vaut +0.30 pour « sex = 1 » contre +0.56 pour « sex = 0 » (p = 7.3e-16) : effet INVERSE de celui prédit. Attention : relation non linéaire ou valeurs extrêmes dans « sex = 1 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "La littérature documente largement les différences liées au sexe dans les mesures acoustiques vocales de la maladie de Parkinson."
+   },
+   {
+    "id": "H27",
+    "enonce": "Le lien entre f_14_median_pitch et f_18_max_pitch change-t-il selon le groupe f_24_number_of_voice_breaks ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans BenchmarkDatasets/Parkinson_Speech, la corrélation f_14_median_pitch~f_18_max_pitch vaut +0.19 pour « f_24_number_of_voice_breaks > 2 » contre +0.71 pour « f_24_number_of_voice_breaks ≤ 2 » (p = 4.3e-05) : effet INVERSE de celui prédit. Attention : relation non linéaire ou valeurs extrêmes dans « f_24_number_of_voice_breaks ≤ 2 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "L'effet des ruptures de voix sur la hauteur tonale (pitch) est un marqueur classique de la dysphonie parkinsonienne."
+   },
+   {
+    "id": "H28",
+    "enonce": "Le lien entre PPE et motor_UPDRS est-il plus fort au-dessus du seuil de PPE ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans parkinsons-telemonitoring, la corrélation PPE~motor_UPDRS vaut +0.14 pour « PPE > 0.2 » contre +0.04 pour « PPE ≤ 0.2 » (p = 0.0061).",
+    "bloque_a": null,
+    "litterature": "Le seuillage spécifique de l'indice PPE pour l'évaluation des symptômes moteurs nécessite encore des validations cliniques approfondies."
+   },
+   {
+    "id": "H29",
+    "enonce": "Le lien entre f_0_jitter_local et f_16_std_pitch change-t-il selon le groupe f_23_fraction_locally_unvoiced_frames ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans BenchmarkDatasets/Parkinson_Speech, la corrélation f_0_jitter_local~f_16_std_pitch vaut +0.35 pour « f_23_fraction_locally_unvoiced_frames > 0.05 » contre +0.35 pour « f_23_fraction_locally_unvoiced_frames ≤ 0.05 » (p = 0.98).",
+    "bloque_a": null,
+    "litterature": "Les relations entre le jitter et l'écart-type du pitch sont des notions fondamentales du traitement du signal vocal."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 2,
+   "non concluante": 2
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "SoyVitou/NASA-C-MAPSS-Turbofan-Engine",
+    "variables": "NRf ~ RUL",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "La vitesse corrigée du fan (NRf) montre une relation monotone non linéaire avec la durée de vie restante (RUL), ce qui en fait un précurseur pertinent d'usure.",
+    "detail": "confirmé — ρ = -0.39 sur 20000 lignes (découverte : -0.41)"
+   },
+   {
+    "dataset": "Heart_Failure_Prediction",
+    "variables": "time ~ DEATH_EVENT",
+    "type": "correlation",
+    "explication": "Le temps de suivi est fortement corrélé à l'événement de mortalité, confirmant l'importance de la censure et du suivi longitudinal dans la prédiction de survie.",
+    "detail": "confirmé — ρ = -0.56 sur 2518 lignes (découverte : -0.53)"
+   },
+   {
+    "dataset": "Heart_Failure_Prediction_-_Clinical_Records_",
+    "variables": "ejection_fraction ~ DEATH_EVENT",
+    "type": "association_categorielle",
+    "explication": "La fraction d'éjection est fortement associée à la survenue de l'événement fatal, validant son rôle de marqueur clinique critique.",
+    "detail": "confirmé — V = 0.47 (découverte : 0.48)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 3,
+  "nouvelles_hypotheses": [
+   "Le lien entre NRf et Ps30 change-t-il selon le groupe setting_1 ?",
+   "Le lien entre ejection_fraction et serum_creatinine change-t-il selon le groupe diabetes ?",
+   "Le lien entre cycle et T50 est-il plus fort au-dessus du seuil de cycle ?"
+  ],
+  "runs": [
+   "2026-11-05_0330_fault"
+  ]
+ },
+ "en_chiffres": [
+  "4 datasets analysés, 13 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 2 réfutée, 2 non concluante",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "3 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête sur les signaux d'alerte : pannes et anomalies sous surveillance",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté pour savoir si les pannes et anomalies sont annoncées par des signaux précurseurs.",
+ "paragraphes": [
+  "L'enquête s'est penchée sur plusieurs hypothèses concernant des mesures acoustiques et cliniques. Par exemple, le test sur le lien entre Jitter.PPQ5 et DFA a été réfuté : l'effet observé s'est révélé inverse de celui prédit, montrant des relations non linéaires qui nécessiteraient un autre type de modèle. De même, un autre test concernant la hauteur tonale a été réfuté, tandis que d'autres pistes se sont révélées non concluantes. Un test réfuté reste toutefois une information utile pour réorienter les analyses.",
+  "Du côté des pistes identifiées, l'exploration a mis en lumière plusieurs relations intéressantes. La vitesse corrigée du fan montre un lien non linéaire avec la durée de vie restante sur les moteurs de turboréacteurs, servant de précurseur d'usure. Concernant les dossiers cliniques, le temps de suivi et la fraction d'éjection affichent des liens marqués avec l'événement de mortalité. 13 datasets ont été écartés au cours de cette session nocturne."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+}

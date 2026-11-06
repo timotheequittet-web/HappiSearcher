@@ -1,0 +1,163 @@
+{
+ "date": "2026-11-06",
+ "faits": {
+  "date": "2026-11-06",
+  "date_longue": "6 novembre 2026",
+  "sujets": [
+   "Astronomie et physique"
+  ],
+  "questions": [
+   "Quelles régularités physiques émergent des mesures (étoiles, pulsars, particules), et quels objets anormaux méritent un second regard ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "MagicTelescope",
+    "lignes": 19020,
+    "colonnes": 11,
+    "resultats_bruts": 19,
+    "confirmes_sur_moitie_independante": 12
+   },
+   {
+    "nom": "solar-flare",
+    "lignes": 315,
+    "colonnes": 13,
+    "resultats_bruts": 17,
+    "confirmes_sur_moitie_independante": 11
+   },
+   {
+    "nom": "higgs",
+    "lignes": 98050,
+    "colonnes": 29,
+    "resultats_bruts": 10,
+    "confirmes_sur_moitie_independante": 9
+   },
+   {
+    "nom": "Viewing-Solar-Flares",
+    "lignes": 12455,
+    "colonnes": 17,
+    "resultats_bruts": 8,
+    "confirmes_sur_moitie_independante": 7
+   },
+   {
+    "nom": "visualizing_galaxy",
+    "lignes": 323,
+    "colonnes": 5,
+    "resultats_bruts": 9,
+    "confirmes_sur_moitie_independante": 6
+   },
+   {
+    "nom": "solar_flare",
+    "lignes": 1066,
+    "colonnes": 11,
+    "resultats_bruts": 10,
+    "confirmes_sur_moitie_independante": 10
+   },
+   {
+    "nom": "juliensimon/nasa-exoplanets",
+    "lignes": 6451,
+    "colonnes": 19,
+    "resultats_bruts": 24,
+    "confirmes_sur_moitie_independante": 14
+   }
+  ],
+  "datasets_ecartes": 17,
+  "hypotheses_testees": [
+   {
+    "id": "H30",
+    "enonce": "Le lien entre NRf et Ps30 change-t-il selon le groupe setting_1 ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans SoyVitou/NASA-C-MAPSS-Turbofan-Engine, la corrélation NRf~Ps30 vaut +0.57 pour « setting_1 > 25.0016 » contre +0.42 pour « setting_1 ≤ 25.0016 » (p = 1.1e-65). Attention : relation non linéaire ou valeurs extrêmes dans « setting_1 ≤ 25.0016, setting_1 > 25.0016 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": "Non trivial : avis d'expert : A_TESTER_AUTREMENT",
+    "litterature": "La littérature sur les moteurs turbofan étudie largement la dégradation des capteurs et les régimes opérationnels par seuils."
+   },
+   {
+    "id": "H31",
+    "enonce": "Le lien entre ejection_fraction et serum_creatinine change-t-il selon le groupe diabetes ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans Heart_Failure_Prediction, la corrélation ejection_fraction~serum_creatinine vaut -0.15 pour « diabetes = 0.0 » contre -0.34 pour « diabetes = 1.0 » (écart 0.18, p = 0.012). Attention : relation non linéaire ou valeurs extrêmes dans « diabetes = 0.0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. ATTENTION : 3680 lignes recopiées à l'identique (74%) : données probablement augmentées ou synthétiques, retirées avant analyse. (Retesté le 06/11 après correction du découpage : les doublons faussaient la première confirmation.)",
+    "bloque_a": null,
+    "litterature": "L'interaction entre diabète, insuffisance rénale et fraction d'éjection est un classique de la cardiologie clinique."
+   },
+   {
+    "id": "H32",
+    "enonce": "Le lien entre cycle et T50 est-il plus fort au-dessus du seuil de cycle ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans SoyVitou/NASA-C-MAPSS-Turbofan-Engine, la corrélation cycle~T50 vaut +0.04 pour « cycle > 150 » contre +0.03 pour « cycle ≤ 150 » (écart 0.00, p = 0.93).",
+    "bloque_a": null,
+    "litterature": "La détection d'anomalies et l'analyse de cycle dans les turbines d'avion font l'objet d'une vaste littérature en maintenance prédictive."
+   }
+  ],
+  "bilan_tests": {
+   "confirmée": 1,
+   "non concluante": 1,
+   "réfutée": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "juliensimon/nasa-exoplanets",
+    "variables": "pl_rade ~ pl_bmasse",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Il existe un lien non linéaire robuste entre la masse et le rayon des exoplanètes, reflétant des régimes de composition variés (terrestres, gazeuses).",
+    "detail": "confirmé — ρ = +0.82 sur 808 lignes (découverte : +0.84)"
+   },
+   {
+    "dataset": "juliensimon/nasa-exoplanets",
+    "variables": "st_teff ~ st_rad",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "La température effective et le rayon stellaire montrent une forte monotonie non linéaire liée à l'évolution stellaire sur la séquence principale.",
+    "detail": "confirmé — ρ = +0.74 sur 2784 lignes (découverte : +0.75)"
+   },
+   {
+    "dataset": "juliensimon/nasa-exoplanets",
+    "variables": "st_rad ~ st_mass",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Le rayon et la masse des étoiles sont fortement corrélés de manière non linéaire, conformément aux modèles d'évolution stellaire.",
+    "detail": "confirmé — ρ = +0.94 sur 2446 lignes (découverte : +0.94)"
+   },
+   {
+    "dataset": "Viewing-Solar-Flares",
+    "variables": "AAA_hi ~ AAA",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Liaison interne cohérente entre les mesures de flux des éruptions solaires (AAA_hi et AAA).",
+    "detail": "confirmé — ρ = +0.82 sur 6237 lignes (découverte : +0.82)"
+   },
+   {
+    "dataset": "juliensimon/nasa-exoplanets",
+    "variables": "pl_orbsmax ~ sy_vmag",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien inverse inattendu entre le demi-grand axe orbital des exoplanètes et la magnitude apparente de l'étoile hôte, biais observationnel classique.",
+    "detail": "confirmé — ρ = -0.42 sur 1827 lignes (découverte : -0.44)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre pl_bmasse et pl_rade change-t-il selon le groupe discoverymethod ?",
+   "Le lien entre northsouth et velocity change-t-il selon le groupe angle ?",
+   "Le lien entre fWidth: et fConc1: change-t-il selon le groupe class ?",
+   "Le lien entre st_teff et st_mass change-t-il selon le groupe disc_year ?"
+  ],
+  "runs": [
+   "2026-11-06_0330_pulsar"
+  ]
+ },
+ "en_chiffres": [
+  "7 datasets analysés, 17 écartés (illisibles, hors sujet ou indisponibles)",
+  "3 hypothèses testées : 1 confirmée, 1 non concluante, 1 réfutée",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête astronomique : traque des régularités stellaires et planétaires",
+ "chapo": "Cette nuit, la Raspberry a scruté les données d'observation pour traquer les régularités physiques et analyser de nouveaux liens complexes.",
+ "paragraphes": [
+  "L'enquête s'est orientée vers l'astronomie et la physique en explorant plusieurs jeux de données publics. L'analyse des exoplanètes a notamment mis en lumière des pistes intéressantes, comme le lien non linéaire entre la masse et le rayon des exoplanètes, ou encore la relation entre la température effective et le rayon stellaire. Un lien inverse inattendu a également été confirmé entre le demi-grand axe orbital des exoplanètes et la magnitude apparente de l'étoile hôte, mettant en évidence un biais observationnel classique. Concernant les tests d'hypothèses, une piste fragile (niveau 2/6) a émergé concernant un lien changeant selon les seuils de réglage dans un jeu de données sur les moteurs, bien qu'un modèle non linéaire soit plus adapté en raison de valeurs extrêmes.",
+  "La nuit a également essuyé des réfutations et des précautions méthodologiques utiles. Un test portant sur l'influence d'un seuil de cycle a été réfuté, car aucun lien n'a varié de manière significative. De plus, une alerte qualité a touché un jeu de données de prédiction cardiaque en raison de milliers de lignes recopiées à l'identique, nécessitant un retrait de ces données synthétiques avant l'analyse. Face à ces vérifications, la Raspberry a formulé 4 nouvelles hypothèses pour prolonger l'enquête lors des prochaines nuits."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+}

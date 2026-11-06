@@ -1,0 +1,1991 @@
+{
+ "id": "2026-11-03_0330_ham10000",
+ "date": "2026-11-03T03:36",
+ "sujet": "Imagerie médicale et attributs cachés",
+ "question": "Les images médicales (peau, radio, IRM) permettent-elles de retrouver le sexe ou l'âge du patient, et ces informations biaisent-elles les diagnostics ?",
+ "keywords": [
+  "ham10000",
+  "skin lesion",
+  "dermatology",
+  "chest x-ray",
+  "xray",
+  "mri",
+  "ultrasound"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des datasets médicaux met en évidence des structures cliniques et des redondances informatives fortes, notamment dans les classifications dermatologiques et radiologiques. Les résultats montrent des liens étroits entre les symptômes cliniques et les diagnostics, ainsi que des corrélations entre les caractéristiques visuelles des IRM et la ségrégation des classes d'Alzheimer. L'investigation s'oriente désormais vers la détection de biais liés aux attributs cachés comme l'âge ou le sexe dans l'imagerie.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Le diagnostic et le label décrivent la même information clinique sous des formats quasi identiques.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Présence de paires d'images quasi-identiques dans le dataset d'IRM, ce qui indique un doublon ou une fuite de données.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Plusieurs attributs histologiques permettent de prédire efficacement la classe de la lésion dermatologique.",
+    "hypothese": "Le lien entre l'âge et la classe de lésion change-t-il selon la présence de elongation_of_the_rete_ridges ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Le diagnostic et le label partagent une information redondante par construction.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Le niveau de CRP est fortement associé au diagnostic de pneumonie, reflétant la réponse inflammatoire.",
+    "hypothese": "Le lien entre CRP_Level et Diagnosis change-t-il selon le groupe Gender ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Lien mécanique ou tautologique entre les symptômes enregistrés et le libellé de la pathologie.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Redondance entre le premier symptôme et le diagnostic associé.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Association forte entre les attributs symptomatiques et la classe finale de la maladie.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Lien direct entre le troisième symptôme et le diagnostic.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Corrélation structurelle entre le deuxième symptôme et le label de la maladie.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "La composante rouge de l'image d'IRM varie significativement selon le stade de démence.",
+    "hypothese": "Le lien entre rouge et classe change-t-il selon le niveau de contraste ?"
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "La composante verte de l'image d'IRM diffère selon la sévérité de la maladie d'Alzheimer.",
+    "hypothese": "Le lien entre vert et classe change-t-il selon le niveau de contraste ?"
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "La composante bleue de l'image d'IRM est associée aux différentes classes de diagnostic.",
+    "hypothese": "Le lien entre bleu et classe change-t-il selon le niveau de contraste ?"
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "La luminosité globale des images d'IRM montre une variation selon la classe de démence.",
+    "hypothese": "Le lien entre luminosite et classe change-t-il selon le niveau de contraste ?"
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "L'allongement des crêtes épidermiques est un marqueur histologique clé pour classifier la lésion.",
+    "hypothese": "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe scale_involvement ?"
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "L'amincissement de l'épiderme suprapapillaire contribue fortement à la classification dermatologique.",
+    "hypothese": "Le lien entre Age et thinning_of_the_suprapapillary_epidermis change-t-il selon le groupe erythema ?"
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "Corrélation histologique forte entre la présence de papules polygonales et les dommages de la couche basale.",
+    "hypothese": "Le lien entre polygonal_papules et vacuolisation_and_damage_of_basal_layer change-t-il selon le groupe Age ?"
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "L'élargissement des crêtes épidermiques renseigne sur la nature de la pathologie cutanée.",
+    "hypothese": "Le lien entre clubbing_of_the_rete_ridges et class change-t-il selon le groupe Age ?"
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Dépendance mathématique entre les canaux de couleur et les mesures de contraste global de l'image.",
+    "hypothese": ""
+   },
+   "F20": {
+    "id": "F20",
+    "verdict": "trivial",
+    "explication": "Lien mécanique entre la composante verte et le contraste de l'image.",
+    "hypothese": ""
+   },
+   "F21": {
+    "id": "F21",
+    "verdict": "trivial",
+    "explication": "Corrélation inévitable entre le canal bleu et le contraste de l'image d'IRM.",
+    "hypothese": ""
+   },
+   "F22": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Association caractéristique en dermatopathologie entre l'altération de la couche basale et l'aspect en dents de scie.",
+    "hypothese": "Le lien entre vacuolisation_and_damage_of_basal_layer et saw-tooth_appearance_of_retes change-t-il selon le groupe Age ?"
+   },
+   "F23": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Fréquente coexistence de modifications morphologiques de l'épiderme et du derme dans les dermatoses.",
+    "hypothese": "Le lien entre clubbing_of_the_rete_ridges et thinning_of_the_suprapapillary_epidermis change-t-il selon le groupe Age ?"
+   },
+   "F24": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "L'incontinence mélanique est souvent liée aux lésions inflammatoires de la couche basale.",
+    "hypothese": "Le lien entre melanin_incontinence et vacuolisation_and_damage_of_basal_layer change-t-il selon le groupe Age ?"
+   }
+  },
+  "pistes": [
+   "Analyser l'impact des biais liés à l'âge et au sexe dans les prédictions de diagnostic à partir des radiographies thoraciques.",
+   "Étudier si les caractéristiques de couleur ou de contraste des IRM encéphaliques encodent des informations démographiques cachées.",
+   "Vérifier la robustesse des classifieurs dermatologiques face aux variations d'âge et de caractéristiques cliniques associées."
+  ],
+  "nouveautes": {
+   "14": {
+    "id": "H14",
+    "nouveaute": "deja_connu",
+    "explication": "La variation des corrélations accélérométriques selon l'activité physique est un phénomène documenté en reconnaissance d'activité."
+   },
+   "15": {
+    "id": "H15",
+    "nouveaute": "partiellement_etudie",
+    "explication": "Les non-linéarités et artefacts de capteurs dans les signaux de gyroscope selon l'activité nécessitent des approches par splines ou modèles non linéaires."
+   },
+   "16": {
+    "id": "H16",
+    "nouveaute": "deja_connu",
+    "explication": "La prédiction de cibles à partir de données inertielles brutes est une tâche standard en localisation et suivi d'activité."
+   },
+   "17": {
+    "id": "H17",
+    "nouveaute": "deja_connu",
+    "explication": "La recherche de généralisation inter-datasets pour les capteurs de smartphones est un axe classique mais difficile en raison de l'hétérogénéité."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "x": "CRP_Level",
+    "y": "Age",
+    "groupe": "Gender",
+    "seuil": null,
+    "plus_fort": "Male",
+    "enonce": "Le lien entre CRP_Level et Age change-t-il selon le groupe Gender ?",
+    "requete_biblio": [
+     "CRP level age gender pneumonia chest x-ray"
+    ]
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "35",
+    "x": "Age",
+    "y": "elongation_of_the_rete_ridges",
+    "groupe": "erythema",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe erythema ?",
+    "requete_biblio": [
+     "dermatology agerete ridges erythema histological correlation"
+    ]
+   },
+   {
+    "type": "prediction",
+    "dataset_id": "hf:electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "cible": "Gender",
+    "variables": [
+     "CRP_Level",
+     "WBC_Count",
+     "Age"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la cible Gender avec SEULEMENT ces variables ?",
+    "requete_biblio": [
+     "predicting gender from clinical biomarkers chest x-ray dataset"
+    ]
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "Srizon1/Alzheimer_MRI",
+    "x": "rouge",
+    "y": "bleu",
+    "groupe": "classe",
+    "seuil": null,
+    "plus_fort": "Non_Demented",
+    "enonce": "Le lien entre rouge et bleu change-t-il selon le groupe classe ?",
+    "requete_biblio": [
+     "MRI color channels Alzheimer dementia classification features"
+    ]
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "cible_expliquee_par_une_variable",
+   "vars": "Diagnosis -> Label",
+   "stat": 1.0,
+   "score": 0.9,
+   "detail": {
+    "score_1_variable": 1.0,
+    "score_toutes": 1.0,
+    "note": "relation forte ou fuite de données"
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Le diagnostic et le label décrivent la même information clinique sous des formats quasi identiques.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "quasi_doublons",
+   "vars": "images",
+   "stat": 24613,
+   "score": 0.8,
+   "detail": {
+    "paires_quasi_identiques": 24613,
+    "sur": 240
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Présence de paires d'images quasi-identiques dans le dataset d'IRM, ce qui indique un doublon ou une fuite de données.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> class",
+   "stat": 0.965,
+   "score": 0.6387868363719758,
+   "detail": {
+    "balanced_accuracy": 0.965,
+    "baseline": 0.167,
+    "avec_seulement_elongation_of_the_rete_ridges": 0.333
+   },
+   "dataset": "dermatology",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Plusieurs attributs histologiques permettent de prédire efficacement la classe de la lésion dermatologique.",
+    "hypothese": "Le lien entre l'âge et la classe de lésion change-t-il selon la présence de elongation_of_the_rete_ridges ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "Diagnosis -> Label",
+   "stat": 0.655,
+   "score": 0.6243581122032602,
+   "detail": {
+    "mutual_info": 0.655,
+    "part_de_l_info": 0.22
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Le diagnostic et le label partagent une information redondante par construction.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "CRP_Level -> Label",
+   "stat": 0.655,
+   "score": 0.6242007740250533,
+   "detail": {
+    "mutual_info": 0.655,
+    "part_de_l_info": 0.22
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Le niveau de CRP est fortement associé au diagnostic de pneumonie, reflétant la réponse inflammatoire.",
+    "hypothese": "Le lien entre CRP_Level et Diagnosis change-t-il selon le groupe Gender ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Label ~ Symptom_1",
+   "stat": 0.852,
+   "score": 0.5961465823875727,
+   "detail": {
+    "cramers_v": 0.852,
+    "p": 0.0
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Lien mécanique ou tautologique entre les symptômes enregistrés et le libellé de la pathologie.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Symptom_1 ~ Diagnosis",
+   "stat": 0.852,
+   "score": 0.5961465823875727,
+   "detail": {
+    "cramers_v": 0.852,
+    "p": 0.0
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Redondance entre le premier symptôme et le diagnostic associé.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Label ~ Symptom_3",
+   "stat": 0.851,
+   "score": 0.5958839232257516,
+   "detail": {
+    "cramers_v": 0.851,
+    "p": 0.0
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Association forte entre les attributs symptomatiques et la classe finale de la maladie.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Symptom_3 ~ Diagnosis",
+   "stat": 0.851,
+   "score": 0.5958839232257516,
+   "detail": {
+    "cramers_v": 0.851,
+    "p": 0.0
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Lien direct entre le troisième symptôme et le diagnostic.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Label ~ Symptom_2",
+   "stat": 0.848,
+   "score": 0.5934831210100872,
+   "detail": {
+    "cramers_v": 0.848,
+    "p": 0.0
+   },
+   "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Corrélation structurelle entre le deuxième symptôme et le label de la maladie.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "rouge -> classe",
+   "stat": 0.16899999976158142,
+   "score": 0.46933650970458984,
+   "detail": {
+    "eta2": 0.16899999976158142,
+    "p": 7.1e-10,
+    "classe_min": "Mild_Demented (0.262)",
+    "classe_max": "Non_Demented (0.290)"
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "La composante rouge de l'image d'IRM varie significativement selon le stade de démence.",
+    "hypothese": "Le lien entre rouge et classe change-t-il selon le niveau de contraste ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "vert -> classe",
+   "stat": 0.16899999976158142,
+   "score": 0.46933650970458984,
+   "detail": {
+    "eta2": 0.16899999976158142,
+    "p": 7.1e-10,
+    "classe_min": "Mild_Demented (0.262)",
+    "classe_max": "Non_Demented (0.290)"
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "La composante verte de l'image d'IRM diffère selon la sévérité de la maladie d'Alzheimer.",
+    "hypothese": "Le lien entre vert et classe change-t-il selon le niveau de contraste ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "bleu -> classe",
+   "stat": 0.16899999976158142,
+   "score": 0.46933650970458984,
+   "detail": {
+    "eta2": 0.16899999976158142,
+    "p": 7.1e-10,
+    "classe_min": "Mild_Demented (0.262)",
+    "classe_max": "Non_Demented (0.290)"
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "La composante bleue de l'image d'IRM est associée aux différentes classes de diagnostic.",
+    "hypothese": "Le lien entre bleu et classe change-t-il selon le niveau de contraste ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "luminosite -> classe",
+   "stat": 0.16899999976158142,
+   "score": 0.46933650970458984,
+   "detail": {
+    "eta2": 0.16899999976158142,
+    "p": 7.1e-10,
+    "classe_min": "Mild_Demented (0.262)",
+    "classe_max": "Non_Demented (0.290)"
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "La luminosité globale des images d'IRM montre une variation selon la classe de démence.",
+    "hypothese": "Le lien entre luminosite et classe change-t-il selon le niveau de contraste ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "elongation_of_the_rete_ridges -> class",
+   "stat": 0.603,
+   "score": 0.45857392307371003,
+   "detail": {
+    "mutual_info": 0.603,
+    "part_de_l_info": 0.06
+   },
+   "dataset": "dermatology",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "L'allongement des crêtes épidermiques est un marqueur histologique clé pour classifier la lésion.",
+    "hypothese": "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe scale_involvement ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "thinning_of_the_suprapapillary_epidermis -> class",
+   "stat": 0.574,
+   "score": 0.4557122259812604,
+   "detail": {
+    "mutual_info": 0.574,
+    "part_de_l_info": 0.06
+   },
+   "dataset": "dermatology",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "L'amincissement de l'épiderme suprapapillaire contribue fortement à la classification dermatologique.",
+    "hypothese": "Le lien entre Age et thinning_of_the_suprapapillary_epidermis change-t-il selon le groupe erythema ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "polygonal_papules ~ vacuolisation_and_damage_of_basal_layer",
+   "stat": 0.647,
+   "score": 0.4529653081761051,
+   "detail": {
+    "cramers_v": 0.647,
+    "p": 2.3e-93
+   },
+   "dataset": "dermatology",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "Corrélation histologique forte entre la présence de papules polygonales et les dommages de la couche basale.",
+    "hypothese": "Le lien entre polygonal_papules et vacuolisation_and_damage_of_basal_layer change-t-il selon le groupe Age ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "clubbing_of_the_rete_ridges -> class",
+   "stat": 0.524,
+   "score": 0.45089422580317556,
+   "detail": {
+    "mutual_info": 0.524,
+    "part_de_l_info": 0.05
+   },
+   "dataset": "dermatology",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "L'élargissement des crêtes épidermiques renseigne sur la nature de la pathologie cutanée.",
+    "hypothese": "Le lien entre clubbing_of_the_rete_ridges et class change-t-il selon le groupe Age ?"
+   }
+  },
+  {
+   "kind": "image_correlation",
+   "vars": "rouge ~ contraste",
+   "stat": 0.859,
+   "score": 0.42972577648917515,
+   "detail": {
+    "spearman": 0.859,
+    "n": 240
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Dépendance mathématique entre les canaux de couleur et les mesures de contraste global de l'image.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_correlation",
+   "vars": "vert ~ contraste",
+   "stat": 0.859,
+   "score": 0.42972577648917515,
+   "detail": {
+    "spearman": 0.859,
+    "n": 240
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F20",
+   "avis": {
+    "id": "F20",
+    "verdict": "trivial",
+    "explication": "Lien mécanique entre la composante verte et le contraste de l'image.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_correlation",
+   "vars": "bleu ~ contraste",
+   "stat": 0.859,
+   "score": 0.42972577648917515,
+   "detail": {
+    "spearman": 0.859,
+    "n": 240
+   },
+   "dataset": "Srizon1/Alzheimer_MRI",
+   "id": "F21",
+   "avis": {
+    "id": "F21",
+    "verdict": "trivial",
+    "explication": "Corrélation inévitable entre le canal bleu et le contraste de l'image d'IRM.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "vacuolisation_and_damage_of_basal_layer ~ saw-tooth_appearance_of_retes",
+   "stat": 0.607,
+   "score": 0.42455812491556216,
+   "detail": {
+    "cramers_v": 0.607,
+    "p": 2e-81
+   },
+   "dataset": "dermatology",
+   "id": "F22",
+   "avis": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Association caractéristique en dermatopathologie entre l'altération de la couche basale et l'aspect en dents de scie.",
+    "hypothese": "Le lien entre vacuolisation_and_damage_of_basal_layer et saw-tooth_appearance_of_retes change-t-il selon le groupe Age ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "clubbing_of_the_rete_ridges ~ thinning_of_the_suprapapillary_epidermis",
+   "stat": 0.6,
+   "score": 0.41972360213151466,
+   "detail": {
+    "cramers_v": 0.6,
+    "p": 1.8e-79
+   },
+   "dataset": "dermatology",
+   "id": "F23",
+   "avis": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Fréquente coexistence de modifications morphologiques de l'épiderme et du derme dans les dermatoses.",
+    "hypothese": "Le lien entre clubbing_of_the_rete_ridges et thinning_of_the_suprapapillary_epidermis change-t-il selon le groupe Age ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "melanin_incontinence ~ vacuolisation_and_damage_of_basal_layer",
+   "stat": 0.598,
+   "score": 0.41856780024249063,
+   "detail": {
+    "cramers_v": 0.598,
+    "p": 5.2e-79
+   },
+   "dataset": "dermatology",
+   "id": "F24",
+   "avis": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "L'incontinence mélanique est souvent liée aux lésions inflammatoires de la couche basale.",
+    "hypothese": "Le lien entre melanin_incontinence et vacuolisation_and_damage_of_basal_layer change-t-il selon le groupe Age ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "dermatology",
+    "target": "class",
+    "description": "1. Title: Dermatology Database 2. Source Information: (a) Original owners: -- 1. Nilsel Ilter, M.D., Ph.D., Gazi University, School of Medicine 06510 Ankara, Turkey Phone: +90 (312) 214 1080 -- 2. H. Altay Guvenir, PhD., Bilkent University, Department of Computer Engineering and Information Science, 06533 Ankara, Turkey Phone: +90 (312) 266 4133 Email: guvenir@cs.bilkent.edu.tr (b) Donor: H. Altay",
+    "url": "https://www.openml.org/d/35",
+    "meta_cols": {
+     "age": "Age"
+    },
+    "did": "35",
+    "colonnes": {
+     "num": [
+      "Age"
+     ],
+     "groupes": [
+      "erythema",
+      "scaling",
+      "definite_borders",
+      "itching",
+      "koebner_phenomenon",
+      "polygonal_papules",
+      "follicular_papules",
+      "oral_mucosal_involvement",
+      "knee_and_elbow_involvement",
+      "scalp_involvement"
+     ]
+    }
+   },
+   "lignes": 366,
+   "colonnes": 35,
+   "fig": null,
+   "n_findings": 35,
+   "findings": [
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> class",
+     "stat": 0.965,
+     "score": 0.6387868363719758,
+     "detail": {
+      "balanced_accuracy": 0.965,
+      "baseline": 0.167,
+      "avec_seulement_elongation_of_the_rete_ridges": 0.333
+     },
+     "dataset": "dermatology",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Plusieurs attributs histologiques permettent de prédire efficacement la classe de la lésion dermatologique.",
+      "hypothese": "Le lien entre l'âge et la classe de lésion change-t-il selon la présence de elongation_of_the_rete_ridges ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "elongation_of_the_rete_ridges -> class",
+     "stat": 0.603,
+     "score": 0.45857392307371003,
+     "detail": {
+      "mutual_info": 0.603,
+      "part_de_l_info": 0.06
+     },
+     "dataset": "dermatology",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "pertinent",
+      "explication": "L'allongement des crêtes épidermiques est un marqueur histologique clé pour classifier la lésion.",
+      "hypothese": "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe scale_involvement ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "thinning_of_the_suprapapillary_epidermis -> class",
+     "stat": 0.574,
+     "score": 0.4557122259812604,
+     "detail": {
+      "mutual_info": 0.574,
+      "part_de_l_info": 0.06
+     },
+     "dataset": "dermatology",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "pertinent",
+      "explication": "L'amincissement de l'épiderme suprapapillaire contribue fortement à la classification dermatologique.",
+      "hypothese": "Le lien entre Age et thinning_of_the_suprapapillary_epidermis change-t-il selon le groupe erythema ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "polygonal_papules ~ vacuolisation_and_damage_of_basal_layer",
+     "stat": 0.647,
+     "score": 0.4529653081761051,
+     "detail": {
+      "cramers_v": 0.647,
+      "p": 2.3e-93
+     },
+     "dataset": "dermatology",
+     "id": "F17",
+     "avis": {
+      "id": "F17",
+      "verdict": "pertinent",
+      "explication": "Corrélation histologique forte entre la présence de papules polygonales et les dommages de la couche basale.",
+      "hypothese": "Le lien entre polygonal_papules et vacuolisation_and_damage_of_basal_layer change-t-il selon le groupe Age ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "clubbing_of_the_rete_ridges -> class",
+     "stat": 0.524,
+     "score": 0.45089422580317556,
+     "detail": {
+      "mutual_info": 0.524,
+      "part_de_l_info": 0.05
+     },
+     "dataset": "dermatology",
+     "id": "F18",
+     "avis": {
+      "id": "F18",
+      "verdict": "pertinent",
+      "explication": "L'élargissement des crêtes épidermiques renseigne sur la nature de la pathologie cutanée.",
+      "hypothese": "Le lien entre clubbing_of_the_rete_ridges et class change-t-il selon le groupe Age ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "vacuolisation_and_damage_of_basal_layer ~ saw-tooth_appearance_of_retes",
+     "stat": 0.607,
+     "score": 0.42455812491556216,
+     "detail": {
+      "cramers_v": 0.607,
+      "p": 2e-81
+     },
+     "dataset": "dermatology",
+     "id": "F22",
+     "avis": {
+      "id": "F22",
+      "verdict": "pertinent",
+      "explication": "Association caractéristique en dermatopathologie entre l'altération de la couche basale et l'aspect en dents de scie.",
+      "hypothese": "Le lien entre vacuolisation_and_damage_of_basal_layer et saw-tooth_appearance_of_retes change-t-il selon le groupe Age ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "clubbing_of_the_rete_ridges ~ thinning_of_the_suprapapillary_epidermis",
+     "stat": 0.6,
+     "score": 0.41972360213151466,
+     "detail": {
+      "cramers_v": 0.6,
+      "p": 1.8e-79
+     },
+     "dataset": "dermatology",
+     "id": "F23",
+     "avis": {
+      "id": "F23",
+      "verdict": "pertinent",
+      "explication": "Fréquente coexistence de modifications morphologiques de l'épiderme et du derme dans les dermatoses.",
+      "hypothese": "Le lien entre clubbing_of_the_rete_ridges et thinning_of_the_suprapapillary_epidermis change-t-il selon le groupe Age ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "melanin_incontinence ~ vacuolisation_and_damage_of_basal_layer",
+     "stat": 0.598,
+     "score": 0.41856780024249063,
+     "detail": {
+      "cramers_v": 0.598,
+      "p": 5.2e-79
+     },
+     "dataset": "dermatology",
+     "id": "F24",
+     "avis": {
+      "id": "F24",
+      "verdict": "pertinent",
+      "explication": "L'incontinence mélanique est souvent liée aux lésions inflammatoires de la couche basale.",
+      "hypothese": "Le lien entre melanin_incontinence et vacuolisation_and_damage_of_basal_layer change-t-il selon le groupe Age ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "melanin_incontinence ~ focal_hypergranulosis",
+     "stat": 0.58,
+     "score": 0.40616560980904637,
+     "detail": {
+      "cramers_v": 0.58,
+      "p": 4e-74
+     },
+     "dataset": "dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "oral_mucosal_involvement ~ vacuolisation_and_damage_of_basal_layer",
+     "stat": 0.58,
+     "score": 0.4061482769990401,
+     "detail": {
+      "cramers_v": 0.58,
+      "p": 4.1e-74
+     },
+     "dataset": "dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "oral_mucosal_involvement ~ focal_hypergranulosis",
+     "stat": 0.575,
+     "score": 0.40272583847511423,
+     "detail": {
+      "cramers_v": 0.575,
+      "p": 8.6e-73
+     },
+     "dataset": "dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "focal_hypergranulosis ~ vacuolisation_and_damage_of_basal_layer",
+     "stat": 0.57,
+     "score": 0.3987145824751288,
+     "detail": {
+      "cramers_v": 0.57,
+      "p": 2.9e-71
+     },
+     "dataset": "dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "melanin_incontinence ~ saw-tooth_appearance_of_retes",
+     "stat": 0.563,
+     "score": 0.39386139151595745,
+     "detail": {
+      "cramers_v": 0.563,
+      "p": 2e-69
+     },
+     "dataset": "dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "polygonal_papules ~ saw-tooth_appearance_of_retes",
+     "stat": 0.561,
+     "score": 0.3927652549360253,
+     "detail": {
+      "cramers_v": 0.561,
+      "p": 5.1e-69
+     },
+     "dataset": "dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "polygonal_papules ~ melanin_incontinence",
+     "stat": 0.56,
+     "score": 0.3922921978969881,
+     "detail": {
+      "cramers_v": 0.56,
+      "p": 7.7e-69
+     },
+     "dataset": "dermatology"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Srizon1/Alzheimer_MRI",
+    "labels": [
+     "Mild_Demented",
+     "Moderate_Demented",
+     "Non_Demented",
+     "Very_Mild_Demented"
+    ],
+    "total_rows": 5120,
+    "url": "https://huggingface.co/datasets/Srizon1/Alzheimer_MRI"
+   },
+   "lignes": 240,
+   "colonnes": 12,
+   "fig": "2026-11-03_Srizon1_Alzheimer_MRI.png",
+   "n_findings": 19,
+   "findings": [
+    {
+     "kind": "quasi_doublons",
+     "vars": "images",
+     "stat": 24613,
+     "score": 0.8,
+     "detail": {
+      "paires_quasi_identiques": 24613,
+      "sur": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "artefact",
+      "explication": "Présence de paires d'images quasi-identiques dans le dataset d'IRM, ce qui indique un doublon ou une fuite de données.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "rouge -> classe",
+     "stat": 0.16899999976158142,
+     "score": 0.46933650970458984,
+     "detail": {
+      "eta2": 0.16899999976158142,
+      "p": 7.1e-10,
+      "classe_min": "Mild_Demented (0.262)",
+      "classe_max": "Non_Demented (0.290)"
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "La composante rouge de l'image d'IRM varie significativement selon le stade de démence.",
+      "hypothese": "Le lien entre rouge et classe change-t-il selon le niveau de contraste ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "vert -> classe",
+     "stat": 0.16899999976158142,
+     "score": 0.46933650970458984,
+     "detail": {
+      "eta2": 0.16899999976158142,
+      "p": 7.1e-10,
+      "classe_min": "Mild_Demented (0.262)",
+      "classe_max": "Non_Demented (0.290)"
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "pertinent",
+      "explication": "La composante verte de l'image d'IRM diffère selon la sévérité de la maladie d'Alzheimer.",
+      "hypothese": "Le lien entre vert et classe change-t-il selon le niveau de contraste ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "bleu -> classe",
+     "stat": 0.16899999976158142,
+     "score": 0.46933650970458984,
+     "detail": {
+      "eta2": 0.16899999976158142,
+      "p": 7.1e-10,
+      "classe_min": "Mild_Demented (0.262)",
+      "classe_max": "Non_Demented (0.290)"
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "pertinent",
+      "explication": "La composante bleue de l'image d'IRM est associée aux différentes classes de diagnostic.",
+      "hypothese": "Le lien entre bleu et classe change-t-il selon le niveau de contraste ?"
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "luminosite -> classe",
+     "stat": 0.16899999976158142,
+     "score": 0.46933650970458984,
+     "detail": {
+      "eta2": 0.16899999976158142,
+      "p": 7.1e-10,
+      "classe_min": "Mild_Demented (0.262)",
+      "classe_max": "Non_Demented (0.290)"
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "pertinent",
+      "explication": "La luminosité globale des images d'IRM montre une variation selon la classe de démence.",
+      "hypothese": "Le lien entre luminosite et classe change-t-il selon le niveau de contraste ?"
+     }
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "rouge ~ contraste",
+     "stat": 0.859,
+     "score": 0.42972577648917515,
+     "detail": {
+      "spearman": 0.859,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F19",
+     "avis": {
+      "id": "F19",
+      "verdict": "trivial",
+      "explication": "Dépendance mathématique entre les canaux de couleur et les mesures de contraste global de l'image.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "vert ~ contraste",
+     "stat": 0.859,
+     "score": 0.42972577648917515,
+     "detail": {
+      "spearman": 0.859,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F20",
+     "avis": {
+      "id": "F20",
+      "verdict": "trivial",
+      "explication": "Lien mécanique entre la composante verte et le contraste de l'image.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "bleu ~ contraste",
+     "stat": 0.859,
+     "score": 0.42972577648917515,
+     "detail": {
+      "spearman": 0.859,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI",
+     "id": "F21",
+     "avis": {
+      "id": "F21",
+      "verdict": "trivial",
+      "explication": "Corrélation inévitable entre le canal bleu et le contraste de l'image d'IRM.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "luminosite ~ contraste",
+     "stat": 0.859,
+     "score": 0.42972577648917515,
+     "detail": {
+      "spearman": 0.859,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "nettete ~ entropie",
+     "stat": 0.859,
+     "score": 0.42970233858226703,
+     "detail": {
+      "spearman": 0.859,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "contraste ~ centre_vs_bord",
+     "stat": 0.854,
+     "score": 0.42680385076129795,
+     "detail": {
+      "spearman": 0.854,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "centre_vs_bord -> classe",
+     "stat": 0.11599999666213989,
+     "score": 0.4163036644458771,
+     "detail": {
+      "eta2": 0.11599999666213989,
+      "p": 3.8e-07,
+      "classe_min": "Moderate_Demented (0.267)",
+      "classe_max": "Non_Demented (0.339)"
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "contraste -> classe",
+     "stat": 0.1120000034570694,
+     "score": 0.4121888279914856,
+     "detail": {
+      "eta2": 0.1120000034570694,
+      "p": 6.2e-07,
+      "classe_min": "Mild_Demented (0.311)",
+      "classe_max": "Non_Demented (0.332)"
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "densite_contours ~ entropie",
+     "stat": 0.778,
+     "score": 0.3887860823378734,
+     "detail": {
+      "spearman": 0.778,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    },
+    {
+     "kind": "image_correlation",
+     "vars": "rouge ~ centre_vs_bord",
+     "stat": 0.695,
+     "score": 0.34729248771680066,
+     "detail": {
+      "spearman": 0.695,
+      "n": 240
+     },
+     "dataset": "Srizon1/Alzheimer_MRI"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "sasi2004/chest-xrays-indiana-university",
+    "target": null,
+    "description": "",
+    "fichier": "Train_Data.csv",
+    "url": "https://huggingface.co/datasets/sasi2004/chest-xrays-indiana-university",
+    "meta_cols": {},
+    "did": "hf:sasi2004/chest-xrays-indiana-university",
+    "colonnes": {
+     "num": [],
+     "groupes": []
+    }
+   },
+   "lignes": 2748,
+   "colonnes": 4,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "target": "Label",
+    "description": "Multimodal Chest X ray dataset for Normal and Bacterial Pneumonia in Africans Africa (Electric Sheep Africa metadata inventory) Size category: 1K<n<10K - Formats: imagefolder - Sector: health - Engineered by Electric Sheep Africa (https://huggingface.co/electricsheepafrica) ! size (https://img.shields.io/badge/size-1K%3Cn%3C10K-blue) ! sector (https://img.shields.io/badge/sector-health-green) ! do",
+    "fichier": "Comprehensive_Metadata.csv",
+    "url": "https://huggingface.co/datasets/electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "meta_cols": {
+     "age": "Age",
+     "sexe": "Gender"
+    },
+    "did": "hf:electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "colonnes": {
+     "num": [
+      "Age",
+      "WBC_Count",
+      "CRP_Level"
+     ],
+     "groupes": [
+      "Label",
+      "Dataset_type",
+      "Gender",
+      "Symptom_1",
+      "Symptom_2",
+      "Symptom_3",
+      "Diagnosis"
+     ]
+    }
+   },
+   "lignes": 4353,
+   "colonnes": 15,
+   "fig": "2026-11-03_electricsheepafrica_Multimodal_Chest_X_r.png",
+   "n_findings": 12,
+   "findings": [
+    {
+     "kind": "cible_expliquee_par_une_variable",
+     "vars": "Diagnosis -> Label",
+     "stat": 1.0,
+     "score": 0.9,
+     "detail": {
+      "score_1_variable": 1.0,
+      "score_toutes": 1.0,
+      "note": "relation forte ou fuite de données"
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "Le diagnostic et le label décrivent la même information clinique sous des formats quasi identiques.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Diagnosis -> Label",
+     "stat": 0.655,
+     "score": 0.6243581122032602,
+     "detail": {
+      "mutual_info": 0.655,
+      "part_de_l_info": 0.22
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "Le diagnostic et le label partagent une information redondante par construction.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "CRP_Level -> Label",
+     "stat": 0.655,
+     "score": 0.6242007740250533,
+     "detail": {
+      "mutual_info": 0.655,
+      "part_de_l_info": 0.22
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Le niveau de CRP est fortement associé au diagnostic de pneumonie, reflétant la réponse inflammatoire.",
+      "hypothese": "Le lien entre CRP_Level et Diagnosis change-t-il selon le groupe Gender ?"
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Label ~ Symptom_1",
+     "stat": 0.852,
+     "score": 0.5961465823875727,
+     "detail": {
+      "cramers_v": 0.852,
+      "p": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Lien mécanique ou tautologique entre les symptômes enregistrés et le libellé de la pathologie.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Symptom_1 ~ Diagnosis",
+     "stat": 0.852,
+     "score": 0.5961465823875727,
+     "detail": {
+      "cramers_v": 0.852,
+      "p": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Redondance entre le premier symptôme et le diagnostic associé.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Label ~ Symptom_3",
+     "stat": 0.851,
+     "score": 0.5958839232257516,
+     "detail": {
+      "cramers_v": 0.851,
+      "p": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "Association forte entre les attributs symptomatiques et la classe finale de la maladie.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Symptom_3 ~ Diagnosis",
+     "stat": 0.851,
+     "score": 0.5958839232257516,
+     "detail": {
+      "cramers_v": 0.851,
+      "p": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "Lien direct entre le troisième symptôme et le diagnostic.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Label ~ Symptom_2",
+     "stat": 0.848,
+     "score": 0.5934831210100872,
+     "detail": {
+      "cramers_v": 0.848,
+      "p": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "Corrélation structurelle entre le deuxième symptôme et le label de la maladie.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Symptom_2 ~ Diagnosis",
+     "stat": 0.848,
+     "score": 0.5934831210100872,
+     "detail": {
+      "cramers_v": 0.848,
+      "p": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "WBC_Count -> Label",
+     "stat": 0.511,
+     "score": 0.5750730240025792,
+     "detail": {
+      "mutual_info": 0.511,
+      "part_de_l_info": 0.18
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans"
+    },
+    {
+     "kind": "correlation",
+     "vars": "WBC_Count ~ CRP_Level",
+     "stat": 0.66,
+     "score": 0.5280191353149561,
+     "detail": {
+      "spearman": 0.66,
+      "pearson": 0.674,
+      "n": 4353,
+      "q": 0.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> Label",
+     "stat": 1.0,
+     "score": 0.4,
+     "detail": {
+      "balanced_accuracy": 1.0,
+      "baseline": 0.5,
+      "avec_seulement_Diagnosis": 1.0
+     },
+     "dataset": "electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "theshoaibme/panorgan-busi-breast-ultrasound",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "theshoaibme/panorgan-tcga-kirc-renal-ct-mri",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "aditya022/HAM10000_Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Simezu/brain-tumour-MRI-scan",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Falah/Alzheimer_MRI",
+   "erreur": "trop petit ((5120, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "KeerthiKeswaran/skin_disease_Vascular_Lesion",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "rijal028/ultrasound-skala-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "trpakov/chest-xray-classification",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Sharukesh/HAM10000-Bounding-box",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 14,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:NetherlandsForensicInstitute/NFI_FARED_IMU",
+    "x": "acc x rug",
+    "y": "acc y rug",
+    "groupe": "label activity",
+    "seuil": null,
+    "plus_fort": "running",
+    "enonce": "Le lien entre acc x rug et acc y rug change-t-il selon label activity ?",
+    "requete_biblio": "accelerometer axes coupling running walking activity recognition"
+   },
+   "statut": "réfutée",
+   "resume": "Dans NetherlandsForensicInstitute/NFI_FARED_IMU, la corrélation acc x rug~acc y rug vaut +0.12 pour « label activity = running » contre +0.42 pour « label activity = sitting » (p = 0) : effet INVERSE de celui prédit.",
+   "stats": {
+    "groupes": {
+     "label activity = walking": {
+      "rho": 0.154,
+      "pearson": 0.099,
+      "n": 58486
+     },
+     "label activity = sitting": {
+      "rho": 0.419,
+      "pearson": 0.567,
+      "n": 49610
+     },
+     "label activity = standing": {
+      "rho": -0.161,
+      "pearson": -0.125,
+      "n": 28989
+     },
+     "label activity = cycling": {
+      "rho": 0.031,
+      "pearson": 0.008,
+      "n": 23775
+     },
+     "label activity = running": {
+      "rho": 0.121,
+      "pearson": 0.131,
+      "n": 21631
+     },
+     "label activity = no activity": {
+      "rho": -0.058,
+      "pearson": 0.044,
+      "n": 17509
+     }
+    },
+    "groupe_predit_plus_fort": "label activity = running",
+    "p_difference": 0.0,
+    "holm": "p = 0, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Machine Learning Algorithms for Activity-Intensity Recognition Using Accelerometer Data",
+     "annee": 2021,
+     "citations": 24,
+     "url": "https://doi.org/10.3390/s21041214"
+    },
+    {
+     "titre": "Automated Accelerometer-Based Gait Event Detection During Multiple Running Conditions",
+     "annee": 2019,
+     "citations": 70,
+     "url": "https://doi.org/10.3390/s19071483"
+    },
+    {
+     "titre": "A Preliminary Smartphone-Based IMU System for Walking, Running, and Cycling Recognition Under Different Carrying Modes",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.3390/s26196100"
+    },
+    {
+     "titre": "Coupling Analysis of Multiple Machine Learning Models for Human Activity Recognition",
+     "annee": 2024,
+     "citations": 5,
+     "url": "https://doi.org/10.32604/cmc.2024.050376"
+    },
+    {
+     "titre": "Deep CNN-LSTM With Self-Attention Model for Human Activity Recognition Using Wearable Sensor",
+     "annee": 2022,
+     "citations": 287,
+     "url": "https://doi.org/10.1109/jtehm.2022.3177710"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation originale est correcte et utilise bien un vocabulaire observationnel ('lien'), mais la prédiction spécifique d'un couplage plus fort pour la course a échoué car le lien est maximal en position assise.",
+    "reformulation": "Le lien entre acc x rug et acc y rug varie-t-il selon label activity, et est-il plus fort pour label activity = running ?",
+    "diagnostic_statistique": "Pour le groupe sitting, |Spearman (0.419) - Pearson (0.567)| = 0.148, proche du seuil de non-linéarité, indiquant possiblement des valeurs extrêmes ou une asymétrie. De plus, l'effet prédit est inversé : la corrélation est plus forte au repos (sitting : 0.42) qu'en course (running : 0.12).",
+    "modele_recommande": "régression linéaire avec interaction y ~ x * groupe ou modèle additif généralisé (GAM)",
+    "robustesse": "Les tailles d'échantillon sont très grandes (N > 17000 par groupe), garantissant une forte puissance statistique. Cependant, le bruit des capteurs IMU au repos (sitting) peut créer des artefacts de corrélation linéaire artificielle par rapport à la dynamique complexe de la course.",
+    "interpretation_domaine": "En biomécanique et reconnaissance d'activités (HAR), les signaux d'accélérométrie au repos ou en position assise captent principalement le bruit de fond du capteur ou de légers micro-mouvements corporels partagés uniformément sur les axes, entraînant une corrélation linéaire apparente plus élevée. À l'inverse, la course génère des mouvements biomécaniques complexes et découplés sur les axes X et Y, réduisant la colinéarité brute.",
+    "action_pipeline": "Ajouter une étape de filtrage du bruit de fond des capteurs et éviter de présumer a priori que les activités dynamiques présentent une corrélation inter-axes linéaire plus élevée que les états stationnaires.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La variation des corrélations accélérométriques selon l'activité physique est un phénomène documenté en reconnaissance d'activité.",
+   "sujet": "Signatures dans la démarche (IMU)",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 15,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:NetherlandsForensicInstitute/NFI_FARED_IMU",
+    "x": "rot x rug",
+    "y": "rot y rug",
+    "groupe": "label activity",
+    "seuil": null,
+    "plus_fort": "running",
+    "enonce": "Le lien entre rot x rug et rot y rug change-t-il selon label activity ?",
+    "requete_biblio": "gyroscope rotation correlation physical activity sensor"
+   },
+   "statut": "non concluante",
+   "resume": "Dans NetherlandsForensicInstitute/NFI_FARED_IMU, la corrélation rot x rug~rot y rug vaut +0.06 pour « label activity = running » contre -0.10 pour « label activity = sitting » (p = 9.3e-93). Attention : relation non linéaire ou valeurs extrêmes dans « label activity = sitting » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+   "stats": {
+    "groupes": {
+     "label activity = walking": {
+      "rho": 0.206,
+      "pearson": 0.208,
+      "n": 58486
+     },
+     "label activity = sitting": {
+      "rho": -0.104,
+      "pearson": 0.148,
+      "n": 49610
+     },
+     "label activity = standing": {
+      "rho": -0.097,
+      "pearson": 0.003,
+      "n": 28989
+     },
+     "label activity = cycling": {
+      "rho": 0.02,
+      "pearson": 0.034,
+      "n": 23775
+     },
+     "label activity = running": {
+      "rho": 0.062,
+      "pearson": -0.011,
+      "n": 21631
+     },
+     "label activity = no activity": {
+      "rho": 0.011,
+      "pearson": 0.025,
+      "n": 17509
+     }
+    },
+    "groupe_predit_plus_fort": "label activity = running",
+    "p_difference": 9.34e-93,
+    "holm": "p = 9.3e-93, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Human Activity Recognition Using Accelerometer and Gyroscope Sensors",
+     "annee": 2017,
+     "citations": 18,
+     "url": "https://doi.org/10.21817/ijet/2017/v9i2/170902134"
+    },
+    {
+     "titre": "A Study of Accelerometer and Gyroscope Measurements in Physical Life-Log Activities Detection Systems",
+     "annee": 2020,
+     "citations": 122,
+     "url": "https://doi.org/10.3390/s20226670"
+    },
+    {
+     "titre": "Gyroscope vs. accelerometer measurements of motion from wrist PPG during physical exercise",
+     "annee": 2016,
+     "citations": 57,
+     "url": "https://doi.org/10.1016/j.icte.2016.11.003"
+    },
+    {
+     "titre": "Physical-Sensor and Virtual-Sensor Based Method for Estimation of Lower Limb Gait Posture Using Accelerometers and Gyroscopes",
+     "annee": 2010,
+     "citations": 5,
+     "url": "https://doi.org/10.1299/jbse.5.472"
+    },
+    {
+     "titre": "Energy estimation of treadmill walking using on-body accelerometers and gyroscopes",
+     "annee": 2010,
+     "citations": 11,
+     "url": "https://doi.org/10.1109/iembs.2010.5627365"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé de modération est globalement correct mais le test a évalué en plus une hypothèse orientée ('plus fort pour running'). Les données sont observationnelles.",
+    "reformulation": "La variable 'label activity' modifie-t-elle le lien entre 'rot x rug' et 'rot y rug' ?",
+    "diagnostic_statistique": "Présence notable de non-linéarités ou de valeurs extrêmes, en particulier dans le groupe 'sitting' où l'écart entre Spearman (-0.104) et Pearson (0.148) dépasse le seuil critique de 0.15.",
+    "modele_recommande": "régression avec interaction y ~ x * z ou modèle additif généralisé (GAM)",
+    "robustesse": "Les tailles d'échantillon sont très grandes (> 17 000 par groupe), garantissant une forte puissance statistique, mais la divergence entre les métriques linéaires et monotones indique des artefacts de capteurs ou des distributions non gaussiennes.",
+    "interpretation_domaine": "En biomécanique et reconnaissance d'activités via IMU, les axes de rotation mesurés par le gyroscope varient fortement selon la cinématique du mouvement (course vs position assise). Les différences de corrélation reflètent ces dynamiques corporelles distinctes, bien que polluées par du bruit de capteur.",
+    "action_pipeline": "Dissocier strictement la question de modulation de l'hypothèse de directionnalité, et intégrer un contrôle systématique de la non-linéarité avant le calcul des corrélations.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "Les non-linéarités et artefacts de capteurs dans les signaux de gyroscope selon l'activité nécessitent des approches par splines ou modèles non linéaires.",
+   "sujet": "Signatures dans la démarche (IMU)",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 16,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:issai/IMUWiFine",
+    "cible": "y",
+    "variables": [
+     "ax",
+     "ay",
+     "az",
+     "gx",
+     "gy",
+     "gz"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la cible y avec SEULEMENT ces variables ?",
+    "requete_biblio": "indoor localization inertial sensors machine learning trajectory"
+   },
+   "statut": "confirmée",
+   "resume": "Dans issai/IMUWiFine, prédire y avec ax, ay, az, gx, gy, gz donne r2 = 0.23 (hasard ≈ 0.00, p = 0.048 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (28818 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "r2": 0.229,
+    "hasard": -0.089,
+    "p_permutation": 0.0476,
+    "validation": "aléatoire",
+    "n": 5000,
+    "donnees_test": "moitié de confirmation (28818 lignes jamais vues à l'exploration)",
+    "confusion": "contrôle non applicable à ce type de test",
+    "generalisation": "aucun autre dataset avec les mêmes variables (y, ax, ay, az, gx, gy, gz) parmi 8 essayés",
+    "holm": "p = 0.048, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Survey of smartphone-based datasets for indoor localization: A machine learning perspective",
+     "annee": 2025,
+     "citations": 7,
+     "url": "https://doi.org/10.1016/j.iot.2025.101753"
+    },
+    {
+     "titre": "Indoor Localization of Mobile Robots using Inertial Data and Deep Learning",
+     "annee": 2024,
+     "citations": 0,
+     "url": "https://doi.org/10.61416/ceai.v26i3.9096"
+    },
+    {
+     "titre": "A Survey of Machine Learning for Indoor Positioning",
+     "annee": 2020,
+     "citations": 274,
+     "url": "https://doi.org/10.1109/access.2020.3039271"
+    },
+    {
+     "titre": "Machine Learning Driven Method for Indoor Positioning Using Inertial Measurement Unit",
+     "annee": 2020,
+     "citations": 5,
+     "url": "https://doi.org/10.1109/ucet51115.2020.9205369"
+    },
+    {
+     "titre": "Machine Learning Based Indoor Localization Using Wi-Fi RSSI Fingerprints: An Overview",
+     "annee": 2021,
+     "citations": 276,
+     "url": "https://doi.org/10.1109/access.2021.3111083"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé cherche à prédire la coordonnée spatiale 'y' en utilisant uniquement les données brutes d'une IMU (accéléromètres et gyroscopes). C'est formulé de manière claire.",
+    "reformulation": "Peut-on estimer la position longitudinale y à partir des seules données inertielles (accélération et vitesse angulaire) sans intégration temporelle ni position de référence ?",
+    "diagnostic_statistique": "Le R2 obtenu est très faible (0.22) bien que statistiquement significatif sur 20 permutations (p = 0.048). Un R2 de 0.22 indique une performance prédictive médiocre, suggérant que les données brutes instantanées de l'IMU contiennent très peu d'information directe sur la position absolue y sans un processus d'odométrie ou de double intégration.",
+    "modele_recommande": "Réseau de neurones récurrent (LSTM ou GRU) appliqué à des fenêtres temporelles avec intégration de l'accélération (odométrie inertielle), ou modèle de type Transformer.",
+    "robustesse": "La taille d'échantillon (n = 5000) est correcte, mais la validation aléatoire simple sur des séries temporelles engendre une fuite de données (data leakage). Le test par permutation a un nombre faible de répétitions (20). Les facteurs de confusion incluent le bruit des capteurs et la dérive temporelle inhérente aux IMU.",
+    "interpretation_domaine": "En navigation et localisation indoor, les données inertielles brutes (ax, ay, az, gx, gy, gz) mesurent des accélérations et des vitesses de rotation, pas des positions. Prédire une position 'y' absolue à partir de valeurs instantanées sans historique temporel est physiquement et statistiquement peu robuste, d'où la faible variance expliquée.",
+    "action_pipeline": "Exiger l'utilisation de fenêtres temporelles glissantes (features dynamiques) et interdire la validation aléatoire simple sur des séries temporelles au profit d'une validation croisée par trajectoire (GroupKFold).",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La prédiction de cibles à partir de données inertielles brutes est une tâche standard en localisation et suivi d'activité.",
+   "sujet": "Signatures dans la démarche (IMU)",
+   "pertinence": {
+    "niveau": 2,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 0.048, seuil corrigé 0.05 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "contrôle non applicable à ce type de test"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun autre dataset avec les mêmes variables (y, ax, ay, az, gx, gy, gz) parmi 8 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 17,
+   "spec": {
+    "type": "replication",
+    "dataset_id": "hf:issai/IMUWiFine",
+    "x": "mx",
+    "y": "y",
+    "mots_cles": [
+     "IMU",
+     "sensor",
+     "localization"
+    ],
+    "enonce": "La relation se retrouve-t-elle dans d'autres datasets ?",
+    "requete_biblio": "magnetic field indoor positioning smartphone sensor dataset"
+   },
+   "statut": "non concluante",
+   "resume": "Aucun autre dataset contenant à la fois « mx » et « y » n'a été trouvé.",
+   "stats": {
+    "origine": {
+     "rho": -0.122,
+     "n": 57837
+    }
+   },
+   "biblio": [
+    {
+     "titre": "Smartphone Sensors for Indoor Positioning",
+     "annee": 2023,
+     "citations": 1,
+     "url": "https://doi.org/10.3390/s23083811"
+    },
+    {
+     "titre": "Empirical Overview of Benchmark Datasets for Geomagnetic Field-Based Indoor Positioning",
+     "annee": 2021,
+     "citations": 8,
+     "url": "https://doi.org/10.3390/s21103533"
+    },
+    {
+     "titre": "Fusion of WiFi, Smartphone Sensors and Landmarks Using the Kalman Filter for Indoor Localization",
+     "annee": 2015,
+     "citations": 382,
+     "url": "https://doi.org/10.3390/s150100715"
+    },
+    {
+     "titre": "Activity recognition with smartphone sensors",
+     "annee": 2014,
+     "citations": 384,
+     "url": "https://doi.org/10.1109/tst.2014.6838194"
+    },
+    {
+     "titre": "Enhancing Performance of Magnetic Field Based Indoor Localization Using Magnetic Patterns from Multiple Smartphones",
+     "annee": 2020,
+     "citations": 36,
+     "url": "https://doi.org/10.3390/s20092704"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé pose une question de réplication externe, ce qui n'est pas un test statistique évaluant un lien direct entre variables mais une méta-analyse ou une recherche documentaire de validation croisée.",
+    "reformulation": "Existe-t-il des sources de données externes comparables validant le lien observé entre mx et y ?",
+    "diagnostic_statistique": "Impossible de tester la réplication en l'absence d'autres datasets disponibles dans le pipeline. La corrélation initiale est faible (rho = -0.122, n = 57837).",
+    "modele_recommande": "Aucun modèle statistique applicable pour la réplication externe sans nouvelles données ; analyse de sensibilité ou méta-analyse si de multiples sources étaient présentes.",
+    "robustesse": "La taille d'échantillon initiale est excellente (n = 57837), mais l'absence de datasets de réplication rend toute conclusion sur la généralisabilité impossible. Données observationnelles issues de capteurs (IMU).",
+    "interpretation_domaine": "En positionnement indoor par capteurs magnétiques (mx), la variabilité des appareils et des environnements rend la réplication difficile d'un dataset à l'autre sans normalisation poussée.",
+    "action_pipeline": "Élargir la recherche de datasets à des schémas de données similaires ou utiliser des techniques de validation croisée interne (split-sample ou k-fold) lorsque les sources externes font défaut.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La recherche de généralisation inter-datasets pour les capteurs de smartphones est un axe classique mais difficile en raison de l'hétérogénéité.",
+   "sujet": "Signatures dans la démarche (IMU)",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}

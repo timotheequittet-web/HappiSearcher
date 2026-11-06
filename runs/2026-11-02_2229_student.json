@@ -1,0 +1,1022 @@
+{
+ "id": "2026-11-02_2229_student",
+ "date": "2026-11-02T22:29",
+ "sujet": "Réussite scolaire",
+ "question": "Qu'est-ce qui distingue les élèves qui réussissent malgré un contexte défavorable ?",
+ "keywords": [
+  "student",
+  "school",
+  "education",
+  "exam",
+  "academic"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des datasets sur la réussite scolaire met en évidence de fortes corrélations mécaniques entre notes de lecture, d'écriture et de mathématiques, ainsi qu'une dépendance quasi-déterministe de la variable binaire ugpagt3 par rapport à la moyenne ugpa dans le dataset de droit. Pour répondre à la question de recherche sur la réussite malgré un contexte défavorable, il convient désormais d'explorer si l'effet du statut socio-économique ou du niveau d'études des parents sur les performances varie selon le genre ou le type de repas (lunch).",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La variable ugpa prédit presque parfaitement ugpagt3 car cette dernière en est directement dérivée ou calculée.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Score de prédiction parfait dû à une fuite de données entre la note continue ugpa et sa version binarisée ugpagt3.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Il existe une légère association entre le score d'écriture et le genre, reflétant des écarts de performance habituels entre filles et garçons en littatie.",
+    "hypothese": "Le lien entre le score d'écriture (writing score) et la race/ethnicité (race/ethnicity) change-t-il selon le genre (gender) ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Forte corrélation mécanique entre la note de lecture et la note d'écriture qui mesurent des compétences linguistiques très proches.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Corrélation logique entre deux déciles de notes (decile1 et decile3) évaluant la même performance académique à différents moments.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Association mineure entre la lecture et le genre, similaire à celle observée pour l'écriture.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Lien direct et tautologique entre la moyenne universitaire continue (ugpa) et son seuil binaire (ugpagt3).",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Forte co-variation entre les compétences en mathématiques et en lecture chez les élèves du secondaire.",
+    "hypothese": "Le lien entre math score et reading score change-t-il selon le niveau d'éducation des parents (parental level of education) ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre les mathématiques et l'écriture, montrant la transversalité générale des compétences scolaires.",
+    "hypothese": "Le lien entre math score et writing score change-t-il selon le type de repas (lunch) pris à l'école ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "artefact",
+    "explication": "Précision parfaite à 100% de la cible par ugpa en raison d'un seuil déterministe.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Capacité prédictive intéressante du score d'écriture pour identifier le genre de l'élève.",
+    "hypothese": "Le lien entre writing score et reading score change-t-il selon la participation au cours de préparation (test preparation course) ?"
+   }
+  },
+  "pistes": [
+   "Analyser l'interaction entre le niveau d'éducation des parents et les scores dans les différentes matières pour cibler les facteurs de résilience.",
+   "Examiner si le type de repas (indicateur proxy du milieu socio-économique) modère la cohérence entre notes de maths et de lecture.",
+   "Étudier l'impact de la préparation aux tests sur la réduction des écarts de genre en mathématiques et lecture."
+  ],
+  "nouveautes": {
+   "7": {
+    "id": "H7",
+    "nouveaute": "partiellement_etudie",
+    "explication": "La littérature aborde la résilience académique et le soutien parental, mais l'absence d'effet modérateur direct sur la corrélation absences-GPA reste peu documentée de cette façon."
+   },
+   "8": {
+    "id": "H8",
+    "nouveaute": "deja_connu",
+    "explication": "Le rôle de la satisfaction et de l'engagement en ligne dans la réussite et l'interaction des étudiants est largement documenté dans la recherche sur l'e-learning."
+   },
+   "9": {
+    "id": "H9",
+    "nouveaute": "partiellement_etudie",
+    "explication": "Le lien entre aspirations d'études supérieures et temps d'étude a fait l'objet de quelques études d'impact, mais sans consensus clair sur la modération."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "45748",
+    "x": "math score",
+    "y": "reading score",
+    "groupe": "parental level of education",
+    "seuil": null,
+    "plus_fort": "bachelor's degree",
+    "enonce": "Le lien entre math score et reading score change-t-il selon le niveau d'éducation des parents (parental level of education) ?",
+    "requete_biblio": "parental education academic performance math reading correlation"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "45748",
+    "x": "math score",
+    "y": "writing score",
+    "groupe": "lunch",
+    "seuil": null,
+    "plus_fort": "standard",
+    "enonce": "Le lien entre math score et writing score change-t-il selon le type de repas (lunch) ?",
+    "requete_biblio": "lunch status socioeconomic status academic performance correlation"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "45748",
+    "x": "reading score",
+    "y": "writing score",
+    "groupe": "test preparation course",
+    "seuil": null,
+    "plus_fort": "completed",
+    "enonce": "Le lien entre reading score et writing score change-t-il selon la participation au cours de préparation (test preparation course) ?",
+    "requete_biblio": "test preparation course academic achievement literacy scores"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43889",
+    "x": "lsat",
+    "y": "ugpa",
+    "groupe": "fulltime",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre lsat et ugpa change-t-il selon le statut d'étude à temps plein ou partiel (fulltime) ?",
+    "requete_biblio": "lsat ugpa correlation fulltime law students"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "ugpa -> ugpagt3",
+   "stat": 0.629,
+   "score": 1,
+   "detail": {
+    "mutual_info": 0.629,
+    "part_de_l_info": 0.82
+   },
+   "dataset": "law-school-admission-bianry",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La variable ugpa prédit presque parfaitement ugpagt3 car cette dernière en est directement dérivée ou calculée.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "cible_expliquee_par_une_variable",
+   "vars": "ugpa -> ugpagt3",
+   "stat": 1.0,
+   "score": 0.9,
+   "detail": {
+    "score_1_variable": 1.0,
+    "score_toutes": 1.0,
+    "note": "relation forte ou fuite de données"
+   },
+   "dataset": "law-school-admission-bianry",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Score de prédiction parfait dû à une fuite de données entre la note continue ugpa et sa version binarisée ugpagt3.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "writing score -> gender",
+   "stat": 0.085,
+   "score": 0.8318774985583723,
+   "detail": {
+    "mutual_info": 0.085,
+    "part_de_l_info": 0.43
+   },
+   "dataset": "StudentsPerformance",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Il existe une légère association entre le score d'écriture et le genre, reflétant des écarts de performance habituels entre filles et garçons en littatie.",
+    "hypothese": "Le lien entre le score d'écriture (writing score) et la race/ethnicité (race/ethnicity) change-t-il selon le genre (gender) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "reading score ~ writing score",
+   "stat": 0.949,
+   "score": 0.7591620149680738,
+   "detail": {
+    "spearman": 0.949,
+    "pearson": 0.955,
+    "n": 1000,
+    "q": 0.0
+   },
+   "dataset": "StudentsPerformance",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Forte corrélation mécanique entre la note de lecture et la note d'écriture qui mesurent des compétences linguistiques très proches.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "decile1 ~ decile3",
+   "stat": 0.864,
+   "score": 0.6911867466425126,
+   "detail": {
+    "spearman": 0.864,
+    "pearson": 0.864,
+    "n": 20000,
+    "q": 0.0
+   },
+   "dataset": "law-school-admission-bianry",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Corrélation logique entre deux déciles de notes (decile1 et decile3) évaluant la même performance académique à différents moments.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "reading score -> gender",
+   "stat": 0.055,
+   "score": 0.6795455147568142,
+   "detail": {
+    "mutual_info": 0.055,
+    "part_de_l_info": 0.28
+   },
+   "dataset": "StudentsPerformance",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Association mineure entre la lecture et le genre, similaire à celle observée pour l'écriture.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "ugpa ~ ugpagt3",
+   "stat": 0.811,
+   "score": 0.6490157687309819,
+   "detail": {
+    "spearman": 0.811,
+    "pearson": 0.799,
+    "n": 20000,
+    "q": 0.0
+   },
+   "dataset": "law-school-admission-bianry",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Lien direct et tautologique entre la moyenne universitaire continue (ugpa) et son seuil binaire (ugpagt3).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "math score ~ reading score",
+   "stat": 0.804,
+   "score": 0.6432511108441397,
+   "detail": {
+    "spearman": 0.804,
+    "pearson": 0.818,
+    "n": 1000,
+    "q": 2e-227
+   },
+   "dataset": "StudentsPerformance",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Forte co-variation entre les compétences en mathématiques et en lecture chez les élèves du secondaire.",
+    "hypothese": "Le lien entre math score et reading score change-t-il selon le niveau d'éducation des parents (parental level of education) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "math score ~ writing score",
+   "stat": 0.778,
+   "score": 0.6226708719977538,
+   "detail": {
+    "spearman": 0.778,
+    "pearson": 0.803,
+    "n": 1000,
+    "q": 5.9e-204
+   },
+   "dataset": "StudentsPerformance",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre les mathématiques et l'écriture, montrant la transversalité générale des compétences scolaires.",
+    "hypothese": "Le lien entre math score et writing score change-t-il selon le type de repas (lunch) pris à l'école ?"
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> ugpagt3",
+   "stat": 1.0,
+   "score": 0.4,
+   "detail": {
+    "balanced_accuracy": 1.0,
+    "baseline": 0.5,
+    "avec_seulement_ugpa": 1.0
+   },
+   "dataset": "law-school-admission-bianry",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "artefact",
+    "explication": "Précision parfaite à 100% de la cible par ugpa en raison d'un seuil déterministe.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> gender",
+   "stat": 0.857,
+   "score": 0.28597088131850573,
+   "detail": {
+    "balanced_accuracy": 0.857,
+    "baseline": 0.5,
+    "avec_seulement_writing score": 0.619
+   },
+   "dataset": "StudentsPerformance",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Capacité prédictive intéressante du score d'écriture pour identifier le genre de l'élève.",
+    "hypothese": "Le lien entre writing score et reading score change-t-il selon la participation au cours de préparation (test preparation course) ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "StudentsPerformance",
+    "target": "gender",
+    "description": "This data set consists of the marks secured by the students in various subjects.",
+    "url": "https://www.openml.org/d/45748",
+    "did": "45748",
+    "colonnes": {
+     "num": [
+      "math score",
+      "reading score",
+      "writing score"
+     ],
+     "groupes": [
+      "gender",
+      "race/ethnicity",
+      "parental level of education",
+      "lunch",
+      "test preparation course"
+     ]
+    }
+   },
+   "lignes": 1000,
+   "colonnes": 8,
+   "fig": "2026-11-02_StudentsPerformance.png",
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "writing score -> gender",
+     "stat": 0.085,
+     "score": 0.8318774985583723,
+     "detail": {
+      "mutual_info": 0.085,
+      "part_de_l_info": 0.43
+     },
+     "dataset": "StudentsPerformance",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Il existe une légère association entre le score d'écriture et le genre, reflétant des écarts de performance habituels entre filles et garçons en littatie.",
+      "hypothese": "Le lien entre le score d'écriture (writing score) et la race/ethnicité (race/ethnicity) change-t-il selon le genre (gender) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "reading score ~ writing score",
+     "stat": 0.949,
+     "score": 0.7591620149680738,
+     "detail": {
+      "spearman": 0.949,
+      "pearson": 0.955,
+      "n": 1000,
+      "q": 0.0
+     },
+     "dataset": "StudentsPerformance",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "Forte corrélation mécanique entre la note de lecture et la note d'écriture qui mesurent des compétences linguistiques très proches.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "reading score -> gender",
+     "stat": 0.055,
+     "score": 0.6795455147568142,
+     "detail": {
+      "mutual_info": 0.055,
+      "part_de_l_info": 0.28
+     },
+     "dataset": "StudentsPerformance",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Association mineure entre la lecture et le genre, similaire à celle observée pour l'écriture.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "math score ~ reading score",
+     "stat": 0.804,
+     "score": 0.6432511108441397,
+     "detail": {
+      "spearman": 0.804,
+      "pearson": 0.818,
+      "n": 1000,
+      "q": 2e-227
+     },
+     "dataset": "StudentsPerformance",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "Forte co-variation entre les compétences en mathématiques et en lecture chez les élèves du secondaire.",
+      "hypothese": "Le lien entre math score et reading score change-t-il selon le niveau d'éducation des parents (parental level of education) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "math score ~ writing score",
+     "stat": 0.778,
+     "score": 0.6226708719977538,
+     "detail": {
+      "spearman": 0.778,
+      "pearson": 0.803,
+      "n": 1000,
+      "q": 5.9e-204
+     },
+     "dataset": "StudentsPerformance",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre les mathématiques et l'écriture, montrant la transversalité générale des compétences scolaires.",
+      "hypothese": "Le lien entre math score et writing score change-t-il selon le type de repas (lunch) pris à l'école ?"
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> gender",
+     "stat": 0.857,
+     "score": 0.28597088131850573,
+     "detail": {
+      "balanced_accuracy": 0.857,
+      "baseline": 0.5,
+      "avec_seulement_writing score": 0.619
+     },
+     "dataset": "StudentsPerformance",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Capacité prédictive intéressante du score d'écriture pour identifier le genre de l'élève.",
+      "hypothese": "Le lien entre writing score et reading score change-t-il selon la participation au cours de préparation (test preparation course) ?"
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Global-School-Closures-for-COVID-19",
+    "target": null,
+    "description": "The number of children, youth and adults not attending schools or universities because of COVID-19 is soaring. Governments all around the world have closed educational institutions in an attempt to contain the global pandemic. According to UNESCO monitoring, over 100 countries have implemented nationwide closures, impacting over half of worlds student population. Several other countries have imple",
+    "url": "https://www.openml.org/d/43554",
+    "did": "43554",
+    "colonnes": {
+     "num": [],
+     "groupes": [
+      "Status"
+     ]
+    }
+   },
+   "lignes": 41714,
+   "colonnes": 4,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "law-school-admission-bianry",
+    "target": "ugpagt3",
+    "description": "Law School Admissions (Binarized) Survey among students attending law school in the U.S. in 1991. The dataset was obtained from the R-package fairml. The response variable has been changed to a binary version: Whether ugpa is greater than 3. The race1 variables has been binarized to labels white and non-white.",
+    "url": "https://www.openml.org/d/43889",
+    "did": "43889",
+    "colonnes": {
+     "num": [
+      "age",
+      "decile1",
+      "decile3",
+      "fam_inc",
+      "lsat",
+      "ugpa",
+      "bar",
+      "ugpagt3"
+     ],
+     "groupes": [
+      "gender",
+      "race1",
+      "cluster",
+      "fulltime"
+     ]
+    }
+   },
+   "lignes": 20800,
+   "colonnes": 12,
+   "fig": "2026-11-02_law_school_admission_bianry.png",
+   "n_findings": 5,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "ugpa -> ugpagt3",
+     "stat": 0.629,
+     "score": 1,
+     "detail": {
+      "mutual_info": 0.629,
+      "part_de_l_info": 0.82
+     },
+     "dataset": "law-school-admission-bianry",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "La variable ugpa prédit presque parfaitement ugpagt3 car cette dernière en est directement dérivée ou calculée.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "cible_expliquee_par_une_variable",
+     "vars": "ugpa -> ugpagt3",
+     "stat": 1.0,
+     "score": 0.9,
+     "detail": {
+      "score_1_variable": 1.0,
+      "score_toutes": 1.0,
+      "note": "relation forte ou fuite de données"
+     },
+     "dataset": "law-school-admission-bianry",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "artefact",
+      "explication": "Score de prédiction parfait dû à une fuite de données entre la note continue ugpa et sa version binarisée ugpagt3.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "decile1 ~ decile3",
+     "stat": 0.864,
+     "score": 0.6911867466425126,
+     "detail": {
+      "spearman": 0.864,
+      "pearson": 0.864,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "law-school-admission-bianry",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "Corrélation logique entre deux déciles de notes (decile1 et decile3) évaluant la même performance académique à différents moments.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "ugpa ~ ugpagt3",
+     "stat": 0.811,
+     "score": 0.6490157687309819,
+     "detail": {
+      "spearman": 0.811,
+      "pearson": 0.799,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "law-school-admission-bianry",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Lien direct et tautologique entre la moyenne universitaire continue (ugpa) et son seuil binaire (ugpagt3).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> ugpagt3",
+     "stat": 1.0,
+     "score": 0.4,
+     "detail": {
+      "balanced_accuracy": 1.0,
+      "baseline": 0.5,
+      "avec_seulement_ugpa": 1.0
+     },
+     "dataset": "law-school-admission-bianry",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "artefact",
+      "explication": "Précision parfaite à 100% de la cible par ugpa en raison d'un seuil déterministe.",
+      "hypothese": ""
+     }
+    }
+   ]
+  }
+ ],
+ "echecs": [],
+ "hypotheses_testees": [
+  {
+   "id": 7,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "46255",
+    "x": "Absences",
+    "y": "GPA",
+    "groupe": "ParentalSupport",
+    "seuil": null,
+    "enonce": "La relation négative entre les absences et le GPA est-elle atténuée chez les élèves bénéficiant d'un fort soutien parental ?",
+    "requete_biblio": "student absences GPA parental support resilience academic performance"
+   },
+   "statut": "réfutée",
+   "resume": "Dans Student_Performance_Dataset, la corrélation Absences~GPA vaut -0.94 pour « ParentalSupport = 1 » contre -0.94 pour « ParentalSupport = 2 » (écart 0.01, p = 0.38).",
+   "stats": {
+    "groupes": {
+     "ParentalSupport = 2": {
+      "rho": -0.943,
+      "pearson": -0.94,
+      "n": 740
+     },
+     "ParentalSupport = 3": {
+      "rho": -0.942,
+      "pearson": -0.936,
+      "n": 697
+     },
+     "ParentalSupport = 1": {
+      "rho": -0.937,
+      "pearson": -0.933,
+      "n": 489
+     },
+     "ParentalSupport = 4": {
+      "rho": -0.937,
+      "pearson": -0.934,
+      "n": 254
+     },
+     "ParentalSupport = 0": {
+      "rho": -0.941,
+      "pearson": -0.94,
+      "n": 212
+     }
+    },
+    "p_difference": 0.377,
+    "holm": "p = 0.38, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Academic resilience and academic performance of university students: the mediating role of teacher support",
+     "annee": 2025,
+     "citations": 44,
+     "url": "https://doi.org/10.3389/fpsyg.2025.1463643"
+    },
+    {
+     "titre": "Academic Resilience among Students: A Review of Literature",
+     "annee": 2021,
+     "citations": 58,
+     "url": "https://doi.org/10.52403/ijrr.20210646"
+    },
+    {
+     "titre": "Family and Academic Stress and Their Impact on Students' Depression Level and Academic Performance",
+     "annee": 2022,
+     "citations": 371,
+     "url": "https://doi.org/10.3389/fpsyt.2022.869337"
+    },
+    {
+     "titre": "Self-Concept as a Mediator of the Relation Between University Students’ Resilience and Academic Achievement",
+     "annee": 2022,
+     "citations": 63,
+     "url": "https://doi.org/10.3389/fpsyg.2021.747168"
+    },
+    {
+     "titre": "TRANSFER EFFECTS OF CHILDHOOD EXTRACURRICULAR ACTIVITIES ON UNIVERSITY STUDENTS’ RESILIENCE AND ACADEMIC PERFORMANCE",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.15170/tm.2026.27.k2.5"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé est bien formulé et utilise le terme de 'relation' adapté aux données observationnelles. Toutefois, la variable de modération a été testée par sous-groupes séparés plutôt que par un modèle d'interaction global.",
+    "reformulation": "",
+    "diagnostic_statistique": "Les corriliations de Pearson et Spearman sont presque identiques (|Spearman - Pearson| < 0.05 dans tous les groupes), ce qui indique des relations linéaires sans valeurs extrêmes majeures. Cependant, les coefficients de corrélation sont quasi-identiques (-0.93 à -0.94) dans tous les sous-groupes de soutien parental, montrant l'absence totale de modération.",
+    "modele_recommande": "régression linéaire multiple avec interaction y ~ x * z (GPA ~ Absences * ParentalSupport)",
+    "robustesse": "Les tailles d'échantillon sont correctes (entre 212 et 740 selon les groupes). Le risque principal réside dans la structure artificielle ou simulée du dataset (corrélation parfaite de -0.94 entre absences et GPA, ce qui est extrêmement rare en conditions réelles et suggère un artefact de génération de données).",
+    "interpretation_domaine": "La littérature montre généralement que le soutien familial favorise la résilience académique. Ici, le résultat contredit l'hypothèse : le soutien parental ne modifie en rien l'impact massif des absences sur les notes, ce qui relève probablement d'un artefact statistique du jeu de données synthétique.",
+    "action_pipeline": "Ajouter un contrôle préalable sur la plausibilité et la variance des distributions dans les datasets synthétiques pour éviter des corrélations artificiellement uniformes.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "La littérature aborde la résilience académique et le soutien parental, mais l'absence d'effet modérateur direct sur la corrélation absences-GPA reste peu documentée de cette façon.",
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 8,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43415",
+    "x": "raisedhands",
+    "y": "VisITedResources",
+    "groupe": "ParentschoolSatisfaction",
+    "seuil": null,
+    "enonce": "La corrélation entre la participation en classe et l'utilisation des ressources en ligne dépend-elle de la satisfaction des parents envers l'école ?",
+    "requete_biblio": "student engagement online resources participation parent satisfaction"
+   },
+   "statut": "confirmée",
+   "resume": "Dans Students-Academic-Performance-Dataset, la corrélation raisedhands~VisITedResources vaut +0.77 pour « ParentschoolSatisfaction = Bad » contre +0.54 pour « ParentschoolSatisfaction = Good » (écart 0.23, p = 0.0026). [Testé sur : moitié de confirmation (232 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "ParentschoolSatisfaction = Good": {
+      "rho": 0.54,
+      "pearson": 0.593,
+      "n": 141
+     },
+     "ParentschoolSatisfaction = Bad": {
+      "rho": 0.768,
+      "pearson": 0.764,
+      "n": 91
+     }
+    },
+    "p_difference": 0.00257,
+    "donnees_test": "moitié de confirmation (232 lignes jamais vues à l'exploration)",
+    "confusion": "contrôle de gender : confirmée — Dans Students-Academic-Performance-Dataset, la corrélation raisedhands~VisITedResources vaut +0.77 pour « ParentschoolSatisfaction = Bad » contre +0.56 pour « ParentschoolSatisfaction = Good » (écart 0.22, p = 0.0034).",
+    "generalisation": "aucun autre dataset avec les mêmes variables (raisedhands, VisITedResources, ParentschoolSatisfaction) parmi 8 essayés",
+    "holm": "p = 0.0026, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Supporting Learning Engagement with Online Students",
+     "annee": 2018,
+     "citations": 146,
+     "url": "https://doi.org/10.24059/olj.v22i4.1384"
+    },
+    {
+     "titre": "Virtual Spaces: Employing a Synchronous Online Classroom to Facilitate Student Engagement in Online Learning",
+     "annee": 2009,
+     "citations": 633,
+     "url": "https://doi.org/10.19173/irrodl.v10i3.605"
+    },
+    {
+     "titre": "Student Satisfaction and Learning Outcomes in Asynchronous Online Lecture Videos",
+     "annee": 2019,
+     "citations": 166,
+     "url": "https://doi.org/10.1187/cbe.18-08-0171"
+    },
+    {
+     "titre": "Student Engagement, Self-Regulation, Satisfaction, and Success in Online Learning Environments",
+     "annee": 2020,
+     "citations": 8,
+     "url": "https://openalex.org/W3016350374"
+    },
+    {
+     "titre": "Is There Social Capital in a Social Network Site?: Facebook Use and College Students' Life Satisfaction, Trust, and Participation",
+     "annee": 2009,
+     "citations": 2229,
+     "url": "https://doi.org/10.1111/j.1083-6101.2009.01474.x"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé utilise à tort le terme de corrélation pour parler d'une modération, mais la formulation de la question teste correctement une interaction sur des données observationnelles.",
+    "reformulation": "La relation entre la participation en classe et l'utilisation des ressources en ligne est-elle modérée par le niveau de satisfaction des parents envers l'école ?",
+    "diagnostic_statistique": "Les coefficients de Spearman et Pearson sont proches dans les deux groupes (écart < 0.15), ce qui indique des relations globalement linéaires sans valeurs extrêmes majeures. La différence de corrélation entre les groupes (0.73 vs 0.53) est statistiquement très significative (p = 0.00025).",
+    "modele_recommande": "régression linéaire multiple avec interaction y ~ x * z",
+    "robustesse": "Les tailles d'échantillon sont correctes (n = 292 et n = 188). Cependant, il s'agit de données observationnelles scolaires sujettes à des facteurs de confusion non mesurés comme le statut socio-économique ou la motivation générale de l'élève.",
+    "interpretation_domaine": "La littérature montre que l'engagement des étudiants (participation et ressources en ligne) est fortement lié au soutien familial et à la satisfaction envers l'établissement. Une faible satisfaction parentale semble ici accentuer la dépendance entre ces deux comportements d'engagement.",
+    "action_pipeline": "Harmoniser le vocabulaire du générateur pour remplacer 'corrélation' par 'relation' ou 'lien' dans les énoncés de modération.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Le rôle de la satisfaction et de l'engagement en ligne dans la réussite et l'interaction des étudiants est largement documenté dans la recherche sur l'e-learning.",
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 2,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 0.0026, seuil corrigé 0.017 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": true,
+      "note": "contrôle de gender : confirmée — Dans Students-Academic-Performance-Dataset, la corrélation raisedhands~VisITedResources vaut +0.77 pour « ParentschoolSatisfaction = Bad » contre +0.56 pour « ParentschoolSatisfaction = Good » (écart 0.22, p = 0.0034)."
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun autre dataset avec les mêmes variables (raisedhands, VisITedResources, ParentschoolSatisfaction) parmi 8 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 9,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "42351",
+    "x": "studytime",
+    "y": "G3",
+    "groupe": "higher",
+    "seuil": null,
+    "enonce": "L'impact du temps d'étude sur la note finale G3 est-il plus prononcé pour les élèves ayant l'intention de faire des études supérieures ?",
+    "requete_biblio": "study time final grade higher education aspirations student performance"
+   },
+   "statut": "non concluante",
+   "resume": "Dans UCI-student-performance-por, la corrélation studytime~G3 vaut +0.23 pour « higher = yes » contre +0.19 pour « higher = no » (écart 0.04, p = 0.75).",
+   "stats": {
+    "groupes": {
+     "higher = yes": {
+      "rho": 0.228,
+      "pearson": 0.211,
+      "n": 580
+     },
+     "higher = no": {
+      "rho": 0.188,
+      "pearson": 0.118,
+      "n": 69
+     }
+    },
+    "p_difference": 0.748,
+    "holm": "p = 0.75, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Time to Revisit Existing Student’s Performance Evaluation Approach in Higher Education Sector in a New Era of ChatGPT — A Case Study",
+     "annee": 2023,
+     "citations": 262,
+     "url": "https://doi.org/10.1080/2331186x.2023.2210461"
+    },
+    {
+     "titre": "FACTORS THAT INFLUENCE 9th GRADE STUDENTS’ HIGHER EDUCATION ASPIRATIONS IN SWEDEN The role of gender, parental nationality, parental education and academic self-concept",
+     "annee": 2018,
+     "citations": 0,
+     "url": "https://openalex.org/W2801577497"
+    },
+    {
+     "titre": "Modeling black student academic performance in higher education",
+     "annee": 1984,
+     "citations": 20,
+     "url": "https://doi.org/10.1007/bf00975106"
+    },
+    {
+     "titre": "Blended Learning in Higher Education: A Study of Its Impact on Students’ Performance",
+     "annee": 2021,
+     "citations": 20,
+     "url": "https://doi.org/10.3991/ijet.v16i14.23775"
+    },
+    {
+     "titre": "A Systematic Literature Review of Students as Partners in Higher Education",
+     "annee": 2017,
+     "citations": 626,
+     "url": "https://doi.org/10.15173/ijsap.v1i1.3119"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Confusion entre lien statistique et impact causal, mais la question de modération est bien ciblée.",
+    "reformulation": "Le lien entre le temps d'étude et la note finale G3 diffère-t-il selon l'intention de faire des études supérieures ?",
+    "diagnostic_statistique": "Différence de corrélation non significative (p = 0.75). Faible effectif dans le groupe 'higher = no' (n=69) limitant la puissance statistique. Écarts entre Spearman et Pearson faibles (< 0.15).",
+    "modele_recommande": "régression avec interaction y ~ x * z (G3 ~ studytime * higher)",
+    "robustesse": "Risque de biais de sélection et de confusion (ex: statut socio-économique ou notes antérieures). Faible taille d'échantillon pour le groupe 'no'.",
+    "interpretation_domaine": "Les aspirations aux études supérieures corrèlent positivement avec la réussite, mais l'effet modérateur du temps d'étude n'est pas statistiquement avéré ici.",
+    "action_pipeline": "Ajouter un contrôle systématique de la taille des petits sous-groupes et tester l'interaction dans un modèle linéaire généralisé plutôt qu'une simple comparaison de corrélations.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "Le lien entre aspirations d'études supérieures et temps d'étude a fait l'objet de quelques études d'impact, mais sans consensus clair sur la modération.",
+   "sujet": "Réussite scolaire",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}

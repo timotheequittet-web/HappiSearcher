@@ -1,0 +1,165 @@
+{
+ "date": "2026-11-04",
+ "faits": {
+  "date": "2026-11-04",
+  "date_longue": "4 novembre 2026",
+  "sujets": [
+   "Ce que dit la voix"
+  ],
+  "questions": [
+   "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Dynamically-Generated-Hate-Speech-Dataset",
+    "lignes": 41144,
+    "colonnes": 13,
+    "resultats_bruts": 7,
+    "confirmes_sur_moitie_independante": 2
+   },
+   {
+    "nom": "hate-speech-and-offensive-language",
+    "lignes": 24783,
+    "colonnes": 3,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "parkinsons-telemonitoring",
+    "lignes": 5875,
+    "colonnes": 22,
+    "resultats_bruts": 111,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "mdimamhosen/pd-voice-full-multimodal-dataset",
+    "lignes": 360,
+    "colonnes": 17,
+    "resultats_bruts": 14,
+    "confirmes_sur_moitie_independante": 12
+   },
+   {
+    "nom": "BenchmarkDatasets/Parkinson_Speech",
+    "lignes": 728,
+    "colonnes": 28,
+    "resultats_bruts": 162,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "wwydmanski/ParkinsonsDisease",
+    "lignes": 757,
+    "colonnes": 755,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 7,
+  "hypotheses_testees": [
+   {
+    "id": "H22",
+    "enonce": "Le lien entre meanfreq et sd change-t-il selon le groupe label ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans Gender-Recognition-by-Voice, la corrélation meanfreq~sd vaut -0.63 pour « label = male » contre -0.57 pour « label = female » (p = 0.12).",
+    "bloque_a": null,
+    "litterature": "La relation entre la fréquence fondamentale moyenne (meanfreq) et la déviation standard (sd) de la voix est un classique de la biométrie vocale liée au genre."
+   },
+   {
+    "id": "H23",
+    "enonce": "Le lien entre meanfun et maxfun change-t-il selon le groupe label ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans Gender-Recognition-by-Voice, la corrélation meanfun~maxfun vaut +0.15 pour « label = female » contre +0.57 pour « label = male » (p = 2.8e-21) : effet INVERSE de celui prédit.",
+    "bloque_a": null,
+    "litterature": "Le lien entre la fréquence fondamentale moyenne (meanfun) et maximale (maxfun) est largement documenté dans l'analyse de la hauteur vocale."
+   },
+   {
+    "id": "H24",
+    "enonce": "Le lien entre coefficient1 et coefficient2 change-t-il selon le groupe utterance ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans JapaneseVowels, la corrélation coefficient1~coefficient2 vaut -0.01 pour « utterance ≤ 18 » contre -0.05 pour « utterance > 18 » (écart 0.04, p = 0.15).",
+    "bloque_a": null,
+    "litterature": "La dynamique des coefficients cepstraux (MFCC) pour la reconnaissance de voyelles et de locuteurs est un standard établi du traitement de la parole."
+   },
+   {
+    "id": "H25",
+    "enonce": "Le lien entre sp.ent et meanfreq est-il plus fort au-dessus du seuil de 0.5 ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "pas assez de données dans les sous-groupes",
+    "bloque_a": null,
+    "litterature": "L'entropie spectrale et son interaction avec la fréquence moyenne dans les voix pathologiques manquent de caractérisation sous forme de seuils précis."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 3,
+   "non testable": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+    "variables": "proportion_claire -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La proportion claire des représentations visuelles (spectrogrammes) diffère significativement entre sujets sains et malades de Parkinson.",
+    "detail": "confirmé — η² = 0.51, p = 1.6e-21 sur 178 autres images (découverte : 0.602)"
+   },
+   {
+    "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+    "variables": "saturation -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La saturation des images de spectrogrammes acoustiques est liée au statut de Parkinson.",
+    "detail": "confirmé — η² = 0.46, p = 1.2e-19 sur 178 autres images (découverte : 0.5600000023841858)"
+   },
+   {
+    "dataset": "parkinsons-telemonitoring",
+    "variables": "Jitter.PPQ5 ~ DFA",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien non linéaire entre la perturbation de hauteur (Jitter.PPQ5) et l'exposant de fractalité (DFA) de la voix.",
+    "detail": "confirmé — ρ = +0.48 sur 2964 lignes (découverte : +0.48)"
+   },
+   {
+    "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+    "variables": "entropie -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "L'entropie visuelle du spectrogramme est corrélée à la présence de la maladie de Parkinson.",
+    "detail": "confirmé — η² = 0.36, p = 8.6e-16 sur 178 autres images (découverte : 0.449)"
+   },
+   {
+    "dataset": "mdimamhosen/pd-voice-full-multimodal-dataset",
+    "variables": "bleu -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La composante bleue des spectrogrammes acoustiques diffère entre les groupes sains et malades.",
+    "detail": "confirmé — η² = 0.37, p = 5.6e-16 sur 178 autres images (découverte : 0.4449999928474426)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre Jitter.PPQ5 et DFA change-t-il selon le groupe sex ?",
+   "Le lien entre f_14_median_pitch et f_18_max_pitch change-t-il selon le groupe f_24_number_of_voice_breaks ?",
+   "Le lien entre PPE et motor_UPDRS est-il plus fort au-dessus du seuil de PPE ?",
+   "Le lien entre f_0_jitter_local et f_16_std_pitch change-t-il selon le groupe f_23_fraction_locally_unvoiced_frames ?"
+  ],
+  "runs": [
+   "2026-11-04_0330_voice"
+  ]
+ },
+ "en_chiffres": [
+  "6 datasets analysés, 7 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 3 réfutée, 1 non testable",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Ce que révèle la voix : enquête sur les pistes acoustiques",
+ "chapo": "Cette nuit, la Raspberry a enquêté sur les caractéristiques de la voix, interrogeant les liens entre paramètres acoustiques et pathologies.",
+ "paragraphes": [
+  "L'enquête nocturne s'est penchée sur plusieurs hypothèses concernant la hauteur vocale et les coefficients cepstraux. Les 3 hypothèses testées ont été réfutées, montrant que les liens attendus ne se comportent pas comme prévu selon les groupes de labels ou d'énoncés. Par exemple, le lien entre la fréquence fondamentale moyenne et maximale a présenté un effet inverse à celui prédit. De plus, 1 hypothèse a été jugée non testable en raison d'un manque de données dans les sous-groupes. Un total de 7 datasets ont été écartés au cours du processus.",
+  "Malgré ces réfutations, l'exploration de nouvelles pistes a permis d'observer des relations intéressantes. Dans le jeu de données multimodal sur la voix et la maladie de Parkinson, plusieurs caractéristiques visuelles issues des spectrogrammes acoustiques, telles que la proportion claire, la saturation, l'entropie et la composante bleue, affichent un lien avec le statut de Parkinson. De plus, un lien non linéaire a été observé entre la perturbation de hauteur et l'exposant de fractalité de la voix. Ces pistes demandent désormais à être approfondies par de futures vérifications."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+}

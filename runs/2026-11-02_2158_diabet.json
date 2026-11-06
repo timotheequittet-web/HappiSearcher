@@ -1,0 +1,943 @@
+{
+ "id": "2026-11-02_2158_diabet",
+ "date": "2026-11-02T21:58",
+ "sujet": "Santé métabolique",
+ "keywords": [
+  "diabet",
+  "heart",
+  "cancer",
+  "breast",
+  "hepatitis",
+  "kidney",
+  "indian-liver",
+  "stroke",
+  "parkinson",
+  "alzheimer",
+  "cardio",
+  "thyroid",
+  "dermatology",
+  "obesity",
+  "insurance",
+  "medical"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des données de santé montre des relations biologiques cohérentes en néphrologie, notamment entre la créatinine sérique et l'hémoglobine dans la maladie rénale chronique, illustrant l'anémie associée à la baisse de fonction rénale. Parallèlement, les métriques temporelles des rendez-vous médicaux présentent des corrélations mécaniques fortes liées aux formats d'encodage des dates. En tant que scientifique sceptique, il convient de distinguer les véritables interactions physiopathologiques des artefacts administratifs.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La relation apparente entre le mois de réservation et le mois de création de la demande reflète simplement la structure séquentielle de la prise de rendez-vous.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'un artefact d'encodage lié aux formats cycliques ou alternatifs des mois de réservation par rapport à la création.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Corrélation mécanique entre deux variables temporelles décrivant le même processus administratif d'enregistrement.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Forte association négative entre la créatinine sérique et l'hémoglobine, traduisant l'anémie rénale classique chez les patients insuffisants rénaux.",
+    "hypothese": "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle encore plus marquée chez les patients présentant une hypertension (htn) ? "
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Lien modéré entre la glycémié à jeun et la créatinine, reflétant l'impact de la néphropathie diabétique sur la fonction rénale.",
+    "hypothese": "La corrélation entre bgr (glucose) et sc (créatinine) est-elle plus forte chez les patients ayant un diagnostic de diabète (dm) confirmé ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "L'albuminurie (al) est fortement corrélée à l'élévation de la créatinine (sc), marquant la dégradation de la barrière glomérulaire.",
+    "hypothese": "La relation entre al et sc varie-t-elle selon l'âge au-dessus de 60 ans ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Léger vieillissement observé chez les patients ayant des taux de créatinine plus élevés, cohérent avec la diminution physiologique de la fonction rénale avec l'âge.",
+    "hypothese": "La relation age~sc est-elle différente selon le sexe des patients ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "artefact",
+    "explication": "Forte corrélation linéaire parfaite par morceaux due à la façon dont les variables de temps de réservation et de création ont été transformées ou encodées.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Étudier l'impact croisé du diabète et de l'hypertension sur les marqueurs de la fonction rénale (créatinine, hémoglobine).",
+   "Analyser les motifs de non-présentation (no-show) en fonction du délai de latence entre la création et la date du rendez-vous.",
+   "Rechercher des corrélations similaires entre paramètres rénaux dans d'autres bases de données cliniques."
+  ],
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "42972",
+    "x": "bgr",
+    "y": "sc",
+    "groupe": "dm",
+    "seuil": null,
+    "enonce": "La relation entre bgr (glucose) et sc (créatinine) diffère-t-elle selon le statut diabétique (dm) ?"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "42972",
+    "x": "sc",
+    "y": "hemo",
+    "groupe": "htn",
+    "seuil": null,
+    "enonce": "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle modifiée par la présence d'une hypertension (htn) ?"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "42972",
+    "x": "age",
+    "y": "sc",
+    "seuil": 60,
+    "enonce": "La corrélation entre l'âge et la créatinine sérique est-elle plus prononcée chez les patients de plus de 60 ans ?"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "reserva_mes_d ~ creacion_mes_d",
+   "stat": 0.522,
+   "score": 1,
+   "detail": {
+    "spearman": 0.55,
+    "pearson": -0.028,
+    "n": 20000
+   },
+   "dataset": "Medical-Appointment",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La relation apparente entre le mois de réservation et le mois de création de la demande reflète simplement la structure séquentielle de la prise de rendez-vous.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "reserva_mes_c ~ creacion_mes_d",
+   "stat": 0.541,
+   "score": 1,
+   "detail": {
+    "spearman": -0.55,
+    "pearson": 0.009,
+    "n": 20000
+   },
+   "dataset": "Medical-Appointment",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'un artefact d'encodage lié aux formats cycliques ou alternatifs des mois de réservation par rapport à la création.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "creacion_mes_d ~ creacion_mes_c",
+   "stat": 0.495,
+   "score": 0.9954088926114509,
+   "detail": {
+    "spearman": -0.525,
+    "pearson": 0.03,
+    "n": 20000
+   },
+   "dataset": "Medical-Appointment",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Corrélation mécanique entre deux variables temporelles décrivant le même processus administratif d'enregistrement.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "sc ~ hemo",
+   "stat": 0.325,
+   "score": 0.8247931763055176,
+   "detail": {
+    "spearman": -0.726,
+    "pearson": -0.402,
+    "n": 337
+   },
+   "dataset": "chronic-kidney-disease",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Forte association négative entre la créatinine sérique et l'hémoglobine, traduisant l'anémie rénale classique chez les patients insuffisants rénaux.",
+    "hypothese": "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle encore plus marquée chez les patients présentant une hypertension (htn) ? "
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "bgr ~ sc",
+   "stat": 0.244,
+   "score": 0.7443430158899715,
+   "detail": {
+    "spearman": 0.359,
+    "pearson": 0.115,
+    "n": 351
+   },
+   "dataset": "chronic-kidney-disease",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Lien modéré entre la glycémié à jeun et la créatinine, reflétant l'impact de la néphropathie diabétique sur la fonction rénale.",
+    "hypothese": "La corrélation entre bgr (glucose) et sc (créatinine) est-elle plus forte chez les patients ayant un diagnostic de diabète (dm) confirmé ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "al ~ sc",
+   "stat": 0.242,
+   "score": 0.7417462453667866,
+   "detail": {
+    "spearman": 0.641,
+    "pearson": 0.399,
+    "n": 337
+   },
+   "dataset": "chronic-kidney-disease",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "L'albuminurie (al) est fortement corrélée à l'élévation de la créatinine (sc), marquant la dégradation de la barrière glomérulaire.",
+    "hypothese": "La relation entre al et sc varie-t-elle selon l'âge au-dessus de 60 ans ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "age ~ sc",
+   "stat": 0.217,
+   "score": 0.7172360789071552,
+   "detail": {
+    "spearman": 0.35,
+    "pearson": 0.133,
+    "n": 374
+   },
+   "dataset": "chronic-kidney-disease",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Léger vieillissement observé chez les patients ayant des taux de créatinine plus élevés, cohérent avec la diminution physiologique de la fonction rénale avec l'âge.",
+    "hypothese": "La relation age~sc est-elle différente selon le sexe des patients ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "reserva_mes_d ~ creacion_mes_c",
+   "stat": -0.883,
+   "score": 0.7061775253973582,
+   "detail": {
+    "spearman": -0.883,
+    "pearson": -0.882,
+    "n": 20000,
+    "q": 0.0
+   },
+   "dataset": "Medical-Appointment",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "artefact",
+    "explication": "Forte corrélation linéaire parfaite par morceaux due à la façon dont les variables de temps de réservation et de création ont été transformées ou encodées.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "chronic-kidney-disease",
+    "target": null,
+    "description": "**Author**: L.Jerlin Rubini **Source**: [UCI](https://archive.ics.uci.edu/ml/datasets/chronic_kidney_disease) - 2015 **Please cite**: [UCI](https://archive.ics.uci.edu/ml/citation_policy.html) **Chronic_Kidney_Disease Data Set** This dataset can be used to predict the chronic kidney disease and it can be collected from the hospital nearly 2 months of period. ### Attribute information We use 24 + c",
+    "url": "https://www.openml.org/d/42972",
+    "did": "42972",
+    "colonnes": {
+     "num": [
+      "age",
+      "bp",
+      "sg",
+      "al",
+      "su",
+      "bgr",
+      "bu",
+      "sc",
+      "sod",
+      "pot",
+      "hemo"
+     ],
+     "groupes": [
+      "rbc",
+      "pc",
+      "pcc",
+      "ba",
+      "htn",
+      "dm",
+      "cad",
+      "appet",
+      "pe",
+      "ane"
+     ]
+    }
+   },
+   "lignes": 400,
+   "colonnes": 26,
+   "fig": "2026-11-02_chronic_kidney_disease.png",
+   "n_findings": 29,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "sc ~ hemo",
+     "stat": 0.325,
+     "score": 0.8247931763055176,
+     "detail": {
+      "spearman": -0.726,
+      "pearson": -0.402,
+      "n": 337
+     },
+     "dataset": "chronic-kidney-disease",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "Forte association négative entre la créatinine sérique et l'hémoglobine, traduisant l'anémie rénale classique chez les patients insuffisants rénaux.",
+      "hypothese": "La relation entre sc (créatinine) et hemo (hémoglobine) est-elle encore plus marquée chez les patients présentant une hypertension (htn) ? "
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "bgr ~ sc",
+     "stat": 0.244,
+     "score": 0.7443430158899715,
+     "detail": {
+      "spearman": 0.359,
+      "pearson": 0.115,
+      "n": 351
+     },
+     "dataset": "chronic-kidney-disease",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Lien modéré entre la glycémié à jeun et la créatinine, reflétant l'impact de la néphropathie diabétique sur la fonction rénale.",
+      "hypothese": "La corrélation entre bgr (glucose) et sc (créatinine) est-elle plus forte chez les patients ayant un diagnostic de diabète (dm) confirmé ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "al ~ sc",
+     "stat": 0.242,
+     "score": 0.7417462453667866,
+     "detail": {
+      "spearman": 0.641,
+      "pearson": 0.399,
+      "n": 337
+     },
+     "dataset": "chronic-kidney-disease",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "L'albuminurie (al) est fortement corrélée à l'élévation de la créatinine (sc), marquant la dégradation de la barrière glomérulaire.",
+      "hypothese": "La relation entre al et sc varie-t-elle selon l'âge au-dessus de 60 ans ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "age ~ sc",
+     "stat": 0.217,
+     "score": 0.7172360789071552,
+     "detail": {
+      "spearman": 0.35,
+      "pearson": 0.133,
+      "n": 374
+     },
+     "dataset": "chronic-kidney-disease",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Léger vieillissement observé chez les patients ayant des taux de créatinine plus élevés, cohérent avec la diminution physiologique de la fonction rénale avec l'âge.",
+      "hypothese": "La relation age~sc est-elle différente selon le sexe des patients ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "sc ~ hemo",
+     "stat": -0.726,
+     "score": 0.5811702405930624,
+     "detail": {
+      "spearman": -0.726,
+      "pearson": -0.402,
+      "n": 337,
+      "q": 4.4e-55
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "bu ~ sc",
+     "stat": 0.703,
+     "score": 0.5623991320811984,
+     "detail": {
+      "spearman": 0.703,
+      "pearson": 0.586,
+      "n": 380,
+      "q": 3.6e-56
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "al ~ hemo",
+     "stat": -0.683,
+     "score": 0.5466598756215022,
+     "detail": {
+      "spearman": -0.683,
+      "pearson": -0.635,
+      "n": 313,
+      "q": 4e-43
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "al ~ sc",
+     "stat": 0.641,
+     "score": 0.512755636797699,
+     "detail": {
+      "spearman": 0.641,
+      "pearson": 0.399,
+      "n": 337,
+      "q": 3.1e-39
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sg ~ hemo",
+     "stat": 0.629,
+     "score": 0.5029503281294375,
+     "detail": {
+      "spearman": 0.629,
+      "pearson": 0.603,
+      "n": 313,
+      "q": 8.5e-35
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "su ~ bgr",
+     "stat": 0.602,
+     "score": 0.4815847553212138,
+     "detail": {
+      "spearman": 0.602,
+      "pearson": 0.718,
+      "n": 313,
+      "q": 2.4e-31
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "bu ~ hemo",
+     "stat": -0.592,
+     "score": 0.4737327413917027,
+     "detail": {
+      "spearman": -0.592,
+      "pearson": -0.61,
+      "n": 335,
+      "q": 4e-32
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sg ~ sc",
+     "stat": -0.559,
+     "score": 0.4471195177669682,
+     "detail": {
+      "spearman": -0.559,
+      "pearson": -0.361,
+      "n": 336,
+      "q": 3.7e-28
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "al ~ sod",
+     "stat": -0.534,
+     "score": 0.42720721888283386,
+     "detail": {
+      "spearman": -0.534,
+      "pearson": -0.46,
+      "n": 276,
+      "q": 4.7e-21
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "htn ~ dm",
+     "stat": 0.609,
+     "score": 0.4263636660995793,
+     "detail": {
+      "cramers_v": 0.609,
+      "p": 6.5e-31
+     },
+     "dataset": "chronic-kidney-disease"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sg ~ al",
+     "stat": -0.52,
+     "score": 0.41560131507920905,
+     "detail": {
+      "spearman": -0.52,
+      "pearson": -0.47,
+      "n": 351,
+      "q": 7.2e-25
+     },
+     "dataset": "chronic-kidney-disease"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Medical-Appointment",
+    "target": "show",
+    "description": "Context The No Show problem is one of the bigest on the health industry, about 30 of the patient fail theirs appointments. Content 61K points, from 2017.01.01 to 2017.04.30 and 19 features to work with Data Dictionary especialidad : what kind of specialist is going to. Ie dematologist, etc. edad: Age sexo: sex, 1: Male, 2: Female reservamesd : discrete value for the month of the appointment, 1: Ja",
+    "url": "https://www.openml.org/d/43617",
+    "did": "43617",
+    "colonnes": {
+     "num": [
+      "especialidad",
+      "edad",
+      "sexo",
+      "reserva_mes_d",
+      "reserva_mes_c",
+      "reserva_dia_d",
+      "reserva_dia_c",
+      "reserva_hora_d",
+      "reserva_hora_c",
+      "creacion_mes_d",
+      "creacion_mes_c",
+      "creacion_dia_d",
+      "creacion_dia_c",
+      "creacion_hora_d",
+      "creacion_hora_c",
+      "latencia",
+      "canal",
+      "tipo",
+      "show"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 61214,
+   "colonnes": 19,
+   "fig": "2026-11-02_Medical_Appointment.png",
+   "n_findings": 12,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "reserva_mes_d ~ creacion_mes_d",
+     "stat": 0.522,
+     "score": 1,
+     "detail": {
+      "spearman": 0.55,
+      "pearson": -0.028,
+      "n": 20000
+     },
+     "dataset": "Medical-Appointment",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "La relation apparente entre le mois de réservation et le mois de création de la demande reflète simplement la structure séquentielle de la prise de rendez-vous.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "reserva_mes_c ~ creacion_mes_d",
+     "stat": 0.541,
+     "score": 1,
+     "detail": {
+      "spearman": -0.55,
+      "pearson": 0.009,
+      "n": 20000
+     },
+     "dataset": "Medical-Appointment",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "trivial",
+      "explication": "Il s'agit d'un artefact d'encodage lié aux formats cycliques ou alternatifs des mois de réservation par rapport à la création.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "creacion_mes_d ~ creacion_mes_c",
+     "stat": 0.495,
+     "score": 0.9954088926114509,
+     "detail": {
+      "spearman": -0.525,
+      "pearson": 0.03,
+      "n": 20000
+     },
+     "dataset": "Medical-Appointment",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "trivial",
+      "explication": "Corrélation mécanique entre deux variables temporelles décrivant le même processus administratif d'enregistrement.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "reserva_mes_d ~ creacion_mes_c",
+     "stat": -0.883,
+     "score": 0.7061775253973582,
+     "detail": {
+      "spearman": -0.883,
+      "pearson": -0.882,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "artefact",
+      "explication": "Forte corrélation linéaire parfaite par morceaux due à la façon dont les variables de temps de réservation et de création ont été transformées ou encodées.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "reserva_mes_c ~ creacion_mes_c",
+     "stat": 0.883,
+     "score": 0.7061775253973582,
+     "detail": {
+      "spearman": 0.883,
+      "pearson": 0.887,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "correlation",
+     "vars": "reserva_hora_d ~ reserva_hora_c",
+     "stat": 0.701,
+     "score": 0.5609377881262368,
+     "detail": {
+      "spearman": 0.701,
+      "pearson": 0.749,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "correlation",
+     "vars": "reserva_mes_d ~ creacion_mes_d",
+     "stat": 0.55,
+     "score": 0.4403884231831552,
+     "detail": {
+      "spearman": 0.55,
+      "pearson": -0.028,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "correlation",
+     "vars": "reserva_mes_c ~ creacion_mes_d",
+     "stat": -0.55,
+     "score": 0.4403884231831552,
+     "detail": {
+      "spearman": -0.55,
+      "pearson": 0.009,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "correlation",
+     "vars": "creacion_mes_d ~ creacion_mes_c",
+     "stat": -0.525,
+     "score": 0.42033317812324367,
+     "detail": {
+      "spearman": -0.525,
+      "pearson": 0.03,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "correlation",
+     "vars": "creacion_hora_d ~ creacion_hora_c",
+     "stat": 0.497,
+     "score": 0.39747130356017624,
+     "detail": {
+      "spearman": 0.497,
+      "pearson": 0.496,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "correlation",
+     "vars": "reserva_dia_d ~ reserva_dia_c",
+     "stat": -0.432,
+     "score": 0.3454933934736952,
+     "detail": {
+      "spearman": -0.432,
+      "pearson": -0.4,
+      "n": 20000,
+      "q": 0.0
+     },
+     "dataset": "Medical-Appointment"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> show",
+     "stat": 0.528,
+     "score": 0.022530280185575704,
+     "detail": {
+      "balanced_accuracy": 0.528,
+      "baseline": 0.5,
+      "avec_seulement_especialidad": 0.535
+     },
+     "dataset": "Medical-Appointment"
+    }
+   ]
+  }
+ ],
+ "echecs": [],
+ "hypotheses_testees": [
+  {
+   "id": 1,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "46289",
+    "x": "bmi",
+    "y": "charges",
+    "groupe": "smoker",
+    "seuil": null,
+    "enonce": "L'effet de l'indice de masse corporelle (bmi) sur les charges médicales est-il différent selon que le patient est fumeur ou non ?"
+   },
+   "statut": "confirmée",
+   "resume": "Dans medical_cost, la corrélation bmi~charges vaut +0.81 pour « smoker = yes » contre +0.11 pour « smoker = no » (écart 0.70, p = 3.5e-25). [Testé sur : moitié de confirmation (655 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "smoker = no": {
+      "rho": 0.107,
+      "pearson": 0.086,
+      "n": 518
+     },
+     "smoker = yes": {
+      "rho": 0.805,
+      "pearson": 0.802,
+      "n": 137
+     }
+    },
+    "p_difference": 3.54e-25,
+    "donnees_test": "moitié de confirmation (655 lignes jamais vues à l'exploration)",
+    "confusion": "contrôle de age, sex : confirmée — Dans medical_cost, la corrélation bmi~charges vaut +0.89 pour « smoker = yes » contre +0.03 pour « smoker = no » (écart 0.86, p = 4.9e-46).",
+    "generalisation": "aucun autre dataset avec les mêmes variables (bmi, charges, smoker) parmi 8 essayés",
+    "holm": "p = 3.5e-25, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "sujet": "Santé métabolique",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 3.5e-25, seuil corrigé 0.017 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": true,
+      "note": "contrôle de age, sex : confirmée — Dans medical_cost, la corrélation bmi~charges vaut +0.89 pour « smoker = yes » contre +0.03 pour « smoker = no » (écart 0.86, p = 4.9e-46)."
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun autre dataset avec les mêmes variables (bmi, charges, smoker) parmi 8 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 2,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "46733",
+    "x": "Age",
+    "y": "class",
+    "seuil": 45.0,
+    "enonce": "La probabilité de diagnostic positif du diabète augmente-t-elle brusquement au-dessus de 45 ans ?"
+   },
+   "statut": "réfutée",
+   "resume": "Dans diabetes_risk_prediction_dataset, class vaut en moyenne 0.603 juste en dessous de Age = 45 et 0.669 juste au-dessus (écart +0.13 écart-type, p = 0.22, fenêtre ±11.1).",
+   "stats": {
+    "moy_dessous": 0.603448275862069,
+    "moy_dessus": 0.6687898089171974,
+    "n_dessous": 174,
+    "n_dessus": 157,
+    "p": 0.219,
+    "holm": "p = 0.22, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "sujet": "Santé métabolique",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43665",
+    "x": "Total_Bilirubin",
+    "y": "Alamine_Aminotransferase",
+    "groupe": "Gender",
+    "seuil": null,
+    "enonce": "La relation entre la bilirubine totale et l'alamine aminotransferase diffère-t-elle selon le genre des patients atteints de troubles hépatiques ?"
+   },
+   "statut": "réfutée",
+   "resume": "Dans Indian-Liver-Patient-Records, la corrélation Total_Bilirubin~Alamine_Aminotransferase vaut +0.42 pour « Gender = Male » contre +0.41 pour « Gender = Female » (écart 0.01, p = 0.94).",
+   "stats": {
+    "groupes": {
+     "Gender = Male": {
+      "rho": 0.416,
+      "n": 441
+     },
+     "Gender = Female": {
+      "rho": 0.41,
+      "n": 142
+     }
+    },
+    "p_difference": 0.941,
+    "holm": "p = 0.94, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "sujet": "Santé métabolique",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ],
+ "question": "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?"
+}

@@ -1,0 +1,2075 @@
+{
+ "id": "2026-11-03_0930_voice",
+ "date": "2026-11-03T09:36",
+ "sujet": "Ce que dit la voix",
+ "question": "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?",
+ "keywords": [
+  "voice",
+  "speech",
+  "vowel",
+  "gender recognition by voice",
+  "parkinson",
+  "speaker",
+  "emotion speech"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des enregistrements vocaux met en évidence de fortes corrélations entre les mesures spectrales et morphologiques de la voix, confirmant la pertinence de descripteurs comme la fréquence fondamentale et les coefficients spectraux pour la classification des locuteurs. Les relations non linéaires observées dans les jeux de données sur Parkinson et les voyelles japonaises soulignent l'importance des variations temporelles et fréquentielles dans la caractérisation des pathologies et des identités vocales. Enfin, les redondances mathématiques entre certaines mesures de distribution (comme l'asymétrie et l'aplatissement) rappellent la nécessité de filtrer les variables fortement colinéaires avant toute modélisation prédictive.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Il existe un lien non linéaire confirmé entre deux mesures de fréquence ou d'amplitude vocale dans le dataset de Parkinson.",
+    "hypothese": "Le lien entre X187.576 et X160 change-t-il selon le groupe label ?"
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une relation non linéaire similaire est observée entre des paramètres acoustiques de la voix dans le contexte de la maladie de Parkinson.",
+    "hypothese": "Le lien entre X187.576 et X159 change-t-il selon le groupe label ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Corrélation non linéaire confirmée entre des caractéristiques de signaux vocaux enregistrés chez des patients atteints de Parkinson.",
+    "hypothese": "Le lien entre X164.781 et X160 change-t-il selon le groupe label ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Lien robuste entre des variables de propriétés acoustiques dans le dataset de Parkinson.",
+    "hypothese": "Le lien entre X164.781 et X159 change-t-il selon le groupe label ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Relation non linéaire confirmée entre des descripteurs de signaux vocaux.",
+    "hypothese": "Le lien entre X166.533 et X160 change-t-il selon le groupe label ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Liaison acoustique confirmée entre des indicateurs de la voix de patients parkinsoniens.",
+    "hypothese": "Le lien entre X166.533 et X159 change-t-il selon le groupe label ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Relation non linéaire significative entre une mesure fréquentielle et un paramètre de perturbation du signal vocal.",
+    "hypothese": "Le lien entre X160 et X0.006064725 change-t-il selon le groupe label ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Forte corrélation mathématique évidente entre l'asymétrie (skew) et l'aplatissement (kurt) d'une distribution spectrale.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Forte colinéarité linéaire entre deux variables issues de la même extraction de caractéristiques acoustiques.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien entre la fréquence minimale et maximale de la voix, reflétant l'étendue de la tessiture vocale.",
+    "hypothese": "Le lien entre minfun et maxfun change-t-il selon le groupe label ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Forte colinéarité mécanique entre la fréquence moyenne (meanfreq) et la médiane spectrale.",
+    "hypothese": ""
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Redondance évidente entre la médiane spectrale et le centroïde spectral, qui mesurent tous deux le centre de masse de la distribution.",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Forte corrélation entre l'entropie spectrale (sp.ent) et la platitude spectrale (sfm), deux mesures de la distribution spectrale.",
+    "hypothese": ""
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "artefact",
+    "explication": "Concentration d'anomalies sur un locuteur particulier, traduisant probablement un biais d'enregistrement ou un profil atypique isolé.",
+    "hypothese": ""
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Forte corrélation mécanique entre la fréquence moyenne et le premier quartile spectral (Q25).",
+    "hypothese": ""
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "trivial",
+    "explication": "Redondance entre le premier quartile spectral et le centroïde spectral.",
+    "hypothese": ""
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "trivial",
+    "explication": "Corrélation négative mécanique entre le premier quartile et l'écart interquartile d'une même distribution.",
+    "hypothese": ""
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "Forte capacité prédictive de l'identité du locuteur (speaker) à partir des coefficients de prononciation des voyelles japonaises.",
+    "hypothese": ""
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "pertinent",
+    "explication": "Évolution temporelle marquée du coefficient 4 au cours des trames (frame) de prononciation des voyelles.",
+    "hypothese": "Le lien entre frame et coefficient4 change-t-il selon le groupe utterance ?"
+   },
+   "F20": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "Le premier coefficient LPC joue un rôle clé dans l'identification du locuteur pour les voyelles japonaises.",
+    "hypothese": ""
+   },
+   "F21": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Corrélation significative entre différents coefficients spectraux (coefficient4 et coefficient8) lors de l'articulation.",
+    "hypothese": "Le lien entre coefficient4 et coefficient8 change-t-il selon le groupe utterance ?"
+   },
+   "F22": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Lien temporel entre l'indice de trame et le coefficient spectral 8.",
+    "hypothese": "Le lien entre frame et coefficient8 change-t-il selon le groupe utterance ?"
+   },
+   "F23": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Importance du coefficient 9 dans la discrimination des locuteurs d'après les voyelles.",
+    "hypothese": ""
+   },
+   "F24": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "Importance du coefficient 2 dans la caractérisation des locuteurs par l'analyse des voyelles.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Étudier l'impact des variations temporelles des coefficients spectraux sur l'identification du genre et des locuteurs.",
+   "Analyser la spécificité des relations non linéaires entre fréquences fondamentales et mesures de perturbation chez les patients atteints de Parkinson.",
+   "Examiner la redondance des indices spectraux pour éliminer les variables colinéaires superflues dans la classification vocale."
+  ],
+  "nouveautes": {
+   "18": {
+    "id": "H18",
+    "nouveaute": "deja_connu",
+    "explication": "La relation entre l'âge, les marqueurs inflammatoires et le genre dans les pathologies respiratoires est largement documentée en milieu clinique."
+   },
+   "20": {
+    "id": "H20",
+    "nouveaute": "partiellement_etudie",
+    "explication": "L'utilisation de données cliniques combinées pour prédire des variables démographiques comme le genre fait l'objet de nombreux travaux d'apprentissage automatique."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43437",
+    "x": "meanfreq",
+    "y": "sd",
+    "groupe": "label",
+    "seuil": null,
+    "plus_fort": "male",
+    "enonce": "Le lien entre meanfreq et sd change-t-il selon le groupe label ?",
+    "requete_biblio": "voice frequency mean standard deviation gender recognition"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43437",
+    "x": "meanfun",
+    "y": "maxfun",
+    "groupe": "label",
+    "seuil": null,
+    "plus_fort": "female",
+    "enonce": "Le lien entre meanfun et maxfun change-t-il selon le groupe label ?",
+    "requete_biblio": "fundamental frequency maximum pitch gender differences speech"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "375",
+    "x": "coefficient1",
+    "y": "coefficient2",
+    "groupe": "utterance",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre coefficient1 et coefficient2 change-t-il selon le groupe utterance ?",
+    "requete_biblio": "japanese vowels lpc coefficients speaker recognition dynamics"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "43437",
+    "x": "sp.ent",
+    "y": "meanfreq",
+    "seuil": 0.5,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre sp.ent et meanfreq est-il plus fort au-dessus du seuil de 0.5 ?",
+    "requete_biblio": "spectral entropy mean frequency voice classification threshold"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X187.576 ~ X160",
+   "stat": 0.373,
+   "score": 0.872605855365074,
+   "detail": {
+    "spearman": 0.481,
+    "pearson": 0.108,
+    "n": 522,
+    "confirmation": "confirmé — ρ = +0.36 sur 517 lignes (découverte : +0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Il existe un lien non linéaire confirmé entre deux mesures de fréquence ou d'amplitude vocale dans le dataset de Parkinson.",
+    "hypothese": "Le lien entre X187.576 et X160 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X187.576 ~ X159",
+   "stat": 0.356,
+   "score": 0.8560612428253788,
+   "detail": {
+    "spearman": 0.443,
+    "pearson": 0.087,
+    "n": 522,
+    "confirmation": "confirmé — ρ = +0.32 sur 517 lignes (découverte : +0.44)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une relation non linéaire similaire est observée entre des paramètres acoustiques de la voix dans le contexte de la maladie de Parkinson.",
+    "hypothese": "Le lien entre X187.576 et X159 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X164.781 ~ X160",
+   "stat": 0.317,
+   "score": 0.8170824287401468,
+   "detail": {
+    "spearman": 0.491,
+    "pearson": 0.174,
+    "n": 522,
+    "confirmation": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.49)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Corrélation non linéaire confirmée entre des caractéristiques de signaux vocaux enregistrés chez des patients atteints de Parkinson.",
+    "hypothese": "Le lien entre X164.781 et X160 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X164.781 ~ X159",
+   "stat": 0.306,
+   "score": 0.8057098538748799,
+   "detail": {
+    "spearman": 0.464,
+    "pearson": 0.158,
+    "n": 522,
+    "confirmation": "confirmé — ρ = +0.41 sur 517 lignes (découverte : +0.46)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Lien robuste entre des variables de propriétés acoustiques dans le dataset de Parkinson.",
+    "hypothese": "Le lien entre X164.781 et X159 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X166.533 ~ X160",
+   "stat": 0.297,
+   "score": 0.7974604889872678,
+   "detail": {
+    "spearman": 0.48,
+    "pearson": 0.182,
+    "n": 522,
+    "confirmation": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Relation non linéaire confirmée entre des descripteurs de signaux vocaux.",
+    "hypothese": "Le lien entre X166.533 et X160 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X166.533 ~ X159",
+   "stat": 0.293,
+   "score": 0.793435137781009,
+   "detail": {
+    "spearman": 0.466,
+    "pearson": 0.172,
+    "n": 522,
+    "confirmation": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.47)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Liaison acoustique confirmée entre des indicateurs de la voix de patients parkinsoniens.",
+    "hypothese": "Le lien entre X166.533 et X159 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "X160 ~ X0.006064725",
+   "stat": 0.285,
+   "score": 0.7845292486342267,
+   "detail": {
+    "spearman": -0.499,
+    "pearson": -0.214,
+    "n": 522,
+    "confirmation": "confirmé — ρ = -0.44 sur 517 lignes (découverte : -0.50)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Relation non linéaire significative entre une mesure fréquentielle et un paramètre de perturbation du signal vocal.",
+    "hypothese": "Le lien entre X160 et X0.006064725 change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "skew ~ kurt",
+   "stat": 0.979,
+   "score": 0.7835387291437905,
+   "detail": {
+    "spearman": 0.979,
+    "pearson": 0.978,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.98 sur 1488 lignes (découverte : +0.98)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Forte corrélation mathématique évidente entre l'asymétrie (skew) et l'aplatissement (kurt) d'une distribution spectrale.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "X0.905905 ~ X11.13",
+   "stat": 0.969,
+   "score": 0.7755100487779227,
+   "detail": {
+    "spearman": 0.969,
+    "pearson": 0.918,
+    "n": 522,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 517 lignes (découverte : +0.97)"
+   },
+   "confirme": 1.0,
+   "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Forte colinéarité linéaire entre deux variables issues de la même extraction de caractéristiques acoustiques.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "minfun ~ maxfun",
+   "stat": 0.236,
+   "score": 0.7362022405580425,
+   "detail": {
+    "spearman": 0.439,
+    "pearson": 0.203,
+    "n": 1680,
+    "confirmation": "confirmé — ρ = +0.44 sur 1488 lignes (découverte : +0.44)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien entre la fréquence minimale et maximale de la voix, reflétant l'étendue de la tessiture vocale.",
+    "hypothese": "Le lien entre minfun et maxfun change-t-il selon le groupe label ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "meanfreq ~ median",
+   "stat": 0.906,
+   "score": 0.7247205055708821,
+   "detail": {
+    "spearman": 0.906,
+    "pearson": 0.924,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.91 sur 1488 lignes (découverte : +0.91)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Forte colinéarité mécanique entre la fréquence moyenne (meanfreq) et la médiane spectrale.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "median ~ centroid",
+   "stat": 0.906,
+   "score": 0.7247205055708821,
+   "detail": {
+    "spearman": 0.906,
+    "pearson": 0.924,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.91 sur 1488 lignes (découverte : +0.91)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Redondance évidente entre la médiane spectrale et le centroïde spectral, qui mesurent tous deux le centre de masse de la distribution.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "sp.ent ~ sfm",
+   "stat": 0.899,
+   "score": 0.7192369508534027,
+   "detail": {
+    "spearman": 0.899,
+    "pearson": 0.872,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.90)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Forte corrélation entre l'entropie spectrale (sp.ent) et la platitude spectrale (sfm), deux mesures de la distribution spectrale.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> speaker = 3",
+   "stat": 4.3,
+   "score": 0.7127908262290249,
+   "detail": {
+    "taux_dans_ce_groupe": "8.6%",
+    "taux_global": "2.0%",
+    "p": 5.8e-43,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "JapaneseVowels",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "artefact",
+    "explication": "Concentration d'anomalies sur un locuteur particulier, traduisant probablement un biais d'enregistrement ou un profil atypique isolé.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "meanfreq ~ Q25",
+   "stat": 0.875,
+   "score": 0.6998564261521961,
+   "detail": {
+    "spearman": 0.875,
+    "pearson": 0.912,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.88)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Forte corrélation mécanique entre la fréquence moyenne et le premier quartile spectral (Q25).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Q25 ~ centroid",
+   "stat": 0.875,
+   "score": 0.6998564261521961,
+   "detail": {
+    "spearman": 0.875,
+    "pearson": 0.912,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.88)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "trivial",
+    "explication": "Redondance entre le premier quartile spectral et le centroïde spectral.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Q25 ~ IQR",
+   "stat": -0.871,
+   "score": 0.6967652577403995,
+   "detail": {
+    "spearman": -0.871,
+    "pearson": -0.884,
+    "n": 1680,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.84 sur 1488 lignes (découverte : -0.87)"
+   },
+   "confirme": 1.0,
+   "dataset": "Gender-Recognition-by-Voice",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "trivial",
+    "explication": "Corrélation négative mécanique entre le premier quartile et l'écart interquartile d'une même distribution.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> speaker",
+   "stat": 0.903,
+   "score": 0.6338949764077342,
+   "detail": {
+    "balanced_accuracy": 0.903,
+    "baseline": 0.111,
+    "avec_seulement_coefficient1": 0.248,
+    "confirmation": "confirmé — balanced_accuracy = 0.97 sur des données jamais vues (hasard 0.11, découverte 0.903)"
+   },
+   "confirme": 1.0,
+   "dataset": "JapaneseVowels",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "Forte capacité prédictive de l'identité du locuteur (speaker) à partir des coefficients de prononciation des voyelles japonaises.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "frame ~ coefficient4",
+   "stat": 0.687,
+   "score": 0.549844007032226,
+   "detail": {
+    "spearman": 0.687,
+    "pearson": 0.661,
+    "n": 5021,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.68 sur 4940 lignes (découverte : +0.69)"
+   },
+   "confirme": 1.0,
+   "dataset": "JapaneseVowels",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "pertinent",
+    "explication": "Évolution temporelle marquée du coefficient 4 au cours des trames (frame) de prononciation des voyelles.",
+    "hypothese": "Le lien entre frame et coefficient4 change-t-il selon le groupe utterance ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "coefficient1 -> speaker",
+   "stat": 0.541,
+   "score": 0.5483524733701054,
+   "detail": {
+    "mutual_info": 0.541,
+    "part_de_l_info": 0.15,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "JapaneseVowels",
+   "id": "F20",
+   "avis": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "Le premier coefficient LPC joue un rôle clé dans l'identification du locuteur pour les voyelles japonaises.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "coefficient4 ~ coefficient8",
+   "stat": -0.68,
+   "score": 0.5437554297674564,
+   "detail": {
+    "spearman": -0.68,
+    "pearson": -0.674,
+    "n": 5021,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.68 sur 4940 lignes (découverte : -0.68)"
+   },
+   "confirme": 1.0,
+   "dataset": "JapaneseVowels",
+   "id": "F21",
+   "avis": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Corrélation significative entre différents coefficients spectraux (coefficient4 et coefficient8) lors de l'articulation.",
+    "hypothese": "Le lien entre coefficient4 et coefficient8 change-t-il selon le groupe utterance ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "frame ~ coefficient8",
+   "stat": -0.679,
+   "score": 0.5434173808925439,
+   "detail": {
+    "spearman": -0.679,
+    "pearson": -0.659,
+    "n": 5021,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.68 sur 4940 lignes (découverte : -0.68)"
+   },
+   "confirme": 1.0,
+   "dataset": "JapaneseVowels",
+   "id": "F22",
+   "avis": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Lien temporel entre l'indice de trame et le coefficient spectral 8.",
+    "hypothese": "Le lien entre frame et coefficient8 change-t-il selon le groupe utterance ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "coefficient9 -> speaker",
+   "stat": 0.436,
+   "score": 0.5196924806644121,
+   "detail": {
+    "mutual_info": 0.436,
+    "part_de_l_info": 0.12,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "JapaneseVowels",
+   "id": "F23",
+   "avis": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Importance du coefficient 9 dans la discrimination des locuteurs d'après les voyelles.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "coefficient2 -> speaker",
+   "stat": 0.435,
+   "score": 0.5193483536870867,
+   "detail": {
+    "mutual_info": 0.435,
+    "part_de_l_info": 0.12,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "JapaneseVowels",
+   "id": "F24",
+   "avis": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "Importance du coefficient 2 dans la caractérisation des locuteurs par l'analyse des voyelles.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Gender-Recognition-by-Voice",
+    "target": null,
+    "description": "Voice Gender Gender Recognition by Voice and Speech Analysis This database was created to identify a voice as male or female, based upon acoustic properties of the voice and speech. The dataset consists of 3,168 recorded voice samples, collected from male and female speakers. The voice samples are pre-processed by acoustic analysis in R using the seewave and tuneR packages, with an analyzed freque",
+    "url": "https://www.openml.org/d/43437",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 1680,
+     "confirmation": 1488
+    },
+    "did": "43437",
+    "colonnes": {
+     "num": [
+      "meanfreq",
+      "sd",
+      "median",
+      "Q25",
+      "Q75",
+      "IQR",
+      "skew",
+      "kurt",
+      "sp.ent",
+      "sfm",
+      "mode",
+      "centroid",
+      "meanfun",
+      "minfun",
+      "maxfun",
+      "meandom",
+      "mindom",
+      "maxdom",
+      "dfrange",
+      "modindx"
+     ],
+     "groupes": [
+      "label"
+     ]
+    }
+   },
+   "lignes": 3168,
+   "colonnes": 21,
+   "fig": "2026-11-03_Gender_Recognition_by_Voice.png",
+   "n_findings": 92,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "skew ~ kurt",
+     "stat": 0.979,
+     "score": 0.7835387291437905,
+     "detail": {
+      "spearman": 0.979,
+      "pearson": 0.978,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.98 sur 1488 lignes (découverte : +0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "Forte corrélation mathématique évidente entre l'asymétrie (skew) et l'aplatissement (kurt) d'une distribution spectrale.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "minfun ~ maxfun",
+     "stat": 0.236,
+     "score": 0.7362022405580425,
+     "detail": {
+      "spearman": 0.439,
+      "pearson": 0.203,
+      "n": 1680,
+      "confirmation": "confirmé — ρ = +0.44 sur 1488 lignes (découverte : +0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "Lien entre la fréquence minimale et maximale de la voix, reflétant l'étendue de la tessiture vocale.",
+      "hypothese": "Le lien entre minfun et maxfun change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "meanfreq ~ median",
+     "stat": 0.906,
+     "score": 0.7247205055708821,
+     "detail": {
+      "spearman": 0.906,
+      "pearson": 0.924,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.91 sur 1488 lignes (découverte : +0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "trivial",
+      "explication": "Forte colinéarité mécanique entre la fréquence moyenne (meanfreq) et la médiane spectrale.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "median ~ centroid",
+     "stat": 0.906,
+     "score": 0.7247205055708821,
+     "detail": {
+      "spearman": 0.906,
+      "pearson": 0.924,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.91 sur 1488 lignes (découverte : +0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Redondance évidente entre la médiane spectrale et le centroïde spectral, qui mesurent tous deux le centre de masse de la distribution.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "sp.ent ~ sfm",
+     "stat": 0.899,
+     "score": 0.7192369508534027,
+     "detail": {
+      "spearman": 0.899,
+      "pearson": 0.872,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.90)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "trivial",
+      "explication": "Forte corrélation entre l'entropie spectrale (sp.ent) et la platitude spectrale (sfm), deux mesures de la distribution spectrale.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "meanfreq ~ Q25",
+     "stat": 0.875,
+     "score": 0.6998564261521961,
+     "detail": {
+      "spearman": 0.875,
+      "pearson": 0.912,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "trivial",
+      "explication": "Forte corrélation mécanique entre la fréquence moyenne et le premier quartile spectral (Q25).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Q25 ~ centroid",
+     "stat": 0.875,
+     "score": 0.6998564261521961,
+     "detail": {
+      "spearman": 0.875,
+      "pearson": 0.912,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "trivial",
+      "explication": "Redondance entre le premier quartile spectral et le centroïde spectral.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Q25 ~ IQR",
+     "stat": -0.871,
+     "score": 0.6967652577403995,
+     "detail": {
+      "spearman": -0.871,
+      "pearson": -0.884,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.84 sur 1488 lignes (découverte : -0.87)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice",
+     "id": "F17",
+     "avis": {
+      "id": "F17",
+      "verdict": "trivial",
+      "explication": "Corrélation négative mécanique entre le premier quartile et l'écart interquartile d'une même distribution.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "meandom ~ maxdom",
+     "stat": 0.869,
+     "score": 0.6953423930819461,
+     "detail": {
+      "spearman": 0.869,
+      "pearson": 0.815,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.86 sur 1488 lignes (découverte : +0.87)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    },
+    {
+     "kind": "correlation",
+     "vars": "meandom ~ dfrange",
+     "stat": 0.866,
+     "score": 0.6931814037000432,
+     "detail": {
+      "spearman": 0.866,
+      "pearson": 0.814,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.86 sur 1488 lignes (découverte : +0.87)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sd ~ sfm",
+     "stat": 0.863,
+     "score": 0.690760373636451,
+     "detail": {
+      "spearman": 0.863,
+      "pearson": 0.828,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.88 sur 1488 lignes (découverte : +0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sd ~ IQR",
+     "stat": 0.856,
+     "score": 0.6847815876186534,
+     "detail": {
+      "spearman": 0.856,
+      "pearson": 0.876,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.85 sur 1488 lignes (découverte : +0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sd ~ Q25",
+     "stat": -0.833,
+     "score": 0.6663611028155643,
+     "detail": {
+      "spearman": -0.833,
+      "pearson": -0.854,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.83 sur 1488 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    },
+    {
+     "kind": "correlation",
+     "vars": "meanfreq ~ sfm",
+     "stat": -0.828,
+     "score": 0.6627978454367515,
+     "detail": {
+      "spearman": -0.828,
+      "pearson": -0.801,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.81 sur 1488 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    },
+    {
+     "kind": "correlation",
+     "vars": "sfm ~ centroid",
+     "stat": -0.828,
+     "score": 0.6627978454367515,
+     "detail": {
+      "spearman": -0.828,
+      "pearson": -0.801,
+      "n": 1680,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.81 sur 1488 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "Gender-Recognition-by-Voice"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "JapaneseVowels",
+    "target": "speaker",
+    "description": "**Author**: Mineichi Kudo, Jun Toyama, Masaru Shimbo **Source**: [UCI](https://archive.ics.uci.edu/ml/datasets/Japanese+Vowels) **Please cite**: **Japanese vowels** This dataset records 640 time series of 12 LPC cepstrum coefficients taken from nine male speakers. The data was collected for examining our newly developed classifier for multidimensional curves (multidimensional time series). Nine ma",
+    "url": "https://www.openml.org/d/375",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 5021,
+     "confirmation": 4940
+    },
+    "did": "375",
+    "colonnes": {
+     "num": [
+      "utterance",
+      "frame",
+      "coefficient1",
+      "coefficient2",
+      "coefficient3",
+      "coefficient4",
+      "coefficient5",
+      "coefficient6",
+      "coefficient7",
+      "coefficient8",
+      "coefficient9",
+      "coefficient10",
+      "coefficient11",
+      "coefficient12"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 9961,
+   "colonnes": 15,
+   "fig": "2026-11-03_JapaneseVowels.png",
+   "n_findings": 22,
+   "findings": [
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> speaker = 3",
+     "stat": 4.3,
+     "score": 0.7127908262290249,
+     "detail": {
+      "taux_dans_ce_groupe": "8.6%",
+      "taux_global": "2.0%",
+      "p": 5.8e-43,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "JapaneseVowels",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "artefact",
+      "explication": "Concentration d'anomalies sur un locuteur particulier, traduisant probablement un biais d'enregistrement ou un profil atypique isolé.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> speaker",
+     "stat": 0.903,
+     "score": 0.6338949764077342,
+     "detail": {
+      "balanced_accuracy": 0.903,
+      "baseline": 0.111,
+      "avec_seulement_coefficient1": 0.248,
+      "confirmation": "confirmé — balanced_accuracy = 0.97 sur des données jamais vues (hasard 0.11, découverte 0.903)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels",
+     "id": "F18",
+     "avis": {
+      "id": "F18",
+      "verdict": "pertinent",
+      "explication": "Forte capacité prédictive de l'identité du locuteur (speaker) à partir des coefficients de prononciation des voyelles japonaises.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "frame ~ coefficient4",
+     "stat": 0.687,
+     "score": 0.549844007032226,
+     "detail": {
+      "spearman": 0.687,
+      "pearson": 0.661,
+      "n": 5021,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.68 sur 4940 lignes (découverte : +0.69)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels",
+     "id": "F19",
+     "avis": {
+      "id": "F19",
+      "verdict": "pertinent",
+      "explication": "Évolution temporelle marquée du coefficient 4 au cours des trames (frame) de prononciation des voyelles.",
+      "hypothese": "Le lien entre frame et coefficient4 change-t-il selon le groupe utterance ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "coefficient1 -> speaker",
+     "stat": 0.541,
+     "score": 0.5483524733701054,
+     "detail": {
+      "mutual_info": 0.541,
+      "part_de_l_info": 0.15,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "JapaneseVowels",
+     "id": "F20",
+     "avis": {
+      "id": "F20",
+      "verdict": "pertinent",
+      "explication": "Le premier coefficient LPC joue un rôle clé dans l'identification du locuteur pour les voyelles japonaises.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "coefficient4 ~ coefficient8",
+     "stat": -0.68,
+     "score": 0.5437554297674564,
+     "detail": {
+      "spearman": -0.68,
+      "pearson": -0.674,
+      "n": 5021,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.68 sur 4940 lignes (découverte : -0.68)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels",
+     "id": "F21",
+     "avis": {
+      "id": "F21",
+      "verdict": "pertinent",
+      "explication": "Corrélation significative entre différents coefficients spectraux (coefficient4 et coefficient8) lors de l'articulation.",
+      "hypothese": "Le lien entre coefficient4 et coefficient8 change-t-il selon le groupe utterance ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "frame ~ coefficient8",
+     "stat": -0.679,
+     "score": 0.5434173808925439,
+     "detail": {
+      "spearman": -0.679,
+      "pearson": -0.659,
+      "n": 5021,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.68 sur 4940 lignes (découverte : -0.68)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels",
+     "id": "F22",
+     "avis": {
+      "id": "F22",
+      "verdict": "pertinent",
+      "explication": "Lien temporel entre l'indice de trame et le coefficient spectral 8.",
+      "hypothese": "Le lien entre frame et coefficient8 change-t-il selon le groupe utterance ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "coefficient9 -> speaker",
+     "stat": 0.436,
+     "score": 0.5196924806644121,
+     "detail": {
+      "mutual_info": 0.436,
+      "part_de_l_info": 0.12,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "JapaneseVowels",
+     "id": "F23",
+     "avis": {
+      "id": "F23",
+      "verdict": "pertinent",
+      "explication": "Importance du coefficient 9 dans la discrimination des locuteurs d'après les voyelles.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "coefficient2 -> speaker",
+     "stat": 0.435,
+     "score": 0.5193483536870867,
+     "detail": {
+      "mutual_info": 0.435,
+      "part_de_l_info": 0.12,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "JapaneseVowels",
+     "id": "F24",
+     "avis": {
+      "id": "F24",
+      "verdict": "pertinent",
+      "explication": "Importance du coefficient 2 dans la caractérisation des locuteurs par l'analyse des voyelles.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "frame ~ coefficient5",
+     "stat": 0.613,
+     "score": 0.4901206541402173,
+     "detail": {
+      "spearman": 0.613,
+      "pearson": 0.575,
+      "n": 5021,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.62 sur 4940 lignes (découverte : +0.61)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    },
+    {
+     "kind": "correlation",
+     "vars": "coefficient10 ~ coefficient12",
+     "stat": -0.544,
+     "score": 0.434858030103876,
+     "detail": {
+      "spearman": -0.544,
+      "pearson": -0.562,
+      "n": 5021,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.54 sur 4940 lignes (découverte : -0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    },
+    {
+     "kind": "correlation",
+     "vars": "coefficient2 ~ coefficient3",
+     "stat": -0.542,
+     "score": 0.4338228686118239,
+     "detail": {
+      "spearman": -0.542,
+      "pearson": -0.528,
+      "n": 5021,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.54 sur 4940 lignes (découverte : -0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    },
+    {
+     "kind": "correlation",
+     "vars": "coefficient6 ~ coefficient8",
+     "stat": -0.471,
+     "score": 0.37691689317856825,
+     "detail": {
+      "spearman": -0.471,
+      "pearson": -0.481,
+      "n": 5021,
+      "q": 8.6e-275,
+      "confirmation": "confirmé — ρ = -0.45 sur 4940 lignes (découverte : -0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    },
+    {
+     "kind": "correlation",
+     "vars": "coefficient4 ~ coefficient12",
+     "stat": -0.461,
+     "score": 0.3688418372420443,
+     "detail": {
+      "spearman": -0.461,
+      "pearson": -0.478,
+      "n": 5021,
+      "q": 9.7e-262,
+      "confirmation": "confirmé — ρ = -0.46 sur 4940 lignes (découverte : -0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    },
+    {
+     "kind": "correlation",
+     "vars": "frame ~ coefficient6",
+     "stat": 0.456,
+     "score": 0.3650512206284977,
+     "detail": {
+      "spearman": 0.456,
+      "pearson": 0.449,
+      "n": 5021,
+      "q": 8.7e-256,
+      "confirmation": "confirmé — ρ = +0.45 sur 4940 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    },
+    {
+     "kind": "correlation",
+     "vars": "coefficient3 ~ coefficient12",
+     "stat": -0.445,
+     "score": 0.35620824652303895,
+     "detail": {
+      "spearman": -0.445,
+      "pearson": -0.455,
+      "n": 5021,
+      "q": 3.5e-242,
+      "confirmation": "confirmé — ρ = -0.43 sur 4940 lignes (découverte : -0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "JapaneseVowels"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+    "target": null,
+    "description": "Source: 1. Olcay KURSUN, PhD., Istanbul University, Department of Computer Engineering, 34320, Istanbul, Turkey Phone: +90 (212) 473 7070 - 17827 Email: okursun '@' istanbul.edu.tr 2. Betul ERDOGDU SAKAR, PhD., Bahcesehir University, Department of Software Engineering, 34381, Istanbul, Turkey Phone: +90 (212) 381 0589 Email: betul.erdogdu '@' eng.bahcesehir.edu.tr 3. M. Erdem ISENKUL, M.S., Istanb",
+    "url": "https://www.openml.org/d/4540",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 522,
+     "confirmation": 517
+    },
+    "did": "4540",
+    "colonnes": {
+     "num": [
+      "X1",
+      "X1.488",
+      "X0.000090213",
+      "X0.9",
+      "X0.794",
+      "X2.699",
+      "X8.334",
+      "X0.779",
+      "X4.517",
+      "X4.609",
+      "X6.802",
+      "X13.551",
+      "X0.905905",
+      "X0.119116",
+      "X11.13",
+      "X166.533",
+      "X164.781",
+      "X10.421",
+      "X142.229",
+      "X187.576",
+      "X160",
+      "X159",
+      "X0.006064725",
+      "X0.000416276",
+      "X0"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 1039,
+   "colonnes": 29,
+   "fig": "2026-11-03_ParkinsonSpeechDatasetwithMultipleTypeso.png",
+   "n_findings": 157,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X187.576 ~ X160",
+     "stat": 0.373,
+     "score": 0.872605855365074,
+     "detail": {
+      "spearman": 0.481,
+      "pearson": 0.108,
+      "n": 522,
+      "confirmation": "confirmé — ρ = +0.36 sur 517 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Il existe un lien non linéaire confirmé entre deux mesures de fréquence ou d'amplitude vocale dans le dataset de Parkinson.",
+      "hypothese": "Le lien entre X187.576 et X160 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X187.576 ~ X159",
+     "stat": 0.356,
+     "score": 0.8560612428253788,
+     "detail": {
+      "spearman": 0.443,
+      "pearson": 0.087,
+      "n": 522,
+      "confirmation": "confirmé — ρ = +0.32 sur 517 lignes (découverte : +0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Une relation non linéaire similaire est observée entre des paramètres acoustiques de la voix dans le contexte de la maladie de Parkinson.",
+      "hypothese": "Le lien entre X187.576 et X159 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X164.781 ~ X160",
+     "stat": 0.317,
+     "score": 0.8170824287401468,
+     "detail": {
+      "spearman": 0.491,
+      "pearson": 0.174,
+      "n": 522,
+      "confirmation": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Corrélation non linéaire confirmée entre des caractéristiques de signaux vocaux enregistrés chez des patients atteints de Parkinson.",
+      "hypothese": "Le lien entre X164.781 et X160 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X164.781 ~ X159",
+     "stat": 0.306,
+     "score": 0.8057098538748799,
+     "detail": {
+      "spearman": 0.464,
+      "pearson": 0.158,
+      "n": 522,
+      "confirmation": "confirmé — ρ = +0.41 sur 517 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "Lien robuste entre des variables de propriétés acoustiques dans le dataset de Parkinson.",
+      "hypothese": "Le lien entre X164.781 et X159 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X166.533 ~ X160",
+     "stat": 0.297,
+     "score": 0.7974604889872678,
+     "detail": {
+      "spearman": 0.48,
+      "pearson": 0.182,
+      "n": 522,
+      "confirmation": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Relation non linéaire confirmée entre des descripteurs de signaux vocaux.",
+      "hypothese": "Le lien entre X166.533 et X160 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X166.533 ~ X159",
+     "stat": 0.293,
+     "score": 0.793435137781009,
+     "detail": {
+      "spearman": 0.466,
+      "pearson": 0.172,
+      "n": 522,
+      "confirmation": "confirmé — ρ = +0.43 sur 517 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "Liaison acoustique confirmée entre des indicateurs de la voix de patients parkinsoniens.",
+      "hypothese": "Le lien entre X166.533 et X159 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X160 ~ X0.006064725",
+     "stat": 0.285,
+     "score": 0.7845292486342267,
+     "detail": {
+      "spearman": -0.499,
+      "pearson": -0.214,
+      "n": 522,
+      "confirmation": "confirmé — ρ = -0.44 sur 517 lignes (découverte : -0.50)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Relation non linéaire significative entre une mesure fréquentielle et un paramètre de perturbation du signal vocal.",
+      "hypothese": "Le lien entre X160 et X0.006064725 change-t-il selon le groupe label ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "X0.905905 ~ X11.13",
+     "stat": 0.969,
+     "score": 0.7755100487779227,
+     "detail": {
+      "spearman": 0.969,
+      "pearson": 0.918,
+      "n": 522,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 517 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "Forte colinéarité linéaire entre deux variables issues de la même extraction de caractéristiques acoustiques.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "X159 ~ X0.006064725",
+     "stat": 0.272,
+     "score": 0.7724473919521191,
+     "detail": {
+      "spearman": -0.475,
+      "pearson": -0.203,
+      "n": 522,
+      "confirmation": "confirmé — ρ = -0.42 sur 517 lignes (découverte : -0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    },
+    {
+     "kind": "correlation",
+     "vars": "X8.334 ~ X0.779",
+     "stat": 0.965,
+     "score": 0.7718313182759577,
+     "detail": {
+      "spearman": 0.965,
+      "pearson": 0.961,
+      "n": 522,
+      "q": 5.3e-302,
+      "confirmation": "confirmé — ρ = +0.97 sur 517 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    },
+    {
+     "kind": "correlation",
+     "vars": "X166.533 ~ X0.006064725",
+     "stat": -0.957,
+     "score": 0.7659289258201535,
+     "detail": {
+      "spearman": -0.957,
+      "pearson": -0.863,
+      "n": 522,
+      "q": 5.3e-281,
+      "confirmation": "confirmé — ρ = -0.94 sur 517 lignes (découverte : -0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    },
+    {
+     "kind": "correlation",
+     "vars": "X0.9 ~ X0.794",
+     "stat": 0.948,
+     "score": 0.7585208427975471,
+     "detail": {
+      "spearman": 0.948,
+      "pearson": 0.93,
+      "n": 522,
+      "q": 2.3e-259,
+      "confirmation": "confirmé — ρ = +0.95 sur 517 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    },
+    {
+     "kind": "correlation",
+     "vars": "X0.794 ~ X2.699",
+     "stat": 0.948,
+     "score": 0.7584983658348544,
+     "detail": {
+      "spearman": 0.948,
+      "pearson": 0.93,
+      "n": 522,
+      "q": 2.3e-259,
+      "confirmation": "confirmé — ρ = +0.95 sur 517 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    },
+    {
+     "kind": "correlation",
+     "vars": "X166.533 ~ X164.781",
+     "stat": 0.944,
+     "score": 0.7555785923664414,
+     "detail": {
+      "spearman": 0.944,
+      "pearson": 0.942,
+      "n": 522,
+      "q": 6.2e-252,
+      "confirmation": "confirmé — ρ = +0.93 sur 517 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    },
+    {
+     "kind": "correlation",
+     "vars": "X0.119116 ~ X11.13",
+     "stat": -0.939,
+     "score": 0.7512702756817188,
+     "detail": {
+      "spearman": -0.939,
+      "pearson": -0.873,
+      "n": 522,
+      "q": 7.9e-242,
+      "confirmation": "confirmé — ρ = -0.94 sur 517 lignes (découverte : -0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "ParkinsonSpeechDatasetwithMultipleTypesofSoundRecordings"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "openml",
+   "ref": "307",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "asahi417/seamless-align-enA-zhA.speaker-embedding.w2vbert-600m",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "asahi417/seamless-align-enA-frA.speaker-embedding.w2vbert-600m",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "ducthinh8283/voicetts",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Harmonic-Frontier-Audio/Vowel_Morphing_and_Formant_Shifts_Preview",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Penguindrum920/Parkinson-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "artur-muratov/multilingual-speech-commands-15lang",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "joseph-telemala/sukuma-speech-corpus",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "asahi417/seamless-align-enA-zhA.speaker-embedding.hubert-xl",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 18,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "x": "CRP_Level",
+    "y": "Age",
+    "groupe": "Gender",
+    "seuil": null,
+    "plus_fort": "Male",
+    "enonce": "Le lien entre CRP_Level et Age change-t-il selon le groupe Gender ?",
+    "requete_biblio": [
+     "CRP level age gender pneumonia chest x-ray"
+    ]
+   },
+   "statut": "réfutée",
+   "resume": "Dans electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans, la corrélation CRP_Level~Age vaut +0.03 pour « Gender = Male » contre -0.00 pour « Gender = Female » (p = 0.51). [Testé sur : moitié de confirmation (2190 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "Gender = Female": {
+      "rho": -0.001,
+      "pearson": -0.011,
+      "n": 1120
+     },
+     "Gender = Male": {
+      "rho": 0.027,
+      "pearson": 0.018,
+      "n": 1070
+     }
+    },
+    "groupe_predit_plus_fort": "Gender = Male",
+    "p_difference": 0.513,
+    "donnees_test": "moitié de confirmation (2190 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.51, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Community-acquired pneumonia – use of chest x-rays for diagnosis in family practice",
+     "annee": 2022,
+     "citations": 7,
+     "url": "https://doi.org/10.1186/s12875-022-01872-y"
+    },
+    {
+     "titre": "Use of chest X-ray in the assessment of community acquired pneumonia in primary care – an intervention study",
+     "annee": 2020,
+     "citations": 5,
+     "url": "https://doi.org/10.1080/02813432.2020.1794404"
+    },
+    {
+     "titre": "C-reactive Protein (CRP) as Diagnostic Marker of Pneumonia in Children",
+     "annee": 2021,
+     "citations": 1,
+     "url": "https://doi.org/10.32802/asmscj.2020.625"
+    },
+    {
+     "titre": "Pneumonia Detection Using Machine Learning and Deep Learning Methods on Clinical and Chest X-Ray Data",
+     "annee": 2025,
+     "citations": 0,
+     "url": "https://doi.org/10.38124/ijisrt/25oct784"
+    },
+    {
+     "titre": "Diagnosing pneumonia in primary care : Aspects of the value of clinical and laboratory findings and the use of chest X-ray",
+     "annee": 2020,
+     "citations": 1,
+     "url": "https://doi.org/10.3384/diss.diva-170226"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond bien au test de modération, mais la formulation initiale testée ajoutait une hypothèse non vérifiée sur le groupe 'Male' qui n'était pas dans la question principale.",
+    "reformulation": "Le genre (Gender) modifie-t-il la relation statistique entre le taux de CRP et l'âge chez les patients ? (sans présumer du sens ou du groupe le plus fort)",
+    "diagnostic_statistique": "Les corrélations de Pearson et Spearman sont quasi nulles et proches de zéro dans les deux sous-groupes (-0.01 à 0.03). La différence n'est pas statistiquement significative (p = 0.51). Les écarts entre Spearman et Pearson sont minimes.",
+    "modele_recommande": "Régression linéaire multiple avec terme d'interaction Age ~ CRP_Level * Gender",
+    "robustesse": "La taille des échantillons est satisfaisante (~1100 par groupe), mais les données proviennent d'un dataset multimodal d'imagerie médicale (radiographies pulmonaires) potentiellement biaisé par des critères de sélection hospitaliers.",
+    "interpretation_domaine": "La protéine C-réactive (CRP) est un marqueur inflammatoire de la pneumonie, mais sa variation globale en fonction de l'âge est indépendante du genre dans cette cohorte africaine, ce qui concorde avec la littérature clinique où le niveau de CRP réagit principalement à l'infection et non aux caractéristiques démographiques de base.",
+    "action_pipeline": "Éviter d'ajouter des présomptions de supériorité (ex: 'plus fort pour Gender = X') dans le test sans signal exploratoire préalable fort.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La relation entre l'âge, les marqueurs inflammatoires et le genre dans les pathologies respiratoires est largement documentée en milieu clinique.",
+   "sujet": "Imagerie médicale et attributs cachés",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 19,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "35",
+    "x": "Age",
+    "y": "elongation_of_the_rete_ridges",
+    "groupe": "erythema",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre Age et elongation_of_the_rete_ridges change-t-il selon le groupe erythema ?",
+    "requete_biblio": [
+     "dermatology agerete ridges erythema histological correlation"
+    ]
+   },
+   "statut": "réfutée",
+   "resume": "Dans dermatology, la corrélation Age~elongation_of_the_rete_ridges vaut -0.23 pour « erythema = 1 » contre +0.41 pour « erythema = 3 » (p = 0.0063) : effet INVERSE de celui prédit. [Testé sur : moitié de confirmation (198 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "erythema = 2": {
+      "rho": 0.029,
+      "pearson": 0.029,
+      "n": 116
+     },
+     "erythema = 3": {
+      "rho": 0.406,
+      "pearson": 0.421,
+      "n": 45
+     },
+     "erythema = 1": {
+      "rho": -0.232,
+      "pearson": -0.199,
+      "n": 31
+     }
+    },
+    "groupe_predit_plus_fort": "erythema = 1",
+    "p_difference": 0.00625,
+    "donnees_test": "moitié de confirmation (198 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.0063, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "biblio": [],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation originale est correcte et neutre ('change-t-il selon'), mais l'hypothèse directionnelle testée (plus fort pour erythema = 1) est réfutée par les données.",
+    "reformulation": "Comment le lien entre l'âge et l'élongation des crêtes épidermiques varie-t-il selon le degré d'érythème ?",
+    "diagnostic_statistique": "Les corrélations diffèrent significativement selon les groupes d'érythème (p = 0.0063). Cependant, le sens est opposé à la prédiction : négatif pour erythema = 1 (rho = -0.23) et positif pour erythema = 3 (rho = 0.41). Les écarts entre Pearson et Spearman sont faibles, suggérant des relations globalement linéaires dans chaque sous-groupe.",
+    "modele_recommande": "régression linéaire multiple avec interaction : y ~ Age * factor(erythema)",
+    "robustesse": "La taille des échantillons varie fortement selon les groupes (n=116 pour erythema=2, mais seulement n=31 pour erythema=1 et n=45 pour erythema=3), ce qui fragilise la robustesse des estimations dans les sous-groupes minoritaires.",
+    "interpretation_domaine": "En dermatologie, l'érythème et l'élongation des crêtes épidermiques sont des signes histologiques et cliniques de maladies inflammatoires cutanées (comme le psoriasis). La variation de la corrélation avec l'âge selon l'intensité de l'érythème suggère des mécanismes pathologiques sous-jacents différents selon les profils de patients, mais l'effet inverse observé nécessite une validation prudente.",
+    "action_pipeline": "Éviter d'imposer un sens prédictif unilatéral (ex: 'plus fort pour erythema = 1') lorsque la littérature ou l'exploration préalable manquent, et tester plutôt l'interaction bilatérale globale.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "sujet": "Imagerie médicale et attributs cachés",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans",
+    "cible": "Gender",
+    "variables": [
+     "CRP_Level",
+     "WBC_Count",
+     "Age"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la cible Gender avec SEULEMENT ces variables ?",
+    "requete_biblio": [
+     "predicting gender from clinical biomarkers chest x-ray dataset"
+    ]
+   },
+   "statut": "non concluante",
+   "resume": "Dans electricsheepafrica/Multimodal-Chest-X-ray-dataset-for-Normal-and-Bacterial-Pneumonia-in-Africans, prédire Gender avec CRP_Level, WBC_Count, Age donne balanced_accuracy = 0.53 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (2190 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "balanced_accuracy": 0.527,
+    "hasard": 0.499,
+    "p_permutation": 0.0476,
+    "validation": "aléatoire",
+    "n": 2190,
+    "donnees_test": "moitié de confirmation (2190 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.048, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "biblio": [
+    {
+     "titre": "Tuberculosis chest x-ray image retrieval system using deep learning based biomarker predictions",
+     "annee": 2024,
+     "citations": 1,
+     "url": "https://doi.org/10.1117/12.3006848"
+    },
+    {
+     "titre": "AIforCOVID: Predicting the clinical outcomes in patients with COVID-19 applying AI to chest-X-rays. An Italian multicentre study",
+     "annee": 2021,
+     "citations": 91,
+     "url": "https://doi.org/10.1016/j.media.2021.102216"
+    },
+    {
+     "titre": "ChestXFusionNet: A Multimodal Deep Learning Framework for Predicting Chest Diseases from X-ray Images and Clinical Data",
+     "annee": 2025,
+     "citations": 7,
+     "url": "https://doi.org/10.1051/epjconf/202532801059"
+    },
+    {
+     "titre": "Ensemble Deep Learning for the Detection of COVID-19 in Unbalanced Chest X-ray Dataset",
+     "annee": 2021,
+     "citations": 24,
+     "url": "https://doi.org/10.3390/app112210528"
+    },
+    {
+     "titre": "PREDICTING THE PROGNOSIS OF COVID-19 PATIENTS BASED ON CHEST X-RAY AND CLINICAL DATA",
+     "annee": 2024,
+     "citations": 0,
+     "url": "https://doi.org/10.35741/issn.0258-2724.59.4.6"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond au test effectué, mais la formulation initiale suggère une prédiction déterministe alors que les performances sont proches du hasard.",
+    "reformulation": "Existe-t-il un lien statistique faible mais significatif entre les biomarqueurs cliniques (CRP, WBC, âge) et le genre des patients ?",
+    "diagnostic_statistique": "La balanced accuracy est de 0.53, ce qui est extrêmement proche du hasard (0.50). Bien que la p-valeur de permutation soit légèrement inférieure à 0.05 en raison du grand échantillon (n=2190), la capacité prédictive réelle est cliniquement nulle.",
+    "modele_recommande": "Aucun modèle prédictif pertinent ; une régression logistique multivariée suffit pour estimer l'absence de signal fort.",
+    "robustesse": "Grande taille d'échantillon (n=2190) garantissant la puissance statistique, mais absence de facteurs de confusion liés aux comorbidités spécifiques ou aux variations démographiques régionales.",
+    "interpretation_domaine": "Sur le plan médical, le genre biologique ne se prédit pas de manière fiable à partir de marqueurs inflammatoires généraux comme la CRP ou les globules blancs, ni par l'âge seul. Le résultat proche du hasard est biologiquement cohérent.",
+    "action_pipeline": "Ajouter un seuil de taille d'effet minimal (ex: balanced_accuracy > 0.65) en plus de la p-valeur pour rejeter les faux positifs statistiques sur grands échantillons.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "L'utilisation de données cliniques combinées pour prédire des variables démographiques comme le genre fait l'objet de nombreux travaux d'apprentissage automatique.",
+   "sujet": "Imagerie médicale et attributs cachés",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
