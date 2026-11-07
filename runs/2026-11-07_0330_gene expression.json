@@ -1,0 +1,2986 @@
+{
+ "id": "2026-11-07_0330_gene expression",
+ "date": "2026-11-07T03:41",
+ "sujet": "Biologie et génomique",
+ "question": "Quelles signatures moléculaires (gènes, protéines) distinguent les groupes biologiques, et lesquelles sont inattendues ?",
+ "keywords": [
+  "gene expression",
+  "protein",
+  "yeast",
+  "ecoli",
+  "microbiome",
+  "splice",
+  "dna",
+  "mice protein",
+  "leukemia",
+  "cell"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des datasets biologiques met en évidence des corrélations extrêmement fortes entre l'expression de certains gènes chez E. coli et de protéines dans le modèle murin, confirmant des co-régulations métaboliques ou des cascades de signalisation bien ancrées. D'autres relations observées dans les microbiomes aviaires suggèrent des interactions écologiques et nutritionnelles complexes entre nutriments et taxons microbiens. Enfin, la robustesse de ces liens sur des échantillons indépendants valide leur pertinence biologique sous-jacente.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Un lien fort entre le calcium et le cuivre dans le microbiome de volailles indique potentiellement des co-facteurs partagés dans l'environnement.",
+    "hypothese": "Le lien entre ca et cu dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe salmonella ?"
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La relation inverse entre le fer et le taxon_0731 met en lumière une possible compétition ou sensibilité bactérienne au fer.",
+    "hypothese": "Le lien entre fe et taxon_0731 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe listeria ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Corrélation positive élevée entre le fer et le sodium, suggérant des sources nutritionnelles communes dans l'alimentation des volailles.",
+    "hypothese": "Le lien entre fe et na dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe egg_source ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Relation négative entre le fer et le taxon_0739, soulignant une dynamique microbienne spécifique liée aux minéraux.",
+    "hypothese": "Le lien entre fe et taxon_0739 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe brood_bedding ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Lien négatif entre le cuivre et le taxon_0731, reflétant un effet antimicrobien potentiel ou une sélection de souches.",
+    "hypothese": "Le lien entre cu et taxon_0731 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_gmo_free ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Corrélation positive entre le calcium et le fer, traduisant la composition minérale globale de l'environnement des élevages.",
+    "hypothese": "Le lien entre ca et fe dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_soy_free ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Lien positif entre le fer et l'azote total, probablement lié aux apports protéiques et minéraux conjoints dans l'alimentation.",
+    "hypothese": "Le lien entre fe et total_n dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_medicated ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Association positive entre le fer et le taxon_0822, suggérant une bactérie dépendante du fer ou favorisée par sa présence.",
+    "hypothese": "Le lien entre fe et taxon_0822 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe campy_capetown ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "artefact",
+    "explication": "La prédiction quasi-parfaite d'un gène par un autre dans ECOLI70 indique probablement une colinéarité extrême, une redondance ou une fuite de données."
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien monotone entre le seuil de rang de perturbation et le taux de faux positifs (dto_fdr) dans l'analyse comparative de levures.",
+    "hypothese": "Le lien entre perturbation_rank_threshold et dto_fdr dans le dataset hf:BrentLab/yeast_comparative_analysis change-t-il selon la taille du jeu de données ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif montrant une concentration d'anomalies dans une classe spécifique de souris trisomiques (c-CS-s)."
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre asnA et ygcE chez E. coli, témoignant d'une co-régulation transcriptionnelle probable.",
+    "hypothese": "Le lien entre asnA et ygcE dans le dataset 46618 change-t-il selon les conditions de croissance ou d'opéron ?"
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre aceB et icdA, deux gènes liés au métabolisme central (cycle de Krebs et shunt glyoxylique).",
+    "hypothese": "Le lien entre aceB et icdA dans le dataset 46618 change-t-il selon la source de carbone ?"
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "Corrélation étroite entre ftsJ et mopB, impliqués respectivement dans la modification ribosomique et la structure membranaire.",
+    "hypothese": "Le lien entre ftsJ et mopB dans le dataset 46618 change-t-il selon le taux de croissance cellulaire ?"
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "Corrélation entre hupB (protéine histone-like) et yfiA (facteur de modulation ribosomique), liant l'architecture nucléaire et la traduction.",
+    "hypothese": "Le lien entre hupB et yfiA dans le dataset 46618 change-t-il selon la phase de croissance stationnaire ?"
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "Lien entre une protéine kinase et l'acétylation d'histones (AcetylH3K9_N) dans le cortex cérébral de souris.",
+    "hypothese": "Le lien entre pPKCG_N et AcetylH3K9_N dans le dataset 40966 change-t-il selon le génotype ?"
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "Corrélation élevée entre dnaG (primase ARN) et ycgX chez E. coli, suggérant une fonction coordonnée dans la réplication ou la réponse au stress.",
+    "hypothese": "Le lien entre dnaG et ycgX dans le dataset 46618 change-t-il selon le stress oxydatif ?"
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "Lien entre DYRK1A et APP, deux gènes clés situés sur le chromosome 21 impliqués dans la pathologie de Down.",
+    "hypothese": "Le lien entre DYRK1A_N et APP_N dans le dataset 40966 change-t-il selon le traitement administré ?"
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "pertinent",
+    "explication": "Réplication de la relation entre pPKCG_N et AcetylH3K9_N dans un second dataset de protéomique murine indépendante.",
+    "hypothese": "Le lien entre pPKCG_N et AcetylH3K9_N dans le dataset 43445 change-t-il selon le comportement observé ?"
+   },
+   "F20": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "Corrélation robuste entre lacA et lacY, deux gènes de l'opéron lactose chez E. coli, illustrant le contrôle opéronique classique.",
+    "hypothese": "Le lien entre lacA et lacY dans le dataset 46618 change-t-il en présence ou absence de lactose ?"
+   },
+   "F21": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Corrélation forte entre folK et yheI, liant la biosynthèse des folates à un autre métabolite bactérien.",
+    "hypothese": "Le lien entre folK et yheI dans le dataset 46618 change-t-il selon la disponibilité en acides aminés ?"
+   },
+   "F22": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la protéine NR1 totale et sa forme phosphorylée (pNR1), reflétant un équilibre constant de signalisation glutamatergique.",
+    "hypothese": "Le lien entre NR1_N et pNR1_N dans le dataset 43445 change-t-il selon le génotype ?"
+   },
+   "F23": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Confirmation de la forte corrélation entre NR1 et pNR1 dans le dataset de référence murin.",
+    "hypothese": "Le lien entre NR1_N et pNR1_N dans le dataset 40966 change-t-il selon le traitement ?"
+   },
+   "F24": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre ITSN1 et DYRK1A, deux protéines surexprimées dans le syndrome de Down.",
+    "hypothese": "Le lien entre ITSN1_N et DYRK1A_N dans le dataset 40966 change-t-il selon la classe comportementale ?"
+   },
+   "F25": {
+    "id": "F25",
+    "verdict": "pertinent",
+    "explication": "Corrélation élevée entre récepteurs NMDA phosphorylés (pNR2B et pNR1), témoignant de voies de signalisation synaptique couplées.",
+    "hypothese": "Le lien entre pNR2B_N et pNR1_N dans le dataset 43445 change-t-il selon le génotype ?"
+   },
+   "F26": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Réplication de la co-expression des protéines ITSN1 et DYRK1A dans le dataset d'expression protéique murin.",
+    "hypothese": "Le lien entre ITSN1_N et DYRK1A_N dans le dataset 43445 change-t-il selon le traitement ?"
+   },
+   "F27": {
+    "id": "F27",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la béta-caténine (Bcatenin_N) et le récepteur NR1 dans le tissu cérébral.",
+    "hypothese": "Le lien entre Bcatenin_N et NR1_N dans le dataset 40966 change-t-il selon le génotype ?"
+   },
+   "F28": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "Confirmation de la co-variation des récepteurs NMDA phosphorylés dans le dataset de protéines de souris.",
+    "hypothese": "Le lien entre pNR2B_N et pNR1_N dans le dataset 40966 change-t-il selon le comportement ?"
+   },
+   "F29": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre pERK et DYRK1A, reliant la kinase MAPK/ERK au gène de la trisomie 21.",
+    "hypothese": "Le lien entre pERK_N and DYRK1A_N dans le dataset 40966 change-t-il selon le génotype ?"
+   },
+   "F30": {
+    "id": "F30",
+    "verdict": "pertinent",
+    "explication": "Réplication de la forte co-variation entre pERK et DYRK1A dans le second dataset murin.",
+    "hypothese": "Le lien entre pERK_N and DYRK1A_N dans le dataset 43445 change-t-il selon le traitement ?"
+   }
+  },
+  "pistes": [
+   "Explorer l'impact des variations minérales (fer, cuivre) sur la composition spécifique du microbiome de volailles.",
+   "Analyser les réseaux de co-expression génétique chez E. coli pour identifier de nouveaux co-opérons insoupçonnés.",
+   "Étudier l'interaction entre les voies de signalisation des récepteurs NMDA et les protéines associées au chromosome 21 dans les modèles de trisomie."
+  ],
+  "nouveautes": {
+   "33": {
+    "id": "H33",
+    "nouveaute": "deja_connu",
+    "explication": "La séparation gamma-hadron par des caractéristiques d'images Tcherenkov (fWidth, fConc1) est un problème classique largement documenté dans la littérature MAGIC et VERITAS."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "40966",
+    "x": "DYRK1A_N",
+    "y": "APP_N",
+    "groupe": "class",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre DYRK1A_N et APP_N dans le dataset MiceProtein change-t-il selon le groupe class ?",
+    "requete_biblio": "DYRK1A APP protein expression Down syndrome brain"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "46618",
+    "x": "aceB",
+    "y": "icdA",
+    "groupe": "cspA",
+    "seuil": 0.5,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre aceB et icdA dans le dataset ECOLI70 change-t-il selon le niveau de cspA ?",
+    "requete_biblio": "glyoxylate shunt TCA cycle gene expression E. coli"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43445",
+    "x": "pERK_N",
+    "y": "DYRK1A_N",
+    "groupe": "Genotype",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre pERK_N et DYRK1A_N dans le dataset Mice-Protein-Expression change-t-il selon le groupe Genotype ?",
+    "requete_biblio": "ERK phosphorylation DYRK1A Down syndrome mouse model"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "x": "fe",
+    "y": "ca",
+    "groupe": "salmonella",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre fe et ca dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe salmonella ?",
+    "requete_biblio": "iron calcium poultry microbiome salmonella pathogens"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "ca ~ cu",
+   "stat": 0.466,
+   "score": 0.965586339873009,
+   "detail": {
+    "spearman": 0.712,
+    "pearson": 0.246,
+    "n": 563,
+    "confirmation": "confirmé — ρ = +0.71 sur 569 lignes (découverte : +0.71)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Un lien fort entre le calcium et le cuivre dans le microbiome de volailles indique potentiellement des co-facteurs partagés dans l'environnement.",
+    "hypothese": "Le lien entre ca et cu dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe salmonella ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fe ~ taxon_0731",
+   "stat": 0.447,
+   "score": 0.9472807640609989,
+   "detail": {
+    "spearman": -0.587,
+    "pearson": -0.14,
+    "n": 691,
+    "confirmation": "confirmé — ρ = -0.50 sur 698 lignes (découverte : -0.59)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La relation inverse entre le fer et le taxon_0731 met en lumière une possible compétition ou sensibilité bactérienne au fer.",
+    "hypothese": "Le lien entre fe et taxon_0731 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe listeria ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fe ~ na",
+   "stat": 0.432,
+   "score": 0.9315875801314845,
+   "detail": {
+    "spearman": 0.721,
+    "pearson": 0.29,
+    "n": 653,
+    "confirmation": "confirmé — ρ = +0.70 sur 677 lignes (découverte : +0.72)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Corrélation positive élevée entre le fer et le sodium, suggérant des sources nutritionnelles communes dans l'alimentation des volailles.",
+    "hypothese": "Le lien entre fe et na dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe egg_source ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fe ~ taxon_0739",
+   "stat": 0.43,
+   "score": 0.9304068669867334,
+   "detail": {
+    "spearman": -0.562,
+    "pearson": -0.131,
+    "n": 691,
+    "confirmation": "confirmé — ρ = -0.52 sur 698 lignes (découverte : -0.56)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Relation négative entre le fer et le taxon_0739, soulignant une dynamique microbienne spécifique liée aux minéraux.",
+    "hypothese": "Le lien entre fe et taxon_0739 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe brood_bedding ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "cu ~ taxon_0731",
+   "stat": 0.43,
+   "score": 0.9298060201031833,
+   "detail": {
+    "spearman": -0.624,
+    "pearson": -0.194,
+    "n": 563,
+    "confirmation": "confirmé — ρ = -0.58 sur 569 lignes (découverte : -0.62)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Lien négatif entre le cuivre et le taxon_0731, reflétant un effet antimicrobien potentiel ou une sélection de souches.",
+    "hypothese": "Le lien entre cu et taxon_0731 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_gmo_free ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "ca ~ fe",
+   "stat": 0.43,
+   "score": 0.9297229917787648,
+   "detail": {
+    "spearman": 0.601,
+    "pearson": 0.172,
+    "n": 691,
+    "confirmation": "confirmé — ρ = +0.58 sur 698 lignes (découverte : +0.60)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Corrélation positive entre le calcium et le fer, traduisant la composition minérale globale de l'environnement des élevages.",
+    "hypothese": "Le lien entre ca et fe dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_soy_free ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fe ~ total_n",
+   "stat": 0.427,
+   "score": 0.9271486000208959,
+   "detail": {
+    "spearman": 0.644,
+    "pearson": 0.217,
+    "n": 691,
+    "confirmation": "confirmé — ρ = +0.62 sur 698 lignes (découverte : +0.64)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Lien positif entre le fer et l'azote total, probablement lié aux apports protéiques et minéraux conjoints dans l'alimentation.",
+    "hypothese": "Le lien entre fe et total_n dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_medicated ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fe ~ taxon_0822",
+   "stat": 0.425,
+   "score": 0.9253914582867884,
+   "detail": {
+    "spearman": 0.499,
+    "pearson": 0.073,
+    "n": 691,
+    "confirmation": "confirmé — ρ = +0.44 sur 698 lignes (découverte : +0.50)"
+   },
+   "confirme": 1.0,
+   "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Association positive entre le fer et le taxon_0822, suggérant une bactérie dépendante du fer ou favorisée par sa présence.",
+    "hypothese": "Le lien entre fe et taxon_0822 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe campy_capetown ?"
+   }
+  },
+  {
+   "kind": "cible_expliquee_par_une_variable",
+   "vars": "icdA -> aceB",
+   "stat": 0.939,
+   "score": 0.9,
+   "detail": {
+    "score_1_variable": 0.939,
+    "score_toutes": 0.935,
+    "note": "relation forte ou fuite de données",
+    "confirmation": "confirmé — r2 = 0.95 sur des données jamais vues (hasard 0.00, découverte 0.939)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "artefact",
+    "explication": "La prédiction quasi-parfaite d'un gène par un autre dans ECOLI70 indique probablement une colinéarité extrême, une redondance ou une fuite de données."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "perturbation_rank_threshold ~ dto_fdr",
+   "stat": 0.356,
+   "score": 0.8560258700641289,
+   "detail": {
+    "spearman": 0.597,
+    "pearson": 0.241,
+    "n": 999,
+    "confirmation": "confirmé — ρ = +0.63 sur 974 lignes (découverte : +0.60)"
+   },
+   "confirme": 1.0,
+   "dataset": "BrentLab/yeast_comparative_analysis",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien monotone entre le seuil de rang de perturbation et le taux de faux positifs (dto_fdr) dans l'analyse comparative de levures.",
+    "hypothese": "Le lien entre perturbation_rank_threshold et dto_fdr dans le dataset hf:BrentLab/yeast_comparative_analysis change-t-il selon la taille du jeu de données ?"
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> class = c-CS-s",
+   "stat": 6.2,
+   "score": 0.8102272727272727,
+   "detail": {
+    "taux_dans_ce_groupe": "12.5%",
+    "taux_global": "2.0%",
+    "p": 5.5e-08,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "MiceProtein",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif montrant une concentration d'anomalies dans une classe spécifique de souris trisomiques (c-CS-s)."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "asnA ~ ygcE",
+   "stat": 0.976,
+   "score": 0.7811516535645413,
+   "detail": {
+    "spearman": 0.976,
+    "pearson": 0.979,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 1038 lignes (découverte : +0.98)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre asnA et ygcE chez E. coli, témoignant d'une co-régulation transcriptionnelle probable.",
+    "hypothese": "Le lien entre asnA et ygcE dans le dataset 46618 change-t-il selon les conditions de croissance ou d'opéron ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "aceB ~ icdA",
+   "stat": 0.974,
+   "score": 0.7788965366955584,
+   "detail": {
+    "spearman": 0.974,
+    "pearson": 0.978,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.98 sur 1038 lignes (découverte : +0.97)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre aceB et icdA, deux gènes liés au métabolisme central (cycle de Krebs et shunt glyoxylique).",
+    "hypothese": "Le lien entre aceB et icdA dans le dataset 46618 change-t-il selon la source de carbone ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "ftsJ ~ mopB",
+   "stat": 0.959,
+   "score": 0.7671419746847408,
+   "detail": {
+    "spearman": 0.959,
+    "pearson": 0.961,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.96 sur 1038 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "Corrélation étroite entre ftsJ et mopB, impliqués respectivement dans la modification ribosomique et la structure membranaire.",
+    "hypothese": "Le lien entre ftsJ et mopB dans le dataset 46618 change-t-il selon le taux de croissance cellulaire ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "hupB ~ yfiA",
+   "stat": 0.959,
+   "score": 0.7668909856000795,
+   "detail": {
+    "spearman": 0.959,
+    "pearson": 0.963,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.96 sur 1038 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "Corrélation entre hupB (protéine histone-like) et yfiA (facteur de modulation ribosomique), liant l'architecture nucléaire et la traduction.",
+    "hypothese": "Le lien entre hupB et yfiA dans le dataset 46618 change-t-il selon la phase de croissance stationnaire ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "pPKCG_N ~ AcetylH3K9_N",
+   "stat": 0.267,
+   "score": 0.7668553014714757,
+   "detail": {
+    "spearman": 0.543,
+    "pearson": 0.276,
+    "n": 546,
+    "confirmation": "confirmé — ρ = +0.59 sur 534 lignes (découverte : +0.54)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "Lien entre une protéine kinase et l'acétylation d'histones (AcetylH3K9_N) dans le cortex cérébral de souris.",
+    "hypothese": "Le lien entre pPKCG_N et AcetylH3K9_N dans le dataset 40966 change-t-il selon le génotype ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "dnaG ~ ycgX",
+   "stat": 0.956,
+   "score": 0.764660907253806,
+   "detail": {
+    "spearman": 0.956,
+    "pearson": 0.957,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.95 sur 1038 lignes (découverte : +0.96)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "Corrélation élevée entre dnaG (primase ARN) et ycgX chez E. coli, suggérant une fonction coordonnée dans la réplication ou la réponse au stress.",
+    "hypothese": "Le lien entre dnaG et ycgX dans le dataset 46618 change-t-il selon le stress oxydatif ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "DYRK1A_N ~ APP_N",
+   "stat": 0.264,
+   "score": 0.7640682747445968,
+   "detail": {
+    "spearman": 0.571,
+    "pearson": 0.307,
+    "n": 546,
+    "confirmation": "confirmé — ρ = +0.54 sur 531 lignes (découverte : +0.57)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "Lien entre DYRK1A et APP, deux gènes clés situés sur le chromosome 21 impliqués dans la pathologie de Down.",
+    "hypothese": "Le lien entre DYRK1A_N et APP_N dans le dataset 40966 change-t-il selon le traitement administré ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "pPKCG_N ~ AcetylH3K9_N",
+   "stat": 0.262,
+   "score": 0.7617585702021912,
+   "detail": {
+    "spearman": 0.548,
+    "pearson": 0.286,
+    "n": 528,
+    "confirmation": "confirmé — ρ = +0.58 sur 552 lignes (découverte : +0.55)"
+   },
+   "confirme": 1.0,
+   "dataset": "Mice-Protein-Expression",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "pertinent",
+    "explication": "Réplication de la relation entre pPKCG_N et AcetylH3K9_N dans un second dataset de protéomique murine indépendante.",
+    "hypothese": "Le lien entre pPKCG_N et AcetylH3K9_N dans le dataset 43445 change-t-il selon le comportement observé ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "lacA ~ lacY",
+   "stat": 0.946,
+   "score": 0.756956903190869,
+   "detail": {
+    "spearman": 0.946,
+    "pearson": 0.949,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.93 sur 1038 lignes (découverte : +0.95)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F20",
+   "avis": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "Corrélation robuste entre lacA et lacY, deux gènes de l'opéron lactose chez E. coli, illustrant le contrôle opéronique classique.",
+    "hypothese": "Le lien entre lacA et lacY dans le dataset 46618 change-t-il en présence ou absence de lactose ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "folK ~ yheI",
+   "stat": 0.946,
+   "score": 0.7566109790700608,
+   "detail": {
+    "spearman": 0.946,
+    "pearson": 0.948,
+    "n": 962,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.95 sur 1038 lignes (découverte : +0.95)"
+   },
+   "confirme": 1.0,
+   "dataset": "ECOLI70",
+   "id": "F21",
+   "avis": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Corrélation forte entre folK et yheI, liant la biosynthèse des folates à un autre métabolite bactérien.",
+    "hypothese": "Le lien entre folK et yheI dans le dataset 46618 change-t-il selon la disponibilité en acides aminés ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "NR1_N ~ pNR1_N",
+   "stat": 0.94,
+   "score": 0.7521341509407974,
+   "detail": {
+    "spearman": 0.94,
+    "pearson": 0.946,
+    "n": 527,
+    "q": 2.1e-244,
+    "confirmation": "confirmé — ρ = +0.94 sur 550 lignes (découverte : +0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "Mice-Protein-Expression",
+   "id": "F22",
+   "avis": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la protéine NR1 totale et sa forme phosphorylée (pNR1), reflétant un équilibre constant de signalisation glutamatergique.",
+    "hypothese": "Le lien entre NR1_N et pNR1_N dans le dataset 43445 change-t-il selon le génotype ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "NR1_N ~ pNR1_N",
+   "stat": 0.939,
+   "score": 0.7511823171712813,
+   "detail": {
+    "spearman": 0.939,
+    "pearson": 0.947,
+    "n": 546,
+    "q": 4.8e-251,
+    "confirmation": "confirmé — ρ = +0.95 sur 531 lignes (découverte : +0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F23",
+   "avis": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Confirmation de la forte corrélation entre NR1 et pNR1 dans le dataset de référence murin.",
+    "hypothese": "Le lien entre NR1_N et pNR1_N dans le dataset 40966 change-t-il selon le traitement ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "ITSN1_N ~ DYRK1A_N",
+   "stat": 0.935,
+   "score": 0.7476920791500736,
+   "detail": {
+    "spearman": 0.935,
+    "pearson": 0.958,
+    "n": 546,
+    "q": 1.9e-243,
+    "confirmation": "confirmé — ρ = +0.92 sur 531 lignes (découverte : +0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F24",
+   "avis": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre ITSN1 et DYRK1A, deux protéines surexprimées dans le syndrome de Down.",
+    "hypothese": "Le lien entre ITSN1_N et DYRK1A_N dans le dataset 40966 change-t-il selon la classe comportementale ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "pNR2B_N ~ pNR1_N",
+   "stat": 0.931,
+   "score": 0.744499023029481,
+   "detail": {
+    "spearman": 0.931,
+    "pearson": 0.915,
+    "n": 527,
+    "q": 2.2e-228,
+    "confirmation": "confirmé — ρ = +0.91 sur 550 lignes (découverte : +0.93)"
+   },
+   "confirme": 1.0,
+   "dataset": "Mice-Protein-Expression",
+   "id": "F25",
+   "avis": {
+    "id": "F25",
+    "verdict": "pertinent",
+    "explication": "Corrélation élevée entre récepteurs NMDA phosphorylés (pNR2B et pNR1), témoignant de voies de signalisation synaptique couplées.",
+    "hypothese": "Le lien entre pNR2B_N et pNR1_N dans le dataset 43445 change-t-il selon le génotype ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "ITSN1_N ~ DYRK1A_N",
+   "stat": 0.93,
+   "score": 0.7437896617563431,
+   "detail": {
+    "spearman": 0.93,
+    "pearson": 0.955,
+    "n": 527,
+    "q": 3.6e-227,
+    "confirmation": "confirmé — ρ = +0.93 sur 550 lignes (découverte : +0.93)"
+   },
+   "confirme": 1.0,
+   "dataset": "Mice-Protein-Expression",
+   "id": "F26",
+   "avis": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Réplication de la co-expression des protéines ITSN1 et DYRK1A dans le dataset d'expression protéique murin.",
+    "hypothese": "Le lien entre ITSN1_N et DYRK1A_N dans le dataset 43445 change-t-il selon le traitement ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Bcatenin_N ~ NR1_N",
+   "stat": 0.926,
+   "score": 0.740931280545622,
+   "detail": {
+    "spearman": 0.926,
+    "pearson": 0.925,
+    "n": 537,
+    "q": 4.3e-226,
+    "confirmation": "confirmé — ρ = +0.91 sur 525 lignes (découverte : +0.93)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F27",
+   "avis": {
+    "id": "F27",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la béta-caténine (Bcatenin_N) et le récepteur NR1 dans le tissu cérébral.",
+    "hypothese": "Le lien entre Bcatenin_N et NR1_N dans le dataset 40966 change-t-il selon le génotype ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "pNR2B_N ~ pNR1_N",
+   "stat": 0.924,
+   "score": 0.7392443914537737,
+   "detail": {
+    "spearman": 0.924,
+    "pearson": 0.895,
+    "n": 546,
+    "q": 1.4e-226,
+    "confirmation": "confirmé — ρ = +0.92 sur 531 lignes (découverte : +0.92)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F28",
+   "avis": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "Confirmation de la co-variation des récepteurs NMDA phosphorylés dans le dataset de protéines de souris.",
+    "hypothese": "Le lien entre pNR2B_N et pNR1_N dans le dataset 40966 change-t-il selon le comportement ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "pERK_N ~ DYRK1A_N",
+   "stat": 0.923,
+   "score": 0.7382132678719566,
+   "detail": {
+    "spearman": 0.923,
+    "pearson": 0.925,
+    "n": 546,
+    "q": 6.7e-225,
+    "confirmation": "confirmé — ρ = +0.93 sur 531 lignes (découverte : +0.92)"
+   },
+   "confirme": 1.0,
+   "dataset": "MiceProtein",
+   "id": "F29",
+   "avis": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre pERK et DYRK1A, reliant la kinase MAPK/ERK au gène de la trisomie 21.",
+    "hypothese": "Le lien entre pERK_N and DYRK1A_N dans le dataset 40966 change-t-il selon le génotype ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "pERK_N ~ DYRK1A_N",
+   "stat": 0.921,
+   "score": 0.7368830475445868,
+   "detail": {
+    "spearman": 0.921,
+    "pearson": 0.964,
+    "n": 527,
+    "q": 1.4e-214,
+    "confirmation": "confirmé — ρ = +0.93 sur 550 lignes (découverte : +0.92)"
+   },
+   "confirme": 1.0,
+   "dataset": "Mice-Protein-Expression",
+   "id": "F30",
+   "avis": {
+    "id": "F30",
+    "verdict": "pertinent",
+    "explication": "Réplication de la forte co-variation entre pERK et DYRK1A dans le second dataset murin.",
+    "hypothese": "Le lien entre pERK_N and DYRK1A_N dans le dataset 43445 change-t-il selon le traitement ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "ECOLI70",
+    "target": "aceB",
+    "description": "The columns in this dataset (e.g., \"aceB\", \"asnA\", etc.) are likely gene names or protein identifiers from the E. coli genome. These represent features (predictor variables) in our dataset. However, without additional context (e.g., metadata or documentation), we can't definitively say what each column represents. From the library bnlearn, we used the next code in R (to reproduce https://openrevie",
+    "url": "https://www.openml.org/d/46618",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 962,
+     "confirmation": 1038
+    },
+    "did": "46618",
+    "colonnes": {
+     "num": [
+      "aceB",
+      "asnA",
+      "atpD",
+      "atpG",
+      "b1191",
+      "b1583",
+      "b1963",
+      "cchB",
+      "cspA",
+      "cspG",
+      "dnaG",
+      "dnaJ",
+      "dnaK",
+      "eutG",
+      "fixC",
+      "flgD",
+      "folK",
+      "ftsJ",
+      "gltA",
+      "hupB",
+      "ibpB",
+      "icdA",
+      "lacA",
+      "lacY",
+      "lacZ"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 2000,
+   "colonnes": 46,
+   "fig": "2026-11-07_ECOLI70.png",
+   "n_findings": 211,
+   "findings": [
+    {
+     "kind": "cible_expliquee_par_une_variable",
+     "vars": "icdA -> aceB",
+     "stat": 0.939,
+     "score": 0.9,
+     "detail": {
+      "score_1_variable": 0.939,
+      "score_toutes": 0.935,
+      "note": "relation forte ou fuite de données",
+      "confirmation": "confirmé — r2 = 0.95 sur des données jamais vues (hasard 0.00, découverte 0.939)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "artefact",
+      "explication": "La prédiction quasi-parfaite d'un gène par un autre dans ECOLI70 indique probablement une colinéarité extrême, une redondance ou une fuite de données."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "asnA ~ ygcE",
+     "stat": 0.976,
+     "score": 0.7811516535645413,
+     "detail": {
+      "spearman": 0.976,
+      "pearson": 0.979,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 1038 lignes (découverte : +0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre asnA et ygcE chez E. coli, témoignant d'une co-régulation transcriptionnelle probable.",
+      "hypothese": "Le lien entre asnA et ygcE dans le dataset 46618 change-t-il selon les conditions de croissance ou d'opéron ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "aceB ~ icdA",
+     "stat": 0.974,
+     "score": 0.7788965366955584,
+     "detail": {
+      "spearman": 0.974,
+      "pearson": 0.978,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.98 sur 1038 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre aceB et icdA, deux gènes liés au métabolisme central (cycle de Krebs et shunt glyoxylique).",
+      "hypothese": "Le lien entre aceB et icdA dans le dataset 46618 change-t-il selon la source de carbone ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "ftsJ ~ mopB",
+     "stat": 0.959,
+     "score": 0.7671419746847408,
+     "detail": {
+      "spearman": 0.959,
+      "pearson": 0.961,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 1038 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "pertinent",
+      "explication": "Corrélation étroite entre ftsJ et mopB, impliqués respectivement dans la modification ribosomique et la structure membranaire.",
+      "hypothese": "Le lien entre ftsJ et mopB dans le dataset 46618 change-t-il selon le taux de croissance cellulaire ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "hupB ~ yfiA",
+     "stat": 0.959,
+     "score": 0.7668909856000795,
+     "detail": {
+      "spearman": 0.959,
+      "pearson": 0.963,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.96 sur 1038 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "pertinent",
+      "explication": "Corrélation entre hupB (protéine histone-like) et yfiA (facteur de modulation ribosomique), liant l'architecture nucléaire et la traduction.",
+      "hypothese": "Le lien entre hupB et yfiA dans le dataset 46618 change-t-il selon la phase de croissance stationnaire ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "dnaG ~ ycgX",
+     "stat": 0.956,
+     "score": 0.764660907253806,
+     "detail": {
+      "spearman": 0.956,
+      "pearson": 0.957,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 1038 lignes (découverte : +0.96)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F17",
+     "avis": {
+      "id": "F17",
+      "verdict": "pertinent",
+      "explication": "Corrélation élevée entre dnaG (primase ARN) et ycgX chez E. coli, suggérant une fonction coordonnée dans la réplication ou la réponse au stress.",
+      "hypothese": "Le lien entre dnaG et ycgX dans le dataset 46618 change-t-il selon le stress oxydatif ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "lacA ~ lacY",
+     "stat": 0.946,
+     "score": 0.756956903190869,
+     "detail": {
+      "spearman": 0.946,
+      "pearson": 0.949,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.93 sur 1038 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F20",
+     "avis": {
+      "id": "F20",
+      "verdict": "pertinent",
+      "explication": "Corrélation robuste entre lacA et lacY, deux gènes de l'opéron lactose chez E. coli, illustrant le contrôle opéronique classique.",
+      "hypothese": "Le lien entre lacA et lacY dans le dataset 46618 change-t-il en présence ou absence de lactose ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "folK ~ yheI",
+     "stat": 0.946,
+     "score": 0.7566109790700608,
+     "detail": {
+      "spearman": 0.946,
+      "pearson": 0.948,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.95 sur 1038 lignes (découverte : +0.95)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70",
+     "id": "F21",
+     "avis": {
+      "id": "F21",
+      "verdict": "pertinent",
+      "explication": "Corrélation forte entre folK et yheI, liant la biosynthèse des folates à un autre métabolite bactérien.",
+      "hypothese": "Le lien entre folK et yheI dans le dataset 46618 change-t-il selon la disponibilité en acides aminés ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "dnaK ~ yheI",
+     "stat": 0.938,
+     "score": 0.7506608146128895,
+     "detail": {
+      "spearman": 0.938,
+      "pearson": 0.94,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.94 sur 1038 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> aceB",
+     "stat": 0.935,
+     "score": 0.7481967925463118,
+     "detail": {
+      "r2": 0.935,
+      "baseline": -0.001,
+      "avec_seulement_icdA": 0.939,
+      "confirmation": "confirmé — r2 = 0.94 sur des données jamais vues (hasard 0.00, découverte 0.935)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    },
+    {
+     "kind": "correlation",
+     "vars": "atpD ~ yheI",
+     "stat": -0.933,
+     "score": 0.7465921732874965,
+     "detail": {
+      "spearman": -0.933,
+      "pearson": -0.936,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.93 sur 1038 lignes (découverte : -0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    },
+    {
+     "kind": "correlation",
+     "vars": "dnaK ~ mopB",
+     "stat": 0.926,
+     "score": 0.7407230227929071,
+     "detail": {
+      "spearman": 0.926,
+      "pearson": 0.929,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.91 sur 1038 lignes (découverte : +0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    },
+    {
+     "kind": "correlation",
+     "vars": "ycgX ~ yheI",
+     "stat": 0.926,
+     "score": 0.7404736188343607,
+     "detail": {
+      "spearman": 0.926,
+      "pearson": 0.931,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.93 sur 1038 lignes (découverte : +0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    },
+    {
+     "kind": "correlation",
+     "vars": "lacA ~ lacZ",
+     "stat": 0.922,
+     "score": 0.73774099081071,
+     "detail": {
+      "spearman": 0.922,
+      "pearson": 0.929,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.93 sur 1038 lignes (découverte : +0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    },
+    {
+     "kind": "correlation",
+     "vars": "dnaG ~ yheI",
+     "stat": 0.918,
+     "score": 0.7345246297428117,
+     "detail": {
+      "spearman": 0.918,
+      "pearson": 0.922,
+      "n": 962,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.91 sur 1038 lignes (découverte : +0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "ECOLI70"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "MiceProtein",
+    "target": "class",
+    "description": "**Author**: Clara Higuera, Katheleen J. Gardiner, Krzysztof J. Cios **Source**: [UCI](https://archive.ics.uci.edu/ml/datasets/Mice+Protein+Expression) - 2015 **Please cite**: Higuera C, Gardiner KJ, Cios KJ (2015) Self-Organizing Feature Maps Identify Proteins Critical to Learning in a Mouse Model of Down Syndrome. PLoS ONE 10(6): e0129126. Expression levels of 77 proteins measured in the cerebral",
+    "url": "https://www.openml.org/d/40966",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 546,
+     "confirmation": 534
+    },
+    "did": "40966",
+    "colonnes": {
+     "num": [
+      "DYRK1A_N",
+      "ITSN1_N",
+      "BDNF_N",
+      "NR1_N",
+      "NR2A_N",
+      "pAKT_N",
+      "pBRAF_N",
+      "pCAMKII_N",
+      "pCREB_N",
+      "pELK_N",
+      "pERK_N",
+      "pJNK_N",
+      "PKCA_N",
+      "pMEK_N",
+      "pNR1_N",
+      "pNR2A_N",
+      "pNR2B_N",
+      "pPKCAB_N",
+      "pRSK_N",
+      "AKT_N",
+      "BRAF_N",
+      "CAMKII_N",
+      "CREB_N",
+      "ELK_N",
+      "ERK_N"
+     ],
+     "groupes": [
+      "class"
+     ]
+    }
+   },
+   "lignes": 1080,
+   "colonnes": 78,
+   "fig": "2026-11-07_MiceProtein.png",
+   "n_findings": 601,
+   "findings": [
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> class = c-CS-s",
+     "stat": 6.2,
+     "score": 0.8102272727272727,
+     "detail": {
+      "taux_dans_ce_groupe": "12.5%",
+      "taux_global": "2.0%",
+      "p": 5.5e-08,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "MiceProtein",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "trivial",
+      "explication": "Résultat descriptif montrant une concentration d'anomalies dans une classe spécifique de souris trisomiques (c-CS-s)."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "pPKCG_N ~ AcetylH3K9_N",
+     "stat": 0.267,
+     "score": 0.7668553014714757,
+     "detail": {
+      "spearman": 0.543,
+      "pearson": 0.276,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.59 sur 534 lignes (découverte : +0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "pertinent",
+      "explication": "Lien entre une protéine kinase et l'acétylation d'histones (AcetylH3K9_N) dans le cortex cérébral de souris.",
+      "hypothese": "Le lien entre pPKCG_N et AcetylH3K9_N dans le dataset 40966 change-t-il selon le génotype ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "DYRK1A_N ~ APP_N",
+     "stat": 0.264,
+     "score": 0.7640682747445968,
+     "detail": {
+      "spearman": 0.571,
+      "pearson": 0.307,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.54 sur 531 lignes (découverte : +0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F18",
+     "avis": {
+      "id": "F18",
+      "verdict": "pertinent",
+      "explication": "Lien entre DYRK1A et APP, deux gènes clés situés sur le chromosome 21 impliqués dans la pathologie de Down.",
+      "hypothese": "Le lien entre DYRK1A_N et APP_N dans le dataset 40966 change-t-il selon le traitement administré ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR1_N ~ pNR1_N",
+     "stat": 0.939,
+     "score": 0.7511823171712813,
+     "detail": {
+      "spearman": 0.939,
+      "pearson": 0.947,
+      "n": 546,
+      "q": 4.8e-251,
+      "confirmation": "confirmé — ρ = +0.95 sur 531 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F23",
+     "avis": {
+      "id": "F23",
+      "verdict": "pertinent",
+      "explication": "Confirmation de la forte corrélation entre NR1 et pNR1 dans le dataset de référence murin.",
+      "hypothese": "Le lien entre NR1_N et pNR1_N dans le dataset 40966 change-t-il selon le traitement ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "ITSN1_N ~ DYRK1A_N",
+     "stat": 0.935,
+     "score": 0.7476920791500736,
+     "detail": {
+      "spearman": 0.935,
+      "pearson": 0.958,
+      "n": 546,
+      "q": 1.9e-243,
+      "confirmation": "confirmé — ρ = +0.92 sur 531 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F24",
+     "avis": {
+      "id": "F24",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre ITSN1 et DYRK1A, deux protéines surexprimées dans le syndrome de Down.",
+      "hypothese": "Le lien entre ITSN1_N et DYRK1A_N dans le dataset 40966 change-t-il selon la classe comportementale ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Bcatenin_N ~ NR1_N",
+     "stat": 0.926,
+     "score": 0.740931280545622,
+     "detail": {
+      "spearman": 0.926,
+      "pearson": 0.925,
+      "n": 537,
+      "q": 4.3e-226,
+      "confirmation": "confirmé — ρ = +0.91 sur 525 lignes (découverte : +0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F27",
+     "avis": {
+      "id": "F27",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre la béta-caténine (Bcatenin_N) et le récepteur NR1 dans le tissu cérébral.",
+      "hypothese": "Le lien entre Bcatenin_N et NR1_N dans le dataset 40966 change-t-il selon le génotype ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "pNR2B_N ~ pNR1_N",
+     "stat": 0.924,
+     "score": 0.7392443914537737,
+     "detail": {
+      "spearman": 0.924,
+      "pearson": 0.895,
+      "n": 546,
+      "q": 1.4e-226,
+      "confirmation": "confirmé — ρ = +0.92 sur 531 lignes (découverte : +0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F28",
+     "avis": {
+      "id": "F28",
+      "verdict": "pertinent",
+      "explication": "Confirmation de la co-variation des récepteurs NMDA phosphorylés dans le dataset de protéines de souris.",
+      "hypothese": "Le lien entre pNR2B_N et pNR1_N dans le dataset 40966 change-t-il selon le comportement ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "pERK_N ~ DYRK1A_N",
+     "stat": 0.923,
+     "score": 0.7382132678719566,
+     "detail": {
+      "spearman": 0.923,
+      "pearson": 0.925,
+      "n": 546,
+      "q": 6.7e-225,
+      "confirmation": "confirmé — ρ = +0.93 sur 531 lignes (découverte : +0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein",
+     "id": "F29",
+     "avis": {
+      "id": "F29",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre pERK et DYRK1A, reliant la kinase MAPK/ERK au gène de la trisomie 21.",
+      "hypothese": "Le lien entre pERK_N and DYRK1A_N dans le dataset 40966 change-t-il selon le génotype ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "pELK_N ~ APP_N",
+     "stat": 0.23,
+     "score": 0.7297382105034538,
+     "detail": {
+      "spearman": 0.516,
+      "pearson": 0.286,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.45 sur 531 lignes (découverte : +0.52)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR1_N ~ pNR2B_N",
+     "stat": 0.907,
+     "score": 0.7252021668015497,
+     "detail": {
+      "spearman": 0.907,
+      "pearson": 0.881,
+      "n": 546,
+      "q": 2.1e-203,
+      "confirmation": "confirmé — ρ = +0.91 sur 531 lignes (découverte : +0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "GluR3_N ~ GluR4_N",
+     "stat": 0.223,
+     "score": 0.7229810558287484,
+     "detail": {
+      "spearman": 0.74,
+      "pearson": 0.517,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.74 sur 534 lignes (découverte : +0.74)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ITSN1_N ~ APP_N",
+     "stat": 0.222,
+     "score": 0.721662549346306,
+     "detail": {
+      "spearman": 0.657,
+      "pearson": 0.435,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.65 sur 531 lignes (découverte : +0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "DYRK1A_N ~ S6_N",
+     "stat": 0.221,
+     "score": 0.7214989966519942,
+     "detail": {
+      "spearman": 0.402,
+      "pearson": 0.181,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.43 sur 531 lignes (découverte : +0.40)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "BRAF_N ~ APP_N",
+     "stat": 0.217,
+     "score": 0.7172527982541017,
+     "detail": {
+      "spearman": 0.457,
+      "pearson": 0.239,
+      "n": 546,
+      "confirmation": "confirmé — ρ = +0.36 sur 531 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "pERK_N ~ SOD1_N",
+     "stat": 0.217,
+     "score": 0.716578148539222,
+     "detail": {
+      "spearman": -0.682,
+      "pearson": -0.465,
+      "n": 546,
+      "confirmation": "confirmé — ρ = -0.69 sur 531 lignes (découverte : -0.68)"
+     },
+     "confirme": 1.0,
+     "dataset": "MiceProtein"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Ecoli",
+    "target": "class",
+    "description": "About this file from: https://archive.ics.uci.edu/ml/datasets/ecoli 1. Title: Protein Localization Sites 2. Creator and Maintainer: Kenta Nakai Institue of Molecular and Cellular Biology Osaka, University 1-3 Yamada-oka, Suita 565 Japan nakai@imcb.osaka-u.ac.jp http://www.imcb.osaka-u.ac.jp/nakai/psort.html Donor: Paul Horton (paulh@cs.berkeley.edu) Date: September, 1996 See also: yeast database 3",
+    "url": "https://www.openml.org/d/46614",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 171,
+     "confirmation": 165
+    },
+    "did": "46614",
+    "colonnes": {
+     "num": [
+      "mcg",
+      "gvh",
+      "lip",
+      "chg",
+      "aac",
+      "alm1",
+      "alm2"
+     ],
+     "groupes": [
+      "class"
+     ]
+    }
+   },
+   "lignes": 336,
+   "colonnes": 8,
+   "fig": "2026-11-07_Ecoli.png",
+   "n_findings": 3,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "alm1 ~ alm2",
+     "stat": 0.676,
+     "score": 0.5410252753925814,
+     "detail": {
+      "spearman": 0.676,
+      "pearson": 0.778,
+      "n": 171,
+      "q": 7e-23,
+      "confirmation": "confirmé — ρ = +0.76 sur 165 lignes (découverte : +0.68)"
+     },
+     "confirme": 1.0,
+     "dataset": "Ecoli"
+    },
+    {
+     "kind": "correlation",
+     "vars": "mcg ~ alm1",
+     "stat": 0.476,
+     "score": 0.3807662777516252,
+     "detail": {
+      "spearman": 0.476,
+      "pearson": 0.426,
+      "n": 171,
+      "q": 5e-10,
+      "confirmation": "confirmé — ρ = +0.42 sur 165 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "Ecoli"
+    },
+    {
+     "kind": "correlation",
+     "vars": "mcg ~ gvh",
+     "stat": 0.401,
+     "score": 0.3209389286336582,
+     "detail": {
+      "spearman": 0.401,
+      "pearson": 0.407,
+      "n": 171,
+      "q": 3.8e-07,
+      "confirmation": "confirmé — ρ = +0.52 sur 165 lignes (découverte : +0.40)"
+     },
+     "confirme": 1.0,
+     "dataset": "Ecoli"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "ecoli",
+    "target": "class",
+    "description": "**Author**: **Source**: Unknown - **Please cite**: 1. Title: Protein Localization Sites 2. Creator and Maintainer: Kenta Nakai Institue of Molecular and Cellular Biology Osaka, University 1-3 Yamada-oka, Suita 565 Japan nakai@imcb.osaka-u.ac.jp http://www.imcb.osaka-u.ac.jp/nakai/psort.html Donor: Paul Horton (paulh@cs.berkeley.edu) Date: September, 1996 See also: yeast database 3. Past Usage. Ref",
+    "url": "https://www.openml.org/d/39",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 174,
+     "confirmation": 162
+    },
+    "did": "39",
+    "colonnes": {
+     "num": [
+      "mcg",
+      "gvh",
+      "lip",
+      "aac",
+      "alm1",
+      "alm2"
+     ],
+     "groupes": [
+      "class"
+     ]
+    }
+   },
+   "lignes": 336,
+   "colonnes": 8,
+   "fig": "2026-11-07_ecoli.png",
+   "n_findings": 3,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "alm1 ~ alm2",
+     "stat": 0.72,
+     "score": 0.575999163836166,
+     "detail": {
+      "spearman": 0.72,
+      "pearson": 0.825,
+      "n": 174,
+      "q": 6.5e-28,
+      "confirmation": "confirmé — ρ = +0.71 sur 162 lignes (découverte : +0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "ecoli"
+    },
+    {
+     "kind": "correlation",
+     "vars": "mcg ~ alm1",
+     "stat": 0.462,
+     "score": 0.3697643526180715,
+     "detail": {
+      "spearman": 0.462,
+      "pearson": 0.393,
+      "n": 174,
+      "q": 1e-09,
+      "confirmation": "confirmé — ρ = +0.43 sur 162 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "ecoli"
+    },
+    {
+     "kind": "correlation",
+     "vars": "mcg ~ gvh",
+     "stat": 0.425,
+     "score": 0.3401548252123485,
+     "detail": {
+      "spearman": 0.425,
+      "pearson": 0.444,
+      "n": 174,
+      "q": 2.5e-08,
+      "confirmation": "confirmé — ρ = +0.49 sur 162 lignes (découverte : +0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "ecoli"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Mice-Protein-Expression",
+    "target": null,
+    "description": "Context Expression levels of 77 proteins measured in the cerebral cortex of 8 classes of control and Down syndrome mice exposed to context fear conditioning, a task used to assess associative learning. Content The data set consists of the expression levels of 77 proteins/protein modifications that produced detectable signals in the nuclear fraction of cortex. There are 38 control mice and 34 triso",
+    "url": "https://www.openml.org/d/43445",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 528,
+     "confirmation": 552
+    },
+    "did": "43445",
+    "colonnes": {
+     "num": [
+      "DYRK1A_N",
+      "ITSN1_N",
+      "BDNF_N",
+      "NR1_N",
+      "NR2A_N",
+      "pAKT_N",
+      "pBRAF_N",
+      "pCAMKII_N",
+      "pCREB_N",
+      "pELK_N",
+      "pERK_N",
+      "pJNK_N",
+      "PKCA_N",
+      "pMEK_N",
+      "pNR1_N",
+      "pNR2A_N",
+      "pNR2B_N",
+      "pPKCAB_N",
+      "pRSK_N",
+      "AKT_N",
+      "BRAF_N",
+      "CAMKII_N",
+      "CREB_N",
+      "ELK_N",
+      "ERK_N"
+     ],
+     "groupes": [
+      "Genotype",
+      "Treatment",
+      "Behavior",
+      "class"
+     ]
+    }
+   },
+   "lignes": 1080,
+   "colonnes": 81,
+   "fig": "2026-11-07_Mice_Protein_Expression.png",
+   "n_findings": 554,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "pPKCG_N ~ AcetylH3K9_N",
+     "stat": 0.262,
+     "score": 0.7617585702021912,
+     "detail": {
+      "spearman": 0.548,
+      "pearson": 0.286,
+      "n": 528,
+      "confirmation": "confirmé — ρ = +0.58 sur 552 lignes (découverte : +0.55)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression",
+     "id": "F19",
+     "avis": {
+      "id": "F19",
+      "verdict": "pertinent",
+      "explication": "Réplication de la relation entre pPKCG_N et AcetylH3K9_N dans un second dataset de protéomique murine indépendante.",
+      "hypothese": "Le lien entre pPKCG_N et AcetylH3K9_N dans le dataset 43445 change-t-il selon le comportement observé ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR1_N ~ pNR1_N",
+     "stat": 0.94,
+     "score": 0.7521341509407974,
+     "detail": {
+      "spearman": 0.94,
+      "pearson": 0.946,
+      "n": 527,
+      "q": 2.1e-244,
+      "confirmation": "confirmé — ρ = +0.94 sur 550 lignes (découverte : +0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression",
+     "id": "F22",
+     "avis": {
+      "id": "F22",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre la protéine NR1 totale et sa forme phosphorylée (pNR1), reflétant un équilibre constant de signalisation glutamatergique.",
+      "hypothese": "Le lien entre NR1_N et pNR1_N dans le dataset 43445 change-t-il selon le génotype ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "pNR2B_N ~ pNR1_N",
+     "stat": 0.931,
+     "score": 0.744499023029481,
+     "detail": {
+      "spearman": 0.931,
+      "pearson": 0.915,
+      "n": 527,
+      "q": 2.2e-228,
+      "confirmation": "confirmé — ρ = +0.91 sur 550 lignes (découverte : +0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression",
+     "id": "F25",
+     "avis": {
+      "id": "F25",
+      "verdict": "pertinent",
+      "explication": "Corrélation élevée entre récepteurs NMDA phosphorylés (pNR2B et pNR1), témoignant de voies de signalisation synaptique couplées.",
+      "hypothese": "Le lien entre pNR2B_N et pNR1_N dans le dataset 43445 change-t-il selon le génotype ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "ITSN1_N ~ DYRK1A_N",
+     "stat": 0.93,
+     "score": 0.7437896617563431,
+     "detail": {
+      "spearman": 0.93,
+      "pearson": 0.955,
+      "n": 527,
+      "q": 3.6e-227,
+      "confirmation": "confirmé — ρ = +0.93 sur 550 lignes (découverte : +0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression",
+     "id": "F26",
+     "avis": {
+      "id": "F26",
+      "verdict": "pertinent",
+      "explication": "Réplication de la co-expression des protéines ITSN1 et DYRK1A dans le dataset d'expression protéique murin.",
+      "hypothese": "Le lien entre ITSN1_N et DYRK1A_N dans le dataset 43445 change-t-il selon le traitement ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "pERK_N ~ DYRK1A_N",
+     "stat": 0.921,
+     "score": 0.7368830475445868,
+     "detail": {
+      "spearman": 0.921,
+      "pearson": 0.964,
+      "n": 527,
+      "q": 1.4e-214,
+      "confirmation": "confirmé — ρ = +0.93 sur 550 lignes (découverte : +0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression",
+     "id": "F30",
+     "avis": {
+      "id": "F30",
+      "verdict": "pertinent",
+      "explication": "Réplication de la forte co-variation entre pERK et DYRK1A dans le second dataset murin.",
+      "hypothese": "Le lien entre pERK_N and DYRK1A_N dans le dataset 43445 change-t-il selon le traitement ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR1_N ~ pNR2B_N",
+     "stat": 0.909,
+     "score": 0.7270594269620251,
+     "detail": {
+      "spearman": 0.909,
+      "pearson": 0.901,
+      "n": 527,
+      "q": 6.3e-199,
+      "confirmation": "confirmé — ρ = +0.90 sur 550 lignes (découverte : +0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Bcatenin_N ~ NR1_N",
+     "stat": 0.903,
+     "score": 0.7221091046869486,
+     "detail": {
+      "spearman": 0.903,
+      "pearson": 0.908,
+      "n": 522,
+      "q": 4.7e-190,
+      "confirmation": "confirmé — ρ = +0.93 sur 540 lignes (découverte : +0.90)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "correlation",
+     "vars": "pMEK_N ~ pAKT_N",
+     "stat": 0.9,
+     "score": 0.7196924986111212,
+     "detail": {
+      "spearman": 0.9,
+      "pearson": 0.868,
+      "n": 527,
+      "q": 1.2e-188,
+      "confirmation": "confirmé — ρ = +0.87 sur 550 lignes (découverte : +0.90)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "pERK_N ~ SOD1_N",
+     "stat": 0.219,
+     "score": 0.7185424458691567,
+     "detail": {
+      "spearman": -0.693,
+      "pearson": -0.475,
+      "n": 527,
+      "confirmation": "confirmé — ρ = -0.68 sur 550 lignes (découverte : -0.69)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "pCAMKII_N ~ SOD1_N",
+     "stat": 0.212,
+     "score": 0.7115175968947377,
+     "detail": {
+      "spearman": 0.498,
+      "pearson": 0.286,
+      "n": 527,
+      "confirmation": "confirmé — ρ = +0.36 sur 550 lignes (découverte : +0.50)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "BRAF_N ~ pNUMB_N",
+     "stat": 0.209,
+     "score": 0.7088026000305498,
+     "detail": {
+      "spearman": 0.385,
+      "pearson": 0.177,
+      "n": 527,
+      "confirmation": "confirmé — ρ = +0.43 sur 550 lignes (découverte : +0.39)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "DYRK1A_N ~ APP_N",
+     "stat": 0.209,
+     "score": 0.7085653826010592,
+     "detail": {
+      "spearman": 0.541,
+      "pearson": 0.332,
+      "n": 527,
+      "confirmation": "confirmé — ρ = +0.57 sur 550 lignes (découverte : +0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR2B_N ~ MTOR_N",
+     "stat": 0.877,
+     "score": 0.7017127647642579,
+     "detail": {
+      "spearman": 0.877,
+      "pearson": 0.875,
+      "n": 527,
+      "q": 5.1e-167,
+      "confirmation": "confirmé — ρ = +0.86 sur 550 lignes (découverte : +0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR2A_N ~ NR1_N",
+     "stat": 0.876,
+     "score": 0.7008412637715457,
+     "detail": {
+      "spearman": 0.876,
+      "pearson": 0.879,
+      "n": 527,
+      "q": 3.9e-166,
+      "confirmation": "confirmé — ρ = +0.87 sur 550 lignes (découverte : +0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    },
+    {
+     "kind": "correlation",
+     "vars": "NR2A_N ~ Bcatenin_N",
+     "stat": 0.875,
+     "score": 0.7000760186620943,
+     "detail": {
+      "spearman": 0.875,
+      "pearson": 0.86,
+      "n": 522,
+      "q": 8e-164,
+      "confirmation": "confirmé — ρ = +0.89 sur 540 lignes (découverte : +0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "Mice-Protein-Expression"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "spellman_yeast",
+    "target": null,
+    "description": "Two colour spotted cDNA array data set of a series of experiments to identify which genes in Yeast are cell cycle regulated.",
+    "url": "https://www.openml.org/d/41091",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 3089,
+     "confirmation": 3089
+    },
+    "did": "41091",
+    "colonnes": {
+     "num": [
+      "cln3-1",
+      "cln3-2",
+      "clb2-2",
+      "clb2-1",
+      "alpha0",
+      "alpha7",
+      "alpha14",
+      "alpha21",
+      "alpha28",
+      "alpha35",
+      "alpha42",
+      "alpha49",
+      "alpha56",
+      "alpha63",
+      "alpha70",
+      "alpha77",
+      "alpha84",
+      "alpha91",
+      "alpha98",
+      "alpha105",
+      "alpha112",
+      "alpha119",
+      "cdc15_10",
+      "cdc15_30",
+      "cdc15_50"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 6178,
+   "colonnes": 82,
+   "fig": "2026-11-07_spellman_yeast.png",
+   "n_findings": 108,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "cdc15_250 ~ cdc15_290",
+     "stat": 0.774,
+     "score": 0.6193277476798964,
+     "detail": {
+      "spearman": 0.774,
+      "pearson": 0.736,
+      "n": 2843,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.78 sur 2871 lignes (découverte : +0.77)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_290 ~ cdc15_270",
+     "stat": 0.734,
+     "score": 0.5875474846264973,
+     "detail": {
+      "spearman": 0.734,
+      "pearson": 0.736,
+      "n": 2780,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.73 sur 2822 lignes (découverte : +0.73)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_250 ~ cdc15_270",
+     "stat": 0.68,
+     "score": 0.5443526468812676,
+     "detail": {
+      "spearman": 0.68,
+      "pearson": 0.647,
+      "n": 2772,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.69 sur 2813 lignes (découverte : +0.68)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_10 ~ cdc15_30",
+     "stat": 0.662,
+     "score": 0.5299364934196578,
+     "detail": {
+      "spearman": 0.662,
+      "pearson": 0.665,
+      "n": 2719,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.65 sur 2754 lignes (découverte : +0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "elu120 ~ elu150",
+     "stat": 0.654,
+     "score": 0.5228231421412236,
+     "detail": {
+      "spearman": 0.654,
+      "pearson": 0.709,
+      "n": 3026,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.66 sur 3033 lignes (découverte : +0.65)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_90 ~ cdc15_110",
+     "stat": 0.644,
+     "score": 0.5149294695047065,
+     "detail": {
+      "spearman": 0.644,
+      "pearson": 0.591,
+      "n": 2761,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.60 sur 2788 lignes (découverte : +0.64)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_30 ~ cdc15_50",
+     "stat": 0.632,
+     "score": 0.50571096243461,
+     "detail": {
+      "spearman": 0.632,
+      "pearson": 0.655,
+      "n": 2808,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.62 sur 2849 lignes (découverte : +0.63)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_250 ~ cdc15_80",
+     "stat": -0.623,
+     "score": 0.49812548370371107,
+     "detail": {
+      "spearman": -0.623,
+      "pearson": -0.596,
+      "n": 2762,
+      "q": 4e-294,
+      "confirmation": "confirmé — ρ = -0.61 sur 2773 lignes (découverte : -0.62)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "elu360 ~ elu120",
+     "stat": -0.62,
+     "score": 0.4956046209531225,
+     "detail": {
+      "spearman": -0.62,
+      "pearson": -0.625,
+      "n": 3010,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.61 sur 3012 lignes (découverte : -0.62)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "elu360 ~ elu330",
+     "stat": 0.607,
+     "score": 0.4859551524515747,
+     "detail": {
+      "spearman": 0.607,
+      "pearson": 0.623,
+      "n": 3004,
+      "q": 3.4e-300,
+      "confirmation": "confirmé — ρ = +0.59 sur 3009 lignes (découverte : +0.61)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "elu120 ~ elu330",
+     "stat": -0.603,
+     "score": 0.48254971547898795,
+     "detail": {
+      "spearman": -0.603,
+      "pearson": -0.639,
+      "n": 3031,
+      "q": 1.4e-297,
+      "confirmation": "confirmé — ρ = -0.60 sur 3035 lignes (découverte : -0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_240 ~ cdc15_220",
+     "stat": 0.602,
+     "score": 0.48166423598104746,
+     "detail": {
+      "spearman": 0.602,
+      "pearson": 0.598,
+      "n": 2618,
+      "q": 6.4e-256,
+      "confirmation": "confirmé — ρ = +0.60 sur 2627 lignes (découverte : +0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_190 ~ cdc15_210",
+     "stat": 0.593,
+     "score": 0.47460180362289484,
+     "detail": {
+      "spearman": 0.593,
+      "pearson": 0.506,
+      "n": 2713,
+      "q": 1.4e-255,
+      "confirmation": "confirmé — ρ = +0.60 sur 2762 lignes (découverte : +0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "elu150 ~ elu180",
+     "stat": 0.593,
+     "score": 0.47425024302375435,
+     "detail": {
+      "spearman": 0.593,
+      "pearson": 0.638,
+      "n": 3021,
+      "q": 5.1e-284,
+      "confirmation": "confirmé — ρ = +0.56 sur 3030 lignes (découverte : +0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    },
+    {
+     "kind": "correlation",
+     "vars": "cdc15_120 ~ cdc15_220",
+     "stat": 0.593,
+     "score": 0.47417832870689003,
+     "detail": {
+      "spearman": 0.593,
+      "pearson": 0.53,
+      "n": 2690,
+      "q": 7.2e-253,
+      "confirmation": "confirmé — ρ = +0.58 sur 2700 lignes (découverte : +0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "spellman_yeast"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "BrentLab/yeast_comparative_analysis",
+    "target": null,
+    "description": "Yeast Comparative Analysis Analyses that relate samples from different datasets in the BrentLab yeast collection. Each row relates two or more samples, which are referenced by composite identifiers of the form repo_id;config_name;sample_id , rather than describing the samples of a single dataset. Every config here has dataset_type: comparative . The repository currently holds one analysis, dto , a",
+    "fichier": "dto/binding_repo_dataset=harbison_2004-harbison_2004/perturbation_repo_dataset=hackett_2020-hackett_2020_analysis_set/part-0.parquet",
+    "url": "https://huggingface.co/datasets/BrentLab/yeast_comparative_analysis",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 999,
+     "confirmation": 974
+    },
+    "did": "hf:BrentLab/yeast_comparative_analysis",
+    "colonnes": {
+     "num": [
+      "binding_rank_threshold",
+      "perturbation_rank_threshold",
+      "binding_set_size",
+      "perturbation_set_size",
+      "dto_fdr",
+      "dto_empirical_pvalue"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 1973,
+   "colonnes": 9,
+   "fig": "2026-11-07_BrentLab_yeast_comparative_analysis.png",
+   "n_findings": 9,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "perturbation_rank_threshold ~ dto_fdr",
+     "stat": 0.356,
+     "score": 0.8560258700641289,
+     "detail": {
+      "spearman": 0.597,
+      "pearson": 0.241,
+      "n": 999,
+      "confirmation": "confirmé — ρ = +0.63 sur 974 lignes (découverte : +0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "Lien monotone entre le seuil de rang de perturbation et le taux de faux positifs (dto_fdr) dans l'analyse comparative de levures.",
+      "hypothese": "Le lien entre perturbation_rank_threshold et dto_fdr dans le dataset hf:BrentLab/yeast_comparative_analysis change-t-il selon la taille du jeu de données ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "perturbation_rank_threshold ~ dto_fdr",
+     "stat": 0.597,
+     "score": 0.477819857492876,
+     "detail": {
+      "spearman": 0.597,
+      "pearson": 0.241,
+      "n": 999,
+      "q": 9.6e-97,
+      "confirmation": "confirmé — ρ = +0.63 sur 974 lignes (découverte : +0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "binding_rank_threshold ~ perturbation_set_size",
+     "stat": 0.578,
+     "score": 0.4627888972504531,
+     "detail": {
+      "spearman": 0.578,
+      "pearson": 0.583,
+      "n": 999,
+      "q": 1.3e-89,
+      "confirmation": "confirmé — ρ = +0.62 sur 974 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "binding_set_size ~ perturbation_set_size",
+     "stat": 0.577,
+     "score": 0.4616020994645478,
+     "detail": {
+      "spearman": 0.577,
+      "pearson": 0.582,
+      "n": 999,
+      "q": 3.7e-89,
+      "confirmation": "confirmé — ρ = +0.62 sur 974 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "perturbation_rank_threshold ~ dto_empirical_pvalue",
+     "stat": -0.489,
+     "score": 0.3913539428250423,
+     "detail": {
+      "spearman": -0.489,
+      "pearson": -0.333,
+      "n": 999,
+      "q": 9.4e-61,
+      "confirmation": "confirmé — ρ = -0.45 sur 974 lignes (découverte : -0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "binding_rank_threshold ~ dto_empirical_pvalue",
+     "stat": 0.486,
+     "score": 0.38885844243603723,
+     "detail": {
+      "spearman": 0.486,
+      "pearson": 0.486,
+      "n": 999,
+      "q": 5.4e-60,
+      "confirmation": "confirmé — ρ = +0.45 sur 974 lignes (découverte : +0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "binding_set_size ~ dto_empirical_pvalue",
+     "stat": 0.486,
+     "score": 0.388734659169929,
+     "detail": {
+      "spearman": 0.486,
+      "pearson": 0.486,
+      "n": 999,
+      "q": 5.4e-60,
+      "confirmation": "confirmé — ρ = +0.45 sur 974 lignes (découverte : +0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "perturbation_set_size ~ dto_empirical_pvalue",
+     "stat": 0.407,
+     "score": 0.32537417317712913,
+     "detail": {
+      "spearman": 0.407,
+      "pearson": 0.761,
+      "n": 999,
+      "q": 8.2e-41,
+      "confirmation": "confirmé — ρ = +0.38 sur 974 lignes (découverte : +0.41)"
+     },
+     "confirme": 1.0,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ dto_fdr, dto_empirical_pvalue, perturbation_rank_threshold",
+     "stat": 2.87,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 20,
+      "sur": 999,
+      "variables_qui_les_distinguent": "dto_fdr (2.9 σ), dto_empirical_pvalue (1.5 σ), perturbation_rank_threshold (0.6 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "BrentLab/yeast_comparative_analysis"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "SaProtHub/Dataset-GAL4_YEAST",
+    "target": "label",
+    "description": "Description This dataset contains signle site mutation of protein GAL4_YEAST and the correspond mutation effect score from deep mutation scanning experiment. Protein Format: AA sequence Splits traing: 941 valid: 131 test: 121 Related paper The dataset is from Deep generative models of genetic variation capture the effects of mutations (https://www.nature.com/articles/s41592-018-0138-4). Label Labe",
+    "fichier": "dataset.csv",
+    "url": "https://huggingface.co/datasets/SaProtHub/Dataset-GAL4_YEAST",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 609,
+     "confirmation": 584
+    },
+    "did": "hf:SaProtHub/Dataset-GAL4_YEAST",
+    "colonnes": {
+     "num": [
+      "label"
+     ],
+     "groupes": [
+      "stage"
+     ]
+    }
+   },
+   "lignes": 1193,
+   "colonnes": 3,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "target": null,
+    "description": "Pastured Poultry Microbiome and Pathogens Original data: Ayoola, Pillai, Nanduri, Rothrock and Ramkumar (2024), figshare (Springer Nature), doi:10.6084/m9.figshare.24572156.v1 (https://doi.org/10.6084/m9.figshare.24572156.v1) and doi:10.6084/m9.figshare.26640385.v1 (https://doi.org/10.6084/m9.figshare.26640385.v1) (CC BY 4.0). Curated by Food AI Nexus. Not endorsed by the original authors. Subsets",
+    "fichier": "data/samples.parquet",
+    "url": "https://huggingface.co/datasets/food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 693,
+     "confirmation": 700
+    },
+    "did": "hf:food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "colonnes": {
+     "num": [
+      "otu_sheet_copies",
+      "metadata_duplicate_rows",
+      "abundance_all_zero",
+      "flock",
+      "starting_date_corrected_flag",
+      "sampling_date_corrected_flag",
+      "salmonella_positive",
+      "listeria_positive_corrected",
+      "campy_capetown_positive",
+      "campy_cefex_detected",
+      "avg_num_birds",
+      "avg_num_flocks",
+      "years_farming",
+      "avg_age_to_pasture",
+      "year",
+      "day_of_year",
+      "flock_age_days",
+      "flock_age_weeks",
+      "flock_size",
+      "ecoli_log10_cfu_per_ml",
+      "coliforms_log10_cfu_per_ml",
+      "campy_cefex_log10_cfu_per_ml",
+      "ph",
+      "ec",
+      "moisture"
+     ],
+     "groupes": [
+      "otu_sheet",
+      "salmonella",
+      "listeria",
+      "campy_capetown",
+      "listeria_positive",
+      "egg_source",
+      "brood_bedding",
+      "br_gmo_free",
+      "br_soy_free",
+      "br_medicated"
+     ]
+    }
+   },
+   "lignes": 1393,
+   "colonnes": 2002,
+   "fig": "2026-11-07_food_ai_nexus_pastured_poultry_microbiom.png",
+   "n_findings": 551,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ca ~ cu",
+     "stat": 0.466,
+     "score": 0.965586339873009,
+     "detail": {
+      "spearman": 0.712,
+      "pearson": 0.246,
+      "n": 563,
+      "confirmation": "confirmé — ρ = +0.71 sur 569 lignes (découverte : +0.71)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Un lien fort entre le calcium et le cuivre dans le microbiome de volailles indique potentiellement des co-facteurs partagés dans l'environnement.",
+      "hypothese": "Le lien entre ca et cu dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe salmonella ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ taxon_0731",
+     "stat": 0.447,
+     "score": 0.9472807640609989,
+     "detail": {
+      "spearman": -0.587,
+      "pearson": -0.14,
+      "n": 691,
+      "confirmation": "confirmé — ρ = -0.50 sur 698 lignes (découverte : -0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "La relation inverse entre le fer et le taxon_0731 met en lumière une possible compétition ou sensibilité bactérienne au fer.",
+      "hypothese": "Le lien entre fe et taxon_0731 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe listeria ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ na",
+     "stat": 0.432,
+     "score": 0.9315875801314845,
+     "detail": {
+      "spearman": 0.721,
+      "pearson": 0.29,
+      "n": 653,
+      "confirmation": "confirmé — ρ = +0.70 sur 677 lignes (découverte : +0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Corrélation positive élevée entre le fer et le sodium, suggérant des sources nutritionnelles communes dans l'alimentation des volailles.",
+      "hypothese": "Le lien entre fe et na dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe egg_source ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ taxon_0739",
+     "stat": 0.43,
+     "score": 0.9304068669867334,
+     "detail": {
+      "spearman": -0.562,
+      "pearson": -0.131,
+      "n": 691,
+      "confirmation": "confirmé — ρ = -0.52 sur 698 lignes (découverte : -0.56)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "Relation négative entre le fer et le taxon_0739, soulignant une dynamique microbienne spécifique liée aux minéraux.",
+      "hypothese": "Le lien entre fe et taxon_0739 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe brood_bedding ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "cu ~ taxon_0731",
+     "stat": 0.43,
+     "score": 0.9298060201031833,
+     "detail": {
+      "spearman": -0.624,
+      "pearson": -0.194,
+      "n": 563,
+      "confirmation": "confirmé — ρ = -0.58 sur 569 lignes (découverte : -0.62)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Lien négatif entre le cuivre et le taxon_0731, reflétant un effet antimicrobien potentiel ou une sélection de souches.",
+      "hypothese": "Le lien entre cu et taxon_0731 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_gmo_free ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ca ~ fe",
+     "stat": 0.43,
+     "score": 0.9297229917787648,
+     "detail": {
+      "spearman": 0.601,
+      "pearson": 0.172,
+      "n": 691,
+      "confirmation": "confirmé — ρ = +0.58 sur 698 lignes (découverte : +0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "Corrélation positive entre le calcium et le fer, traduisant la composition minérale globale de l'environnement des élevages.",
+      "hypothese": "Le lien entre ca et fe dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_soy_free ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ total_n",
+     "stat": 0.427,
+     "score": 0.9271486000208959,
+     "detail": {
+      "spearman": 0.644,
+      "pearson": 0.217,
+      "n": 691,
+      "confirmation": "confirmé — ρ = +0.62 sur 698 lignes (découverte : +0.64)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Lien positif entre le fer et l'azote total, probablement lié aux apports protéiques et minéraux conjoints dans l'alimentation.",
+      "hypothese": "Le lien entre fe et total_n dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe br_medicated ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ taxon_0822",
+     "stat": 0.425,
+     "score": 0.9253914582867884,
+     "detail": {
+      "spearman": 0.499,
+      "pearson": 0.073,
+      "n": 691,
+      "confirmation": "confirmé — ρ = +0.44 sur 698 lignes (découverte : +0.50)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "Association positive entre le fer et le taxon_0822, suggérant une bactérie dépendante du fer ou favorisée par sa présence.",
+      "hypothese": "Le lien entre fe et taxon_0822 dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe campy_capetown ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ zn",
+     "stat": 0.414,
+     "score": 0.9136699321748409,
+     "detail": {
+      "spearman": 0.734,
+      "pearson": 0.32,
+      "n": 683,
+      "confirmation": "confirmé — ρ = +0.72 sur 680 lignes (découverte : +0.73)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ca ~ na",
+     "stat": 0.414,
+     "score": 0.9135093454581736,
+     "detail": {
+      "spearman": 0.727,
+      "pearson": 0.313,
+      "n": 655,
+      "confirmation": "confirmé — ρ = +0.78 sur 679 lignes (découverte : +0.73)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ moisture",
+     "stat": 0.412,
+     "score": 0.9123199233132518,
+     "detail": {
+      "spearman": 0.669,
+      "pearson": 0.257,
+      "n": 691,
+      "confirmation": "confirmé — ρ = +0.68 sur 698 lignes (découverte : +0.67)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fe ~ pb_below_lod",
+     "stat": 0.411,
+     "score": 0.9112487031719889,
+     "detail": {
+      "spearman": 0.423,
+      "pearson": 0.012,
+      "n": 691,
+      "confirmation": "confirmé — ρ = +0.45 sur 698 lignes (découverte : +0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ca ~ total_n",
+     "stat": 0.409,
+     "score": 0.9085169944693612,
+     "detail": {
+      "spearman": 0.767,
+      "pearson": 0.358,
+      "n": 693,
+      "confirmation": "confirmé — ρ = +0.76 sur 700 lignes (découverte : +0.77)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "cu ~ taxon_0739",
+     "stat": 0.407,
+     "score": 0.9072477766494194,
+     "detail": {
+      "spearman": -0.627,
+      "pearson": -0.22,
+      "n": 563,
+      "confirmation": "confirmé — ρ = -0.61 sur 569 lignes (découverte : -0.63)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ca ~ cr",
+     "stat": 0.405,
+     "score": 0.9047119090367143,
+     "detail": {
+      "spearman": 0.606,
+      "pearson": 0.202,
+      "n": 373,
+      "confirmation": "confirmé — ρ = +0.64 sur 368 lignes (découverte : +0.61)"
+     },
+     "confirme": 1.0,
+     "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "openml",
+   "ref": "316",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "openml",
+   "ref": "44963",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "openml",
+   "ref": "42903",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "pritam06/leukemia-cancer-data",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "einarolafsson/spacr-example-timelapse-yeast",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "cskokgibbs/yeast-pre-tokenized-NT",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Synthyra/ProteinSelfies",
+   "erreur": "trop petit ((80656, 2))"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 33,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "1120",
+    "x": "fWidth:",
+    "y": "fConc1:",
+    "groupe": "class",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre fWidth: et fConc1: change-t-il selon le groupe class ?",
+    "requete_biblio": [
+     "MAGIC telescope gamma hadron separation image parameters"
+    ]
+   },
+   "statut": "non concluante",
+   "resume": "Dans MagicTelescope, la corrélation fWidth:~fConc1: vaut -0.80 pour « class: = h » contre -0.86 pour « class: = g » (écart 0.06, p = 1.1e-17). Attention : relation non linéaire ou valeurs extrêmes dans « class: = h » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (9506 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "class: = g": {
+      "rho": -0.858,
+      "pearson": -0.734,
+      "n": 6191
+     },
+     "class: = h": {
+      "rho": -0.801,
+      "pearson": -0.632,
+      "n": 3315
+     }
+    },
+    "p_difference": 1.12e-17,
+    "donnees_test": "moitié de confirmation (9506 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.1e-17, seuil corrigé 0.05 (1 tests cette nuit)"
+   },
+   "sujet": "Astronomie et physique",
+   "biblio": [
+    {
+     "titre": "Gamma-hadron Separation in Imaging Atmospheric Cherenkov Telescopes using Quantum Classifiers",
+     "annee": 2022,
+     "citations": 0,
+     "url": "https://doi.org/10.48550/arxiv.2210.03771"
+    },
+    {
+     "titre": "NEURAL NETWORKS FOR GAMMA-HADRON SEPARATION IN MAGIC",
+     "annee": 2006,
+     "citations": 7,
+     "url": "https://doi.org/10.1007/1-4020-4339-2_41"
+    },
+    {
+     "titre": "Gamma–hadron separation methods for the VERITAS array of four imaging atmospheric Cherenkov telescopes",
+     "annee": 2006,
+     "citations": 67,
+     "url": "https://doi.org/10.1016/j.astropartphys.2006.03.011"
+    },
+    {
+     "titre": "Implementation of the Random Forest method for the Imaging Atmospheric Cherenkov Telescope MAGIC",
+     "annee": 2008,
+     "citations": 209,
+     "url": "https://doi.org/10.1016/j.nima.2007.11.068"
+    },
+    {
+     "titre": "Observation of Gamma Rays from the Galactic Center with the MAGIC Telescope",
+     "annee": 2006,
+     "citations": 175,
+     "url": "https://doi.org/10.1086/501164"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "Correcte, formulation prudente utilisant le terme 'lien' pour des données observationnelles, mais la comparaison des coefficients de corrélation linéaires est insuffisante face à la non-linéarité détectée.",
+    "reformulation": "La structure de la relation entre fWidth et fConc1 diffère-t-elle selon la classe de particules (gamma 'g' vs hadron 'h') ?",
+    "diagnostic_statistique": "Forte divergence entre Pearson et Spearman dans les deux groupes (|Spearman - Pearson| > 0.12), indiquant une relation non linéaire significative ou la présence de valeurs extrêmes. La comparaison directe des coefficients de corrélation linéaire est biaisée.",
+    "modele_recommande": "GAM (Generalized Additive Models) ou régression spline avec interaction (fConc1 ~ s(fWidth, by=class))",
+    "robustesse": "Bonne taille d'échantillon (n = 6191 et n = 3315) sur un jeu de confirmation indépendant. Cependant, les données télescopiques contiennent du bruit instrumental et des distributions asymétriques.",
+    "interpretation_domaine": "En physique des astroparticules (télescope MAGIC), les paramètres d'image Cherenkov comme la largeur (fWidth) et la concentration (fConc1) décrivent la morphologie de la gerbe atmosphérique. La discrimination gamma/hadron repose sur ces formes non linéaires caractéristiques bien documentées dans la littérature.",
+    "action_pipeline": "Intégrer un test de non-linéarité systématique et basculer automatiquement sur des modèles de régression additive (GAM) ou des comparaisons de courbes de tendance cuando l'écart Pearson-Spearman dépasse le seuil.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La séparation gamma-hadron par des caractéristiques d'images Tcherenkov (fWidth, fConc1) est un problème classique largement documenté dans la littérature MAGIC et VERITAS.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}

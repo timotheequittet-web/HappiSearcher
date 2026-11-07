@@ -1,0 +1,155 @@
+{
+ "date": "2026-11-07",
+ "faits": {
+  "date": "2026-11-07",
+  "date_longue": "7 novembre 2026",
+  "sujets": [
+   "Biologie et génomique"
+  ],
+  "questions": [
+   "Quelles signatures moléculaires (gènes, protéines) distinguent les groupes biologiques, et lesquelles sont inattendues ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "ECOLI70",
+    "lignes": 2000,
+    "colonnes": 46,
+    "resultats_bruts": 211,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "MiceProtein",
+    "lignes": 1080,
+    "colonnes": 78,
+    "resultats_bruts": 601,
+    "confirmes_sur_moitie_independante": 14
+   },
+   {
+    "nom": "Ecoli",
+    "lignes": 336,
+    "colonnes": 8,
+    "resultats_bruts": 3,
+    "confirmes_sur_moitie_independante": 3
+   },
+   {
+    "nom": "ecoli",
+    "lignes": 336,
+    "colonnes": 8,
+    "resultats_bruts": 3,
+    "confirmes_sur_moitie_independante": 3
+   },
+   {
+    "nom": "Mice-Protein-Expression",
+    "lignes": 1080,
+    "colonnes": 81,
+    "resultats_bruts": 554,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "spellman_yeast",
+    "lignes": 6178,
+    "colonnes": 82,
+    "resultats_bruts": 108,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "BrentLab/yeast_comparative_analysis",
+    "lignes": 1973,
+    "colonnes": 9,
+    "resultats_bruts": 9,
+    "confirmes_sur_moitie_independante": 8
+   },
+   {
+    "nom": "SaProtHub/Dataset-GAL4_YEAST",
+    "lignes": 1193,
+    "colonnes": 3,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "lignes": 1393,
+    "colonnes": 2002,
+    "resultats_bruts": 551,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 7,
+  "hypotheses_testees": [
+   {
+    "id": "H33",
+    "enonce": "Le lien entre fWidth: et fConc1: change-t-il selon le groupe class ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans MagicTelescope, la corrélation fWidth:~fConc1: vaut -0.80 pour « class: = h » contre -0.86 pour « class: = g » (écart 0.06, p = 1.1e-17). Attention : relation non linéaire ou valeurs extrêmes dans « class: = h » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "La séparation gamma-hadron par des caractéristiques d'images Tcherenkov (fWidth, fConc1) est un problème classique largement documenté dans la littérature MAGIC et VERITAS."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "variables": "ca ~ cu",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Un lien fort entre le calcium et le cuivre dans le microbiome de volailles indique potentiellement des co-facteurs partagés dans l'environnement.",
+    "detail": "confirmé — ρ = +0.71 sur 569 lignes (découverte : +0.71)"
+   },
+   {
+    "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "variables": "fe ~ taxon_0731",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "La relation inverse entre le fer et le taxon_0731 met en lumière une possible compétition ou sensibilité bactérienne au fer.",
+    "detail": "confirmé — ρ = -0.50 sur 698 lignes (découverte : -0.59)"
+   },
+   {
+    "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "variables": "fe ~ na",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Corrélation positive élevée entre le fer et le sodium, suggérant des sources nutritionnelles communes dans l'alimentation des volailles.",
+    "detail": "confirmé — ρ = +0.70 sur 677 lignes (découverte : +0.72)"
+   },
+   {
+    "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "variables": "fe ~ taxon_0739",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Relation négative entre le fer et le taxon_0739, soulignant une dynamique microbienne spécifique liée aux minéraux.",
+    "detail": "confirmé — ρ = -0.52 sur 698 lignes (découverte : -0.56)"
+   },
+   {
+    "dataset": "food-ai-nexus/pastured-poultry-microbiome-pathogens",
+    "variables": "cu ~ taxon_0731",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien négatif entre le cuivre et le taxon_0731, reflétant un effet antimicrobien potentiel ou une sélection de souches.",
+    "detail": "confirmé — ρ = -0.58 sur 569 lignes (découverte : -0.62)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre DYRK1A_N et APP_N dans le dataset MiceProtein change-t-il selon le groupe class ?",
+   "Le lien entre aceB et icdA dans le dataset ECOLI70 change-t-il selon le niveau de cspA ?",
+   "Le lien entre pERK_N et DYRK1A_N dans le dataset Mice-Protein-Expression change-t-il selon le groupe Genotype ?",
+   "Le lien entre fe et ca dans le dataset food-ai-nexus/pastured-poultry-microbiome-pathogens change-t-il selon le groupe salmonella ?"
+  ],
+  "runs": [
+   "2026-11-07_0330_gene expression"
+  ]
+ },
+ "en_chiffres": [
+  "9 datasets analysés, 7 écartés (illisibles, hors sujet ou indisponibles)",
+  "1 hypothèse testée : 1 non concluante",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête génomique : signatures moléculaires et microbiotes",
+ "chapo": "Durant sa nuit de travail du 7 novembre 2026, la Raspberry Pi s'est penchée sur les signatures moléculaires et les groupes biologiques.",
+ "paragraphes": [
+  "L'enquête de la nuit s'est notamment appuyée sur l'analyse des données concernant le microbiome de volailles et les agents pathogènes. Plusieurs pistes ont émergé, mettant en lumière des liens observés entre différentes variables. Un lien fort a ainsi été relevé entre le calcium et le cuivre, avec une corrélation positive de +0.71, indiquant potentiellement des co-facteurs partagés dans l'environnement. De même, une corrélation positive élevée de +0.70 a été observée entre le fer et le sodium, suggérant des sources nutritionnelles communes dans l'alimentation des volailles.",
+  "D'autres analyses ont fait apparaître des relations inverses. Une relation entre le fer et le taxon_0731 a affiché une corrélation de -0.50, tandis qu'un lien négatif de -0.52 a été noté entre le fer et le taxon_0739. Enfin, un lien négatif de -0.58 a été identifié entre le cuivre et le taxon_0731, reflétant un effet antimicrobien potentiel ou une sélection de souches. Du côté des tests d'hypothèses, l'évaluation concernant le lien entre fWidth: et fConc1 selon le groupe class s'est révélée non concluante, soulignant qu'un modèle non linéaire serait plus adapté à cette relation."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+}
