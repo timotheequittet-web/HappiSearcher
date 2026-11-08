@@ -1,0 +1,37 @@
+{
+ "id": "2026-11-08_0330_handwriting",
+ "date": "2026-11-08T03:48",
+ "sujet": "Écriture et geste",
+ "question": "Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?",
+ "keywords": [
+  "handwriting",
+  "pendigits",
+  "signature verification",
+  "gesture",
+  "keystroke",
+  "mouse dynamics",
+  "optdigits"
+ ],
+ "analyse": null,
+ "note_llm": "LLM désactivé ou aucune découverte",
+ "top": [],
+ "datasets": [],
+ "echecs": [
+  {
+   "source": "openml",
+   "ref": "28",
+   "erreur": "HTTPSConnectionPool(host='www.openml.org', port=443): Max retries exceeded with url: /api/v1/json/data/28 (Caused by NameResolutionError(\"HTTPSConnect"
+  },
+  {
+   "source": "openml",
+   "ref": "32",
+   "erreur": "HTTPSConnectionPool(host='www.openml.org', port=443): Max retries exceeded with url: /api/v1/json/data/32 (Caused by NameResolutionError(\"HTTPSConnect"
+  },
+  {
+   "source": "openml",
+   "ref": "4538",
+   "erreur": "HTTPSConnectionPool(host='www.openml.org', port=443): Max retries exceeded with url: /api/v1/json/data/4538 (Caused by NameResolutionError(\"HTTPSConne"
+  }
+ ],
+ "hypotheses_testees": []
+}

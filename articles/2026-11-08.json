@@ -1,0 +1,32 @@
+{
+ "date": "2026-11-08",
+ "faits": {
+  "date": "2026-11-08",
+  "date_longue": "8 novembre 2026",
+  "sujets": [
+   "Écriture et geste"
+  ],
+  "questions": [
+   "Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?"
+  ],
+  "datasets_analyses": [],
+  "datasets_ecartes": 3,
+  "hypotheses_testees": [],
+  "bilan_tests": {},
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 0,
+  "nouvelles_hypotheses": [],
+  "runs": [
+   "2026-11-08_0330_handwriting"
+  ]
+ },
+ "en_chiffres": [
+  "0 dataset analysé, 3 écartés (illisibles, hors sujet ou indisponibles)",
+  "0 résultat solide (niveau ≥ 3/6)"
+ ],
+ "titre": "Écriture et geste : exploration de 0 datasets",
+ "chapo": "Nuit du 8 novembre 2026. Question du jour : Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ? Aucun nouveau dataset exploitable cette nuit.",
+ "paragraphes": [],
+ "redaction": "rédigé automatiquement à partir des données (sans LLM)"
+}
