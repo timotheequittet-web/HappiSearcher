@@ -1,0 +1,148 @@
+{
+ "date": "2026-11-09",
+ "faits": {
+  "date": "2026-11-09",
+  "date_longue": "9 novembre 2026",
+  "sujets": [
+   "Santé métabolique"
+  ],
+  "questions": [
+   "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Diabetes_Dataset",
+    "lignes": 768,
+    "colonnes": 9,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "Estimation_of_Obesity_Levels",
+    "lignes": 2111,
+    "colonnes": 17,
+    "resultats_bruts": 10,
+    "confirmes_sur_moitie_independante": 6
+   },
+   {
+    "nom": "DiabetesDataset2019",
+    "lignes": 952,
+    "colonnes": 18,
+    "resultats_bruts": 7,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "Pima-Indians-Diabetes",
+    "lignes": 768,
+    "colonnes": 9,
+    "resultats_bruts": 10,
+    "confirmes_sur_moitie_independante": 6
+   },
+   {
+    "nom": "uci_diabetes_p",
+    "lignes": 101766,
+    "colonnes": 52,
+    "resultats_bruts": 8,
+    "confirmes_sur_moitie_independante": 7
+   },
+   {
+    "nom": "Obesity",
+    "lignes": 2111,
+    "colonnes": 17,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "williamTLmiller/diabetes-obesity-clinical-trials",
+    "lignes": 1000,
+    "colonnes": 56,
+    "resultats_bruts": 23,
+    "confirmes_sur_moitie_independante": 11
+   },
+   {
+    "nom": "khoaguin/pima-indians-diabetes-database",
+    "lignes": 768,
+    "colonnes": 9,
+    "resultats_bruts": 10,
+    "confirmes_sur_moitie_independante": 6
+   },
+   {
+    "nom": "OpenPharma/pharma-kb-obesity",
+    "lignes": 569,
+    "colonnes": 26,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 0,
+  "hypotheses_testees": [
+   {
+    "id": "H34",
+    "enonce": "Le lien entre DYRK1A_N et APP_N dans le dataset MiceProtein change-t-il selon le groupe class ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans MiceProtein, la corrélation DYRK1A_N~APP_N vaut +0.75 pour « class = t-SC-s » contre +0.50 pour « class = t-SC-m » (écart 0.25, p = 0.015). Attention : relation non linéaire ou valeurs extrêmes dans « class = c-CS-s, class = c-SC-s » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "L'interaction entre DYRK1A et APP dans la pathologie amyloïde de la trisomie 21 est abondamment documentée dans la littérature."
+   },
+   {
+    "id": "H35",
+    "enonce": "Le lien entre aceB et icdA dans le dataset ECOLI70 change-t-il selon le niveau de cspA ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans ECOLI70, la corrélation aceB~icdA vaut +0.97 pour « cspA > 0.5 » contre +0.98 pour « cspA ≤ 0.5 » (p = 0.22).",
+    "bloque_a": null,
+    "litterature": "La coordination transcriptionnelle entre aceB et icdA lors du cycle glyoxylate est connue, mais sa dépendance vis-à-vis de cspA reste peu documentée expérimentalement."
+   },
+   {
+    "id": "H36",
+    "enonce": "Le lien entre pERK_N et DYRK1A_N dans le dataset Mice-Protein-Expression change-t-il selon le groupe Genotype ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans Mice-Protein-Expression, la corrélation pERK_N~DYRK1A_N vaut +0.95 pour « Genotype = Ts65Dn » contre +0.93 pour « Genotype = Control » (écart 0.02, p = 0.022).",
+    "bloque_a": null,
+    "litterature": "Le rôle de DYRK1A sur la cascade MAPK/ERK dans les modèles murins Ts65Dn est déjà bien établi par de multiples études antérieures."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 2,
+   "réfutée": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "Estimation_of_Obesity_Levels",
+    "variables": "signal -> Age",
+    "type": "attribut_cache",
+    "explication": "L'âge est modérément prévisible par une combinaison de poids, d'activité physique et de consommation d'eau.",
+    "detail": "confirmé — r2 = 0.61 sur d'autres personnes / lignes (hasard 0.00)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre BMI et Glucose change-t-il selon le niveau de Age ?",
+   "Le lien entre FAF et Weight change-t-il selon Gender ?",
+   "Insulin fait-il un saut lorsque Glucose franchit le seuil de 126 ?",
+   "Le lien entre FAF et Weight change-t-il selon SMOKE ?"
+  ],
+  "runs": [
+   "2026-11-09_0330_diabet"
+  ]
+ },
+ "en_chiffres": [
+  "9 datasets analysés",
+  "3 hypothèses testées : 2 non concluante, 1 réfutée",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête métabolique : une nuit de vérifications sans résultat tranché",
+ "chapo": "La Raspberry s'est penchée cette nuit sur les facteurs qui modifient les liens entre poids, glycémie et marqueurs biologiques. Le bilan ne livre aucun résultat solide à ce stade, mais affine la méthode et dégage une nouvelle piste.",
+ "paragraphes": [
+  "Sur le front des hypothèses ciblées, 3 tests ont été évalués : 1 a été réfuté et 2 restent non concluants. Le test réfuté concernait des bactéries, pour lesquelles la corrélation entre aceB et icdA ne varie pas selon cspA (0.97 contre 0.98). Concernant les protéines de souris, le lien entre DYRK1A_N et APP_N a montré un écart selon le groupe, mais une alerte statistique signale la présence de valeurs extrêmes et d'une relation non linéaire, ce qui impose d'utiliser un modèle adapté avant de conclure.",
+  "En phase d'exploration, la Raspberry a relevé une piste confirmée sur d'autres personnes : l'âge apparaît modérément prévisible par une combinaison de poids, d'activité physique et de consommation d'eau, avec un score r2 de 0.61. Pour poursuivre cette enquête, 4 nouvelles hypothèses ont été formulées, notamment sur la façon dont l'âge pourrait moduler le lien entre l'indice de masse corporelle et le glucose."
+ ],
+ "redaction": "rédigé par gemini-3.8-flash, chiffres vérifiés automatiquement"
+}
