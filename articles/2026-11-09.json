@@ -144,5 +144,67 @@
   "Sur le front des hypothèses ciblées, 3 tests ont été évalués : 1 a été réfuté et 2 restent non concluants. Le test réfuté concernait des bactéries, pour lesquelles la corrélation entre aceB et icdA ne varie pas selon cspA (0.97 contre 0.98). Concernant les protéines de souris, le lien entre DYRK1A_N et APP_N a montré un écart selon le groupe, mais une alerte statistique signale la présence de valeurs extrêmes et d'une relation non linéaire, ce qui impose d'utiliser un modèle adapté avant de conclure.",
   "En phase d'exploration, la Raspberry a relevé une piste confirmée sur d'autres personnes : l'âge apparaît modérément prévisible par une combinaison de poids, d'activité physique et de consommation d'eau, avec un score r2 de 0.61. Pour poursuivre cette enquête, 4 nouvelles hypothèses ont été formulées, notamment sur la façon dont l'âge pourrait moduler le lien entre l'indice de masse corporelle et le glucose."
  ],
- "redaction": "rédigé par gemini-3.8-flash, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.8-flash, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "facteurs modifiant le lien entre poids et glycémie",
+    "requetes": [
+     "glycemia obesity lifestyle modifying factors",
+     "weight blood sugar risk factors"
+    ]
+   },
+   {
+    "theme": "santé métabolique et prédiction de l'âge",
+    "requetes": [
+     "metabolic health physical activity aging",
+     "biomarkers obesity lifestyle health"
+    ]
+   }
+  ],
+  "titre": "Poids, sucre dans le sang et santé",
+  "paragraphes": [
+   "Le poids et la glycémie, c'est-à-dire le taux de sucre dans le sang, sont étroitement liés à la santé globale. Par exemple, l'obésité, c'est-à-dire un excès de graisse corporelle, est associée à de nombreuses complications comme le diabète de type 2 et les maladies cardiovasculaires [1]. La recherche sait que le mode de vie influence ces paramètres : l'alimentation, l'exercice physique et la façon de répartir les repas modifient la sensibilité à l'insuline, une hormone qui régule le sucre [2]. En parallèle, le vieillissement biologique s'accompagne souvent d'une augmentation de la graisse corporelle et d'une perte de masse musculaire [3].",
+   "La science sait que l'activité physique joue un rôle protecteur pour la santé métabolique, tant chez les enfants que chez les adultes [3, 4]. Toutefois, les chercheurs constatent que les méthodes de recherche manquent parfois d'uniformité pour analyser ces données selon les âges ou les genres [4]. Reste à comprendre précisément comment les différentes habitudes influencent l'équilibre entre la masse corporelle, le sucre sanguin et l'apparition des maladies."
+  ],
+  "references": [
+   {
+    "titre": "Obesity and Cardiovascular Disease",
+    "annee": 2006,
+    "auteurs": "Poirier et al.",
+    "revue": "Arteriosclerosis Thrombosis and Vascular Biology",
+    "citations": 748,
+    "url": "https://doi.org/10.1161/01.atv.0000216787.85457.f3",
+    "theme": "facteurs modifiant le lien entre poids et glycémie"
+   },
+   {
+    "titre": "Effects of Diet, Lifestyle, Chrononutrition and Alternative Dietary Interventions on Postprandial Glycemia and Insulin Resistance",
+    "annee": 2022,
+    "auteurs": "Papakonstantinou et al.",
+    "revue": "Nutrients",
+    "citations": 236,
+    "url": "https://doi.org/10.3390/nu14040823",
+    "theme": "facteurs modifiant le lien entre poids et glycémie"
+   },
+   {
+    "titre": "Physical activity in obesity and metabolic syndrome",
+    "annee": 2012,
+    "auteurs": "Strasser",
+    "revue": "Annals of the New York Academy of Sciences",
+    "citations": 304,
+    "url": "https://doi.org/10.1111/j.1749-6632.2012.06785.x",
+    "theme": "santé métabolique et prédiction de l'âge"
+   },
+   {
+    "titre": "Physical activity in adolescents and children and relationship to metabolic health",
+    "annee": 2018,
+    "auteurs": "Whooten et al.",
+    "revue": "Current Opinion in Endocrinology Diabetes and Obesity",
+    "citations": 90,
+    "url": "https://doi.org/10.1097/med.0000000000000455",
+    "theme": "santé métabolique et prédiction de l'âge"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 4 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }

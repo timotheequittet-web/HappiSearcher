@@ -132,5 +132,85 @@
   "L'enquête s'est penchée sur plusieurs hypothèses concernant des mesures acoustiques et cliniques. Par exemple, le test sur le lien entre Jitter.PPQ5 et DFA a été réfuté : l'effet observé s'est révélé inverse de celui prédit, montrant des relations non linéaires qui nécessiteraient un autre type de modèle. De même, un autre test concernant la hauteur tonale a été réfuté, tandis que d'autres pistes se sont révélées non concluantes. Un test réfuté reste toutefois une information utile pour réorienter les analyses.",
   "Du côté des pistes identifiées, l'exploration a mis en lumière plusieurs relations intéressantes. La vitesse corrigée du fan montre un lien non linéaire avec la durée de vie restante sur les moteurs de turboréacteurs, servant de précurseur d'usure. Concernant les dossiers cliniques, le temps de suivi et la fraction d'éjection affichent des liens marqués avec l'événement de mortalité. 13 datasets ont été écartés au cours de cette session nocturne."
  ],
- "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la prediction de la duree de vie restante des moteurs d'avion",
+    "requetes": [
+     "turbofan engine remaining useful life prediction",
+     "turbofan degradation prognostics review"
+    ]
+   },
+   {
+    "theme": "la prediction de mortalite dans l'insuffisance cardiaque",
+    "requetes": [
+     "heart failure survival prediction biomarkers",
+     "clinical mortality prediction models"
+    ]
+   }
+  ],
+  "titre": "Anticiper les pannes et les maladies",
+  "paragraphes": [
+   "Pour surveiller le matériel important comme les moteurs, la gestion de la santé des équipements utilise l'estimation de la durée de vie restante, c'est-à-dire une mesure de l'état de santé d'un équipement essentiel [1, 2]. Cette surveillance s'appuie sur l'analyse de données en temps réel et sur des capteurs qui mesurent des variables comme la pression, la température ou les vibrations [2, 3]. En médecine, pour l'insuffisance cardiaque, qui est une maladie où le cœur ne pompe plus assez de sang, les médecins étudient des substances présentes dans le sang appelées biomarqueurs [4, 5].",
+   "La recherche sait déjà utiliser des techniques d'intelligence artificielle et des modèles mathématiques pour exploiter ces informations, bien que l'intégration efficace de certaines applications hybrides manque encore de recherche [1, 2, 3]. De plus, de nouveaux indicateurs et scores combinant plusieurs analyses continuent d'être explorés pour affiner la gestion des patients et évaluer les risques [4, 6]. Les systèmes complexes laissent-ils deviner leur défaillance future à travers des signaux discrets dès les premiers stades ?"
+  ],
+  "references": [
+   {
+    "titre": "Remaining Useful Life Prediction Based on Deep Learning: A Survey",
+    "annee": 2024,
+    "auteurs": "Wu et al.",
+    "revue": "Sensors",
+    "citations": 122,
+    "url": "https://doi.org/10.3390/s24113454",
+    "theme": "la prediction de la duree de vie restante des moteurs d'avion"
+   },
+   {
+    "titre": "Prognostic and Health Management of Critical Aircraft Systems and Components: An Overview",
+    "annee": 2023,
+    "auteurs": "Fu & Avdelidis",
+    "revue": "Sensors",
+    "citations": 121,
+    "url": "https://doi.org/10.3390/s23198124",
+    "theme": "la prediction de la duree de vie restante des moteurs d'avion"
+   },
+   {
+    "titre": "A Systematic Literature Review of the Predictive Maintenance from Transportation Systems Aspect",
+    "annee": 2022,
+    "auteurs": "Ersöz et al.",
+    "revue": "Sustainability",
+    "citations": 57,
+    "url": "https://doi.org/10.3390/su142114536",
+    "theme": "la prediction de la duree de vie restante des moteurs d'avion"
+   },
+   {
+    "titre": "Biomarkers for the diagnosis and management of heart failure",
+    "annee": 2021,
+    "auteurs": "Castiglione et al.",
+    "revue": "Heart Failure Reviews",
+    "citations": 557,
+    "url": "https://doi.org/10.1007/s10741-021-10105-w",
+    "theme": "la prediction de mortalite dans l'insuffisance cardiaque"
+   },
+   {
+    "titre": "State of the Art: Newer Biomarkers in Heart Failure",
+    "annee": 2015,
+    "auteurs": "Boer et al.",
+    "revue": "European Journal of Heart Failure",
+    "citations": 197,
+    "url": "https://doi.org/10.1002/ejhf.273",
+    "theme": "la prediction de mortalite dans l'insuffisance cardiaque"
+   },
+   {
+    "titre": "Established and Emerging Roles of Biomarkers in Heart Failure",
+    "annee": 2018,
+    "auteurs": "Ibrahim & Januzzi",
+    "revue": "Circulation Research",
+    "citations": 312,
+    "url": "https://doi.org/10.1161/circresaha.118.312706",
+    "theme": "la prediction de mortalite dans l'insuffisance cardiaque"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }

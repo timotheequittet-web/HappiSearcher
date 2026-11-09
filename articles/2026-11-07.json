@@ -151,5 +151,58 @@
   "L'enquête de la nuit s'est notamment appuyée sur l'analyse des données concernant le microbiome de volailles et les agents pathogènes. Plusieurs pistes ont émergé, mettant en lumière des liens observés entre différentes variables. Un lien fort a ainsi été relevé entre le calcium et le cuivre, avec une corrélation positive de +0.71, indiquant potentiellement des co-facteurs partagés dans l'environnement. De même, une corrélation positive élevée de +0.70 a été observée entre le fer et le sodium, suggérant des sources nutritionnelles communes dans l'alimentation des volailles.",
   "D'autres analyses ont fait apparaître des relations inverses. Une relation entre le fer et le taxon_0731 a affiché une corrélation de -0.50, tandis qu'un lien négatif de -0.52 a été noté entre le fer et le taxon_0739. Enfin, un lien négatif de -0.58 a été identifié entre le cuivre et le taxon_0731, reflétant un effet antimicrobien potentiel ou une sélection de souches. Du côté des tests d'hypothèses, l'évaluation concernant le lien entre fWidth: et fConc1 selon le groupe class s'est révélée non concluante, soulignant qu'un modèle non linéaire serait plus adapté à cette relation."
  ],
- "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la relation entre les minéraux et la composition du microbiome aviaire",
+    "requetes": [
+     "poultry microbiome mineral correlation",
+     "gut microbiome metal interactions"
+    ]
+   },
+   {
+    "theme": "les signatures moléculaires et interactions microbiennes chez les volailles",
+    "requetes": [
+     "microbial taxa and trace elements poultry",
+     "microbiome interaction network nutrition"
+    ]
+   }
+  ],
+  "titre": "Les microbes et l'alimentation des volailles",
+  "paragraphes": [
+   "Le tube digestif abrite une communauté de micro-organismes, c'est-à-dire l'ensemble des bactéries et autres microbes vivant dans un organisme, qui joue un rôle majeur dans la santé et le métabolisme [1]. La recherche sait que des suppléments alimentaires, comme des probiotiques (des bactéries bénéfiques ajoutées à l'alimentation), modifient cette population microbienne pour améliorer la digestion et l'immunité [1, 2]. Cependant, les interactions exactes entre ces souches bactériennes et leurs métabolites restent encore mal connues [2]. De plus, les minéraux essentiels apportés par l'alimentation influencent directement cet environnement intestinal et la composition du microbiome [3].",
+   "Certains composants moléculaires, tels que les protéines qui contrôlent l'étanchéité de la barrière intestinale, réagissent aux substances présentes dans l'alimentation [1]. La science cherche à comprendre comment ces éléments agissent sur la santé de l'animal et sur l'équilibre des populations microbiennes [1, 3]. L'identification précise de ces signatures moléculaires et de ces réseaux d'interactions permettra de mieux cerner le fonctionnement biologique de ces groupes."
+  ],
+  "references": [
+   {
+    "titre": "Probiotics, Prebiotics, and Phytogenic Substances for Optimizing Gut Health in Poultry",
+    "annee": 2022,
+    "auteurs": "Shehata et al.",
+    "revue": "Microorganisms",
+    "citations": 329,
+    "url": "https://doi.org/10.3390/microorganisms10020395",
+    "theme": "la relation entre les minéraux et la composition du microbiome aviaire"
+   },
+   {
+    "titre": "Overview of the Use of Probiotics in Poultry Production",
+    "annee": 2021,
+    "auteurs": "Krysiak et al.",
+    "revue": "Animals",
+    "citations": 239,
+    "url": "https://doi.org/10.3390/ani11061620",
+    "theme": "la relation entre les minéraux et la composition du microbiome aviaire"
+   },
+   {
+    "titre": "Recent Advances in Understanding the Influence of Zinc, Copper, and Manganese on the Gastrointestinal Environment of Pigs and Poultry",
+    "annee": 2021,
+    "auteurs": "Broom et al.",
+    "revue": "Animals",
+    "citations": 82,
+    "url": "https://doi.org/10.3390/ani11051276",
+    "theme": "les signatures moléculaires et interactions microbiennes chez les volailles"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 3 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }

@@ -161,5 +161,42 @@
   "L'enquête nocturne s'est penchée sur plusieurs hypothèses concernant la hauteur vocale et les coefficients cepstraux. Les 3 hypothèses testées ont été réfutées, montrant que les liens attendus ne se comportent pas comme prévu selon les groupes de labels ou d'énoncés. Par exemple, le lien entre la fréquence fondamentale moyenne et maximale a présenté un effet inverse à celui prédit. De plus, 1 hypothèse a été jugée non testable en raison d'un manque de données dans les sous-groupes. Un total de 7 datasets ont été écartés au cours du processus.",
   "Malgré ces réfutations, l'exploration de nouvelles pistes a permis d'observer des relations intéressantes. Dans le jeu de données multimodal sur la voix et la maladie de Parkinson, plusieurs caractéristiques visuelles issues des spectrogrammes acoustiques, telles que la proportion claire, la saturation, l'entropie et la composante bleue, affichent un lien avec le statut de Parkinson. De plus, un lien non linéaire a été observé entre la perturbation de hauteur et l'exposant de fractalité de la voix. Ces pistes demandent désormais à être approfondies par de futures vérifications."
  ],
- "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "Ce que dit la voix",
+    "requetes": [
+     "voice speech vowel review",
+     "voice speech"
+    ]
+   }
+  ],
+  "titre": "Ce que la voix révèle",
+  "paragraphes": [
+   "La voix humaine et la parole s'appuient sur l'audition, c'est-à-dire la capacité d'entendre, qui joue un rôle important dans l'apprentissage et la production des sons [1]. Par exemple, restaurer l'audition grâce à un implant cochléaire, un appareil électronique qui aide à entendre, entraîne des changements dans la hauteur et le volume de la voix, bien que la parole de nombreux bénéficiaires reste anormale en raison d'un retour audio appauvri [1].",
+   "La recherche sait que les modifications de la parole surviennent dès les premiers stades de la maladie de Parkinson, une affection du système nerveux qui provoque des difficultés de communication et d'isolement social [2]. Des approches thérapeutiques permettent d'augmenter le volume vocal et l'intelligibilité de la parole, c'est-à-dire sa clarté, bien que la plupart des études portent sur des participants atteints de formes légères à modérées de la maladie [2]. Ces observations amènent à s'interroger sur ce que la voix transmet au-delà des mots et sur les caractéristiques acoustiques qui portent ces informations."
+  ],
+  "references": [
+   {
+    "titre": "Control of speech and voice in cochlear implant patients",
+    "annee": 2019,
+    "auteurs": "Gautam et al.",
+    "revue": "The Laryngoscope",
+    "citations": 39,
+    "url": "https://doi.org/10.1002/lary.27787",
+    "theme": "Ce que dit la voix"
+   },
+   {
+    "titre": "Lee Silverman Voice Treatment to Improve Speech in Parkinson’s Disease: A Systemic Review and Meta-Analysis",
+    "annee": 2021,
+    "auteurs": "Pu et al.",
+    "revue": "Parkinson s Disease",
+    "citations": 66,
+    "url": "https://doi.org/10.1155/2021/3366870",
+    "theme": "Ce que dit la voix"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 2 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }

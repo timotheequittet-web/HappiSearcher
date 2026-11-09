@@ -203,5 +203,76 @@
   "L'enquête s'est penchée sur la voix et l'imagerie médicale pour comprendre ce que ces données révèlent. Du côté des tests d'hypothèses, 3 ont été réfutées, 3 sont restées non concluantes, et 1 seule a été confirmée, qualifiée de piste fragile de niveau 2 sur 6. Par exemple, l'hypothèse testant si le lien entre l'âge et un indicateur cutané changeait selon un symptôme a montré un effet inverse de celui prédit. De même, l'analyse d'un dataset sur les radiographies pulmonaires a révélé une alerte qualité : tenter d'y prédire le genre à l'aide de variables cliniques n'a donné qu'une précision très proche du hasard, tout comme l'évaluation du lien entre marqueurs inflammatoires et âge selon le genre.",
   "Malgré ces difficultés, l'exploration de données vocales a permis d'isoler des pistes intéressantes, notamment des relations non linéaires confirmées entre différentes mesures de fréquence ou d'amplitude de la voix dans un dataset sur la maladie de Parkinson. Un test portant sur la prédiction d'une cible à partir de données de mouvements a également fourni une piste fragile. Rappelons qu'un test réfuté reste une information utile pour orienter les futures analyses de la Raspberry."
  ],
- "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "Imagerie médicale et attributs cachés",
+    "requetes": [
+     "ham10000 skin lesion dermatology review",
+     "ham10000 skin lesion"
+    ]
+   },
+   {
+    "theme": "Ce que dit la voix",
+    "requetes": [
+     "voice speech vowel review",
+     "voice speech"
+    ]
+   }
+  ],
+  "titre": "Imagerie et voix : ce que cachent les données médicales",
+  "paragraphes": [
+   "L'analyse assistée par ordinateur utilise des techniques d'apprentissage automatique, c'est-à-dire des méthodes où l'ordinateur apprend à reconnaître des formes à partir d'exemples [1]. Dans le domaine de la santé, ces systèmes examinent par exemple des lésions cutanées, c'est-à-dire des zones de peau altérées, pour aider au dépistage [1, 2]. La recherche actuelle montre cependant des limites importantes, notamment un manque de diversité dans les banques d'images médicales, ce qui entraîne des performances plus faibles pour les types de peau plus sombres [3].",
+   "L'étude de la voix et de la parole permet d'observer comment les patients contrôlent leur voix, un processus où l'audition joue un rôle essentiel [4]. Des méthodes de rééducation vocale spécifiques existent pour améliorer la communication des personnes atteintes de troubles de la parole [5]. Les chercheurs examinent comment ces approches modifient des paramètres vocaux précis, comme la force de la voix ou la hauteur des sons [5]. Ces travaux interrogent la capacité des technologies à analyser les caractéristiques cachées des patients à partir d'images médicales ou de signaux vocaux."
+  ],
+  "references": [
+   {
+    "titre": "Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review",
+    "annee": 2023,
+    "auteurs": "Debelee",
+    "revue": "Diagnostics",
+    "citations": 150,
+    "url": "https://doi.org/10.3390/diagnostics13193147",
+    "theme": "Imagerie médicale et attributs cachés"
+   },
+   {
+    "titre": "A survey, review, and future trends of skin lesion segmentation and classification",
+    "annee": 2023,
+    "auteurs": "Hasan et al.",
+    "revue": "Computers in Biology and Medicine",
+    "citations": 161,
+    "url": "https://doi.org/10.1016/j.compbiomed.2023.106624",
+    "theme": "Imagerie médicale et attributs cachés"
+   },
+   {
+    "titre": "Skin Type Diversity in Skin Lesion Datasets: A Review",
+    "annee": 2024,
+    "auteurs": "Alipour et al.",
+    "revue": "Current Dermatology Reports",
+    "citations": 53,
+    "url": "https://doi.org/10.1007/s13671-024-00440-0",
+    "theme": "Imagerie médicale et attributs cachés"
+   },
+   {
+    "titre": "Control of speech and voice in cochlear implant patients",
+    "annee": 2019,
+    "auteurs": "Gautam et al.",
+    "revue": "The Laryngoscope",
+    "citations": 39,
+    "url": "https://doi.org/10.1002/lary.27787",
+    "theme": "Ce que dit la voix"
+   },
+   {
+    "titre": "Lee Silverman Voice Treatment to Improve Speech in Parkinson’s Disease: A Systemic Review and Meta-Analysis",
+    "annee": 2021,
+    "auteurs": "Pu et al.",
+    "revue": "Parkinson s Disease",
+    "citations": 66,
+    "url": "https://doi.org/10.1155/2021/3366870",
+    "theme": "Ce que dit la voix"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 5 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }

@@ -159,5 +159,67 @@
   "L'enquête s'est orientée vers l'astronomie et la physique en explorant plusieurs jeux de données publics. L'analyse des exoplanètes a notamment mis en lumière des pistes intéressantes, comme le lien non linéaire entre la masse et le rayon des exoplanètes, ou encore la relation entre la température effective et le rayon stellaire. Un lien inverse inattendu a également été confirmé entre le demi-grand axe orbital des exoplanètes et la magnitude apparente de l'étoile hôte, mettant en évidence un biais observationnel classique. Concernant les tests d'hypothèses, une piste fragile (niveau 2/6) a émergé concernant un lien changeant selon les seuils de réglage dans un jeu de données sur les moteurs, bien qu'un modèle non linéaire soit plus adapté en raison de valeurs extrêmes.",
   "La nuit a également essuyé des réfutations et des précautions méthodologiques utiles. Un test portant sur l'influence d'un seuil de cycle a été réfuté, car aucun lien n'a varié de manière significative. De plus, une alerte qualité a touché un jeu de données de prédiction cardiaque en raison de milliers de lignes recopiées à l'identique, nécessitant un retrait de ces données synthétiques avant l'analyse. Face à ces vérifications, la Raspberry a formulé 4 nouvelles hypothèses pour prolonger l'enquête lors des prochaines nuits."
  ],
- "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la relation masse-rayon des exoplanètes",
+    "requetes": [
+     "explanet mass radius relation review",
+     "exoplanet radius mass scaling"
+    ]
+   },
+   {
+    "theme": "l'évolution et les paramètres stellaires",
+    "requetes": [
+     "stellar mass radius evolution review",
+     "stellar parameters evolution"
+    ]
+   }
+  ],
+  "titre": "Masse, taille et vie des astres",
+  "paragraphes": [
+   "Pour comprendre les exoplanètes, c'est-à-dire des planètes qui tournent autour d'une autre étoile que le Soleil, les scientifiques mesurent leur masse et leur taille [1]. Les planètes de faible masse possèdent des compositions très variées, allant de mondes rocheux comparables à la Terre à des enveloppes de gaz très légères [1]. Les chercheurs savent que ces planètes ont des tailles et des masses aux limites de plus en plus précises, même si des questions persistent sur les lois de l'évaporation atmosphérique [1].",
+   "Concernant les étoiles, c'est-à-dire les sphères de gaz lumineux comme le Soleil, leur évolution dépend directement de leur masse initiale et de leur composition chimique [2]. La plupart des amas d'étoiles proviennent d'une distribution de masses initiale universelle, bien que des environnements spécifiques continuent d'être étudiés [3]. Les observations montrent également que le fait d'avoir plusieurs étoiles liées entre elles est un résultat très fréquent lors de la formation stellaire [4]. Ces régularités mesurées préparent le terrain pour identifier les objets qui s'écartent des normes établies."
+  ],
+  "references": [
+   {
+    "titre": "The Compositional Diversity of Low-Mass Exoplanets",
+    "annee": 2019,
+    "auteurs": "Jontof-Hutter",
+    "revue": "Annual Review of Earth and Planetary Sciences",
+    "citations": 67,
+    "url": "https://doi.org/10.1146/annurev-earth-053018-060352",
+    "theme": "la relation masse-rayon des exoplanètes"
+   },
+   {
+    "titre": "Mass Loss from Cool Stars: Impact on the Evolution of Stars and Stellar Populations",
+    "annee": 2000,
+    "auteurs": "Willson",
+    "revue": "Annual Review of Astronomy and Astrophysics",
+    "citations": 261,
+    "url": "https://doi.org/10.1146/annurev.astro.38.1.573",
+    "theme": "l'évolution et les paramètres stellaires"
+   },
+   {
+    "titre": "A Universal Stellar Initial Mass Function? A Critical Look at Variations",
+    "annee": 2010,
+    "auteurs": "Bastian et al.",
+    "revue": "Annual Review of Astronomy and Astrophysics",
+    "citations": 1073,
+    "url": "https://doi.org/10.1146/annurev-astro-082708-101642",
+    "theme": "l'évolution et les paramètres stellaires"
+   },
+   {
+    "titre": "Stellar Multiplicity",
+    "annee": 2013,
+    "auteurs": "Duchêne & Kraus",
+    "revue": "Annual Review of Astronomy and Astrophysics",
+    "citations": 1413,
+    "url": "https://doi.org/10.1146/annurev-astro-081710-102602",
+    "theme": "l'évolution et les paramètres stellaires"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 4 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }

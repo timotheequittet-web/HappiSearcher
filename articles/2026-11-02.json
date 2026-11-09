@@ -358,5 +358,85 @@
   "L'investigation a passé au crible 13 hypothèses de travail. Le bilan fait état de 3 confirmations, 6 réfutations et 4 cas non conclusants. Parmi les pistes explorées, l'enquête s'est penchée sur la santé métabolique et la réussite scolaire. Un des faits marquants de la nuit concerne l'analyse de l'effet de l'indice de masse corporelle sur les charges médicales : le test a fourni un résultat solide à ce stade, montrant un lien bien plus prononcé chez les fumeurs que chez les non-fumeurs. Un autre résultat solide à ce stade a émergé concernant le lien entre le test d'admission lsat et les notes universitaires ugpa selon le statut d'étude.",
   "Cependant, l'enquête montre aussi que plusieurs pistes n'ont pas résisté à la vérification. Par exemple, l'idée d'une augmentation brusque de la probabilité de diagnostic positif du diabète au-dessus de 45 ans a été réfutée, tout comme l'hypothèse d'une différence liée au genre dans la relation entre certains indicateurs hépatiques. De plus, la relation entre l'âge et la créatinine sérique a présenté un effet inverse de celui prédit chez les patients de plus de 60 ans. Loin d'être des échecs, ces réfutations apportent des informations utiles pour recadrer les pistes fragiles et réajuster le tir pour les prochaines nuits d'analyse."
  ],
- "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement"
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "Signatures dans la démarche (IMU)",
+    "requetes": [
+     "imu gait accelerometer review",
+     "imu gait"
+    ]
+   },
+   {
+    "theme": "Santé métabolique",
+    "requetes": [
+     "diabet obesity medical cost review",
+     "diabet obesity"
+    ]
+   }
+  ],
+  "titre": "Analyser les mouvements et la santé métabolique",
+  "paragraphes": [
+   "Les unités de mesure inertielle, c'est-à-dire une combinaison d'accéléromètres, de gyroscopes et de magnétomètres dans une seule unité, permettent d'analyser les mouvements et la façon de courir [1, 2]. Depuis de nombreuses années, ces recherches ont surtout été menées en laboratoire, sur des tapis de course, avec des distances limitées [3]. La recherche actuelle cherche à sortir de ce cadre pour observer les déplacements en conditions réelles de vie quotidienne [3].",
+   "L'excès de poids est fortement lié au diabète et à la résistance à l'insuline, c'est-à-dire la difficulté des cellules à réagir à cette hormone qui régule le taux de sucre dans le sang [4, 5]. Chez les personnes obèses, certaines substances et marqueurs inflammatoires augmentent, ce qui perturbe le fonctionnement du pancréas et le contrôle du glucose [4, 6]. Les scientifiques étudient ces mécanismes complexes pour mieux comprendre le développement des maladies métaboliques [6]."
+  ],
+  "references": [
+   {
+    "titre": "Wearables for Running Gait Analysis: A Systematic Review",
+    "annee": 2022,
+    "auteurs": "Mason et al.",
+    "revue": "Sports Medicine",
+    "citations": 178,
+    "url": "https://doi.org/10.1007/s40279-022-01760-6",
+    "theme": "Signatures dans la démarche (IMU)"
+   },
+   {
+    "titre": "Gait metrics analysis utilizing single-point inertial measurement units: a systematic review",
+    "annee": 2021,
+    "auteurs": "Mobbs et al.",
+    "revue": "mHealth",
+    "citations": 107,
+    "url": "https://doi.org/10.21037/mhealth-21-17",
+    "theme": "Signatures dans la démarche (IMU)"
+   },
+   {
+    "titre": "Is This the Real Life, or Is This Just Laboratory? A Scoping Review of IMU-Based Running Gait Analysis",
+    "annee": 2022,
+    "auteurs": "Benson et al.",
+    "revue": "Sensors",
+    "citations": 122,
+    "url": "https://doi.org/10.3390/s22051722",
+    "theme": "Signatures dans la démarche (IMU)"
+   },
+   {
+    "titre": "Mechanism linking diabetes mellitus and obesity",
+    "annee": 2014,
+    "auteurs": "AlGoblan et al.",
+    "revue": "Diabetes Metabolic Syndrome and Obesity",
+    "citations": 1108,
+    "url": "https://doi.org/10.2147/dmso.s67400",
+    "theme": "Santé métabolique"
+   },
+   {
+    "titre": "The Multifunctional Role of Herbal Products in the Management of Diabetes and Obesity: A Comprehensive Review",
+    "annee": 2022,
+    "auteurs": "Rahman et al.",
+    "revue": "Molecules",
+    "citations": 164,
+    "url": "https://doi.org/10.3390/molecules27051713",
+    "theme": "Santé métabolique"
+   },
+   {
+    "titre": "Resistin- and Obesity-associated Metabolic Diseases",
+    "annee": 2007,
+    "auteurs": "Lazar",
+    "revue": "Hormone and Metabolic Research",
+    "citations": 201,
+    "url": "https://doi.org/10.1055/s-2007-985897",
+    "theme": "Santé métabolique"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
 }
