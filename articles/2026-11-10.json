@@ -1,0 +1,164 @@
+{
+ "date": "2026-11-10",
+ "faits": {
+  "date": "2026-11-10",
+  "date_longue": "10 novembre 2026",
+  "sujets": [
+   "Signatures dans la démarche (IMU)"
+  ],
+  "questions": [
+   "Les signaux d'accéléromètre et de gyroscope (téléphone, montre) trahissent-ils le genre, l'âge ou l'identité de la personne, et quels axes portent cette information ?"
+  ],
+  "datasets_analyses": [],
+  "datasets_ecartes": 8,
+  "hypotheses_testees": [
+   {
+    "id": "H37",
+    "enonce": "Le lien entre BMI et Glucose change-t-il selon le niveau de Age ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans Diabetes_Dataset, la corrélation BMI~Glucose vaut +0.07 pour « Age > 35 » contre +0.29 pour « Age ≤ 35 » (p = 0.03).",
+    "bloque_a": null,
+    "litterature": "La littérature documente abondamment l'influence de l'âge et du BMI sur l'homéostasie du glucose et la résistance à l'insuline."
+   },
+   {
+    "id": "H38",
+    "enonce": "Le lien entre FAF et Weight change-t-il selon Gender ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans Estimation_of_Obesity_Levels, la corrélation FAF~Weight vaut -0.20 pour « Gender = Male » contre -0.11 pour « Gender = Female » (p = 0.15).",
+    "bloque_a": null,
+    "litterature": "Les différences de genre dans l'activité physique et leur relation avec l'obésité sont largement étudiées en épidémiologie."
+   },
+   {
+    "id": "H39",
+    "enonce": "Insulin fait-il un saut lorsque Glucose franchit le seuil de 126 ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans Pima-Indians-Diabetes, Insulin vaut en moyenne 59.3 juste en dessous de Glucose = 126 et 109 juste au-dessus (écart +0.45 écart-type, p = 0.0021, fenêtre ±29.7).",
+    "bloque_a": "Nouveau : nouveauté non évaluée",
+    "litterature": "Le seuil de glycémie à jeun de 126 mg/dL est la définition clinique standard associée aux sauts de sécrétion insulinique."
+   },
+   {
+    "id": "H40",
+    "enonce": "Le lien entre FAF et Weight change-t-il selon SMOKE ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "pas assez de données dans les sous-groupes",
+    "bloque_a": null,
+    "litterature": "Les interactions entre mode de vie, tabagisme et activité physique sur le poids corporel font l'objet d'un consensus."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 1,
+   "réfutée": 1,
+   "confirmée": 1,
+   "non testable": 1
+  },
+  "resultats_solides": [
+   "H39"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 0,
+  "nouvelles_hypotheses": [],
+  "runs": [
+   "2026-11-10_0330_imu"
+  ]
+ },
+ "en_chiffres": [
+  "0 dataset analysé, 8 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 1 non concluante, 1 réfutée, 1 confirmée, 1 non testable",
+  "1 résultat solide (niveau ≥ 3/6)"
+ ],
+ "titre": "Enquête nocturne sur les seuils glycémiques et les pistes corporelles",
+ "chapo": "Cette nuit, la Raspberry a enquêté sur les relations entre les données corporelles et les seuils biologiques, confirmant un résultat solide tout en essuyant des réfutations utiles.",
+ "paragraphes": [
+  "L'enquête s'est penchée sur la question de savoir si les signaux d'accéléromètre et de gyroscope trahissent le genre, l'âge ou l'identité, tout en testant plusieurs hypothèses métaboliques. Parmi les pistes explorées, le test H39 concernant le saut d'insuline lorsque la glycémie franchit la valeur de 126 a abouti à un résultat solide à ce stade (niveau 4/6). En effet, l'insuline passe en moyenne de 59.3 juste en dessous à 109 juste au-dessus du seuil (avec un écart de +0.45 écart-type et un p = 0.0021).",
+  "D'autres pistes ont en revanche vacillé. L'hypothèse H38 étudiant le lien entre l'activité physique et le poids selon le genre a été réfutée, ce qui constitue une information utile pour baliser le terrain. De son côté, l'hypothèse H37 sur le lien entre l'indice de masse corporelle et le glucose selon l'âge est demeurée non concluante, tandis que le test H40 s'est révélé non testable en raison d'un manque de données dans les sous-groupes."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la prédiction du genre et de l'âge par capteurs inertiels",
+    "requetes": [
+     "smartphone IMU accelerometer age gender prediction",
+     "wearable sensor gait demographics identification"
+    ]
+   },
+   {
+    "theme": "l'analyse de la démarche par smartphone et montre connectée",
+    "requetes": [
+     "inertial measurement unit gait analysis smartphone",
+     "accelerometer gyroscope human activity recognition"
+    ]
+   }
+  ],
+  "titre": "Les capteurs de mouvement au service de la marche",
+  "paragraphes": [
+   "Les smartphones intègrent des unités de mesure inertielle, c'est-à-dire des boîtiers électroniques qui combinent des capteurs pour enregistrer les mouvements et les accélérations [1]. La recherche sait déjà utiliser ces outils pour analyser la démarche, appelée analyse de la démarche, et surveiller la façon dont une personne se déplace au quotidien [1, 2]. Jusqu'à présent, ces travaux se sont surtout concentrés sur l'évaluation de maladies ou la qualité de la course, souvent à partir d'appareils fixés sur le bas du corps ou le tronc [2, 3].",
+   "Cependant, la plupart des études ont été menées en laboratoire sur tapis de course ou sur de très courtes distances, ce qui laisse ouvert le défi d'analyser les mouvements en conditions réelles et sur de plus longues périodes [3, 4]. Les scientifiques cherchent également à perfectionner les programmes informatiques qui traitent ces signaux pour mieux exploiter le potentiel de ces technologies portables [5, 6]. Il reste ainsi à comprendre comment ces signaux de mouvement enregistrés par nos appareils trahissent nos caractéristiques personnelles."
+  ],
+  "references": [
+   {
+    "titre": "Tracking the Evolution of Smartphone Sensing for Monitoring Human Movement",
+    "annee": 2015,
+    "auteurs": "Rosario et al.",
+    "revue": "Sensors",
+    "citations": 215,
+    "url": "https://doi.org/10.3390/s150818901",
+    "theme": "la prédiction du genre et de l'âge par capteurs inertiels"
+   },
+   {
+    "titre": "Gait metrics analysis utilizing single-point inertial measurement units: a systematic review",
+    "annee": 2021,
+    "auteurs": "Mobbs et al.",
+    "revue": "mHealth",
+    "citations": 107,
+    "url": "https://doi.org/10.21037/mhealth-21-17",
+    "theme": "l'analyse de la démarche par smartphone et montre connectée"
+   },
+   {
+    "titre": "Is This the Real Life, or Is This Just Laboratory? A Scoping Review of IMU-Based Running Gait Analysis",
+    "annee": 2022,
+    "auteurs": "Benson et al.",
+    "revue": "Sensors",
+    "citations": 122,
+    "url": "https://doi.org/10.3390/s22051722",
+    "theme": "la prédiction du genre et de l'âge par capteurs inertiels"
+   },
+   {
+    "titre": "Wearable Inertial Sensors for Gait Analysis in Adults with Osteoarthritis—A Scoping Review",
+    "annee": 2020,
+    "auteurs": "Kobsar et al.",
+    "revue": "Sensors",
+    "citations": 105,
+    "url": "https://doi.org/10.3390/s20247143",
+    "theme": "l'analyse de la démarche par smartphone et montre connectée"
+   },
+   {
+    "titre": "Optimal locations and computational frameworks of FSR and IMU sensors for measuring gait abnormalities",
+    "annee": 2023,
+    "auteurs": "Manna et al.",
+    "revue": "Heliyon",
+    "citations": 36,
+    "url": "https://doi.org/10.1016/j.heliyon.2023.e15210",
+    "theme": "la prédiction du genre et de l'âge par capteurs inertiels"
+   },
+   {
+    "titre": "Validity of Wearable Inertial Sensors for Gait Analysis: A Systematic Review",
+    "annee": 2024,
+    "auteurs": "Prisco et al.",
+    "revue": "Diagnostics",
+    "citations": 163,
+    "url": "https://doi.org/10.3390/diagnostics15010036",
+    "theme": "l'analyse de la démarche par smartphone et montre connectée"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

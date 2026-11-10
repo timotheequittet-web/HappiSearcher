@@ -1,0 +1,548 @@
+{
+ "id": "2026-11-10_0330_imu",
+ "date": "2026-11-10T03:39",
+ "sujet": "Signatures dans la démarche (IMU)",
+ "question": "Les signaux d'accéléromètre et de gyroscope (téléphone, montre) trahissent-ils le genre, l'âge ou l'identité de la personne, et quels axes portent cette information ?",
+ "keywords": [
+  "imu",
+  "gait",
+  "accelerometer",
+  "gyroscope",
+  "human activity recognition",
+  "har",
+  "wisdm",
+  "smartphone sensor",
+  "fall detection",
+  "walking"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des résultats sur les datasets disponibles ne contient pas de données brutes d'IMU, d'accéléromètre ou de gyroscope pour ce cycle d'évaluation. La recherche précédente montre cependant la pertinence de l'exploration des métriques physiologiques et biométriques segmentées par sous-groupes (âge, sexe). Les pistes futures doivent cibler directement l'extraction de signatures cinématiques pour répondre à la question de l'identification du genre et de l'âge via les capteurs de mouvement.",
+  "verdicts": {},
+  "pistes": [
+   "Examiner l'importance relative des axes X, Y et Z des capteurs inertiels dans la distinction du genre.",
+   "Évaluer l'impact de la fréquence d'échantillonnage des signaux accélérométriques sur la robustesse de l'estimation de l'âge.",
+   "Croiser les mesures dynamiques de la marche avec les données anthropométriques pour affiner l'identification des sujets."
+  ],
+  "nouveautes": {
+   "37": {
+    "id": "H37",
+    "noveaute": "deja_connu",
+    "explication": "La littérature documente abondamment l'influence de l'âge et du BMI sur l'homéostasie du glucose et la résistance à l'insuline."
+   },
+   "38": {
+    "id": "H38",
+    "noveaute": "deja_connu",
+    "explication": "Les différences de genre dans l'activité physique et leur relation avec l'obésité sont largement étudiées en épidémiologie."
+   },
+   "39": {
+    "id": "H39",
+    "noveaute": "deja_connu",
+    "explication": "Le seuil de glycémie à jeun de 126 mg/dL est la définition clinique standard associée aux sauts de sécrétion insulinique."
+   },
+   "40": {
+    "id": "H40",
+    "noveaute": "deja_connu",
+    "explication": "Les interactions entre mode de vie, tabagisme et activité physique sur le poids corporel font l'objet d'un consensus."
+   }
+  },
+  "hypotheses": [],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [],
+ "datasets": [],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "Hubdata/egocentric-iphone-rgb-imu",
+   "erreur": "404 Client Error: Not Found for url: https://huggingface.co/datasets/Hubdata/egocentric-iphone-rgb-imu/resolve/main#08_iPhone_Wash_Utensils/IMU.parque"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "claudiogsc/WISDM-W",
+   "erreur": "trop petit ((4118, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "lynn-miller/WISDM",
+   "erreur": "trop petit ((17165, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Hubdata/egocentric-gopro-rgb-imu",
+   "erreur": "404 Client Error: Not Found for url: https://huggingface.co/datasets/Hubdata/egocentric-gopro-rgb-imu/resolve/main#14_GoPro_Rubiks_Cube/IMU.parquet"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "yonful/gem-analysis-wisdm",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "TianhangCheng7/IMU4DData",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "34data/sekai-real-walking",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Learningbase/poset5-gait-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 37,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "46115",
+    "x": "BMI",
+    "y": "Glucose",
+    "groupe": "Age",
+    "seuil": 35,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre BMI et Glucose change-t-il selon le niveau de Age ?",
+    "requete_biblio": "BMI fasting glucose age interaction diabetes risk"
+   },
+   "statut": "non concluante",
+   "resume": "Dans Diabetes_Dataset, la corrélation BMI~Glucose vaut +0.07 pour « Age > 35 » contre +0.29 pour « Age ≤ 35 » (p = 0.03). [Testé sur : moitié de confirmation (376 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "Age ≤ 35": {
+      "rho": 0.295,
+      "pearson": 0.322,
+      "n": 239
+     },
+     "Age > 35": {
+      "rho": 0.069,
+      "pearson": 0.045,
+      "n": 137
+     }
+    },
+    "groupe_predit_plus_fort": "Age > 35",
+    "p_difference": 0.0299,
+    "donnees_test": "moitié de confirmation (376 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.03, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "sujet": "Santé métabolique",
+   "biblio": [
+    {
+     "titre": "Diabetes Mellitus, Fasting Glucose, and Risk of Cause-Specific Death",
+     "annee": 2011,
+     "citations": 2754,
+     "url": "https://doi.org/10.1056/nejmoa1008862"
+    },
+    {
+     "titre": "Triglyceride glucose-body mass index and the risk of diabetes: a general population-based cohort study",
+     "annee": 2021,
+     "citations": 158,
+     "url": "https://doi.org/10.1186/s12944-021-01532-7"
+    },
+    {
+     "titre": "Circulating Spexin Levels Negatively Correlate With Age, BMI, Fasting Glucose, and Triglycerides in Healthy Adult Women",
+     "annee": 2018,
+     "citations": 52,
+     "url": "https://doi.org/10.1210/js.2018-00020"
+    },
+    {
+     "titre": "Fasting Plasma Free Fatty Acids and Risk of Type 2 Diabetes",
+     "annee": 2004,
+     "citations": 165,
+     "url": "https://doi.org/10.2337/diacare.27.1.77"
+    },
+    {
+     "titre": "Consumption of meat is associated with higher fasting glucose and insulin concentrations regardless of glucose and insulin genetic risk scores: a meta-analysis of 50,345 Caucasians",
+     "annee": 2015,
+     "citations": 96,
+     "url": "https://doi.org/10.3945/ajcn.114.101238"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé est bien formulé et utilise le terme correct de 'lien' pour des données observationnelles. Toutefois, le test a évalué une direction opposée à celle prédite (plus fort au-dessus de 35 vs observé plus fort en-dessous).",
+    "reformulation": "Le lien entre le BMI et le Glucose varie-t-il selon que l'âge est supérieur ou inférieur à 35 ans ?",
+    "diagnostic_statistique": "Absence de non-linéarité majeure (|Spearman - Pearson| < 0.15 dans les deux groupes). La différence entre les coefficients de corrélation est statistiquement significative (p = 0.029), mais frôle le seuil de significativité corrigé par Holm (0.025). Le groupe des moins de 35 ans montre un lien plus fort que les plus de 35 ans, contrairement à l'hypothèse initiale.",
+    "modele_recommande": "régression linéaire avec interaction y ~ x * z (où z est la tranche d'âge)",
+    "robustesse": "La taille des échantillons est correcte (n=239 et n=137) et testée sur un jeu de confirmation indépendant. Attention toutefois au seuil de correction de Holm qui rend le résultat limite.",
+    "interpretation_domaine": "La littérature confirme l'interaction métabolique entre l'âge, le BMI et le glucose, souvent liée à l'évolution de la résistance à l'insuline au cours du vieillissement. Le fait que le lien soit plus fort chez les sujets jeunes suggère que le poids joue un rôle précoce et direct sur la glycémie avant l'apparition d'autres facteurs de confusion liés à l'âge avancé.",
+    "action_pipeline": "Ajouter un mécanisme de vérification pour que le générateur d'hypothèses ajuste le sens attendu de la modération lorsque l'exploration statistique contredit l'a priori initial.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": null,
+   "nouveaute_expl": "La littérature documente abondamment l'influence de l'âge et du BMI sur l'homéostasie du glucose et la résistance à l'insuline.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 38,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "46597",
+    "x": "FAF",
+    "y": "Weight",
+    "groupe": "Gender",
+    "seuil": null,
+    "plus_fort": "Male",
+    "enonce": "Le lien entre FAF et Weight change-t-il selon Gender ?",
+    "requete_biblio": "physical activity weight sex gender differences obesity"
+   },
+   "statut": "réfutée",
+   "resume": "Dans Estimation_of_Obesity_Levels, la corrélation FAF~Weight vaut -0.20 pour « Gender = Male » contre -0.11 pour « Gender = Female » (p = 0.15). [Testé sur : moitié de confirmation (1017 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "Gender = Male": {
+      "rho": -0.2,
+      "pearson": -0.209,
+      "n": 515
+     },
+     "Gender = Female": {
+      "rho": -0.112,
+      "pearson": -0.091,
+      "n": 502
+     }
+    },
+    "groupe_predit_plus_fort": "Gender = Male",
+    "p_difference": 0.151,
+    "donnees_test": "moitié de confirmation (1017 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.15, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "sujet": "Santé métabolique",
+   "biblio": [
+    {
+     "titre": "Obesity in French Inmates: Gender Differences and Relationship with Mood, Eating Behavior and Physical Activity",
+     "annee": 2017,
+     "citations": 46,
+     "url": "https://doi.org/10.1371/journal.pone.0170413"
+    },
+    {
+     "titre": "Sex Differences in Obese Children and Siblings in Family‐based Obesity Treatment",
+     "annee": 2001,
+     "citations": 120,
+     "url": "https://doi.org/10.1038/oby.2001.103"
+    },
+    {
+     "titre": "The Physical Activity of Obese Girls",
+     "annee": 1962,
+     "citations": 46,
+     "url": "https://doi.org/10.1001/archpedi.1962.02080020829011"
+    },
+    {
+     "titre": "Relationships between physical activity, obesity and meal frequency in adolescents",
+     "annee": 2008,
+     "citations": 147,
+     "url": "https://doi.org/10.1080/03014460701779617"
+    },
+    {
+     "titre": "Sex and gender differences in childhood obesity: contributing to the research agenda",
+     "annee": 2020,
+     "citations": 262,
+     "url": "https://doi.org/10.1136/bmjnph-2020-000074"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond bien au test réalisé et utilise prudemment le terme « lien » pour des données observationnelles.",
+    "reformulation": "",
+    "diagnostic_statistique": "La différence entre les corrélations des deux groupes (r = -0.21 vs -0.09) n'est pas statistiquement significative (p = 0.15). De plus, les écarts entre Pearson et Spearman sont faibles, suggérant des relations globalement linéaires sans valeurs extrêmes majeures.",
+    "modele_recommande": "régression linéaire avec interaction y ~ FAF * Gender",
+    "robustesse": "La taille des échantillons est correcte (environ 500 par groupe) et l'évaluation a été menée sur un jeu de confirmation indépendant. Toutefois, les facteurs sociodémographiques et l'alimentation non contrôlés constituent des facteurs de confusion potentiels.",
+    "interpretation_domaine": "La littérature confirme des différences selon le sexe dans l'impact de l'activité physique sur le poids en raison de facteurs hormonaux et métaboliques, mais l'effet d'interaction n'atteint pas ici le seuil de significativité statistique.",
+    "action_pipeline": "Ajouter un contrôle systématique de la multicolinéarité et des tests d'intéraction formels (ANOVA sur modèle linéaire) avant de valider l'hétérogénéité des sous-groupes.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": null,
+   "nouveaute_expl": "Les différences de genre dans l'activité physique et leur relation avec l'obésité sont largement étudiées en épidémiologie.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "43582",
+    "x": "Glucose",
+    "y": "Insulin",
+    "seuil": 126,
+    "forme": "saut",
+    "plus_fort": "au_dessus",
+    "enonce": "Insulin fait-il un saut lorsque Glucose franchit le seuil de 126 ?",
+    "requete_biblio": "fasting glucose threshold 126 insulin secretion beta cell failure"
+   },
+   "statut": "confirmée",
+   "resume": "Dans Pima-Indians-Diabetes, Insulin vaut en moyenne 59.3 juste en dessous de Glucose = 126 et 109 juste au-dessus (écart +0.45 écart-type, p = 0.0021, fenêtre ±29.7). [Testé sur : moitié de confirmation (376 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "moy_dessous": 59.326388888888886,
+    "moy_dessus": 109.35955056179775,
+    "n_dessous": 144,
+    "n_dessus": 89,
+    "p": 0.00208,
+    "donnees_test": "moitié de confirmation (376 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.0021, seuil corrigé 0.017 (3 tests cette nuit)",
+    "confusion": "contrôle non applicable à ce type de test",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (Glucose, Insulin) parmi 12 essayés (3 simple(s) copie(s) du même dataset ignorée(s))"
+   },
+   "sujet": "Santé métabolique",
+   "confusion": [
+    null,
+    "contrôle non applicable à ce type de test"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (Glucose, Insulin) parmi 12 essayés (3 simple(s) copie(s) du même dataset ignorée(s))"
+   ],
+   "biblio": [
+    {
+     "titre": "Role of Vitamin D in Insulin Secretion and Insulin Sensitivity for Glucose Homeostasis",
+     "annee": 2009,
+     "citations": 490,
+     "url": "https://doi.org/10.1155/2010/351385"
+    },
+    {
+     "titre": "Contributions of -Cell Dysfunction and Insulin Resistance to the Pathogenesis of Impaired Glucose Tolerance and Impaired Fasting Glucose",
+     "annee": 2006,
+     "citations": 967,
+     "url": "https://doi.org/10.2337/dc05-2179"
+    },
+    {
+     "titre": "Disruption of the WFS1 gene in mice causes progressive -cell loss and impaired stimulus-secretion coupling in insulin secretion",
+     "annee": 2004,
+     "citations": 259,
+     "url": "https://doi.org/10.1093/hmg/ddh125"
+    },
+    {
+     "titre": "The relative contributions of insulin resistance and beta-cell dysfunction to the pathophysiology of Type 2 diabetes",
+     "annee": 2003,
+     "citations": 2214,
+     "url": "https://doi.org/10.1007/s00125-002-1009-0"
+    },
+    {
+     "titre": "Activation of TRPV4 channel in pancreatic INS‐1E beta cells enhances glucose‐stimulated insulin secretion via calcium‐dependent mechanisms",
+     "annee": 2013,
+     "citations": 38,
+     "url": "https://doi.org/10.1016/j.febslet.2013.08.025"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "Correcte, l'énoncé cible précisément une discontinuité (saut) au seuil clinique de 126 mg/dL.",
+    "reformulation": "",
+    "diagnostic_statistique": "Différence significative de moyenne observée entre les deux côtés du seuil (p = 0.0021, corrigé p < 0.05). La présence d'un saut reflète la transition physiologique vers un diagnostic de diabète (glycémie à jeun >= 126), où l'insulinémie varie fortement en raison de la résistance à l'insuline et de la réponse compensatrice des cellules bêta.",
+    "modele_recommande": "régression linéaire par morceaux (segmented regression) ou modèle de régression discontinue (RDD)",
+    "robustesse": "Taille d'échantillon correcte autour du seuil (n=144 et n=89), validée sur un sous-ensemble de confirmation. Attention toutefois aux biais de sélection inhérents aux cohortes de populations à haut risque comme les Pima.",
+    "interpretation_domaine": "Ce seuil correspond à la définition clinique du diabète selon l'OMS/ADA. La littérature confirme le rôle central du dysfonctionnement des cellules bêta et de l'insulinorésistance autour de cette valeur seuil de glycémie.",
+    "action_pipeline": "Généraliser la détection de seuils cliniques connus (comme 126 pour le glucose) pour tester automatiquement des ruptures de pente ou des discontinuités.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": null,
+   "nouveaute_expl": "Le seuil de glycémie à jeun de 126 mg/dL est la définition clinique standard associée aux sauts de sécrétion insulinique.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 0.0021, seuil corrigé 0.017 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "contrôle non applicable à ce type de test"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (Glucose, Insulin) parmi 12 essayés (3 simple(s) copie(s) du même dataset ignorée(s))"
+     }
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "46597",
+    "x": "FAF",
+    "y": "Weight",
+    "groupe": "SMOKE",
+    "seuil": null,
+    "plus_fort": "no",
+    "enonce": "Le lien entre FAF et Weight change-t-il selon SMOKE ?",
+    "requete_biblio": "smoking physical activity body weight interaction lifestyle"
+   },
+   "statut": "non testable",
+   "resume": "pas assez de données dans les sous-groupes [Testé sur : moitié de confirmation (1017 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "donnees_test": "moitié de confirmation (1017 lignes jamais vues à l'exploration)"
+   },
+   "sujet": "Santé métabolique",
+   "biblio": [
+    {
+     "titre": "Diet Quality, Physical Activity, Smoking Status, and Weight Fluctuation Are Associated with Weight Change in Women and Men",
+     "annee": 2010,
+     "citations": 66,
+     "url": "https://doi.org/10.3945/jn.109.120808"
+    },
+    {
+     "titre": "Case–control study of knee osteoarthritis and lifestyle factors considering their interaction with physical workload",
+     "annee": 2009,
+     "citations": 93,
+     "url": "https://doi.org/10.1007/s00420-009-0486-6"
+    },
+    {
+     "titre": "Birth weight and later life adherence to unhealthy lifestyles in predicting type 2 diabetes: prospective cohort study",
+     "annee": 2015,
+     "citations": 135,
+     "url": "https://doi.org/10.1136/bmj.h3672"
+    },
+    {
+     "titre": "Relationship between attitudes to health, body weight and physical activity and level of physical activity in a nationally representative sample in the European Union",
+     "annee": 1999,
+     "citations": 64,
+     "url": "https://doi.org/10.1017/s1368980099000142"
+    },
+    {
+     "titre": "Diet, Lifestyle, Smoking",
+     "annee": 2020,
+     "citations": 21,
+     "url": "https://doi.org/10.1007/164_2020_353"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé est correct et mesure une modération (lien X-Y selon Z), mais le test a échoué par manque d'effectifs dans les sous-groupes.",
+    "reformulation": "Le tabagisme (SMOKE) modère-t-il la relation entre l'activité physique (FAF) et le poids (Weight) ?",
+    "diagnostic_statistique": "Impossible de calculer les statistiques en raison de sous-groupes insuffisants ou vides dans l'échantillon de confirmation.",
+    "modele_recommande": "Régression linéaire multiple avec terme d'interaction : Weight ~ FAF * SMOKE, avec gestion des petits effectifs (bootstrap ou régression pénalisée).",
+    "robustesse": "Faible. La taille de l'échantillon de sous-groupe est trop faible pour garantir une puissance statistique adéquate. Risque élevé de faux négatifs ou de surajustement.",
+    "interpretation_domaine": "L'activité physique et le tabagisme sont des facteurs comportementaux majeurs influençant le poids corporel, souvent corrélés dans la littérature épidémiologique.",
+    "action_pipeline": "Ajouter un contrôle préalable de la taille minimale des sous-groupes avant d'exécuter le test de modération, et basculer sur un modèle de régression avec interaction si la partition directe échoue.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": null,
+   "nouveaute_expl": "Les interactions entre mode de vie, tabagisme et activité physique sur le poids corporel font l'objet d'un consensus.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": null,
+      "note": "nouveauté non évaluée"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
