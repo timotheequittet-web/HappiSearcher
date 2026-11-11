@@ -1,0 +1,108 @@
+{
+ "id": "2026-11-11_0330_fundus",
+ "date": "2026-11-11T03:30",
+ "sujet": "Ce que révèle l'œil",
+ "question": "Les images de l'œil (fond d'œil, rétine, iris) contiennent-elles des informations au-delà du diagnostic, comme le sexe, l'âge ou une maladie générale ?",
+ "keywords": [
+  "fundus",
+  "retina",
+  "retinal",
+  "iris",
+  "eye",
+  "ophthalm",
+  "diabetic retinopathy",
+  "glaucoma"
+ ],
+ "analyse": null,
+ "note_llm": "LLM désactivé ou aucune découverte",
+ "top": [],
+ "datasets": [],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "harvardairobotics/Fundus2RNFLT",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/splits?dataset=harvardairobotics%2FFundus2RNFLT"
+  },
+  {
+   "source": "hf_images",
+   "ref": "hwang714/retify-eyepacs",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "moondream/glaucoma-detection",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "macular/diabetic-retinopathy-grading-africa",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "yuzhench/glaucoma-expert-cot-raw-1077",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "UniDataPro/human-iris-images-biometric",
+   "erreur": "trop peu d'images récupérées (12)"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Rami/Diabetic_Retinopathy_Preprocessed_Dataset_256x256",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "arkozaini/diabetic-retinopathy-multimodal-progression-africa",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "TabBioMed/Diabetic_Retinopathy_Debrecen",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Genentech/retinal-datasets",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "arkozaini/diabetic-retinopathy-multimodal-progression-africa",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "PJMixers-Dev/Fundus-CC-2.5M-Formatted",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Zomba/STARE-structured-analysis-of-the-retina",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "tqhuyen/harvard-oct-glaucoma-200-bilateral",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "macular/diabetic-retinopathy-multimodal-progression-africa",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Peacein/color-fundus-eye",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "hyunsubs/eye-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": []
+}
