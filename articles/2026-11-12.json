@@ -1,0 +1,118 @@
+{
+ "date": "2026-11-12",
+ "faits": {
+  "date": "2026-11-12",
+  "date_longue": "12 novembre 2026",
+  "sujets": [
+   "Signaux du cœur et du cerveau"
+  ],
+  "questions": [
+   "Quels motifs des signaux ECG/EEG distinguent les individus, leur état (éveil, émotion) ou annoncent une anomalie ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Shanmuk4622/cr-rvs-radar-ecg-inventory-v2",
+    "lignes": 135,
+    "colonnes": 187,
+    "resultats_bruts": 280,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 10,
+  "hypotheses_testees": [],
+  "bilan_tests": {},
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 2,
+  "nouvelles_hypotheses": [
+   "Le lien entre I_std et duration_s change-t-il selon le scenario ?",
+   "Le lien entre duration_s et n_samples_128hz est-il plus fort au-dessus du seuil de 60.0 secondes ?"
+  ],
+  "runs": [
+   "2026-11-12_0330_ecg"
+  ]
+ },
+ "en_chiffres": [
+  "1 dataset analysé, 10 écartés (illisibles, hors sujet ou indisponibles)",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "2 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne sur les signaux du cœur et du cerveau",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté sur les motifs des signaux ECG et EEG pour distinguer les individus ou leurs états.",
+ "paragraphes": [
+  "L'enquête menée au cours de la nuit s'est penchée sur la question suivante : quels motifs des signaux ECG/EEG distinguent les individus, leur état (éveil, émotion) ou annoncent une anomalie ? Pour mener à bien cette investigation, la machine a analysé les données disponibles tout en écartant 10 datasets.",
+  "L'exploration n'a pas permis d'aboutir à un résultat solide à ce stade, aucun test n'ayant atteint ce niveau. Cependant, ce travail d'analyse a permis de formuler 2 nouvelles hypothèses pour de futures investigations, notamment sur la façon dont évoluent certains liens selon les scénarios ou les seuils de durée observés."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "biométrie et états émotionnels par signaux ECG et EEG",
+    "requetes": [
+     "ECG EEG biometric emotion recognition review",
+     "cardiac brain signals physiological monitoring"
+    ]
+   },
+   {
+    "theme": "détection d'anomalies cardiaques et cérébrales",
+    "requetes": [
+     "cardiorespiratory and brain anomaly detection",
+     "biosignal analysis anomaly detection survey"
+    ]
+   }
+  ],
+  "titre": "Décrypter les signaux du corps et de l'esprit",
+  "paragraphes": [
+   "L'électroencéphalographie (EEG), c'est-à-dire l'enregistrement de l'activité électrique du cerveau, est devenue un outil pionnier pour explorer les émotions humaines [1]. Les variations de ces signaux traduisent différents états émotionnels qui ne sont pas faciles à dissimuler [2]. La recherche sait déjà identifier ces états grâce à des algorithmes et des capteurs portables faciles à utiliser [2, 3]. Cependant, généraliser ces résultats reste difficile en raison des obstacles lors de la collecte des données et de l'écart entre les expériences en laboratoire et les émotions réelles [1].",
+   "D'autres techniques permettent d'évaluer la santé cardiovasculaire et l'activité cérébrale. Par exemple, la balistocardiographie et la sismocardiographie enregistrent les micromouvements provoqués par l'activité du cœur sur le corps [4]. La recherche a approfondi la compréhension de l'impact des perturbations physiologiques sur les interactions entre le cœur et le cerveau, confirmant leur utilité comme marqueur biologique [5]. Il reste toutefois à surmonter des défis méthodologiques pour modéliser plus finement ces signaux physiologiques [5]. Ces avancées permettent d'envisager l'analyse de signaux biologiques pour identifier les spécificités des individus, leurs états ou leurs anomalies."
+  ],
+  "references": [
+   {
+    "titre": "Mini review: Challenges in EEG emotion recognition",
+    "annee": 2024,
+    "auteurs": "Zhang et al.",
+    "revue": "Frontiers in Psychology",
+    "citations": 46,
+    "url": "https://doi.org/10.3389/fpsyg.2023.1289816",
+    "theme": "biométrie et états émotionnels par signaux ECG et EEG"
+   },
+   {
+    "titre": "Review on Emotion Recognition Based on Electroencephalography",
+    "annee": 2021,
+    "auteurs": "Liu et al.",
+    "revue": "Frontiers in Computational Neuroscience",
+    "citations": 179,
+    "url": "https://doi.org/10.3389/fncom.2021.758212",
+    "theme": "biométrie et états émotionnels par signaux ECG et EEG"
+   },
+   {
+    "titre": "EEG-Based Emotion Recognition: A State-of-the-Art Review of Current Trends and Opportunities",
+    "annee": 2020,
+    "auteurs": "Suhaimi et al.",
+    "revue": "Computational Intelligence and Neuroscience",
+    "citations": 400,
+    "url": "https://doi.org/10.1155/2020/8875426",
+    "theme": "biométrie et états émotionnels par signaux ECG et EEG"
+   },
+   {
+    "titre": "Investigating Cardiorespiratory Interaction Using Ballistocardiography and Seismocardiography—A Narrative Review",
+    "annee": 2022,
+    "auteurs": "Balali et al.",
+    "revue": "Sensors",
+    "citations": 53,
+    "url": "https://doi.org/10.3390/s22239565",
+    "theme": "détection d'anomalies cardiaques et cérébrales"
+   },
+   {
+    "titre": "Measures and Models of Brain-Heart Interactions",
+    "annee": 2025,
+    "auteurs": "Candia‐Rivera et al.",
+    "revue": "IEEE Reviews in Biomedical Engineering",
+    "citations": 39,
+    "url": "https://doi.org/10.1109/rbme.2025.3529363",
+    "theme": "détection d'anomalies cardiaques et cérébrales"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 5 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
