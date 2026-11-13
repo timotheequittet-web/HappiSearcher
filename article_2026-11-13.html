@@ -1,0 +1,236 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enquête nocturne : décoder les images médicales — HappiSearcher</title><meta name="description" content="La Raspberry Pi a enquêté cette nuit sur les liens entre les caractéristiques des images médicales et les diagnostics de tumeurs."><meta property="og:title" content="Enquête nocturne : décoder les images médicales — HappiSearcher"><meta property="og:description" content="La Raspberry Pi a enquêté cette nuit sur les liens entre les caractéristiques des images médicales et les diagnostics de tumeurs."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfaf6'/%3E%3Cpath d='M5 26h22M5 26V5' stroke='%231b1a17' stroke-width='2'/%3E%3Ccircle cx='11' cy='19' r='2.5' fill='%231f4596'/%3E%3Ccircle cx='17' cy='14' r='2.5' fill='%231f4596'/%3E%3Ccircle cx='23' cy='9' r='2.5' fill='%231f4596'/%3E%3C/svg%3E"><link rel="alternate" type="application/rss+xml" title="Journal" href="feed.xml"><link rel="preload" href="fonts/sourceserif4.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Source Serif 4';font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/sourceserif4.woff2) format('woff2')}@font-face{font-family:'Source Serif 4';font-style:italic;font-weight:200 900;font-display:swap;src:url(fonts/sourceserif4-italic.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plexmono-400.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plexmono-500.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plexmono-600.woff2) format('woff2')}
+:root{--paper:#fbfaf6;--paper2:#f2efe6;--ink:#1b1a17;--ink2:#3a3731;--muted:#6b665b;--rule:#d6d0c2;--rule2:#e8e4d9;
+--accent:#1f4596;--accent-soft:rgba(31,69,150,.12);--ok:#1d6a43;--mid:#94600a;--bad:#9e2f28;--grid:rgba(31,69,150,.07);
+--serif:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#141518;--paper2:#1c1d21;--ink:#ebe7dd;--ink2:#cfcabe;
+--muted:#9b968a;--rule:#3a3a3d;--rule2:#2a2a2e;--accent:#93acec;--accent-soft:rgba(147,172,236,.16);--ok:#6cc596;--mid:#e0ac52;
+--bad:#ef8a80;--grid:rgba(147,172,236,.06)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.62 var(--serif);font-optical-sizing:auto;
+-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
+text-decoration-color:var(--accent-soft)}a:hover{text-decoration-color:var(--accent)}
+h1,h2,h3{font-weight:600;line-height:1.18;letter-spacing:-.012em;margin:0}
+h1{font-size:2.5rem;margin:.15em 0 .35em}h3{font-size:1.18rem}
+p{margin:.55em 0}
+.mono,.kicker,.label,code{font-family:var(--mono)}
+.kicker{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.muted{color:var(--muted)}.small{font-size:.86rem}
+code{font-size:.8em;background:var(--paper2);border:1px solid var(--rule2);padding:0 .35em;border-radius:2px;word-break:break-word}
+sup{font-size:.68em;line-height:0}
+
+/* En-tête de revue */
+header.mast{border-bottom:3px double var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+background-size:14px 14px;background-position:-1px -1px}
+.mast-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 0 0}
+.mast-title{display:block;color:var(--ink);text-decoration:none;font-weight:700;letter-spacing:-.025em;
+font-size:3.2rem;line-height:1.02;padding:22px 0 6px}
+.mast-sub{font-style:italic;color:var(--ink2);max-width:640px;margin:0 0 20px;font-size:1.06rem}
+.mast.compact .mast-title{font-size:1.55rem;padding:10px 0 12px}
+.mast nav{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--ink);margin:0}
+.mast nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+text-decoration:none;padding:11px 18px 10px 0;margin-right:4px;border-bottom:2px solid transparent}
+.mast nav a.on{border-bottom-color:var(--accent);color:var(--accent)}.mast nav a:hover{color:var(--accent)}
+
+main{padding:8px 0 64px}
+.crumbs{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin:28px 0 0;color:var(--muted)}
+.crumbs a{color:var(--muted)}
+.pagehead{padding:18px 0 6px}
+.lede{font-size:1.2rem;color:var(--ink2);max-width:720px}
+.epigraph{font-style:italic;font-size:1.2rem;color:var(--ink2);border-left:2px solid var(--accent);padding:2px 0 2px 18px;
+margin:14px 0 10px;max-width:760px}
+.metaline{font-family:var(--mono);font-size:.76rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 18px;margin:10px 0}
+
+h2.sec{font-size:1.5rem;margin:56px 0 18px;padding-top:12px;border-top:2px solid var(--ink);display:flex;gap:14px;align-items:baseline}
+h2.sec .n{font-family:var(--mono);font-size:.78rem;font-weight:500;color:var(--accent);letter-spacing:.05em}
+.sec-intro{color:var(--muted);font-size:.95rem;max-width:760px;margin:-6px 0 18px}
+
+/* Résumé (abstract) */
+.abstract{background:var(--paper2);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:16px 22px;margin:22px 0;
+max-width:800px}
+.abstract .kicker{display:block;margin-bottom:6px;color:var(--ink)}
+.abstract p{margin:0;font-size:1.04rem}
+
+/* Statuts */
+.st{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;font-weight:600;white-space:nowrap;
+color:var(--muted)}
+.st::before{content:"";display:inline-block;width:.62em;height:.62em;margin-right:.45em;background:currentColor;vertical-align:.02em}
+.st-ok{color:var(--ok)}.st-mid{color:var(--mid)}.st-bad{color:var(--bad)}.st-none::before{background:none;border:1px solid currentColor}
+
+/* Jauge de pertinence */
+.gauge{display:inline-flex;gap:2px;vertical-align:-1px}
+.gauge i{width:9px;height:11px;border:1px solid var(--ink2);display:block}
+.gauge i.on{background:var(--ink2)}.gauge.solid i.on{background:var(--ok);border-color:var(--ok)}
+.gauge i.thr{margin-left:4px}
+.lvln{font-family:var(--mono);font-size:.74rem;margin-left:6px;color:var(--ink2)}
+
+/* Entrées (hypothèses, observations) */
+.entries{border-top:1px solid var(--rule)}
+.entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.entry-side{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.hid{font-family:var(--mono);font-size:1.05rem;font-weight:600;color:var(--ink)}
+.entry h3{margin:0 0 6px}
+.entry .test{font-size:.93rem;color:var(--ink2)}
+.label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:.6em;font-weight:500}
+.entry .res{margin:8px 0}
+.note{font-size:.9rem;color:var(--ink2);border-left:2px solid var(--mid);padding:2px 0 2px 12px;margin:10px 0}
+.note.bad{border-color:var(--bad)}
+.evid{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center;margin:14px 0 6px}
+.statline{font-family:var(--mono);font-size:.74rem;color:var(--ink2);line-height:1.7}
+.statline b{font-weight:600;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px}
+.entry-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:12px}
+.entry-meta a{color:var(--muted)}
+
+/* Graphique par groupe */
+figure.dumb{margin:0;flex:0 0 auto}
+figure.dumb svg{display:block;width:260px;max-width:100%;height:auto;overflow:visible}
+figure.dumb figcaption{font-family:var(--mono);font-size:.64rem;color:var(--muted);letter-spacing:.03em}
+
+/* Échelle détaillée */
+ol.ladder{list-style:none;padding:0;margin:14px 0 4px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+border:1px solid var(--rule);background:var(--paper)}
+ol.ladder li{padding:7px 8px 6px;border-right:1px solid var(--rule);font-family:var(--mono);font-size:.66rem;line-height:1.3;
+color:var(--muted);position:relative}
+ol.ladder li:last-child{border-right:0}
+ol.ladder li .k{display:block;font-size:.62rem;opacity:.8}
+ol.ladder li .nm{display:block;color:var(--ink2);font-weight:500;letter-spacing:.01em}
+ol.ladder li .mk{position:absolute;top:6px;right:7px;font-weight:600}
+ol.ladder li.ok{background:var(--accent-soft)}ol.ladder li.ok .mk{color:var(--ok)}
+ol.ladder li.bad .mk{color:var(--bad)}ol.ladder li.bad .nm{color:var(--bad)}
+ol.ladder li.after{opacity:.45}
+ol.ladder li.thr{box-shadow:inset 3px 0 0 var(--ink)}
+
+details{margin:8px 0}details summary{cursor:pointer;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+text-transform:uppercase;color:var(--accent);list-style:none}details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+ ";font-weight:600}details[open] summary::before{content:"− "}
+details .dbody{font-size:.9rem;padding:8px 0 4px 14px;border-left:1px solid var(--rule);margin-top:6px}
+details .dbody ul{margin:.2em 0;padding-left:1.1em}details .dbody li{margin:.25em 0}
+
+/* Filtres */
+.filters{display:flex;flex-wrap:wrap;gap:0;margin:0 0 4px;border:1px solid var(--ink);width:max-content;max-width:100%}
+.filters button{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:0;
+border-right:1px solid var(--ink);background:transparent;color:var(--ink);padding:7px 12px;cursor:pointer}
+.filters button:last-child{border-right:0}.filters button.on{background:var(--ink);color:var(--paper)}
+
+/* Accueil */
+.lead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:44px;padding:34px 0 8px;align-items:start}
+.lead h2{font-size:2.1rem;line-height:1.12;margin:8px 0 12px;letter-spacing:-.02em}
+.lead h2 a{color:var(--ink);text-decoration:none}.lead h2 a:hover{color:var(--accent)}
+.lead .chapo{font-size:1.15rem;color:var(--ink2)}
+.more{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+figure.fig{margin:0;border-top:1px solid var(--ink);padding-top:10px}
+figure.fig figcaption{font-size:.84rem;color:var(--ink2);margin-top:10px;line-height:1.45}
+figure.fig figcaption b{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.funnel{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:9px 12px;align-items:center;margin-top:6px}
+.funnel .fl{font-size:.88rem;color:var(--ink2);line-height:1.25}
+.funnel .fb{height:14px;background:var(--rule2);position:relative}
+.funnel .fb span{position:absolute;inset:0 auto 0 0;background:var(--ink2)}
+.funnel .fb.hi span{background:var(--accent)}
+.funnel .fv{font-family:var(--mono);font-size:.9rem;font-weight:600;text-align:right;min-width:2ch}
+
+table.res{width:100%;border-collapse:collapse;font-size:.95rem}
+table.res caption{text-align:left;caption-side:top;font-size:.86rem;color:var(--ink2);padding-bottom:10px}
+table.res caption b{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+table.res th{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted);
+text-align:left;padding:8px 14px 8px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+table.res td{padding:16px 14px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.res tr:last-child td{border-bottom:2px solid var(--ink)}
+table.res td.id{font-family:var(--mono);font-weight:600;white-space:nowrap}
+table.res td.num{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+table.res .q{font-weight:600;line-height:1.3}
+table.res .sub{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.4}
+
+.toc{border-top:1px solid var(--ink)}
+.toc a.row{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:6px 24px;padding:16px 0;border-bottom:1px solid var(--rule);
+color:inherit;text-decoration:none;align-items:baseline}
+.toc a.row:hover .t{color:var(--accent)}
+.toc .d{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.toc .t{font-weight:600;font-size:1.12rem;line-height:1.3;display:block}
+.toc .c{display:block;color:var(--ink2);font-size:.94rem;margin-top:3px}
+.toc .no{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.tonight{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 24px;padding:16px 0;border-top:1px solid var(--ink);
+border-bottom:1px solid var(--rule)}
+.tonight .t{font-weight:600;font-size:1.12rem}
+
+/* Article */
+.art{display:grid;grid-template-columns:minmax(0,680px) 250px;gap:56px;justify-content:space-between;padding-top:6px}
+.art h1{font-size:2.6rem;letter-spacing:-.022em}
+.art .body p{font-size:1.1rem;line-height:1.7;hyphens:auto}
+.art .body > p:first-of-type::first-letter{font-size:3.4em;float:left;line-height:.86;padding:6px 8px 0 0;font-weight:600}
+aside.side{font-size:.9rem;position:sticky;top:20px;align-self:start}
+aside.side .box{border-top:2px solid var(--ink);padding-top:10px;margin-bottom:28px}
+aside.side ul{list-style:none;padding:0;margin:8px 0 0}
+aside.side li{padding:8px 0;border-bottom:1px solid var(--rule2);line-height:1.4}
+aside.side li .big{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:600;line-height:1.1;color:var(--ink)}
+
+/* État de l'art et références */
+section.soa{border-top:1px solid var(--ink);margin:30px 0 34px;padding-top:12px}
+section.soa h2{font-size:1.45rem;margin:6px 0 10px;letter-spacing:-.015em}
+section.soa p{font-size:1.04rem;line-height:1.66}
+section.soa .soa-note{font-size:.8rem;color:var(--muted);font-family:var(--mono);margin-top:10px;line-height:1.5}
+.night-k{display:block;border-top:1px solid var(--ink);padding-top:12px;margin-bottom:6px}
+sup.cite{font-family:var(--mono);font-size:.66em;font-weight:600;line-height:0;margin-left:1px}
+sup.cite a{text-decoration:none}
+ol.refs{list-style:none;padding:0;margin:10px 0 0;counter-reset:r}
+ol.refs li{position:relative;padding:9px 0 9px 34px;border-bottom:1px solid var(--rule2);font-size:.9rem;line-height:1.45;
+counter-increment:r}
+ol.refs li::before{content:"[" counter(r) "]";position:absolute;left:0;top:9px;font-family:var(--mono);font-size:.76rem;
+color:var(--accent);font-weight:600}
+ol.refs li:target{background:var(--accent-soft)}
+ol.refs .rt{font-style:italic}ol.refs .rm{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+section.biblio{border-top:2px solid var(--ink);margin-top:40px;padding-top:12px}
+
+/* Données */
+.ds{padding:22px 0;border-bottom:1px solid var(--rule)}
+.ds h3 a{color:var(--ink)}
+figure.plot{margin:14px 0 0}
+figure.plot img{display:block;max-width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:6px}
+figure.plot figcaption{font-size:.82rem;color:var(--ink2);margin-top:6px}
+figure.plot figcaption b{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
+ul.raw{list-style:none;padding:0;margin:0;font-size:.86rem}ul.raw li{padding:4px 0;border-bottom:1px dotted var(--rule)}
+
+/* Méthode */
+.prose{max-width:720px}.prose p,.prose li{font-size:1.06rem}
+ol.steps{list-style:none;padding:0;margin:20px 0;counter-reset:s;max-width:760px}
+ol.steps li{position:relative;padding:4px 0 20px 56px;counter-increment:s}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border:1.5px solid var(--ink);
+border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:600;background:var(--paper)}
+ol.steps li::after{content:"";position:absolute;left:17px;top:36px;bottom:0;border-left:1px solid var(--rule)}
+ol.steps li:last-child::after{display:none}
+ol.steps li b{display:block;font-size:1.1rem}
+ol.steps li.thr{margin-top:22px}
+ol.steps li.thr .seuil{position:absolute;left:0;right:0;top:-22px;border-top:1px dashed var(--ink);font-family:var(--mono);
+font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding-top:2px;text-align:right}
+ol.steps li.top::before{background:var(--ink);color:var(--paper)}
+
+.subjects .row{grid-template-columns:minmax(0,1fr) auto}
+.counts{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px;margin-top:6px}
+
+footer.site{border-top:3px double var(--ink);padding:22px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site .cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px}
+footer.site a{color:var(--ink2)}
+
+@media (max-width:900px){
+ .lead,.art{grid-template-columns:minmax(0,1fr);gap:28px}
+ aside.side{position:static}
+}
+@media (max-width:640px){
+ body{font-size:17px}.wrap{padding:0 16px}
+ h1,.art h1{font-size:1.9rem}.mast-title{font-size:2.15rem;padding-top:16px}.lead h2{font-size:1.6rem}
+ .mast nav a{padding-right:9px;margin-right:0;font-size:.66rem;letter-spacing:.04em}
+ .entry{grid-template-columns:minmax(0,1fr);gap:6px}
+ .entry-side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px}
+ ol.ladder{grid-template-columns:repeat(3,minmax(0,1fr))}
+ ol.ladder li:nth-child(3){border-right:0}ol.ladder li:nth-child(-n+3){border-bottom:1px solid var(--rule)}
+ .toc a.row,.tonight{grid-template-columns:minmax(0,1fr);gap:2px}.toc .no{display:none}
+ table.res thead{display:none}table.res,table.res tbody,table.res tr,table.res td,table.res caption{display:block;width:100%}
+ table.res tr{border-bottom:1px solid var(--rule);padding:12px 0}table.res tr:last-child{border-bottom:2px solid var(--ink)}
+ table.res td{border:0!important;padding:3px 0}
+ footer.site .cols{grid-template-columns:minmax(0,1fr)}
+ .filters{width:auto}
+}
+</style></head><body><header class="mast compact"><div class="wrap"><div class="mast-top kicker"><span>Carnet de recherche nocturne · données publiques</span><span>N° 12 · 13 novembre 2026</span></div><a class="mast-title" href="index.html">HappiSearcher</a><nav><a href="index.html">Accueil</a><a href="journal.html" class=on>Journal</a><a href="hypotheses.html">Hypothèses</a><a href="sujets.html">Sujets</a><a href="methode.html">Méthode</a></nav></div></header><main><div class="wrap"><p class="crumbs"><a href="journal.html">Journal</a> / N° 12</p><div class="art"><article class="body"><span class="kicker">13 novembre 2026 · Imagerie médicale et attributs cachés</span><h1>Enquête nocturne : décoder les images médicales</h1><div class="abstract"><span class="kicker">En bref</span><p>La Raspberry Pi a enquêté cette nuit sur les liens entre les caractéristiques des images médicales et les diagnostics de tumeurs.</p></div><section class="soa"><span class="kicker">État de l'art · ce que l'on sait déjà</span><h2>Décoder les images médicales</h2><p>L&#x27;imagerie médicale permet d&#x27;obtenir des examens de l&#x27;intérieur du corps, comme l&#x27;IRM (l&#x27;imagerie par résonance magnétique, une technique pour visualiser les organes en détail). Ces examens aident à repérer des masses anormales dans le cerveau, souvent appelées tumeurs<sup class="cite"><a href="#ref-1">1</a></sup>. La recherche développe des outils informatiques pour identifier automatiquement le type de ces lésions à partir des images<sup class="cite"><a href="#ref-2">2</a>,<a href="#ref-3">3</a></sup>.</p><p>Une autre approche, appelée radiomique, utilise des analyses mathématiques pour étudier les textures et la disposition des signaux dans les images médicales<sup class="cite"><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup>. Cette méthode cherche à extraire des informations invisibles à l&#x27;œil nu pour améliorer le diagnostic en oncologie (la science qui étudie et traite les cancers)<sup class="cite"><a href="#ref-6">6</a></sup>. Reste à savoir si ces analyses poussées révèlent des caractéristiques cachées des patients, comme leur âge ou leur sexe.</p><p class="soa-note">Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement.</p></section><span class="kicker night-k">Cette nuit</span><p>L&#x27;enquête cherchait à comprendre si les images médicales permettent de retrouver des attributs cachés ou des diagnostics. Face aux hypothèses testées, l&#x27;exploration s&#x27;est heurtée à des limites : 2 hypothèses ont été jugées non testables faute de données suffisantes dans les sous-groupes, ce qui montre qu&#x27;un test réfuté ou bloqué reste une information utile pour réorienter les recherches futures.</p><p>Malgré ces obstacles, l&#x27;analyse a mis en lumière de nouvelles pistes. Un lien a été observé entre l&#x27;asymétrie des intensités et le type de tumeur, ainsi qu&#x27;entre la répartition spatiale de l&#x27;intensité et la classe de diagnostic. De plus, il est apparu que la classe de la tumeur est prédictible en utilisant uniquement un ensemble de statistiques visuelles simples. Ces pistes obtenues ouvrent la voie à 2 nouvelles hypothèses pour la suite des travaux de la Raspberry.</p><p class="small muted" style="margin-top:28px">Rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement.</p><section class="biblio"><span class="kicker">Références</span><ol class="refs"><li id="ref-1">Young &amp; Knopp (2006). <a class="rt" href="https://doi.org/10.1002/jmri.20704" target="_blank" rel="noopener">Brain MRI: Tumor evaluation</a>. <span class="rm">Journal of Magnetic Resonance Imaging · 92 citations</span></li><li id="ref-2">Dorfner et al. (2025). <a class="rt" href="https://doi.org/10.1038/s41698-024-00789-2" target="_blank" rel="noopener">A review of deep learning for brain tumor analysis in MRI</a>. <span class="rm">npj Precision Oncology · 279 citations</span></li><li id="ref-3">Kaifi (2023). <a class="rt" href="https://doi.org/10.3390/diagnostics13183007" target="_blank" rel="noopener">A Review of Recent Advances in Brain Tumor Diagnosis Based on AI-Based Classification</a>. <span class="rm">Diagnostics · 177 citations</span></li><li id="ref-4">Timmeren et al. (2020). <a class="rt" href="https://doi.org/10.1186/s13244-020-00887-2" target="_blank" rel="noopener">Radiomics in medical imaging—“how-to” guide and critical reflection</a>. <span class="rm">Insights into Imaging · 1428 citations</span></li><li id="ref-5">Scalco &amp; Rizzo (2016). <a class="rt" href="https://doi.org/10.1259/bjr.20160642" target="_blank" rel="noopener">Texture analysis of medical images for radiotherapy applications</a>. <span class="rm">British Journal of Radiology · 176 citations</span></li><li id="ref-6">Litvin et al. (2021). <a class="rt" href="https://doi.org/10.17691/stm2021.13.2.11" target="_blank" rel="noopener">Radiomics and Digital Image Texture Analysis in Oncology (Review)</a>. <span class="rm">Современные технологии в медицине · 73 citations</span></li></ol></section></article><aside class="side"><div class="box"><span class="kicker">En chiffres (calculés)</span><ul><li><span class="big">1</span>dataset analysé, 9 écartés (illisibles, hors sujet ou indisponibles)</li><li><span class="big">2</span>hypothèses testées : 2 non testable</li><li><span class="big">0</span>résultat solide (niveau ≥ 3/6)</li><li><span class="big">2</span>nouvelles hypothèses pour la nuit prochaine</li></ul></div><div class="box"><span class="kicker">Sources</span><ul><li><a href="2026-11-13_0330_ham10000.html">Rapport 2026-11-13_0330_ham10000</a></li></ul></div></aside></div><h2 class="sec"><span class="n">01</span>Les hypothèses testées cette nuit</h2><div class="entries"><article class="entry"><div class="entry-side"><span class="hid">H41</span><span class="st st-none">Non testable</span><span title="Niveau 0/6 de l'échelle de pertinence"><span class="gauge"><i class=""></i><i class=""></i><i class=""></i><i class=" thr"></i><i class=""></i><i class=""></i></span><span class="lvln">0/6</span></span></div><div class="entry-main"><h3>Le lien entre I_std et duration_s change-t-il selon le scenario ?</h3><p class="test"><span class="label">Test · Sous-groupe</span>Le lien entre I_std et duration_s change-t-il selon scenario ?</p><p class="res">pas assez de données dans les sous-groupes</p><div class="evid"><div class="statline">toutes les données (dataset trop petit pour être coupé : test NON indépendant)</div></div><ol class="ladder" aria-label="Échelle de pertinence, niveau 0 sur 6"><li class="bad" title="non testable"><span class="k">1</span><span class="nm">Réel</span><span class="mk">✗</span></li><li class="after" title="variables nommées"><span class="k">2</span><span class="nm">Interprétable</span><span class="mk">✓</span></li><li class="after" title="avis d&#x27;expert : A_TESTER_AUTREMENT"><span class="k">3</span><span class="nm">Non trivial</span><span class="mk">✗</span></li><li class="after thr" title="non vérifié"><span class="k">4</span><span class="nm">Non artefactuel</span><span class="mk">·</span></li><li class="after" title="déjà connu"><span class="k">5</span><span class="nm">Nouveau</span><span class="mk">✗</span></li><li class="after" title="non vérifié"><span class="k">6</span><span class="nm">Généralisable</span><span class="mk">·</span></li></ol><details><summary>Détail de l'échelle (niveau 0/6)</summary><div class="dbody"><ul><li><b>1. Réel</b> — non testable</li><li><b>2. Interprétable</b> — variables nommées</li><li><b>3. Non trivial</b> — avis d&#x27;expert : A_TESTER_AUTREMENT</li><li><b>4. Non artefactuel</b> — non vérifié</li><li><b>5. Nouveau</b> — déjà connu</li><li><b>6. Généralisable</b> — non vérifié</li></ul></div></details><p class="small"><span class="label">Littérature · Déjà connu</span>La littérature sur l&#x27;authentification biométrique par radar ou les signaux physiologiques est bien documentée mais hors sujet par rapport à l&#x27;imagerie cérébrale.</p><details><summary>Articles proches (5)</summary><div class="dbody"><ul><li><a href="https://doi.org/10.3390/info15010044" target="_blank" rel="noopener">Radar-Based Invisible Biometric Authentication</a> <span class="muted mono small">2024 · 9 cit.</span></li><li><a href="https://doi.org/10.3390/s25030690" target="_blank" rel="noopener">Implementation of Wearable Technology for Remote Heart Rate Variability Biofeedback in Cardiac Rehabilitation</a> <span class="muted mono small">2025 · 6 cit.</span></li><li><a href="https://doi.org/10.3390/s24051420" target="_blank" rel="noopener">Remote Emotion Recognition Using Continuous-Wave Bio-Radar System</a> <span class="muted mono small">2024 · 10 cit.</span></li><li><a href="https://doi.org/10.3390/diagnostics16010161" target="_blank" rel="noopener">Challenges in the Classification of Cardiac Arrhythmias and Ischemia Using End-to-End Deep Learning and the Electrocardiogram: A Systematic Review</a> <span class="muted mono small">2026 · 13 cit.</span></li><li><a href="https://doi.org/10.1109/jbhi.2013.2290382" target="_blank" rel="noopener">Wearable Monitoring for Mood Recognition in Bipolar Disorder Based on History-Dependent Long-Term Heart Rate Variability Analysis</a> <span class="muted mono small">2013 · 167 cit.</span></li></ul></div></details><details><summary>Avis critique (LLM) : à tester autrement</summary><div class="dbody"><ul><li><b>Formulation :</b> La formulation est correcte sur le plan sémantique en utilisant le terme &#x27;lien&#x27; pour des données observationnelles, mais le test n&#x27;a pas pu être réalisé par manque de données dans les sous-groupes.</li><li><b>Reformulation proposée :</b> Le scénario modifie-t-il la relation entre I_std et duration_s ?</li><li><b>Diagnostic statistique :</b> Impossible d&#x27;évaluer la non-linéarité ou la modération en raison d&#x27;un échantillon global trop restreint et d&#x27;une impossibilité de segmenter par scénario de manière indépendante.</li><li><b>Modèle recommandé :</b> régression avec interaction y ~ x * z (si n suffisant) ou ANOVA à deux facteurs</li><li><b>Robustesse :</b> Faible. Taille d&#x27;échantillon insuffisante pour estimer des effets de modération par sous-groupe, risque élevé de surajustement et de biais d&#x27;échantillon.</li><li><b>Interprétation :</b> En télésurveillance par radar et bio-signaux, les caractéristiques du signal (I_std) et la durée des enregistrements varient selon le protocole expérimental (scénario). Cependant, sans données stratifiées adéquates, il est impossible de confirmer cet effet.</li><li><b>Amélioration du pipeline :</b> Ajouter un filtre de taille minimale d&#x27;échantillon par groupe avant de déclencher des tests de modération ou d&#x27;interaction.</li></ul><span class="muted small">Relecteur automatique : gemini-3.5-flash-lite</span></div></details><div class="entry-meta">x <code>I_std</code> · y <code>duration_s</code> · groupe <code>scenario</code></div></div></article><article class="entry"><div class="entry-side"><span class="hid">H42</span><span class="st st-none">Non testable</span><span title="Niveau 0/6 de l'échelle de pertinence"><span class="gauge"><i class=""></i><i class=""></i><i class=""></i><i class=" thr"></i><i class=""></i><i class=""></i></span><span class="lvln">0/6</span></span></div><div class="entry-main"><h3>Le lien entre duration_s et n_samples_128hz est-il plus fort au-dessus du seuil de 60.0 secondes ?</h3><p class="test"><span class="label">Test · Seuil</span>Le lien entre duration_s et n_samples_128hz est-il plus fort au-dessus de duration_s = 60.0 ?</p><p class="res">pas assez de données dans les sous-groupes</p><div class="evid"><div class="statline">toutes les données (dataset trop petit pour être coupé : test NON indépendant)</div></div><ol class="ladder" aria-label="Échelle de pertinence, niveau 0 sur 6"><li class="bad" title="non testable"><span class="k">1</span><span class="nm">Réel</span><span class="mk">✗</span></li><li class="after" title="variables nommées"><span class="k">2</span><span class="nm">Interprétable</span><span class="mk">✓</span></li><li class="after" title="avis d&#x27;expert : A_TESTER_AUTREMENT"><span class="k">3</span><span class="nm">Non trivial</span><span class="mk">✗</span></li><li class="after thr" title="non vérifié"><span class="k">4</span><span class="nm">Non artefactuel</span><span class="mk">·</span></li><li class="after" title="déjà connu"><span class="k">5</span><span class="nm">Nouveau</span><span class="mk">✗</span></li><li class="after" title="non vérifié"><span class="k">6</span><span class="nm">Généralisable</span><span class="mk">·</span></li></ol><details><summary>Détail de l'échelle (niveau 0/6)</summary><div class="dbody"><ul><li><b>1. Réel</b> — non testable</li><li><b>2. Interprétable</b> — variables nommées</li><li><b>3. Non trivial</b> — avis d&#x27;expert : A_TESTER_AUTREMENT</li><li><b>4. Non artefactuel</b> — non vérifié</li><li><b>5. Nouveau</b> — déjà connu</li><li><b>6. Généralisable</b> — non vérifié</li></ul></div></details><p class="small"><span class="label">Littérature · Déjà connu</span>L&#x27;enregistrement des signes vitaux et la charge de travail infirmière sont des sujets classiques de recherche clinique sans lien direct avec les attributs cachés en imagerie médicale.</p><details><summary>Articles proches (5)</summary><div class="dbody"><ul><li><a href="https://doi.org/10.1016/j.nedt.2015.04.013" target="_blank" rel="noopener">Student nurses’ recognition of early signs of abnormal vital sign recordings</a> <span class="muted mono small">2015 · 21 cit.</span></li><li><a href="https://doi.org/10.1136/bmjqs-2013-001954" target="_blank" rel="noopener">Patterns in the recording of vital signs and early warning scores: compliance with a clinical escalation protocol</a> <span class="muted mono small">2013 · 156 cit.</span></li><li><a href="https://doi.org/10.3390/s101210837" target="_blank" rel="noopener">Detecting Vital Signs with Wearable Wireless Sensors</a> <span class="muted mono small">2010 · 346 cit.</span></li><li><a href="https://doi.org/10.1111/jocn.15202" target="_blank" rel="noopener">What is the nursing time and workload involved in taking and recording patients’ vital signs? A systematic review</a> <span class="muted mono small">2020 · 47 cit.</span></li><li><a href="https://doi.org/10.1371/journal.pone.0296319" target="_blank" rel="noopener">Development of novel optical character recognition system to reduce recording time for vital signs and prescriptions: A simulation-based study</a> <span class="muted mono small">2024 · 19 cit.</span></li></ul></div></details><details><summary>Avis critique (LLM) : à tester autrement</summary><div class="dbody"><ul><li><b>Formulation :</b> La formulation est claire et teste correctement un effet de seuil sur des données observationnelles (« lien » et non « effet »).</li><li><b>Diagnostic statistique :</b> Le test est non réalisable en raison d&#x27;un effectif insuffisant dans les sous-groupes définis par le seuil de 60 secondes.</li><li><b>Modèle recommandé :</b> régression segmentée ou modèle linéaire par morceaux (piecewise regression) pour capturer le changement de pente sans couper brutalement l&#x27;échantillon.</li><li><b>Robustesse :</b> La taille d&#x27;échantillon est trop faible pour permettre une division par sous-groupes, ce qui fragilise la puissance statistique et expose à un surajustement.</li><li><b>Amélioration du pipeline :</b> Ajouter un contrôle préalable de la taille des sous-groupes avant de déclencher des tests segmentés, et basculer automatiquement vers une régression avec effet de seuil (spline ou modèle linéaire segmenté) quand l&#x27;échantillon global est réduit.</li></ul><span class="muted small">Relecteur automatique : gemini-3.5-flash-lite</span></div></details><div class="entry-meta">x <code>duration_s</code> · y <code>n_samples_128hz</code> · seuil <code>60.0</code></div></div></article></div></div></main><footer class="site"><div class="wrap cols"><div><b class="kicker">Colophon</b><br>Généré automatiquement chaque nuit par une Raspberry Pi 5 à partir de données publiques (OpenML, Hugging Face). Les résultats sont des liens statistiques sur des données d'observation, pas des conclusions scientifiques ni des causes.</div><div><a href="methode.html">Méthode et garde-fous</a><br><a href="journal.html">Journal</a> · <a href="feed.xml">Flux RSS</a></div></div></footer></body></html>

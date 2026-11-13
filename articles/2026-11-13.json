@@ -1,0 +1,173 @@
+{
+ "date": "2026-11-13",
+ "faits": {
+  "date": "2026-11-13",
+  "date_longue": "13 novembre 2026",
+  "sujets": [
+   "Imagerie médicale et attributs cachés"
+  ],
+  "questions": [
+   "Les images médicales (peau, radio, IRM) permettent-elles de retrouver le sexe ou l'âge du patient, et ces informations biaisent-elles les diagnostics ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "lignes": 360,
+    "colonnes": 12,
+    "resultats_bruts": 7,
+    "confirmes_sur_moitie_independante": 6
+   }
+  ],
+  "datasets_ecartes": 9,
+  "hypotheses_testees": [
+   {
+    "id": "H41",
+    "enonce": "Le lien entre I_std et duration_s change-t-il selon le scenario ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "pas assez de données dans les sous-groupes",
+    "bloque_a": null,
+    "litterature": "La littérature sur l'authentification biométrique par radar ou les signaux physiologiques est bien documentée mais hors sujet par rapport à l'imagerie cérébrale."
+   },
+   {
+    "id": "H42",
+    "enonce": "Le lien entre duration_s et n_samples_128hz est-il plus fort au-dessus du seuil de 60.0 secondes ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "pas assez de données dans les sous-groupes",
+    "bloque_a": null,
+    "litterature": "L'enregistrement des signes vitaux et la charge de travail infirmière sont des sujets classiques de recherche clinique sans lien direct avec les attributs cachés en imagerie médicale."
+   }
+  ],
+  "bilan_tests": {
+   "non testable": 2
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "variables": "asymetrie_intensites -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "L'asymétrie des intensités est significativement liée au type de tumeur dans les IRM, ce qui concorde avec la morphologie tumorale.",
+    "detail": "confirmé — η² = 0.42, p = 6.1e-18 sur 185 autres images (découverte : 0.408)"
+   },
+   {
+    "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "variables": "centre_vs_bord -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La répartition spatiale de l'intensité (centre vs bord) varie selon la classe de diagnostic, reflétant la localisation anatomique de la lésion.",
+    "detail": "confirmé — η² = 0.25, p = 3.2e-11 sur 185 autres images (découverte : 0.261)"
+   },
+   {
+    "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "variables": "12 stats visuelles -> classe",
+    "type": "classe_predictible_par_stats_simples",
+    "explication": "Il est possible de prédire la classe de la tumeur en utilisant uniquement un ensemble de statistiques visuelles simples extraites des images.",
+    "detail": "confirmé — précision 0.75 sur d'autres images (hasard 0.33)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 2,
+  "nouvelles_hypotheses": [
+   "Peut-on prédire la classe de la tumeur en utilisant seulement les variables normalisées asymetrie_intensites et centre_vs_bord ?",
+   "Le lien entre asymetrie_intensites et centre_vs_bord est-il plus fort au-dessus du seuil de 0.5 pour asymetrie_intensites ?"
+  ],
+  "runs": [
+   "2026-11-13_0330_ham10000"
+  ]
+ },
+ "en_chiffres": [
+  "1 dataset analysé, 9 écartés (illisibles, hors sujet ou indisponibles)",
+  "2 hypothèses testées : 2 non testable",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "2 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne : décoder les images médicales",
+ "chapo": "La Raspberry Pi a enquêté cette nuit sur les liens entre les caractéristiques des images médicales et les diagnostics de tumeurs.",
+ "paragraphes": [
+  "L'enquête cherchait à comprendre si les images médicales permettent de retrouver des attributs cachés ou des diagnostics. Face aux hypothèses testées, l'exploration s'est heurtée à des limites : 2 hypothèses ont été jugées non testables faute de données suffisantes dans les sous-groupes, ce qui montre qu'un test réfuté ou bloqué reste une information utile pour réorienter les recherches futures.",
+  "Malgré ces obstacles, l'analyse a mis en lumière de nouvelles pistes. Un lien a été observé entre l'asymétrie des intensités et le type de tumeur, ainsi qu'entre la répartition spatiale de l'intensité et la classe de diagnostic. De plus, il est apparu que la classe de la tumeur est prédictible en utilisant uniquement un ensemble de statistiques visuelles simples. Ces pistes obtenues ouvrent la voie à 2 nouvelles hypothèses pour la suite des travaux de la Raspberry."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "l'analyse des caractéristiques d'image pour la classification des tumeurs cérébrales en IRM",
+    "requetes": [
+     "brain tumor MRI feature classification",
+     "medical imaging tumor classification review"
+    ]
+   },
+   {
+    "theme": "l'extraction de statistiques visuelles et de texture en imagerie médicale",
+    "requetes": [
+     "radiomics texture analysis medical imaging",
+     "image statistics in medical diagnosis"
+    ]
+   }
+  ],
+  "titre": "Décoder les images médicales",
+  "paragraphes": [
+   "L'imagerie médicale permet d'obtenir des examens de l'intérieur du corps, comme l'IRM (l'imagerie par résonance magnétique, une technique pour visualiser les organes en détail). Ces examens aident à repérer des masses anormales dans le cerveau, souvent appelées tumeurs [1]. La recherche développe des outils informatiques pour identifier automatiquement le type de ces lésions à partir des images [2, 3].",
+   "Une autre approche, appelée radiomique, utilise des analyses mathématiques pour étudier les textures et la disposition des signaux dans les images médicales [4, 5]. Cette méthode cherche à extraire des informations invisibles à l'œil nu pour améliorer le diagnostic en oncologie (la science qui étudie et traite les cancers) [6]. Reste à savoir si ces analyses poussées révèlent des caractéristiques cachées des patients, comme leur âge ou leur sexe."
+  ],
+  "references": [
+   {
+    "titre": "Brain MRI: Tumor evaluation",
+    "annee": 2006,
+    "auteurs": "Young & Knopp",
+    "revue": "Journal of Magnetic Resonance Imaging",
+    "citations": 92,
+    "url": "https://doi.org/10.1002/jmri.20704",
+    "theme": "l'analyse des caractéristiques d'image pour la classification des tumeurs cérébrales en IRM"
+   },
+   {
+    "titre": "A review of deep learning for brain tumor analysis in MRI",
+    "annee": 2025,
+    "auteurs": "Dorfner et al.",
+    "revue": "npj Precision Oncology",
+    "citations": 279,
+    "url": "https://doi.org/10.1038/s41698-024-00789-2",
+    "theme": "l'analyse des caractéristiques d'image pour la classification des tumeurs cérébrales en IRM"
+   },
+   {
+    "titre": "A Review of Recent Advances in Brain Tumor Diagnosis Based on AI-Based Classification",
+    "annee": 2023,
+    "auteurs": "Kaifi",
+    "revue": "Diagnostics",
+    "citations": 177,
+    "url": "https://doi.org/10.3390/diagnostics13183007",
+    "theme": "l'analyse des caractéristiques d'image pour la classification des tumeurs cérébrales en IRM"
+   },
+   {
+    "titre": "Radiomics in medical imaging—“how-to” guide and critical reflection",
+    "annee": 2020,
+    "auteurs": "Timmeren et al.",
+    "revue": "Insights into Imaging",
+    "citations": 1428,
+    "url": "https://doi.org/10.1186/s13244-020-00887-2",
+    "theme": "l'extraction de statistiques visuelles et de texture en imagerie médicale"
+   },
+   {
+    "titre": "Texture analysis of medical images for radiotherapy applications",
+    "annee": 2016,
+    "auteurs": "Scalco & Rizzo",
+    "revue": "British Journal of Radiology",
+    "citations": 176,
+    "url": "https://doi.org/10.1259/bjr.20160642",
+    "theme": "l'extraction de statistiques visuelles et de texture en imagerie médicale"
+   },
+   {
+    "titre": "Radiomics and Digital Image Texture Analysis in Oncology (Review)",
+    "annee": 2021,
+    "auteurs": "Litvin et al.",
+    "revue": "Современные технологии в медицине",
+    "citations": 73,
+    "url": "https://doi.org/10.17691/stm2021.13.2.11",
+    "theme": "l'extraction de statistiques visuelles et de texture en imagerie médicale"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

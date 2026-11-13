@@ -1,0 +1,720 @@
+{
+ "id": "2026-11-13_0330_ham10000",
+ "date": "2026-11-13T03:37",
+ "sujet": "Imagerie médicale et attributs cachés",
+ "question": "Les images médicales (peau, radio, IRM) permettent-elles de retrouver le sexe ou l'âge du patient, et ces informations biaisent-elles les diagnostics ?",
+ "keywords": [
+  "ham10000",
+  "skin lesion",
+  "dermatology",
+  "chest x-ray",
+  "xray",
+  "mri",
+  "ultrasound"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des images d'IRM cérébrales montre que plusieurs caractéristiques visuelles globales (luminosité, contraste, asymétrie et part du fond) sont fortement corrélées à la classe de diagnostic de la tumeur. Bien que ces résultats soient confirmés sur des échantillons indépendants, certains d'entre eux reposent sur des intensités brutes ou des cadrages, ce qui suggère des biais d'acquisition potentiels. Il est donc crucial d'examiner si ces attributs techniques ou des caractéristiques démographiques cachées influencent la classification médicale.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "L'asymétrie des intensités est significativement liée au type de tumeur dans les IRM, ce qui concorde avec la morphologie tumorale.",
+    "hypothese": "L'asymétrie des intensités permet de distinguer les gliomes des autres classes d'images d'IRM."
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Le contraste brut est fortement lié à la classe, mais cette mesure dépend de l'exposition et des réglages du scanner, signalant un biais d'acquisition.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La répartition spatiale de l'intensité (centre vs bord) varie selon la classe de diagnostic, reflétant la localisation anatomique de la lésion.",
+    "hypothese": "Le ratio d'intensité centre/bord permet de différencier les tumeurs de type méningiome et gliome."
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "artefact",
+    "explication": "La luminosité brute dépend des réglages techniques de l'appareil et introduit un biais d'acquisition selon la classe.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "La présence de quasi-doublons dans un dataset d'imagerie est un problème technique courant de fuite de données ou de redondance.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Il est possible de prédire la classe de la tumeur en utilisant uniquement un ensemble de statistiques visuelles simples extraites des images.",
+    "hypothese": "Un ensemble restreint de caractéristiques statistiques bas niveau permet d'obtenir une précision supérieure au hasard pour classifier les pathologies."
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "artefact",
+    "explication": "La part du fond dépend directement du cadrage et de la préparation de l'image, constituant un artefact de prétraitement.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Vérifier l'impact des biais de réglage de scanner (luminosité et contraste bruts) sur la généralisation des modèles de deep learning.",
+   "Isoler les caractéristiques purement morphologiques (asymétrie, centre/bord) des artefacts d'acquisition pour le diagnostic par IRM.",
+   "Évaluer la présence de métadonnées cachées ou d'informations démographiques dans les images médicales."
+  ],
+  "nouveautes": {
+   "41": {
+    "id": "H41",
+    "nouveaute": "deja_connu",
+    "explication": "La littérature sur l'authentification biométrique par radar ou les signaux physiologiques est bien documentée mais hors sujet par rapport à l'imagerie cérébrale."
+   },
+   "42": {
+    "id": "H42",
+    "nouveaute": "deja_connu",
+    "explication": "L'enregistrement des signes vitaux et la charge de travail infirmière sont des sujets classiques de recherche clinique sans lien direct avec les attributs cachés en imagerie médicale."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "prediction",
+    "dataset_id": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "cible": "classe",
+    "variables": [
+     "asymetrie_intensites",
+     "centre_vs_bord"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la classe de la tumeur en utilisant seulement les variables normalisées asymetrie_intensites et centre_vs_bord ?",
+    "requete_biblio": [
+     "brain tumor MRI classification intensity asymmetry",
+     "spatial intensity distribution MRI brain tumor"
+    ]
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "x": "asymetrie_intensites",
+    "y": "centre_vs_bord",
+    "seuil": 0.5,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre asymetrie_intensites et centre_vs_bord est-il plus fort au-dessus du seuil de 0.5 pour asymetrie_intensites ?",
+    "requete_biblio": [
+     "MRI asymmetry threshold brain tumor features",
+     "quantitative image features brain tumor MRI"
+    ]
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "asymetrie_intensites -> classe",
+   "stat": 0.408,
+   "score": 0.708218619705997,
+   "detail": {
+    "eta2": 0.408,
+    "p": 2.1e-16,
+    "famille": "normalisé",
+    "classe_min": "notumor (0.306)",
+    "classe_max": "glioma (1.151)",
+    "confirmation": "confirmé — η² = 0.42, p = 6.1e-18 sur 185 autres images (découverte : 0.408)"
+   },
+   "confirme": 1.0,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "L'asymétrie des intensités est significativement liée au type de tumeur dans les IRM, ce qui concorde avec la morphologie tumorale.",
+    "hypothese": "L'asymétrie des intensités permet de distinguer les gliomes des autres classes d'images d'IRM."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "contraste -> classe",
+   "stat": 0.6620000004768372,
+   "score": 0.5774028897285461,
+   "detail": {
+    "eta2": 0.6620000004768372,
+    "p": 6.7e-26,
+    "famille": "brut",
+    "classe_min": "glioma (0.148)",
+    "classe_max": "notumor (0.277)",
+    "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+    "confirmation": "confirmé — η² = 0.64, p = 2.1e-26 sur 185 autres images (découverte : 0.6620000004768372)"
+   },
+   "confirme": 1.0,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "Le contraste brut est fortement lié à la classe, mais cette mesure dépend de l'exposition et des réglages du scanner, signalant un biais d'acquisition.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "centre_vs_bord -> classe",
+   "stat": 0.261,
+   "score": 0.5614835296603891,
+   "detail": {
+    "eta2": 0.261,
+    "p": 6.3e-11,
+    "famille": "normalisé",
+    "classe_min": "glioma (-0.077)",
+    "classe_max": "notumor (0.357)",
+    "confirmation": "confirmé — η² = 0.25, p = 3.2e-11 sur 185 autres images (découverte : 0.261)"
+   },
+   "confirme": 1.0,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La répartition spatiale de l'intensité (centre vs bord) varie selon la classe de diagnostic, reflétant la localisation anatomique de la lésion.",
+    "hypothese": "Le ratio d'intensité centre/bord permet de différencier les tumeurs de type méningiome et gliome."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "luminosite -> classe",
+   "stat": 0.5260000228881836,
+   "score": 0.49540984630584717,
+   "detail": {
+    "eta2": 0.5260000228881836,
+    "p": 8.5e-21,
+    "famille": "brut",
+    "classe_min": "glioma (0.135)",
+    "classe_max": "notumor (0.287)",
+    "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+    "confirmation": "confirmé — η² = 0.53, p = 3.4e-22 sur 185 autres images (découverte : 0.5260000228881836)"
+   },
+   "confirme": 1.0,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "artefact",
+    "explication": "La luminosité brute dépend des réglages techniques de l'appareil et introduit un biais d'acquisition selon la classe.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "quasi_doublons",
+   "vars": "images",
+   "stat": 17,
+   "score": 0.4942857142857143,
+   "detail": {
+    "paires_quasi_identiques": 17,
+    "images_concernees": 34,
+    "sur": 175,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "La présence de quasi-doublons dans un dataset d'imagerie est un problème technique courant de fuite de données ou de redondance.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "classe_predictible_par_stats_simples",
+   "vars": "12 stats visuelles -> classe",
+   "stat": 0.691,
+   "score": 0.4582307060755336,
+   "detail": {
+    "balanced_accuracy_toutes": 0.691,
+    "balanced_accuracy_normalisees_seules": 0.639,
+    "hasard": 0.333,
+    "n_images": 175,
+    "confirmation": "confirmé — précision 0.75 sur d'autres images (hasard 0.33)"
+   },
+   "confirme": true,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Il est possible de prédire la classe de la tumeur en utilisant uniquement un ensemble de statistiques visuelles simples extraites des images.",
+    "hypothese": "Un ensemble restreint de caractéristiques statistiques bas niveau permet d'obtenir une précision supérieure au hasard pour classifier les pathologies."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "part_fond -> classe",
+   "stat": 0.198,
+   "score": 0.2986832789153268,
+   "detail": {
+    "eta2": 0.198,
+    "p": 1.5e-08,
+    "famille": "cadrage",
+    "classe_min": "notumor (0.309)",
+    "classe_max": "meningioma (0.550)",
+    "attention": "dépend du recadrage / du cadrage des images (biais de préparation possible)",
+    "confirmation": "confirmé — η² = 0.20, p = 3.7e-09 sur 185 autres images (découverte : 0.198)"
+   },
+   "confirme": 1.0,
+   "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "artefact",
+    "explication": "La part du fond dépend directement du cadrage et de la préparation de l'image, constituant un artefact de prétraitement.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "labels": [
+     "glioma",
+     "meningioma",
+     "notumor",
+     "pituitary"
+    ],
+    "total_rows": 7023,
+    "url": "https://huggingface.co/datasets/saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+    "niveaux_de_gris": true,
+    "description": "[images en niveaux de gris : pas d'analyse de couleur]",
+    "moities": {
+     "decouverte": 175,
+     "confirmation": 185
+    }
+   },
+   "lignes": 360,
+   "colonnes": 12,
+   "fig": "2026-11-13_saad02_brain_tumor_single_slice_MRI_scan.png",
+   "n_findings": 7,
+   "findings": [
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "asymetrie_intensites -> classe",
+     "stat": 0.408,
+     "score": 0.708218619705997,
+     "detail": {
+      "eta2": 0.408,
+      "p": 2.1e-16,
+      "famille": "normalisé",
+      "classe_min": "notumor (0.306)",
+      "classe_max": "glioma (1.151)",
+      "confirmation": "confirmé — η² = 0.42, p = 6.1e-18 sur 185 autres images (découverte : 0.408)"
+     },
+     "confirme": 1.0,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "L'asymétrie des intensités est significativement liée au type de tumeur dans les IRM, ce qui concorde avec la morphologie tumorale.",
+      "hypothese": "L'asymétrie des intensités permet de distinguer les gliomes des autres classes d'images d'IRM."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "contraste -> classe",
+     "stat": 0.6620000004768372,
+     "score": 0.5774028897285461,
+     "detail": {
+      "eta2": 0.6620000004768372,
+      "p": 6.7e-26,
+      "famille": "brut",
+      "classe_min": "glioma (0.148)",
+      "classe_max": "notumor (0.277)",
+      "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+      "confirmation": "confirmé — η² = 0.64, p = 2.1e-26 sur 185 autres images (découverte : 0.6620000004768372)"
+     },
+     "confirme": 1.0,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "artefact",
+      "explication": "Le contraste brut est fortement lié à la classe, mais cette mesure dépend de l'exposition et des réglages du scanner, signalant un biais d'acquisition.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "centre_vs_bord -> classe",
+     "stat": 0.261,
+     "score": 0.5614835296603891,
+     "detail": {
+      "eta2": 0.261,
+      "p": 6.3e-11,
+      "famille": "normalisé",
+      "classe_min": "glioma (-0.077)",
+      "classe_max": "notumor (0.357)",
+      "confirmation": "confirmé — η² = 0.25, p = 3.2e-11 sur 185 autres images (découverte : 0.261)"
+     },
+     "confirme": 1.0,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "La répartition spatiale de l'intensité (centre vs bord) varie selon la classe de diagnostic, reflétant la localisation anatomique de la lésion.",
+      "hypothese": "Le ratio d'intensité centre/bord permet de différencier les tumeurs de type méningiome et gliome."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "luminosite -> classe",
+     "stat": 0.5260000228881836,
+     "score": 0.49540984630584717,
+     "detail": {
+      "eta2": 0.5260000228881836,
+      "p": 8.5e-21,
+      "famille": "brut",
+      "classe_min": "glioma (0.135)",
+      "classe_max": "notumor (0.287)",
+      "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+      "confirmation": "confirmé — η² = 0.53, p = 3.4e-22 sur 185 autres images (découverte : 0.5260000228881836)"
+     },
+     "confirme": 1.0,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "artefact",
+      "explication": "La luminosité brute dépend des réglages techniques de l'appareil et introduit un biais d'acquisition selon la classe.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "quasi_doublons",
+     "vars": "images",
+     "stat": 17,
+     "score": 0.4942857142857143,
+     "detail": {
+      "paires_quasi_identiques": 17,
+      "images_concernees": 34,
+      "sur": 175,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "La présence de quasi-doublons dans un dataset d'imagerie est un problème technique courant de fuite de données ou de redondance.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "classe_predictible_par_stats_simples",
+     "vars": "12 stats visuelles -> classe",
+     "stat": 0.691,
+     "score": 0.4582307060755336,
+     "detail": {
+      "balanced_accuracy_toutes": 0.691,
+      "balanced_accuracy_normalisees_seules": 0.639,
+      "hasard": 0.333,
+      "n_images": 175,
+      "confirmation": "confirmé — précision 0.75 sur d'autres images (hasard 0.33)"
+     },
+     "confirme": true,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "Il est possible de prédire la classe de la tumeur en utilisant uniquement un ensemble de statistiques visuelles simples extraites des images.",
+      "hypothese": "Un ensemble restreint de caractéristiques statistiques bas niveau permet d'obtenir une précision supérieure au hasard pour classifier les pathologies."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "part_fond -> classe",
+     "stat": 0.198,
+     "score": 0.2986832789153268,
+     "detail": {
+      "eta2": 0.198,
+      "p": 1.5e-08,
+      "famille": "cadrage",
+      "classe_min": "notumor (0.309)",
+      "classe_max": "meningioma (0.550)",
+      "attention": "dépend du recadrage / du cadrage des images (biais de préparation possible)",
+      "confirmation": "confirmé — η² = 0.20, p = 3.7e-09 sur 185 autres images (découverte : 0.198)"
+     },
+     "confirme": 1.0,
+     "dataset": "saad02/brain-tumor-single-slice-MRI-scan-with-synthetic-ehr-africa",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "artefact",
+      "explication": "La part du fond dépend directement du cadrage et de la préparation de l'image, constituant un artefact de prétraitement.",
+      "hypothese": ""
+     }
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "CAIR-M3LLM/Dermatology_40k",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "aarentai/UltrasoundGRF",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "gymprathap/Breast-Cancer-Ultrasound-Images-Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Ehsan-rmz/lgg-mri-segmentation-research",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "yanranxiaoxi/skin-lesion-mask",
+   "erreur": "trop petit ((2950, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "laughingrice/Ultrasound_planewave_sos_inversion",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "keremberke/chest-xray-classification",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "thubZ9/MRI_Classification-Tumor",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "mthandazo/chest-xray-pneumonia-images",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 41,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:Shanmuk4622/cr-rvs-radar-ecg-inventory-v2",
+    "x": "I_std",
+    "y": "duration_s",
+    "groupe": "scenario",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre I_std et duration_s change-t-il selon le scenario ?",
+    "requete_biblio": [
+     "radar ecg vital signs duration scenario",
+     "cardiac radar signal variability inventory"
+    ]
+   },
+   "statut": "non testable",
+   "resume": "pas assez de données dans les sous-groupes [Testé sur : toutes les données (dataset trop petit pour être coupé : test NON indépendant)]",
+   "stats": {
+    "donnees_test": "toutes les données (dataset trop petit pour être coupé : test NON indépendant)"
+   },
+   "sujet": "Signaux du cœur et du cerveau",
+   "biblio": [
+    {
+     "titre": "Radar-Based Invisible Biometric Authentication",
+     "annee": 2024,
+     "citations": 9,
+     "url": "https://doi.org/10.3390/info15010044"
+    },
+    {
+     "titre": "Implementation of Wearable Technology for Remote Heart Rate Variability Biofeedback in Cardiac Rehabilitation",
+     "annee": 2025,
+     "citations": 6,
+     "url": "https://doi.org/10.3390/s25030690"
+    },
+    {
+     "titre": "Remote Emotion Recognition Using Continuous-Wave Bio-Radar System",
+     "annee": 2024,
+     "citations": 10,
+     "url": "https://doi.org/10.3390/s24051420"
+    },
+    {
+     "titre": "Challenges in the Classification of Cardiac Arrhythmias and Ischemia Using End-to-End Deep Learning and the Electrocardiogram: A Systematic Review",
+     "annee": 2026,
+     "citations": 13,
+     "url": "https://doi.org/10.3390/diagnostics16010161"
+    },
+    {
+     "titre": "Wearable Monitoring for Mood Recognition in Bipolar Disorder Based on History-Dependent Long-Term Heart Rate Variability Analysis",
+     "annee": 2013,
+     "citations": 167,
+     "url": "https://doi.org/10.1109/jbhi.2013.2290382"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "La formulation est correcte sur le plan sémantique en utilisant le terme 'lien' pour des données observationnelles, mais le test n'a pas pu être réalisé par manque de données dans les sous-groupes.",
+    "reformulation": "Le scénario modifie-t-il la relation entre I_std et duration_s ?",
+    "diagnostic_statistique": "Impossible d'évaluer la non-linéarité ou la modération en raison d'un échantillon global trop restreint et d'une impossibilité de segmenter par scénario de manière indépendante.",
+    "modele_recommande": "régression avec interaction y ~ x * z (si n suffisant) ou ANOVA à deux facteurs",
+    "robustesse": "Faible. Taille d'échantillon insuffisante pour estimer des effets de modération par sous-groupe, risque élevé de surajustement et de biais d'échantillon.",
+    "interpretation_domaine": "En télésurveillance par radar et bio-signaux, les caractéristiques du signal (I_std) et la durée des enregistrements varient selon le protocole expérimental (scénario). Cependant, sans données stratifiées adéquates, il est impossible de confirmer cet effet.",
+    "action_pipeline": "Ajouter un filtre de taille minimale d'échantillon par groupe avant de déclencher des tests de modération ou d'interaction.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La littérature sur l'authentification biométrique par radar ou les signaux physiologiques est bien documentée mais hors sujet par rapport à l'imagerie cérébrale.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 42,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:Shanmuk4622/cr-rvs-radar-ecg-inventory-v2",
+    "x": "duration_s",
+    "y": "n_samples_128hz",
+    "seuil": 60.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre duration_s et n_samples_128hz est-il plus fort au-dessus du seuil de 60.0 secondes ?",
+    "requete_biblio": [
+     "radar ecg sampling rate duration threshold",
+     "vital signs recording length analysis"
+    ]
+   },
+   "statut": "non testable",
+   "resume": "pas assez de données dans les sous-groupes [Testé sur : toutes les données (dataset trop petit pour être coupé : test NON indépendant)]",
+   "stats": {
+    "donnees_test": "toutes les données (dataset trop petit pour être coupé : test NON indépendant)"
+   },
+   "sujet": "Signaux du cœur et du cerveau",
+   "biblio": [
+    {
+     "titre": "Student nurses’ recognition of early signs of abnormal vital sign recordings",
+     "annee": 2015,
+     "citations": 21,
+     "url": "https://doi.org/10.1016/j.nedt.2015.04.013"
+    },
+    {
+     "titre": "Patterns in the recording of vital signs and early warning scores: compliance with a clinical escalation protocol",
+     "annee": 2013,
+     "citations": 156,
+     "url": "https://doi.org/10.1136/bmjqs-2013-001954"
+    },
+    {
+     "titre": "Detecting Vital Signs with Wearable Wireless Sensors",
+     "annee": 2010,
+     "citations": 346,
+     "url": "https://doi.org/10.3390/s101210837"
+    },
+    {
+     "titre": "What is the nursing time and workload involved in taking and recording patients’ vital signs? A systematic review",
+     "annee": 2020,
+     "citations": 47,
+     "url": "https://doi.org/10.1111/jocn.15202"
+    },
+    {
+     "titre": "Development of novel optical character recognition system to reduce recording time for vital signs and prescriptions: A simulation-based study",
+     "annee": 2024,
+     "citations": 19,
+     "url": "https://doi.org/10.1371/journal.pone.0296319"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "La formulation est claire et teste correctement un effet de seuil sur des données observationnelles (« lien » et non « effet »).",
+    "reformulation": "",
+    "diagnostic_statistique": "Le test est non réalisable en raison d'un effectif insuffisant dans les sous-groupes définis par le seuil de 60 secondes.",
+    "modele_recommande": "régression segmentée ou modèle linéaire par morceaux (piecewise regression) pour capturer le changement de pente sans couper brutalement l'échantillon.",
+    "robustesse": "La taille d'échantillon est trop faible pour permettre une division par sous-groupes, ce qui fragilise la puissance statistique et expose à un surajustement.",
+    "interprétation_domaine": "La durée d'enregistrement d'un signal radar ECG (duration_s) et le nombre d'échantillons collectés (n_samples_128hz) sont mathématiquement proportionnels par construction technique, sauf en cas d'interruptions ou de pertes de paquets. Le seuil de 60 secondes reflète probablement un changement de protocole d'acquisition.",
+    "action_pipeline": "Ajouter un contrôle préalable de la taille des sous-groupes avant de déclencher des tests segmentés, et basculer automatiquement vers une régression avec effet de seuil (spline ou modèle linéaire segmenté) quand l'échantillon global est réduit.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'enregistrement des signes vitaux et la charge de travail infirmière sont des sujets classiques de recherche clinique sans lien direct avec les attributs cachés en imagerie médicale.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
