@@ -1,0 +1,97 @@
+{
+ "date": "2026-11-14",
+ "faits": {
+  "date": "2026-11-14",
+  "date_longue": "14 novembre 2026",
+  "sujets": [
+   "Ce que dit la voix"
+  ],
+  "questions": [
+   "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?"
+  ],
+  "datasets_analyses": [],
+  "datasets_ecartes": 9,
+  "hypotheses_testees": [],
+  "bilan_tests": {},
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 0,
+  "nouvelles_hypotheses": [],
+  "runs": [
+   "2026-11-14_0330_voice"
+  ]
+ },
+ "en_chiffres": [
+  "0 dataset analysé, 9 écartés (illisibles, hors sujet ou indisponibles)",
+  "0 résultat solide (niveau ≥ 3/6)"
+ ],
+ "titre": "Enquête silencieuse sur les secrets de la voix",
+ "chapo": "Cette nuit, la Raspberry a mené l'enquête sur ce que la voix révèle au-delà des mots, de l'âge aux émotions en passant par la maladie de Parkinson.",
+ "paragraphes": [
+  "L'investigation nocturne s'est penchée sur une question précise : que cachent les caractéristiques acoustiques de notre voix ? Pour mener à bien cette vérification, la Raspberry a examiné le terrain disponible, écartant 9 datasets au cours de sa session d'analyse.",
+  "Aucun test n'a pu être validé ou consolidé cette nuit, et aucune nouvelle hypothèse n'a été générée. Ce silence dans les résultats constitue toutefois une information utile pour orienter les prochaines nuits de recherche, rappelant que chaque exploration affine la méthode du robot chercheur."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "l'analyse acoustique de la voix pour la détection de la maladie de Parkinson",
+    "requetes": [
+     "Parkinson disease vocal acoustic biomarkers",
+     "voice analysis neurodegenerative diseases review"
+    ]
+   },
+   {
+    "theme": "la caractérisation vocale des émotions et des traits démographiques",
+    "requetes": [
+     "paralinguistic acoustic emotion and age recognition",
+     "human voice characterization review"
+    ]
+   }
+  ],
+  "titre": "Les secrets de la voix, de la santé aux émotions",
+  "paragraphes": [
+   "La voix humaine transmet bien plus que des mots, car elle est le reflet de notre état physique et psychologique. La recherche étudie l'analyse acoustique, c'est-à-dire l'étude physique des sons de la voix, pour identifier des troubles de la santé [1, 2]. Par exemple, la maladie de Parkinson, un trouble du système nerveux qui touche le mouvement, provoque souvent des altérations de la parole et du langage [1, 2]. La science sait déjà que ces modifications vocales peuvent précéder les autres symptômes moteurs de la maladie [1]. Grâce au traitement numérique du son et à l'intelligence artificielle, qui regroupe les techniques permettant à des machines d'imiter l'intelligence humaine, il est possible d'analyser objectivement ces signaux [2].",
+   "Cependant, la voix varie aussi selon les émotions et le contexte, un domaine exploré par la reconnaissance automatique des émotions par la parole [3, 4]. Les chercheurs s'intéressent aux caractéristiques vocales pour décoder les états affectifs, malgré les difficultés liées à la diversité des langues et des situations réelles [4]. En examinant des mesures telles que la qualité vocale, la hauteur, le volume sonore et l'articulation, la recherche tente de mieux comprendre ce que la voix exprime au-delà du message prononcé [2]."
+  ],
+  "references": [
+   {
+    "titre": "Speech and language biomarkers for Parkinson’s disease prediction, early diagnosis and progression",
+    "annee": 2025,
+    "auteurs": "Cao et al.",
+    "revue": "npj Parkinson s Disease",
+    "citations": 100,
+    "url": "https://doi.org/10.1038/s41531-025-00913-4",
+    "theme": "l'analyse acoustique de la voix pour la détection de la maladie de Parkinson"
+   },
+   {
+    "titre": "From prodromal stages to clinical trials: The promise of digital speech biomarkers in Parkinson's disease",
+    "annee": 2024,
+    "auteurs": "Rusz et al.",
+    "revue": "Neuroscience & Biobehavioral Reviews",
+    "citations": 74,
+    "url": "https://doi.org/10.1016/j.neubiorev.2024.105922",
+    "theme": "l'analyse acoustique de la voix pour la détection de la maladie de Parkinson"
+   },
+   {
+    "titre": "Deep Learning Techniques for Speech Emotion Recognition, from Databases to Models",
+    "annee": 2021,
+    "auteurs": "Abbaschian et al.",
+    "revue": "Sensors",
+    "citations": 312,
+    "url": "https://doi.org/10.3390/s21041249",
+    "theme": "la caractérisation vocale des émotions et des traits démographiques"
+   },
+   {
+    "titre": "Deep Cross-Corpus Speech Emotion Recognition: Recent Advances and Perspectives",
+    "annee": 2021,
+    "auteurs": "Zhang et al.",
+    "revue": "Frontiers in Neurorobotics",
+    "citations": 48,
+    "url": "https://doi.org/10.3389/fnbot.2021.784514",
+    "theme": "la caractérisation vocale des émotions et des traits démographiques"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 4 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

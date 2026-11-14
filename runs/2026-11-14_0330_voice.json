@@ -1,0 +1,67 @@
+{
+ "id": "2026-11-14_0330_voice",
+ "date": "2026-11-14T03:30",
+ "sujet": "Ce que dit la voix",
+ "question": "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?",
+ "keywords": [
+  "voice",
+  "speech",
+  "vowel",
+  "gender recognition by voice",
+  "parkinson",
+  "speaker",
+  "emotion speech"
+ ],
+ "analyse": null,
+ "note_llm": "LLM désactivé ou aucune découverte",
+ "top": [],
+ "datasets": [],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "stapesai/ssi-speech-emotion-recognition",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "BillyLin/CASIA_speech_emotion_recognition",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "roshbeed/ai-residency-speech-emotion-recognition-data",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "asahi417/seamless-align-enA-jaA.speaker-embedding.xlsr-2b",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "UniDataPro/speech-emotion-recognition",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "MrlolDev/voxtral-emotion-speech",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "FatimahEmadEldin/Yemeni-Speech-Emotion-Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "NathanRoll/speech-emotion-dataset-english",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "birgermoell/Italian_Parkinsons_Voice_and_Speech",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": []
+}
