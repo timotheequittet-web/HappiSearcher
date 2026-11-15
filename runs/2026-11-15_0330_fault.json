@@ -1,0 +1,858 @@
+{
+ "id": "2026-11-15_0330_fault",
+ "date": "2026-11-15T03:34",
+ "sujet": "Détection d'anomalies et pannes",
+ "question": "Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ?",
+ "keywords": [
+  "fault",
+  "machine failure",
+  "engine failure",
+  "predictive maintenance",
+  "bearing",
+  "turbofan",
+  "steel plates",
+  "gas drift",
+  "anomaly",
+  "vibration",
+  "intrusion",
+  "aps failure"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des datasets montre de fortes corrélations mécaniques et opérationnelles dans les équipements industriels, notamment entre la vitesse de rotation et le couple, ainsi qu'entre divers capteurs de température et de pression des turboréacteurs. Le profil des anomalies met en évidence que la vitesse de rotation et le couple sont les variables qui s'écartent le plus de la normale lors des pannes. Ces relations confirment que le suivi des grandeurs mécaniques et thermodynamiques est central pour la maintenance prédictive.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La relation inverse entre la vitesse de rotation et le couple est une caractéristique mécanique fondamentale des moteurs et machines tournantes.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "trivial",
+    "explication": "La vitesse de cœur physique et la vitesse de cœur corrigée mesurent essentiellement la même grandeur physique en tenant compte des conditions environnementales.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "La température de l'air et la température du processus sont naturellement corrélées dans les environnements industriels chauffés.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "La pression statique et le rapport de débit de carburant sont liés par les équations thermodynamiques internes du moteur.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "La température en sortie de turbine et la pression statique reflètent l'état thermique et pressurisé global du même cycle thermodynamique.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Liaison mécanique directe entre la vitesse physique de la soufflante et sa valeur corrigée.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Relation directe entre la pression totale et la pression statique en sortie du compresseur haute pression.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Lien thermodynamique standard entre la température des gaz d'échappement et l'injection de carburant.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Corrélation directe entre la pression de sortie du compresseur et le débit de carburant injecté.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Couplage aérodynamique classique entre la vitesse de rotation de la soufflante et la pression dans le compresseur.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Ce résultat identifie que la vitesse de rotation et le couple sont les signaux précurseurs les plus perturbés lors des défaillances de machines.",
+    "hypothese": "Le lien entre Rotational speed et Torque change-t-il selon la présence d'anomalies imminentes ?"
+   }
+  },
+  "pistes": [
+   "Étudier la déviation temporelle des capteurs de pression avant l'apparition des pannes de turboréacteurs.",
+   "Analyser l'interaction combinée du couple et de l'usure de l'outil pour détecter l'approche de la défaillance.",
+   "Examiner si les seuils critiques de vitesse de rotation varient selon les régimes de fonctionnement."
+  ],
+  "nouveautes": {},
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-22112025-1",
+    "x": "Rotational speed",
+    "y": "Torque",
+    "groupe": "Type",
+    "seui": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+    "requete_biblio": [
+     "machine failure rotational speed torque type"
+    ]
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-22112025-1",
+    "x": "Tool wear",
+    "y": "Torque",
+    "seuil": 150.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre Tool wear et Torque est-il plus fort au-dessus du seuil de Tool wear de 150 ?",
+    "requete_biblio": [
+     "tool wear torque degradation threshold predictive maintenance"
+    ]
+   },
+   {
+    "type": "prediction",
+    "dataset_id": "hf:nominal-io/nasa-turbofan-degradation",
+    "cible": "engine",
+    "variables": [
+     "(HPC outlet pressure) (psia)",
+     "(LPT outlet temperature) (◦R)",
+     "cycle"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire l'évolution des cycles de dégradation de l'engine avec les variables HPC outlet pressure et LPT outlet temperature ?",
+    "requete_biblio": [
+     "turbofan engine degradation prediction pressure temperature sensors"
+    ]
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "correlation",
+   "vars": "Rotational speed ~ Torque",
+   "stat": -0.917,
+   "score": 0.7337768509024002,
+   "detail": {
+    "spearman": -0.917,
+    "pearson": -0.875,
+    "n": 3987,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.92 sur 4013 lignes (découverte : -0.92)"
+   },
+   "confirme": 1.0,
+   "dataset": "nagapavan525/machine-failure-prediction-22112025-1",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "La relation inverse entre la vitesse de rotation et le couple est une caractéristique mécanique fondamentale des moteurs et machines tournantes.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(Physical core speed) (rpm) ~ (Corrected core speed) (rpm)",
+   "stat": 0.89,
+   "score": 0.7121891520101604,
+   "detail": {
+    "spearman": 0.89,
+    "pearson": 0.964,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.88 sur 10320 lignes (découverte : +0.89)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "trivial",
+    "explication": "La vitesse de cœur physique et la vitesse de cœur corrigée mesurent essentiellement la même grandeur physique en tenant compte des conditions environnementales.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Air temperature ~ Process temperature",
+   "stat": 0.865,
+   "score": 0.6919440358354345,
+   "detail": {
+    "spearman": 0.865,
+    "pearson": 0.876,
+    "n": 3987,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.87 sur 4013 lignes (découverte : +0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "nagapavan525/machine-failure-prediction-22112025-1",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "La température de l'air et la température du processus sont naturellement corrélées dans les environnements industriels chauffés.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(HPC outlet Static pressure) (psia) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+   "stat": -0.833,
+   "score": 0.6660620884575437,
+   "detail": {
+    "spearman": -0.833,
+    "pearson": -0.848,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.83 sur 10320 lignes (découverte : -0.83)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "La pression statique et le rapport de débit de carburant sont liés par les équations thermodynamiques internes du moteur.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(LPT outlet temperature) (◦R) ~ (HPC outlet Static pressure) (psia)",
+   "stat": 0.808,
+   "score": 0.6461699466927922,
+   "detail": {
+    "spearman": 0.808,
+    "pearson": 0.828,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.82 sur 10320 lignes (découverte : +0.81)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "La température en sortie de turbine et la pression statique reflètent l'état thermique et pressurisé global du même cycle thermodynamique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(Physical fan speed) (rpm) ~ (Corrected fan speed) (rpm)",
+   "stat": 0.808,
+   "score": 0.6460725414142418,
+   "detail": {
+    "spearman": 0.808,
+    "pearson": 0.827,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.81 sur 10320 lignes (découverte : +0.81)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Liaison mécanique directe entre la vitesse physique de la soufflante et sa valeur corrigée.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(HPC outlet pressure) (psia) ~ (HPC outlet Static pressure) (psia)",
+   "stat": -0.805,
+   "score": 0.6442701558648793,
+   "detail": {
+    "spearman": -0.805,
+    "pearson": -0.823,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.81 sur 10320 lignes (découverte : -0.81)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Relation directe entre la pression totale et la pression statique en sortie du compresseur haute pression.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(LPT outlet temperature) (◦R) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+   "stat": -0.794,
+   "score": 0.6351370345112248,
+   "detail": {
+    "spearman": -0.794,
+    "pearson": -0.811,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.81 sur 10320 lignes (découverte : -0.79)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Lien thermodynamique standard entre la température des gaz d'échappement et l'injection de carburant.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(HPC outlet pressure) (psia) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+   "stat": 0.791,
+   "score": 0.633114317862808,
+   "detail": {
+    "spearman": 0.791,
+    "pearson": 0.81,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.80 sur 10320 lignes (découverte : +0.79)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Corrélation directe entre la pression de sortie du compresseur et le débit de carburant injecté.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "(HPC outlet Static pressure) (psia) ~ (Corrected fan speed) (rpm)",
+   "stat": 0.777,
+   "score": 0.6215946256626929,
+   "detail": {
+    "spearman": 0.777,
+    "pearson": 0.78,
+    "n": 10311,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.77 sur 10320 lignes (découverte : +0.78)"
+   },
+   "confirme": 1.0,
+   "dataset": "nominal-io/nasa-turbofan-degradation",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Couplage aérodynamique classique entre la vitesse de rotation de la soufflante et la pression dans le compresseur.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ Rotational speed, Torque, Tool wear",
+   "stat": 2.4,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 80,
+    "sur": 3987,
+    "variables_qui_les_distinguent": "Rotational speed (2.4 σ), Torque (1.2 σ), Tool wear (0.4 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "nagapavan525/machine-failure-prediction-22112025-1",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Ce résultat identifie que la vitesse de rotation et le couple sont les signaux précurseurs les plus perturbés lors des défaillances de machines.",
+    "hypothese": "Le lien entre Rotational speed et Torque change-t-il selon la présence d'anomalies imminentes ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "nagapavan525/machine-failure-prediction-22112025-1",
+    "target": null,
+    "description": "",
+    "fichier": "Xtrain.csv",
+    "url": "https://huggingface.co/datasets/nagapavan525/machine-failure-prediction-22112025-1",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 3987,
+     "confirmation": 4013
+    },
+    "did": "hf:nagapavan525/machine-failure-prediction-22112025-1",
+    "colonnes": {
+     "num": [
+      "Type",
+      "Air temperature",
+      "Process temperature",
+      "Rotational speed",
+      "Torque",
+      "Tool wear"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 8000,
+   "colonnes": 6,
+   "fig": "2026-11-15_nagapavan525_machine_failure_prediction_.png",
+   "n_findings": 3,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "Rotational speed ~ Torque",
+     "stat": -0.917,
+     "score": 0.7337768509024002,
+     "detail": {
+      "spearman": -0.917,
+      "pearson": -0.875,
+      "n": 3987,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.92 sur 4013 lignes (découverte : -0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "nagapavan525/machine-failure-prediction-22112025-1",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "La relation inverse entre la vitesse de rotation et le couple est une caractéristique mécanique fondamentale des moteurs et machines tournantes.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Air temperature ~ Process temperature",
+     "stat": 0.865,
+     "score": 0.6919440358354345,
+     "detail": {
+      "spearman": 0.865,
+      "pearson": 0.876,
+      "n": 3987,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.87 sur 4013 lignes (découverte : +0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "nagapavan525/machine-failure-prediction-22112025-1",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "trivial",
+      "explication": "La température de l'air et la température du processus sont naturellement corrélées dans les environnements industriels chauffés.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ Rotational speed, Torque, Tool wear",
+     "stat": 2.4,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 80,
+      "sur": 3987,
+      "variables_qui_les_distinguent": "Rotational speed (2.4 σ), Torque (1.2 σ), Tool wear (0.4 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "nagapavan525/machine-failure-prediction-22112025-1",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Ce résultat identifie que la vitesse de rotation et le couple sont les signaux précurseurs les plus perturbés lors des défaillances de machines.",
+      "hypothese": "Le lien entre Rotational speed et Torque change-t-il selon la présence d'anomalies imminentes ?"
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "nominal-io/nasa-turbofan-degradation",
+    "target": null,
+    "description": "Original source: - https://data.nasa.gov/Aerospace/CMAPSS-Jet-Engine-Simulated-Data/ff5v-kuh6/about_data Example analysis: - https://www.kaggle.com/code/carlkirstein/predictive-maintenance-nasa-turbofan-regression/notebook Use the \"cycle\" column as the relative time index (operational cycle of the engine in the \"engine\" column). From \"readme.txt\" in the original source Experimental Scenario Data s",
+    "fichier": "NASA_turbofan_train_FD001.csv",
+    "url": "https://huggingface.co/datasets/nominal-io/nasa-turbofan-degradation",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 10311,
+     "confirmation": 10320
+    },
+    "did": "hf:nominal-io/nasa-turbofan-degradation",
+    "colonnes": {
+     "num": [
+      "engine",
+      "cycle",
+      "setting_1",
+      "setting_2",
+      "(LPC outlet temperature) (◦R)",
+      "(HPC outlet temperature) (◦R)",
+      "(LPT outlet temperature) (◦R)",
+      "(bypass-duct pressure) (psia)",
+      "(HPC outlet pressure) (psia)",
+      "(Physical fan speed) (rpm)",
+      "(Physical core speed) (rpm)",
+      "(HPC outlet Static pressure) (psia)",
+      "(Ratio of fuel flow to Ps30) (pps/psia)",
+      "(Corrected fan speed) (rpm)",
+      "(Corrected core speed) (rpm)",
+      "(Bypass Ratio) ",
+      "(Bleed Enthalpy)",
+      "(High-pressure turbines Cool air flow)",
+      "(Low-pressure turbines Cool air flow)"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 20631,
+   "colonnes": 27,
+   "fig": "2026-11-15_nominal_io_nasa_turbofan_degradation.png",
+   "n_findings": 81,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "(Physical core speed) (rpm) ~ (Corrected core speed) (rpm)",
+     "stat": 0.89,
+     "score": 0.7121891520101604,
+     "detail": {
+      "spearman": 0.89,
+      "pearson": 0.964,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.88 sur 10320 lignes (découverte : +0.89)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "trivial",
+      "explication": "La vitesse de cœur physique et la vitesse de cœur corrigée mesurent essentiellement la même grandeur physique en tenant compte des conditions environnementales.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet Static pressure) (psia) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+     "stat": -0.833,
+     "score": 0.6660620884575437,
+     "detail": {
+      "spearman": -0.833,
+      "pearson": -0.848,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.83 sur 10320 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "La pression statique et le rapport de débit de carburant sont liés par les équations thermodynamiques internes du moteur.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(LPT outlet temperature) (◦R) ~ (HPC outlet Static pressure) (psia)",
+     "stat": 0.808,
+     "score": 0.6461699466927922,
+     "detail": {
+      "spearman": 0.808,
+      "pearson": 0.828,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.82 sur 10320 lignes (découverte : +0.81)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "La température en sortie de turbine et la pression statique reflètent l'état thermique et pressurisé global du même cycle thermodynamique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(Physical fan speed) (rpm) ~ (Corrected fan speed) (rpm)",
+     "stat": 0.808,
+     "score": 0.6460725414142418,
+     "detail": {
+      "spearman": 0.808,
+      "pearson": 0.827,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.81 sur 10320 lignes (découverte : +0.81)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Liaison mécanique directe entre la vitesse physique de la soufflante et sa valeur corrigée.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet pressure) (psia) ~ (HPC outlet Static pressure) (psia)",
+     "stat": -0.805,
+     "score": 0.6442701558648793,
+     "detail": {
+      "spearman": -0.805,
+      "pearson": -0.823,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.81 sur 10320 lignes (découverte : -0.81)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Relation directe entre la pression totale et la pression statique en sortie du compresseur haute pression.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(LPT outlet temperature) (◦R) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+     "stat": -0.794,
+     "score": 0.6351370345112248,
+     "detail": {
+      "spearman": -0.794,
+      "pearson": -0.811,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.81 sur 10320 lignes (découverte : -0.79)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "Lien thermodynamique standard entre la température des gaz d'échappement et l'injection de carburant.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet pressure) (psia) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+     "stat": 0.791,
+     "score": 0.633114317862808,
+     "detail": {
+      "spearman": 0.791,
+      "pearson": 0.81,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.80 sur 10320 lignes (découverte : +0.79)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "Corrélation directe entre la pression de sortie du compresseur et le débit de carburant injecté.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet Static pressure) (psia) ~ (Corrected fan speed) (rpm)",
+     "stat": 0.777,
+     "score": 0.6215946256626929,
+     "detail": {
+      "spearman": 0.777,
+      "pearson": 0.78,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.77 sur 10320 lignes (découverte : +0.78)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "Couplage aérodynamique classique entre la vitesse de rotation de la soufflante et la pression dans le compresseur.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "(Physical fan speed) (rpm) ~ (HPC outlet Static pressure) (psia)",
+     "stat": 0.776,
+     "score": 0.6209810780732745,
+     "detail": {
+      "spearman": 0.776,
+      "pearson": 0.779,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.78 sur 10320 lignes (découverte : +0.78)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    },
+    {
+     "kind": "correlation",
+     "vars": "(Ratio of fuel flow to Ps30) (pps/psia) ~ (Corrected fan speed) (rpm)",
+     "stat": -0.775,
+     "score": 0.6203698771206815,
+     "detail": {
+      "spearman": -0.775,
+      "pearson": -0.786,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.78 sur 10320 lignes (découverte : -0.78)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    },
+    {
+     "kind": "correlation",
+     "vars": "(Physical fan speed) (rpm) ~ (Ratio of fuel flow to Ps30) (pps/psia)",
+     "stat": -0.775,
+     "score": 0.6197125588946724,
+     "detail": {
+      "spearman": -0.775,
+      "pearson": -0.785,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.78 sur 10320 lignes (découverte : -0.78)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    },
+    {
+     "kind": "correlation",
+     "vars": "(LPT outlet temperature) (◦R) ~ (HPC outlet pressure) (psia)",
+     "stat": -0.768,
+     "score": 0.6144451967654007,
+     "detail": {
+      "spearman": -0.768,
+      "pearson": -0.791,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.78 sur 10320 lignes (découverte : -0.77)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet Static pressure) (psia) ~ (Bypass Ratio) ",
+     "stat": 0.759,
+     "score": 0.6068915098338629,
+     "detail": {
+      "spearman": 0.759,
+      "pearson": 0.78,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.76 sur 10320 lignes (découverte : +0.76)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet Static pressure) (psia) ~ (Low-pressure turbines Cool air flow)",
+     "stat": -0.752,
+     "score": 0.6019174611170754,
+     "detail": {
+      "spearman": -0.752,
+      "pearson": -0.774,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.75 sur 10320 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    },
+    {
+     "kind": "correlation",
+     "vars": "(HPC outlet pressure) (psia) ~ (Corrected fan speed) (rpm)",
+     "stat": -0.752,
+     "score": 0.6014692663376088,
+     "detail": {
+      "spearman": -0.752,
+      "pearson": -0.761,
+      "n": 10311,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.76 sur 10320 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "nominal-io/nasa-turbofan-degradation"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "hongik-aicourses/ml-bootcamp-faults",
+   "erreur": "pas de split disponible"
+  },
+  {
+   "source": "hf_images",
+   "ref": "eoinedge/spark-plug-anomaly-detection",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "ClarusC64/f1-quad-engine-temp-ambient-temp-fuel-mix-lap-intensity-thermal-failure-risk-v0.1",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Shoriful025/industrial_iot_predictive_maintenance_telemetry",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "JanvDelden/minimizing_structural_vibrations",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Blien2002/ShakeBench-vibration",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "hunglam015/Paderborn_Bearing_Run-to-Failure_Time-Varying",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "jogarulfop/2026-04-27_dragontactile_test_detection_vibration_metal_exitation_v3",
+   "erreur": "trop petit ((10, 121))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "eturok-weizmann/laser-vibrations",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": []
+}

@@ -1,0 +1,107 @@
+{
+ "date": "2026-11-15",
+ "faits": {
+  "date": "2026-11-15",
+  "date_longue": "15 novembre 2026",
+  "sujets": [
+   "Détection d'anomalies et pannes"
+  ],
+  "questions": [
+   "Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "nagapavan525/machine-failure-prediction-22112025-1",
+    "lignes": 8000,
+    "colonnes": 6,
+    "resultats_bruts": 3,
+    "confirmes_sur_moitie_independante": 2
+   },
+   {
+    "nom": "nominal-io/nasa-turbofan-degradation",
+    "lignes": 20631,
+    "colonnes": 27,
+    "resultats_bruts": 81,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 9,
+  "hypotheses_testees": [],
+  "bilan_tests": {},
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 3,
+  "nouvelles_hypotheses": [
+   "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+   "Le lien entre Tool wear et Torque est-il plus fort au-dessus du seuil de Tool wear de 150 ?",
+   "Peut-on prédire l'évolution des cycles de dégradation de l'engine avec les variables HPC outlet pressure et LPT outlet temperature ?"
+  ],
+  "runs": [
+   "2026-11-15_0330_fault"
+  ]
+ },
+ "en_chiffres": [
+  "2 datasets analysés, 9 écartés (illisibles, hors sujet ou indisponibles)",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "3 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Détection d'anomalies et pannes : exploration de 2 datasets",
+ "chapo": "Nuit du 15 novembre 2026. Question du jour : Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ? Datasets étudiés : nagapavan525/machine-failure-prediction-22112025-1, nominal-io/nasa-turbofan-degradation.",
+ "paragraphes": [
+  "3 nouvelles hypothèses attendent la nuit prochaine."
+ ],
+ "redaction": "rédigé automatiquement à partir des données (sans LLM)",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la détection précoce des pannes industrielles",
+    "requetes": [
+     "early machine failure prediction survey",
+     "industrial anomaly detection review"
+    ]
+   },
+   {
+    "theme": "l'analyse des capteurs pour la maintenance prédictive",
+    "requetes": [
+     "sensor data predictive maintenance review",
+     "turbofan engine degradation analysis"
+    ]
+   }
+  ],
+  "titre": "Anticiper les pannes grâce aux capteurs et aux données",
+  "paragraphes": [
+   "La maintenance prédictive, c'est-à-dire l'entretien des machines basé sur leur état réel, s'appuie sur des technologies connectées pour surveiller les équipements industriels en temps réel [1, 2]. Les usines modernes utilisent des capteurs intelligents, c'est-à-dire des dispositifs de mesure capables de collecter de grandes quantités de données sur le fonctionnement des systèmes [1]. L'analyse de ces informations permet d'améliorer la fiabilité des équipements et d'optimiser l'efficacité de la production [2].",
+   "La recherche actuelle montre que l'utilisation d'outils d'intelligence artificielle, c'est-à-dire des programmes informatiques capables d'apprendre à partir de données, permet d'améliorer la précision des prévisions de pannes [2]. Ces méthodes permettent de réduire les coûts de maintenance et d'augmenter le temps de disponibilité des équipements [2]. Toutefois, des défis subsistent, notamment en lien avec la complexité de mise en œuvre de certaines technologies de jumeaux numériques, c'est-à-dire des reproductions virtuelles de systèmes physiques [2]. La manière dont les machines trahissent leurs futurs dysfonctionnements dépend directement de ces signaux collectés en continu [3]."
+  ],
+  "references": [
+   {
+    "titre": "Predictive Maintenance and Intelligent Sensors in Smart Factory: Review",
+    "annee": 2021,
+    "auteurs": "Pech et al.",
+    "revue": "Sensors",
+    "citations": 557,
+    "url": "https://doi.org/10.3390/s21041470",
+    "theme": "l'analyse des capteurs pour la maintenance prédictive"
+   },
+   {
+    "titre": "PREDICTIVE MAINTENANCE IN INDUSTRIAL AUTOMATION: A SYSTEMATIC REVIEW OF IOT SENSOR TECHNOLOGIES AND AI ALGORITHMS",
+    "annee": 2024,
+    "auteurs": "Haque et al.",
+    "revue": "American Journal of Interdisciplinary Studies",
+    "citations": 82,
+    "url": "https://doi.org/10.63125/hd2ac988",
+    "theme": "l'analyse des capteurs pour la maintenance prédictive"
+   },
+   {
+    "titre": "Systematic Literature Review on Data-Driven Models for Predictive Maintenance of Railway Track: Implications in Geotechnical Engineering",
+    "annee": 2020,
+    "auteurs": "Xie et al.",
+    "revue": "Geosciences",
+    "citations": 97,
+    "url": "https://doi.org/10.3390/geosciences10110425",
+    "theme": "l'analyse des capteurs pour la maintenance prédictive"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 3 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
