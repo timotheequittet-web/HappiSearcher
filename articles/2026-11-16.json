@@ -1,0 +1,198 @@
+{
+ "date": "2026-11-16",
+ "faits": {
+  "date": "2026-11-16",
+  "date_longue": "16 novembre 2026",
+  "sujets": [
+   "Astronomie et physique"
+  ],
+  "questions": [
+   "Quelles régularités physiques émergent des mesures (étoiles, pulsars, particules), et quels objets anormaux méritent un second regard ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "MAGIC-Gamma-Telescope-Dataset",
+    "lignes": 19020,
+    "colonnes": 12,
+    "resultats_bruts": 16,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "lignes": 26307,
+    "colonnes": 38,
+    "resultats_bruts": 88,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 16,
+  "hypotheses_testees": [
+   {
+    "id": "H43",
+    "enonce": "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans nagapavan525/machine-failure-prediction-22112025-1, la corrélation Rotational speed~Torque vaut -0.92 pour « Type = 1 » contre -0.92 pour « Type = 2 » (écart 0.00, p = 0.72).",
+    "bloque_a": null,
+    "litterature": "L'influence de la vitesse de rotation et du couple sur les vibrations et la défaillance des machines est largement étudiée dans la maintenance prédictive."
+   },
+   {
+    "id": "H44",
+    "enonce": "Le lien entre Tool wear et Torque est-il plus fort au-dessus du seuil de Tool wear de 150 ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans nagapavan525/machine-failure-prediction-22112025-1, la corrélation Tool wear~Torque vaut +0.01 pour « Tool wear > 150 » contre +0.01 pour « Tool wear ≤ 150 » (p = 0.95).",
+    "bloque_a": null,
+    "litterature": "L'analyse des seuils d'usure des outils (tool wear) et leur relation avec le couple est un classique de la modélisation de la dégradation industrielle."
+   },
+   {
+    "id": "H45",
+    "enonce": "Peut-on prédire l'évolution des cycles de dégradation de l'engine avec les variables HPC outlet pressure et LPT outlet temperature ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans nominal-io/nasa-turbofan-degradation, prédire engine avec (HPC outlet pressure) (psia), (LPT outlet temperature) (◦R), cycle donne r2 = -0.07 (hasard ≈ 0.00, p = 0.14 sur 20 permutations, validation aléatoire).",
+    "bloque_a": null,
+    "litterature": "La prédiction de la durée de vie utile des turboréacteurs à partir des pressions et températures est un sujet majeur, bien que l'efficacité varie selon les architectures de modèles."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 2,
+   "non concluante": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "variables": "t10_arms_winding_a29_medium_debiased ~ t10_arms_winding_a30_loose_debiased",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien non linéaire confirmé entre l'enroulement moyen et lâche des bras spiraux dans le catalogue SDSS.",
+    "detail": "confirmé — ρ = +0.40 sur 13156 lignes (découverte : +0.39)"
+   },
+   {
+    "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "variables": "t02_edgeon_a05_no_debiased ~ t09_bulge_shape_a25_rounded_debiased",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Forte corrélation négative entre l'absence de vue par la tranche et la forme arrondie du bulbe galactique.",
+    "detail": "confirmé — ρ = -0.73 sur 13138 lignes (découverte : -0.72)"
+   },
+   {
+    "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "variables": "t02_edgeon_a04_yes_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Relation positive entre les galaxies vues par la tranche et la forme de bulbe 'boxy'.",
+    "detail": "confirmé — ρ = +0.50 sur 13153 lignes (découverte : +0.50)"
+   },
+   {
+    "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "variables": "t02_edgeon_a05_no_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien inverse entre l'absence d'orientation par la tranche et la forme de bulbe 'boxy'.",
+    "detail": "confirmé — ρ = -0.48 sur 13138 lignes (découverte : -0.48)"
+   },
+   {
+    "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "variables": "t02_edgeon_a04_yes_debiased ~ t09_bulge_shape_a25_rounded_debiased",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Forte association entre les galaxies vues par la tranche et la forme de bulbe arrondie.",
+    "detail": "confirmé — ρ = +0.77 sur 13148 lignes (découverte : +0.76)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre fWidth et fConc change-t-il selon la classe class ?",
+   "Le lien entre fSize et fM3Long change-t-il selon la classe class ?",
+   "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon le seuil de t05_bulge_prominence_a12_obvious_debiased ?",
+   "Peut-on prédire la classe class avec SEULEMENT les variables fWidth, fConc, fLength et fSize ?"
+  ],
+  "runs": [
+   "2026-11-16_0330_pulsar"
+  ]
+ },
+ "en_chiffres": [
+  "2 datasets analysés, 16 écartés (illisibles, hors sujet ou indisponibles)",
+  "3 hypothèses testées : 2 réfutée, 1 non concluante",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête astronomique et déroutes industrielles nocturnes",
+ "chapo": "La Raspberry Pi a passé la nuit à sonder l'espace et la matière, confirmant plusieurs pistes galactiques tout en voyant ses hypothèses industrielles s'effondrer.",
+ "paragraphes": [
+  "Cette nuit d'enquête s'est penchée sur des questions d'astronomie et de physique. Du côté des observations, la Raspberry a examiné des catalogues de galaxies, mettant au jour des pistes intéressantes sur la morphologie céleste. Par exemple, un lien fort a été repéré entre les galaxies observées par la tranche et la forme arrondie de leur bulbe, affichant une corrélation de +0.77. À l'inverse, une forte corrélation négative de -0.73 est apparue entre l'absence de vue par la tranche et cette même forme arrondie de bulbe. D'autres liens non linéaires ont été confirmés concernant l'enroulement des bras spiraux ainsi que l'orientation des structures galactiques.",
+  "Les vérifications menées sur le terrain industriel ont en revanche totalement échoué à valider les hypothèses de départ, ce qui constitue une information utile. L'idée selon laquelle le lien entre la vitesse de rotation et le couple changerait selon le type de machine a été réfutée, affichant un écart de 0.00. De même, l'hypothèse d'un lien plus fort entre l'usure des outils et le couple au-dessus d'un certain seuil a été réfutée. Enfin, la tentative de prédire l'évolution des cycles de dégradation d'un moteur à partir de la pression de sortie et de la température s'est révélée non concluante, atteignant un résultat comparable au hasard. Ces 3 tests non validés rappellent la complexité de modélisation de ces phénomènes."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la morphologie des bulbes galactiques et l'orientation des galaxies",
+    "requetes": [
+     "galaxies edge on bulge morphology",
+     "galaxy morphology classification review"
+    ]
+   },
+   {
+    "theme": "la détection des rayons gamma par télescope Tcherenkov",
+    "requetes": [
+     "atmospheric cherenkov telescope gamma detection",
+     "gamma ray astronomy techniques"
+    ]
+   }
+  ],
+  "titre": "Galaxies et rayons gamma : structures et méthodes",
+  "paragraphes": [
+   "Une galaxie est un immense assemblage d'étoiles, de gaz et de poussières. Au cœur de ces galaxies se trouvent des renflements centraux appelés bulbes [1]. La recherche sait que ces bulbes ne sont pas tous identiques : certains ressemblent à des galaxies elliptiques, c'est-à-dire des structures en forme d'ellipse, tandis que d'autres rappellent des disques [1]. Certains de ces composants centraux, nommés pseudobulbes, se forment lentement à partir du gaz des disques [2]. Toutefois, les propriétés détaillées de ces structures et la dynamique des disques d'étoiles restent encore mal comprises [1, 3].",
+   "Pour étudier l'univers lointain, les scientifiques observent les rayons gamma, c'est-à-dire un rayonnement électromagnétique extrêmement énergétique. Cette discipline s'appuie notamment sur des instruments spécialisés, les télescopes Tcherenkov [4]. Pour étalonner ces instruments, c'est-à-dire ajuster et vérifier leur précision, l'analyse d'images circulaires produites par des particules appelées muons constitue une méthode puissante [4]. Si les principes généraux de cette astronomie à haute énergie sont établis, l'ajustement précis de ces grands réseaux de télescopes nécessite encore d'intégrer de nouveaux effets dans les analyses [4, 5]. Ces méthodes de calibration ouvrent la voie à une meilleure compréhension des régularités physiques mesurées dans le cosmos."
+  ],
+  "references": [
+   {
+    "titre": "GALACTIC BULGES",
+    "annee": 1997,
+    "auteurs": "Wyse et al.",
+    "revue": "Annual Review of Astronomy and Astrophysics",
+    "citations": 188,
+    "url": "https://doi.org/10.1146/annurev.astro.35.1.637",
+    "theme": "la morphologie des bulbes galactiques et l'orientation des galaxies"
+   },
+   {
+    "titre": "Secular Evolution and the Formation of Pseudobulges in Disk Galaxies",
+    "annee": 2004,
+    "auteurs": "Kormendy & Kennicutt",
+    "revue": "Annual Review of Astronomy and Astrophysics",
+    "citations": 1722,
+    "url": "https://doi.org/10.1146/annurev.astro.42.053102.134024",
+    "theme": "la morphologie des bulbes galactiques et l'orientation des galaxies"
+   },
+   {
+    "titre": "Galaxy Disks",
+    "annee": 2011,
+    "auteurs": "Kruit & Freeman",
+    "revue": "Annual Review of Astronomy and Astrophysics",
+    "citations": 284,
+    "url": "https://doi.org/10.1146/annurev-astro-083109-153241",
+    "theme": "la morphologie des bulbes galactiques et l'orientation des galaxies"
+   },
+   {
+    "titre": "Using Muon Rings for the Calibration of the Cherenkov Telescope Array: A Systematic Review of the Method and Its Potential Accuracy",
+    "annee": 2019,
+    "auteurs": "Gaug et al.",
+    "revue": "The Astrophysical Journal Supplement Series",
+    "citations": 33,
+    "url": "https://doi.org/10.3847/1538-4365/ab2123",
+    "theme": "la détection des rayons gamma par télescope Tcherenkov"
+   },
+   {
+    "titre": "Ground- and Space-Based Gamma-Ray Astronomy",
+    "annee": 2015,
+    "auteurs": "Funk",
+    "revue": "Annual Review of Nuclear and Particle Science",
+    "citations": 122,
+    "url": "https://doi.org/10.1146/annurev-nucl-102014-022036",
+    "theme": "la détection des rayons gamma par télescope Tcherenkov"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 5 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

@@ -1,0 +1,236 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enquête astronomique et déroutes industrielles nocturnes — HappiSearcher</title><meta name="description" content="La Raspberry Pi a passé la nuit à sonder l&#x27;espace et la matière, confirmant plusieurs pistes galactiques tout en voyant ses hypothèses industrielles s&#x27;effondrer."><meta property="og:title" content="Enquête astronomique et déroutes industrielles nocturnes — HappiSearcher"><meta property="og:description" content="La Raspberry Pi a passé la nuit à sonder l&#x27;espace et la matière, confirmant plusieurs pistes galactiques tout en voyant ses hypothèses industrielles s&#x27;effondrer."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfaf6'/%3E%3Cpath d='M5 26h22M5 26V5' stroke='%231b1a17' stroke-width='2'/%3E%3Ccircle cx='11' cy='19' r='2.5' fill='%231f4596'/%3E%3Ccircle cx='17' cy='14' r='2.5' fill='%231f4596'/%3E%3Ccircle cx='23' cy='9' r='2.5' fill='%231f4596'/%3E%3C/svg%3E"><link rel="alternate" type="application/rss+xml" title="Journal" href="feed.xml"><link rel="preload" href="fonts/sourceserif4.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Source Serif 4';font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/sourceserif4.woff2) format('woff2')}@font-face{font-family:'Source Serif 4';font-style:italic;font-weight:200 900;font-display:swap;src:url(fonts/sourceserif4-italic.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plexmono-400.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plexmono-500.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plexmono-600.woff2) format('woff2')}
+:root{--paper:#fbfaf6;--paper2:#f2efe6;--ink:#1b1a17;--ink2:#3a3731;--muted:#6b665b;--rule:#d6d0c2;--rule2:#e8e4d9;
+--accent:#1f4596;--accent-soft:rgba(31,69,150,.12);--ok:#1d6a43;--mid:#94600a;--bad:#9e2f28;--grid:rgba(31,69,150,.07);
+--serif:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#141518;--paper2:#1c1d21;--ink:#ebe7dd;--ink2:#cfcabe;
+--muted:#9b968a;--rule:#3a3a3d;--rule2:#2a2a2e;--accent:#93acec;--accent-soft:rgba(147,172,236,.16);--ok:#6cc596;--mid:#e0ac52;
+--bad:#ef8a80;--grid:rgba(147,172,236,.06)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.62 var(--serif);font-optical-sizing:auto;
+-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
+text-decoration-color:var(--accent-soft)}a:hover{text-decoration-color:var(--accent)}
+h1,h2,h3{font-weight:600;line-height:1.18;letter-spacing:-.012em;margin:0}
+h1{font-size:2.5rem;margin:.15em 0 .35em}h3{font-size:1.18rem}
+p{margin:.55em 0}
+.mono,.kicker,.label,code{font-family:var(--mono)}
+.kicker{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.muted{color:var(--muted)}.small{font-size:.86rem}
+code{font-size:.8em;background:var(--paper2);border:1px solid var(--rule2);padding:0 .35em;border-radius:2px;word-break:break-word}
+sup{font-size:.68em;line-height:0}
+
+/* En-tête de revue */
+header.mast{border-bottom:3px double var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+background-size:14px 14px;background-position:-1px -1px}
+.mast-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 0 0}
+.mast-title{display:block;color:var(--ink);text-decoration:none;font-weight:700;letter-spacing:-.025em;
+font-size:3.2rem;line-height:1.02;padding:22px 0 6px}
+.mast-sub{font-style:italic;color:var(--ink2);max-width:640px;margin:0 0 20px;font-size:1.06rem}
+.mast.compact .mast-title{font-size:1.55rem;padding:10px 0 12px}
+.mast nav{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--ink);margin:0}
+.mast nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+text-decoration:none;padding:11px 18px 10px 0;margin-right:4px;border-bottom:2px solid transparent}
+.mast nav a.on{border-bottom-color:var(--accent);color:var(--accent)}.mast nav a:hover{color:var(--accent)}
+
+main{padding:8px 0 64px}
+.crumbs{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin:28px 0 0;color:var(--muted)}
+.crumbs a{color:var(--muted)}
+.pagehead{padding:18px 0 6px}
+.lede{font-size:1.2rem;color:var(--ink2);max-width:720px}
+.epigraph{font-style:italic;font-size:1.2rem;color:var(--ink2);border-left:2px solid var(--accent);padding:2px 0 2px 18px;
+margin:14px 0 10px;max-width:760px}
+.metaline{font-family:var(--mono);font-size:.76rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 18px;margin:10px 0}
+
+h2.sec{font-size:1.5rem;margin:56px 0 18px;padding-top:12px;border-top:2px solid var(--ink);display:flex;gap:14px;align-items:baseline}
+h2.sec .n{font-family:var(--mono);font-size:.78rem;font-weight:500;color:var(--accent);letter-spacing:.05em}
+.sec-intro{color:var(--muted);font-size:.95rem;max-width:760px;margin:-6px 0 18px}
+
+/* Résumé (abstract) */
+.abstract{background:var(--paper2);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:16px 22px;margin:22px 0;
+max-width:800px}
+.abstract .kicker{display:block;margin-bottom:6px;color:var(--ink)}
+.abstract p{margin:0;font-size:1.04rem}
+
+/* Statuts */
+.st{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;font-weight:600;white-space:nowrap;
+color:var(--muted)}
+.st::before{content:"";display:inline-block;width:.62em;height:.62em;margin-right:.45em;background:currentColor;vertical-align:.02em}
+.st-ok{color:var(--ok)}.st-mid{color:var(--mid)}.st-bad{color:var(--bad)}.st-none::before{background:none;border:1px solid currentColor}
+
+/* Jauge de pertinence */
+.gauge{display:inline-flex;gap:2px;vertical-align:-1px}
+.gauge i{width:9px;height:11px;border:1px solid var(--ink2);display:block}
+.gauge i.on{background:var(--ink2)}.gauge.solid i.on{background:var(--ok);border-color:var(--ok)}
+.gauge i.thr{margin-left:4px}
+.lvln{font-family:var(--mono);font-size:.74rem;margin-left:6px;color:var(--ink2)}
+
+/* Entrées (hypothèses, observations) */
+.entries{border-top:1px solid var(--rule)}
+.entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.entry-side{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.hid{font-family:var(--mono);font-size:1.05rem;font-weight:600;color:var(--ink)}
+.entry h3{margin:0 0 6px}
+.entry .test{font-size:.93rem;color:var(--ink2)}
+.label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:.6em;font-weight:500}
+.entry .res{margin:8px 0}
+.note{font-size:.9rem;color:var(--ink2);border-left:2px solid var(--mid);padding:2px 0 2px 12px;margin:10px 0}
+.note.bad{border-color:var(--bad)}
+.evid{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center;margin:14px 0 6px}
+.statline{font-family:var(--mono);font-size:.74rem;color:var(--ink2);line-height:1.7}
+.statline b{font-weight:600;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px}
+.entry-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:12px}
+.entry-meta a{color:var(--muted)}
+
+/* Graphique par groupe */
+figure.dumb{margin:0;flex:0 0 auto}
+figure.dumb svg{display:block;width:260px;max-width:100%;height:auto;overflow:visible}
+figure.dumb figcaption{font-family:var(--mono);font-size:.64rem;color:var(--muted);letter-spacing:.03em}
+
+/* Échelle détaillée */
+ol.ladder{list-style:none;padding:0;margin:14px 0 4px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+border:1px solid var(--rule);background:var(--paper)}
+ol.ladder li{padding:7px 8px 6px;border-right:1px solid var(--rule);font-family:var(--mono);font-size:.66rem;line-height:1.3;
+color:var(--muted);position:relative}
+ol.ladder li:last-child{border-right:0}
+ol.ladder li .k{display:block;font-size:.62rem;opacity:.8}
+ol.ladder li .nm{display:block;color:var(--ink2);font-weight:500;letter-spacing:.01em}
+ol.ladder li .mk{position:absolute;top:6px;right:7px;font-weight:600}
+ol.ladder li.ok{background:var(--accent-soft)}ol.ladder li.ok .mk{color:var(--ok)}
+ol.ladder li.bad .mk{color:var(--bad)}ol.ladder li.bad .nm{color:var(--bad)}
+ol.ladder li.after{opacity:.45}
+ol.ladder li.thr{box-shadow:inset 3px 0 0 var(--ink)}
+
+details{margin:8px 0}details summary{cursor:pointer;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+text-transform:uppercase;color:var(--accent);list-style:none}details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+ ";font-weight:600}details[open] summary::before{content:"− "}
+details .dbody{font-size:.9rem;padding:8px 0 4px 14px;border-left:1px solid var(--rule);margin-top:6px}
+details .dbody ul{margin:.2em 0;padding-left:1.1em}details .dbody li{margin:.25em 0}
+
+/* Filtres */
+.filters{display:flex;flex-wrap:wrap;gap:0;margin:0 0 4px;border:1px solid var(--ink);width:max-content;max-width:100%}
+.filters button{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:0;
+border-right:1px solid var(--ink);background:transparent;color:var(--ink);padding:7px 12px;cursor:pointer}
+.filters button:last-child{border-right:0}.filters button.on{background:var(--ink);color:var(--paper)}
+
+/* Accueil */
+.lead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:44px;padding:34px 0 8px;align-items:start}
+.lead h2{font-size:2.1rem;line-height:1.12;margin:8px 0 12px;letter-spacing:-.02em}
+.lead h2 a{color:var(--ink);text-decoration:none}.lead h2 a:hover{color:var(--accent)}
+.lead .chapo{font-size:1.15rem;color:var(--ink2)}
+.more{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+figure.fig{margin:0;border-top:1px solid var(--ink);padding-top:10px}
+figure.fig figcaption{font-size:.84rem;color:var(--ink2);margin-top:10px;line-height:1.45}
+figure.fig figcaption b{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.funnel{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:9px 12px;align-items:center;margin-top:6px}
+.funnel .fl{font-size:.88rem;color:var(--ink2);line-height:1.25}
+.funnel .fb{height:14px;background:var(--rule2);position:relative}
+.funnel .fb span{position:absolute;inset:0 auto 0 0;background:var(--ink2)}
+.funnel .fb.hi span{background:var(--accent)}
+.funnel .fv{font-family:var(--mono);font-size:.9rem;font-weight:600;text-align:right;min-width:2ch}
+
+table.res{width:100%;border-collapse:collapse;font-size:.95rem}
+table.res caption{text-align:left;caption-side:top;font-size:.86rem;color:var(--ink2);padding-bottom:10px}
+table.res caption b{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+table.res th{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted);
+text-align:left;padding:8px 14px 8px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+table.res td{padding:16px 14px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.res tr:last-child td{border-bottom:2px solid var(--ink)}
+table.res td.id{font-family:var(--mono);font-weight:600;white-space:nowrap}
+table.res td.num{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+table.res .q{font-weight:600;line-height:1.3}
+table.res .sub{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.4}
+
+.toc{border-top:1px solid var(--ink)}
+.toc a.row{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:6px 24px;padding:16px 0;border-bottom:1px solid var(--rule);
+color:inherit;text-decoration:none;align-items:baseline}
+.toc a.row:hover .t{color:var(--accent)}
+.toc .d{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.toc .t{font-weight:600;font-size:1.12rem;line-height:1.3;display:block}
+.toc .c{display:block;color:var(--ink2);font-size:.94rem;margin-top:3px}
+.toc .no{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.tonight{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 24px;padding:16px 0;border-top:1px solid var(--ink);
+border-bottom:1px solid var(--rule)}
+.tonight .t{font-weight:600;font-size:1.12rem}
+
+/* Article */
+.art{display:grid;grid-template-columns:minmax(0,680px) 250px;gap:56px;justify-content:space-between;padding-top:6px}
+.art h1{font-size:2.6rem;letter-spacing:-.022em}
+.art .body p{font-size:1.1rem;line-height:1.7;hyphens:auto}
+.art .body > p:first-of-type::first-letter{font-size:3.4em;float:left;line-height:.86;padding:6px 8px 0 0;font-weight:600}
+aside.side{font-size:.9rem;position:sticky;top:20px;align-self:start}
+aside.side .box{border-top:2px solid var(--ink);padding-top:10px;margin-bottom:28px}
+aside.side ul{list-style:none;padding:0;margin:8px 0 0}
+aside.side li{padding:8px 0;border-bottom:1px solid var(--rule2);line-height:1.4}
+aside.side li .big{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:600;line-height:1.1;color:var(--ink)}
+
+/* État de l'art et références */
+section.soa{border-top:1px solid var(--ink);margin:30px 0 34px;padding-top:12px}
+section.soa h2{font-size:1.45rem;margin:6px 0 10px;letter-spacing:-.015em}
+section.soa p{font-size:1.04rem;line-height:1.66}
+section.soa .soa-note{font-size:.8rem;color:var(--muted);font-family:var(--mono);margin-top:10px;line-height:1.5}
+.night-k{display:block;border-top:1px solid var(--ink);padding-top:12px;margin-bottom:6px}
+sup.cite{font-family:var(--mono);font-size:.66em;font-weight:600;line-height:0;margin-left:1px}
+sup.cite a{text-decoration:none}
+ol.refs{list-style:none;padding:0;margin:10px 0 0;counter-reset:r}
+ol.refs li{position:relative;padding:9px 0 9px 34px;border-bottom:1px solid var(--rule2);font-size:.9rem;line-height:1.45;
+counter-increment:r}
+ol.refs li::before{content:"[" counter(r) "]";position:absolute;left:0;top:9px;font-family:var(--mono);font-size:.76rem;
+color:var(--accent);font-weight:600}
+ol.refs li:target{background:var(--accent-soft)}
+ol.refs .rt{font-style:italic}ol.refs .rm{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+section.biblio{border-top:2px solid var(--ink);margin-top:40px;padding-top:12px}
+
+/* Données */
+.ds{padding:22px 0;border-bottom:1px solid var(--rule)}
+.ds h3 a{color:var(--ink)}
+figure.plot{margin:14px 0 0}
+figure.plot img{display:block;max-width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:6px}
+figure.plot figcaption{font-size:.82rem;color:var(--ink2);margin-top:6px}
+figure.plot figcaption b{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
+ul.raw{list-style:none;padding:0;margin:0;font-size:.86rem}ul.raw li{padding:4px 0;border-bottom:1px dotted var(--rule)}
+
+/* Méthode */
+.prose{max-width:720px}.prose p,.prose li{font-size:1.06rem}
+ol.steps{list-style:none;padding:0;margin:20px 0;counter-reset:s;max-width:760px}
+ol.steps li{position:relative;padding:4px 0 20px 56px;counter-increment:s}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border:1.5px solid var(--ink);
+border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:600;background:var(--paper)}
+ol.steps li::after{content:"";position:absolute;left:17px;top:36px;bottom:0;border-left:1px solid var(--rule)}
+ol.steps li:last-child::after{display:none}
+ol.steps li b{display:block;font-size:1.1rem}
+ol.steps li.thr{margin-top:22px}
+ol.steps li.thr .seuil{position:absolute;left:0;right:0;top:-22px;border-top:1px dashed var(--ink);font-family:var(--mono);
+font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding-top:2px;text-align:right}
+ol.steps li.top::before{background:var(--ink);color:var(--paper)}
+
+.subjects .row{grid-template-columns:minmax(0,1fr) auto}
+.counts{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px;margin-top:6px}
+
+footer.site{border-top:3px double var(--ink);padding:22px 0 44px;font-size:.84rem;color:var(--muted)}
+footer.site .cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px}
+footer.site a{color:var(--ink2)}
+
+@media (max-width:900px){
+ .lead,.art{grid-template-columns:minmax(0,1fr);gap:28px}
+ aside.side{position:static}
+}
+@media (max-width:640px){
+ body{font-size:17px}.wrap{padding:0 16px}
+ h1,.art h1{font-size:1.9rem}.mast-title{font-size:2.15rem;padding-top:16px}.lead h2{font-size:1.6rem}
+ .mast nav a{padding-right:9px;margin-right:0;font-size:.66rem;letter-spacing:.04em}
+ .entry{grid-template-columns:minmax(0,1fr);gap:6px}
+ .entry-side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px}
+ ol.ladder{grid-template-columns:repeat(3,minmax(0,1fr))}
+ ol.ladder li:nth-child(3){border-right:0}ol.ladder li:nth-child(-n+3){border-bottom:1px solid var(--rule)}
+ .toc a.row,.tonight{grid-template-columns:minmax(0,1fr);gap:2px}.toc .no{display:none}
+ table.res thead{display:none}table.res,table.res tbody,table.res tr,table.res td,table.res caption{display:block;width:100%}
+ table.res tr{border-bottom:1px solid var(--rule);padding:12px 0}table.res tr:last-child{border-bottom:2px solid var(--ink)}
+ table.res td{border:0!important;padding:3px 0}
+ footer.site .cols{grid-template-columns:minmax(0,1fr)}
+ .filters{width:auto}
+}
+</style></head><body><header class="mast compact"><div class="wrap"><div class="mast-top kicker"><span>Carnet de recherche nocturne · données publiques</span><span>N° 15 · 16 novembre 2026</span></div><a class="mast-title" href="index.html">HappiSearcher</a><nav><a href="index.html">Accueil</a><a href="journal.html" class=on>Journal</a><a href="hypotheses.html">Hypothèses</a><a href="sujets.html">Sujets</a><a href="methode.html">Méthode</a></nav></div></header><main><div class="wrap"><p class="crumbs"><a href="journal.html">Journal</a> / N° 15</p><div class="art"><article class="body"><span class="kicker">16 novembre 2026 · Astronomie et physique</span><h1>Enquête astronomique et déroutes industrielles nocturnes</h1><div class="abstract"><span class="kicker">En bref</span><p>La Raspberry Pi a passé la nuit à sonder l&#x27;espace et la matière, confirmant plusieurs pistes galactiques tout en voyant ses hypothèses industrielles s&#x27;effondrer.</p></div><section class="soa"><span class="kicker">État de l'art · ce que l'on sait déjà</span><h2>Galaxies et rayons gamma : structures et méthodes</h2><p>Une galaxie est un immense assemblage d&#x27;étoiles, de gaz et de poussières. Au cœur de ces galaxies se trouvent des renflements centraux appelés bulbes<sup class="cite"><a href="#ref-1">1</a></sup>. La recherche sait que ces bulbes ne sont pas tous identiques : certains ressemblent à des galaxies elliptiques, c&#x27;est-à-dire des structures en forme d&#x27;ellipse, tandis que d&#x27;autres rappellent des disques<sup class="cite"><a href="#ref-1">1</a></sup>. Certains de ces composants centraux, nommés pseudobulbes, se forment lentement à partir du gaz des disques<sup class="cite"><a href="#ref-2">2</a></sup>. Toutefois, les propriétés détaillées de ces structures et la dynamique des disques d&#x27;étoiles restent encore mal comprises<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-3">3</a></sup>.</p><p>Pour étudier l&#x27;univers lointain, les scientifiques observent les rayons gamma, c&#x27;est-à-dire un rayonnement électromagnétique extrêmement énergétique. Cette discipline s&#x27;appuie notamment sur des instruments spécialisés, les télescopes Tcherenkov<sup class="cite"><a href="#ref-4">4</a></sup>. Pour étalonner ces instruments, c&#x27;est-à-dire ajuster et vérifier leur précision, l&#x27;analyse d&#x27;images circulaires produites par des particules appelées muons constitue une méthode puissante<sup class="cite"><a href="#ref-4">4</a></sup>. Si les principes généraux de cette astronomie à haute énergie sont établis, l&#x27;ajustement précis de ces grands réseaux de télescopes nécessite encore d&#x27;intégrer de nouveaux effets dans les analyses<sup class="cite"><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup>. Ces méthodes de calibration ouvrent la voie à une meilleure compréhension des régularités physiques mesurées dans le cosmos.</p><p class="soa-note">Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 5 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement.</p></section><span class="kicker night-k">Cette nuit</span><p>Cette nuit d&#x27;enquête s&#x27;est penchée sur des questions d&#x27;astronomie et de physique. Du côté des observations, la Raspberry a examiné des catalogues de galaxies, mettant au jour des pistes intéressantes sur la morphologie céleste. Par exemple, un lien fort a été repéré entre les galaxies observées par la tranche et la forme arrondie de leur bulbe, affichant une corrélation de +0.77. À l&#x27;inverse, une forte corrélation négative de -0.73 est apparue entre l&#x27;absence de vue par la tranche et cette même forme arrondie de bulbe. D&#x27;autres liens non linéaires ont été confirmés concernant l&#x27;enroulement des bras spiraux ainsi que l&#x27;orientation des structures galactiques.</p><p>Les vérifications menées sur le terrain industriel ont en revanche totalement échoué à valider les hypothèses de départ, ce qui constitue une information utile. L&#x27;idée selon laquelle le lien entre la vitesse de rotation et le couple changerait selon le type de machine a été réfutée, affichant un écart de 0.00. De même, l&#x27;hypothèse d&#x27;un lien plus fort entre l&#x27;usure des outils et le couple au-dessus d&#x27;un certain seuil a été réfutée. Enfin, la tentative de prédire l&#x27;évolution des cycles de dégradation d&#x27;un moteur à partir de la pression de sortie et de la température s&#x27;est révélée non concluante, atteignant un résultat comparable au hasard. Ces 3 tests non validés rappellent la complexité de modélisation de ces phénomènes.</p><p class="small muted" style="margin-top:28px">Rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement.</p><section class="biblio"><span class="kicker">Références</span><ol class="refs"><li id="ref-1">Wyse et al. (1997). <a class="rt" href="https://doi.org/10.1146/annurev.astro.35.1.637" target="_blank" rel="noopener">GALACTIC BULGES</a>. <span class="rm">Annual Review of Astronomy and Astrophysics · 188 citations</span></li><li id="ref-2">Kormendy &amp; Kennicutt (2004). <a class="rt" href="https://doi.org/10.1146/annurev.astro.42.053102.134024" target="_blank" rel="noopener">Secular Evolution and the Formation of Pseudobulges in Disk Galaxies</a>. <span class="rm">Annual Review of Astronomy and Astrophysics · 1722 citations</span></li><li id="ref-3">Kruit &amp; Freeman (2011). <a class="rt" href="https://doi.org/10.1146/annurev-astro-083109-153241" target="_blank" rel="noopener">Galaxy Disks</a>. <span class="rm">Annual Review of Astronomy and Astrophysics · 284 citations</span></li><li id="ref-4">Gaug et al. (2019). <a class="rt" href="https://doi.org/10.3847/1538-4365/ab2123" target="_blank" rel="noopener">Using Muon Rings for the Calibration of the Cherenkov Telescope Array: A Systematic Review of the Method and Its Potential Accuracy</a>. <span class="rm">The Astrophysical Journal Supplement Series · 33 citations</span></li><li id="ref-5">Funk (2015). <a class="rt" href="https://doi.org/10.1146/annurev-nucl-102014-022036" target="_blank" rel="noopener">Ground- and Space-Based Gamma-Ray Astronomy</a>. <span class="rm">Annual Review of Nuclear and Particle Science · 122 citations</span></li></ol></section></article><aside class="side"><div class="box"><span class="kicker">En chiffres (calculés)</span><ul><li><span class="big">2</span>datasets analysés, 16 écartés (illisibles, hors sujet ou indisponibles)</li><li><span class="big">3</span>hypothèses testées : 2 réfutée, 1 non concluante</li><li><span class="big">0</span>résultat solide (niveau ≥ 3/6)</li><li><span class="big">4</span>nouvelles hypothèses pour la nuit prochaine</li></ul></div><div class="box"><span class="kicker">Sources</span><ul><li><a href="2026-11-16_0330_pulsar.html">Rapport 2026-11-16_0330_pulsar</a></li></ul></div></aside></div><h2 class="sec"><span class="n">01</span>Les hypothèses testées cette nuit</h2><div class="entries"><article class="entry"><div class="entry-side"><span class="hid">H43</span><span class="st st-bad">Réfutée</span><span title="Niveau 0/6 de l'échelle de pertinence"><span class="gauge"><i class=""></i><i class=""></i><i class=""></i><i class=" thr"></i><i class=""></i><i class=""></i></span><span class="lvln">0/6</span></span></div><div class="entry-main"><h3>Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?</h3><p class="test"><span class="label">Test · Sous-groupe</span>Le lien entre Rotational speed et Torque change-t-il selon Type ?</p><p class="res">Dans nagapavan525/machine-failure-prediction-22112025-1, la corrélation Rotational speed~Torque vaut -0.92 pour « Type = 1 » contre -0.92 pour « Type = 2 » (écart 0.00, p = 0.72).</p><div class="evid"><figure class="dumb"><svg viewBox="0 0 260 64" role="img" aria-label="Corrélation par groupe : Type = 1 -0.92, Type = 2 -0.92"><line x1="12" x2="248" y1="26" y2="26" style="stroke:var(--rule);stroke-width:1"/><line x1="12.0" x2="12.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="71.0" x2="71.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="130.0" x2="130.0" y1="18" y2="34" style="stroke:var(--muted);stroke-width:1"/><line x1="189.0" x2="189.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="248.0" x2="248.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="21.8" x2="21.6" y1="26" y2="26" style="stroke:var(--accent);stroke-width:3;opacity:.35"/><circle cx="21.8" cy="26" r="5" style="fill:var(--accent)"/><circle cx="21.6" cy="26" r="4.5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/><text x="21.8" y="11" text-anchor="start" style="fill:var(--accent);font:500 9.5px var(--mono)">Type = 1  ρ −0.92</text><text x="21.6" y="47" text-anchor="start" style="fill:var(--ink2);font:500 9.5px var(--mono)">Type = 2  ρ −0.92</text><text x="12.0" y="60" text-anchor="middle" style="fill:var(--muted);font:9px var(--mono)">−1</text><text x="130.0" y="60" text-anchor="middle" style="fill:var(--muted);font:9px var(--mono)">0</text><text x="248.0" y="60" text-anchor="middle" style="fill:var(--muted);font:9px var(--mono)">+1</text></svg><figcaption>ρ de Spearman par groupe · moitié de confirmation</figcaption></figure><div class="statline"><b>p</b> = 0.719<br><b>n</b> = 2 395 + 1 207 + 411<br>Holm : seuil corrigé 0.025 (3 tests cette nuit)<br>moitié de confirmation (4013 lignes jamais vues à l&#x27;exploration)</div></div><ol class="ladder" aria-label="Échelle de pertinence, niveau 0 sur 6"><li class="bad" title="réfutée"><span class="k">1</span><span class="nm">Réel</span><span class="mk">✗</span></li><li class="after" title="variables nommées"><span class="k">2</span><span class="nm">Interprétable</span><span class="mk">✓</span></li><li class="after" title="avis d&#x27;expert : NON"><span class="k">3</span><span class="nm">Non trivial</span><span class="mk">✗</span></li><li class="after thr" title="non vérifié"><span class="k">4</span><span class="nm">Non artefactuel</span><span class="mk">·</span></li><li class="after" title="déjà connu"><span class="k">5</span><span class="nm">Nouveau</span><span class="mk">✗</span></li><li class="after" title="non vérifié"><span class="k">6</span><span class="nm">Généralisable</span><span class="mk">·</span></li></ol><details><summary>Détail de l'échelle (niveau 0/6)</summary><div class="dbody"><ul><li><b>1. Réel</b> — réfutée</li><li><b>2. Interprétable</b> — variables nommées</li><li><b>3. Non trivial</b> — avis d&#x27;expert : NON</li><li><b>4. Non artefactuel</b> — non vérifié</li><li><b>5. Nouveau</b> — déjà connu</li><li><b>6. Généralisable</b> — non vérifié</li></ul></div></details><p class="small"><span class="label">Littérature · Déjà connu</span>L&#x27;influence de la vitesse de rotation et du couple sur les vibrations et la défaillance des machines est largement étudiée dans la maintenance prédictive.</p><details><summary>Articles proches (5)</summary><div class="dbody"><ul><li><a href="https://doi.org/10.2118/188427-ms" target="_blank" rel="noopener">Experimental Investigation of the Effects of Rotational Speed and Weight on Bit on Drillstring Vibrations, Torque and Rate of Penetration</a> <span class="muted mono small">2017 · 21 cit.</span></li><li><a href="https://openalex.org/W7222908901" target="_blank" rel="noopener">INDUSTRIAL MACHINE FAILURE PATTERN ANALYSIS FOR AUTOMATED DEFECT DIAGNOSIS IN ADVANCED MANUFACTURING SYSTEMS</a> <span class="muted mono small">2026 · 0 cit.</span></li><li><a href="https://doi.org/10.1007/978-3-031-47058-5_32" target="_blank" rel="noopener">Big Data Analytics to Identify Failures in Production Machines and Propose a Preventive Maintenance Plan</a> <span class="muted mono small">2023 · 0 cit.</span></li><li><a href="https://doi.org/10.1109/ibdap65587.2025.11145829" target="_blank" rel="noopener">FAULTYER: Machine Learning-Based System for Predictive Maintenance and Failure Detection</a> <span class="muted mono small">2025 · 0 cit.</span></li><li><a href="https://doi.org/10.37537/rev.elektron.5.1.131.2021" target="_blank" rel="noopener">Solutions for Torque and Speed Measurement on Electric Machine Controllers Test Benches</a> <span class="muted mono small">2021 · 8 cit.</span></li></ul></div></details><details><summary>Avis critique (LLM) : non soutenue</summary><div class="dbody"><ul><li><b>Formulation :</b> Excellente. L&#x27;énoncé pose clairement la question de la modération sous forme observationnelle sans allégation de causalité abusive.</li><li><b>Diagnostic statistique :</b> L&#x27;écart entre Spearman et Pearson est faible (&lt; 0.05). La corrélation négative est quasi identique et extrêmement forte dans tous les sous-groupes (r ≈ -0.88, rho ≈ -0.92). L&#x27;absence de différence est statistiquement nette (p = 0.72).</li><li><b>Modèle recommandé :</b> Régression linéaire ou log-linéaire avec terme d&#x27;interaction : Torque ~ Rotational_speed * Type.</li><li><b>Robustesse :</b> Très bonne robustesse. Effectifs importants dans chaque groupe (n de 411 à 2395) sur un jeu de confirmation indépendant de plus de 4000 lignes, offrant une forte puissance statistique.</li><li><b>Interprétation :</b> Ce résultat reflète les lois physiques des moteurs (P = C * omega) sous-jacentes à ce jeu de données (dérivé d&#x27;AI4I 2020). Le couple est inversement proportionnel à la vitesse pour une puissance donnée ; le type de produit (qualité L/M/H) n&#x27;altère pas cette relation physique fondamentale.</li><li><b>Amélioration du pipeline :</b> Intégrer des règles d&#x27;invariance physique connues (ex: lois de puissance mécanique) pour éviter de tester des modérations sur des relations déterministes invariantes.</li></ul><span class="muted small">Relecteur automatique : gemini-3.8-flash</span></div></details><div class="entry-meta">x <code>Rotational speed</code> · y <code>Torque</code> · groupe <code>Type</code></div></div></article><article class="entry"><div class="entry-side"><span class="hid">H44</span><span class="st st-bad">Réfutée</span><span title="Niveau 0/6 de l'échelle de pertinence"><span class="gauge"><i class=""></i><i class=""></i><i class=""></i><i class=" thr"></i><i class=""></i><i class=""></i></span><span class="lvln">0/6</span></span></div><div class="entry-main"><h3>Le lien entre Tool wear et Torque est-il plus fort au-dessus du seuil de Tool wear de 150 ?</h3><p class="test"><span class="label">Test · Seuil</span>Le lien entre Tool wear et Torque est-il plus fort au-dessus de Tool wear = 150.0 ?</p><p class="res">Dans nagapavan525/machine-failure-prediction-22112025-1, la corrélation Tool wear~Torque vaut +0.01 pour « Tool wear &gt; 150 » contre +0.01 pour « Tool wear ≤ 150 » (p = 0.95).</p><div class="evid"><figure class="dumb"><svg viewBox="0 0 260 64" role="img" aria-label="Corrélation par groupe : Tool wear ≤ 150 +0.01, Tool wear &gt; 150 +0.01"><line x1="12" x2="248" y1="26" y2="26" style="stroke:var(--rule);stroke-width:1"/><line x1="12.0" x2="12.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="71.0" x2="71.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="130.0" x2="130.0" y1="18" y2="34" style="stroke:var(--muted);stroke-width:1"/><line x1="189.0" x2="189.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="248.0" x2="248.0" y1="22" y2="30" style="stroke:var(--muted);stroke-width:1"/><line x1="130.6" x2="130.8" y1="26" y2="26" style="stroke:var(--accent);stroke-width:3;opacity:.35"/><circle cx="130.6" cy="26" r="5" style="fill:var(--accent)"/><circle cx="130.8" cy="26" r="4.5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/><text x="130.6" y="11" text-anchor="middle" style="fill:var(--accent);font:500 9.5px var(--mono)">Tool wear ≤ 150  ρ +0.01</text><text x="130.8" y="47" text-anchor="middle" style="fill:var(--ink2);font:500 9.5px var(--mono)">Tool wear &gt; 150  ρ +0.01</text><text x="12.0" y="60" text-anchor="middle" style="fill:var(--muted);font:9px var(--mono)">−1</text><text x="130.0" y="60" text-anchor="middle" style="fill:var(--muted);font:9px var(--mono)">0</text><text x="248.0" y="60" text-anchor="middle" style="fill:var(--muted);font:9px var(--mono)">+1</text></svg><figcaption>ρ de Spearman par groupe · moitié de confirmation</figcaption></figure><div class="statline"><b>p</b> = 0.954<br><b>n</b> = 2 833 + 1 180<br>Holm : seuil corrigé 0.05 (3 tests cette nuit)<br>moitié de confirmation (4013 lignes jamais vues à l&#x27;exploration)</div></div><ol class="ladder" aria-label="Échelle de pertinence, niveau 0 sur 6"><li class="bad" title="réfutée"><span class="k">1</span><span class="nm">Réel</span><span class="mk">✗</span></li><li class="after" title="variables nommées"><span class="k">2</span><span class="nm">Interprétable</span><span class="mk">✓</span></li><li class="after" title="avis d&#x27;expert : NON"><span class="k">3</span><span class="nm">Non trivial</span><span class="mk">✗</span></li><li class="after thr" title="non vérifié"><span class="k">4</span><span class="nm">Non artefactuel</span><span class="mk">·</span></li><li class="after" title="déjà connu"><span class="k">5</span><span class="nm">Nouveau</span><span class="mk">✗</span></li><li class="after" title="non vérifié"><span class="k">6</span><span class="nm">Généralisable</span><span class="mk">·</span></li></ol><details><summary>Détail de l'échelle (niveau 0/6)</summary><div class="dbody"><ul><li><b>1. Réel</b> — réfutée</li><li><b>2. Interprétable</b> — variables nommées</li><li><b>3. Non trivial</b> — avis d&#x27;expert : NON</li><li><b>4. Non artefactuel</b> — non vérifié</li><li><b>5. Nouveau</b> — déjà connu</li><li><b>6. Généralisable</b> — non vérifié</li></ul></div></details><p class="small"><span class="label">Littérature · Déjà connu</span>L&#x27;analyse des seuils d&#x27;usure des outils (tool wear) et leur relation avec le couple est un classique de la modélisation de la dégradation industrielle.</p><details><summary>Articles proches (5)</summary><div class="dbody"><ul><li><a href="https://doi.org/10.1016/j.rcim.2021.102177" target="_blank" rel="noopener">Degradation curves integration in physics-based models: Towards the predictive maintenance of industrial robots</a> <span class="muted mono small">2021 · 129 cit.</span></li><li><a href="https://openalex.org/W7160729827" target="_blank" rel="noopener">Predictive Maintenance With Machine Learning</a> <span class="muted mono small">2026 · 0 cit.</span></li><li><a href="https://doi.org/10.4108/airo.9975" target="_blank" rel="noopener">AI-Driven Predictive Maintenance in Infrastructure and Facilities Management</a> <span class="muted mono small">2025 · 9 cit.</span></li><li><a href="https://doi.org/10.1088/1742-6596/2299/1/012001" target="_blank" rel="noopener">Artificial intelligence for predictive maintenance</a> <span class="muted mono small">2022 · 43 cit.</span></li><li><a href="https://doi.org/10.36001/ijphm.2026.v17i1.4659" target="_blank" rel="noopener">Robust Baselines and Probability Calibration for TPM-Oriented Predictive Maintenance</a> <span class="muted mono small">2026 · 1 cit.</span></li></ul></div></details><details><summary>Avis critique (LLM) : non soutenue</summary><div class="dbody"><ul><li><b>Formulation :</b> Bonne : l&#x27;énoncé utilise des termes observationnels appropriés et correspond bien au test bivarié réalisé.</li><li><b>Diagnostic statistique :</b> Les corrélations linéaire et de rang sont quasi nulles des deux côtés du seuil (r ≈ 0.005 vs 0.007, p = 0.95). Il n&#x27;y a aucun lien, ni linéaire ni non-linéaire.</li><li><b>Modèle recommandé :</b> Régression segmentée (piecewise regression) ou GAM avec terme d&#x27;interaction seuil pour modéliser une rupture de pente.</li><li><b>Robustesse :</b> Très bonne robustesse : l&#x27;échantillon de confirmation est grand (n = 4 013), la puissance est suffisante pour détecter même un lien faible.</li><li><b>Interprétation :</b> Dans les datasets classiques de maintenance prédictive (type AI4I 2020), l&#x27;usure d&#x27;outil et le couple sont des variables de processus générées de façon largement indépendante, sauf au moment précis d&#x27;une panne spécifique.</li><li><b>Amélioration du pipeline :</b> Filtrer les tests de seuil : ne pas tester un changement de pente si la corrélation globale de base sur l&#x27;ensemble du jeu de données est quasi nulle (|r| &lt; 0.05).</li></ul><span class="muted small">Relecteur automatique : gemini-3.8-flash</span></div></details><div class="entry-meta">x <code>Tool wear</code> · y <code>Torque</code> · seuil <code>150.0</code></div></div></article><article class="entry"><div class="entry-side"><span class="hid">H45</span><span class="st st-mid">Non concluante</span><span title="Niveau 0/6 de l'échelle de pertinence"><span class="gauge"><i class=""></i><i class=""></i><i class=""></i><i class=" thr"></i><i class=""></i><i class=""></i></span><span class="lvln">0/6</span></span></div><div class="entry-main"><h3>Peut-on prédire l&#x27;évolution des cycles de dégradation de l&#x27;engine avec les variables HPC outlet pressure et LPT outlet temperature ?</h3><p class="test"><span class="label">Test · Prédiction</span>Peut-on prédire engine à partir de (HPC outlet pressure) (psia), (LPT outlet temperature) (◦R), cycle seulement ?</p><p class="res">Dans nominal-io/nasa-turbofan-degradation, prédire engine avec (HPC outlet pressure) (psia), (LPT outlet temperature) (◦R), cycle donne r2 = -0.07 (hasard ≈ 0.00, p = 0.14 sur 20 permutations, validation aléatoire).</p><div class="evid"><div class="statline"><b>p</b> = 0.071<br>Holm : seuil corrigé 0.017 (3 tests cette nuit)<br>moitié de confirmation (10320 lignes jamais vues à l&#x27;exploration)</div></div><ol class="ladder" aria-label="Échelle de pertinence, niveau 0 sur 6"><li class="bad" title="non concluante"><span class="k">1</span><span class="nm">Réel</span><span class="mk">✗</span></li><li class="after" title="variables nommées"><span class="k">2</span><span class="nm">Interprétable</span><span class="mk">✓</span></li><li class="after" title="avis d&#x27;expert : A_TESTER_AUTREMENT"><span class="k">3</span><span class="nm">Non trivial</span><span class="mk">✗</span></li><li class="after thr" title="non vérifié"><span class="k">4</span><span class="nm">Non artefactuel</span><span class="mk">·</span></li><li class="after" title="déjà partiellement étudié"><span class="k">5</span><span class="nm">Nouveau</span><span class="mk">✗</span></li><li class="after" title="non vérifié"><span class="k">6</span><span class="nm">Généralisable</span><span class="mk">·</span></li></ol><details><summary>Détail de l'échelle (niveau 0/6)</summary><div class="dbody"><ul><li><b>1. Réel</b> — non concluante</li><li><b>2. Interprétable</b> — variables nommées</li><li><b>3. Non trivial</b> — avis d&#x27;expert : A_TESTER_AUTREMENT</li><li><b>4. Non artefactuel</b> — non vérifié</li><li><b>5. Nouveau</b> — déjà partiellement étudié</li><li><b>6. Généralisable</b> — non vérifié</li></ul></div></details><p class="small"><span class="label">Littérature · Partiellement étudié</span>La prédiction de la durée de vie utile des turboréacteurs à partir des pressions et températures est un sujet majeur, bien que l&#x27;efficacité varie selon les architectures de modèles.</p><details><summary>Articles proches (5)</summary><div class="dbody"><ul><li><a href="https://doi.org/10.1016/j.ress.2018.11.027" target="_blank" rel="noopener">Remaining useful life predictions for turbofan engine degradation using semi-supervised deep architecture</a> <span class="muted mono small">2018 · 554 cit.</span></li><li><a href="https://doi.org/10.3390/aerospace13110986" target="_blank" rel="noopener">Explainable Prediction of Remaining Useful Life for Turbofan Engines Using Kolmogorov–Arnold Network</a> <span class="muted mono small">2026 · 0 cit.</span></li><li><a href="https://doi.org/10.36001/phme.2016.v3i1.1623" target="_blank" rel="noopener">Echo State Network for the Remaining Useful Life Prediction of a Turbofan Engine</a> <span class="muted mono small">2016 · 43 cit.</span></li><li><a href="https://doi.org/10.1038/s41598-025-09155-z" target="_blank" rel="noopener">A deep learning-based prognostic approach for predicting turbofan engine degradation and remaining useful life</a> <span class="muted mono small">2025 · 59 cit.</span></li><li><a href="https://doi.org/10.1371/journal.pone.0347312" target="_blank" rel="noopener">A deep learning framework for remaining useful life prediction of turbofan engines with partial sensor failure</a> <span class="muted mono small">2026 · 6 cit.</span></li></ul></div></details><details><summary>Avis critique (LLM) : à tester autrement</summary><div class="dbody"><ul><li><b>Formulation :</b> L&#x27;énoncé cherche à prédire l&#x27;identifiant du moteur (&#x27;engine&#x27;) plutôt que la durée de vie restante (Remaining Useful Life, RUL) ou le cycle de dégradation, ce qui est une erreur de ciblage de la variable dépendante.</li><li><b>Reformulation proposée :</b> Comment prédire le nombre de cycles avant la panne (RUL) à partir de la pression de sortie du HPC et de la température de sortie du LPT ?</li><li><b>Diagnostic statistique :</b> Le R² négatif (-0.07) montre que le modèle linéaire échoue à prédire l&#x27;identifiant du moteur (variable nominale ou catégorielle &#x27;engine&#x27;), ce qui est logiquement impossible et statistiquement aberrant.</li><li><b>Modèle recommandé :</b> Régression non linéaire ou modèle de survie (ex: Random Forest, LSTM, ou réseaux de neurones profonds) pour prédire la cible réelle de dégradation (RUL) et non l&#x27;ID du moteur.</li><li><b>Robustesse :</b> La taille de l&#x27;échantillon (n=5000) est suffisante, mais la variable cible &#x27;engine&#x27; est un identifiant d&#x27;appareil et non une mesure de dégradation continue, ce qui invalide le test de prédiction.</li><li><b>Interprétation :</b> Dans la base NASA C-MAPSS (turbofan), les capteurs mesurent la dégradation physique au fil des cycles, mais la prédiction nécessite de transformer le &#x27;cycle&#x27; en RUL (Remaining Useful Life) par moteur, et non d&#x27;utiliser l&#x27;ID du moteur comme cible.</li><li><b>Amélioration du pipeline :</b> Corriger le générateur d&#x27;hypothèses pour empêcher l&#x27;utilisation d&#x27;identifiants d&#x27;entités (IDs) comme variables cibles de prédiction numérique et cibler explicitement la RUL.</li></ul><span class="muted small">Relecteur automatique : gemini-3.5-flash-lite</span></div></details><div class="entry-meta">cible <code>engine</code> · variables <code>[&#x27;(HPC outlet pressure) (psia)&#x27;, &#x27;(LPT outlet temperature) (◦R)&#x27;, &#x27;cycle&#x27;]</code></div></div></article></div></div></main><footer class="site"><div class="wrap cols"><div><b class="kicker">Colophon</b><br>Généré automatiquement chaque nuit par une Raspberry Pi 5 à partir de données publiques (OpenML, Hugging Face). Les résultats sont des liens statistiques sur des données d'observation, pas des conclusions scientifiques ni des causes.</div><div><a href="methode.html">Méthode et garde-fous</a><br><a href="journal.html">Journal</a> · <a href="feed.xml">Flux RSS</a></div></div></footer></body></html>

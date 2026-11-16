@@ -1,0 +1,1602 @@
+{
+ "id": "2026-11-16_0330_pulsar",
+ "date": "2026-11-16T03:41",
+ "sujet": "Astronomie et physique",
+ "question": "Quelles régularités physiques émergent des mesures (étoiles, pulsars, particules), et quels objets anormaux méritent un second regard ?",
+ "keywords": [
+  "pulsar",
+  "galaxy",
+  "star",
+  "sdss",
+  "quasar",
+  "exoplanet",
+  "magic telescope",
+  "higgs",
+  "solar flare",
+  "gamma"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des données morphologiques des galaxies (SDSS) et des télescopes de rayons gamma (MAGIC) révèle des régularités géométriques robustes, confirmées sur des échantillons indépendants. On observe de fortes corrélations non linéaires entre les paramètres de concentration de flux et les dimensions des gerbes atmosphériques, ainsi qu'entre l'inclinaison des galaxies et la morphologie de leur bulbe. Ces résultats permettent d'affiner la modélisation des signaux astrophysiques et de mieux caractériser la structure des objets célestes.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Lien non linéaire confirmé entre l'enroulement moyen et lâche des bras spiraux dans le catalogue SDSS.",
+    "hypothese": "Le lien entre t10_arms_winding_a29_medium_debiased et t10_arms_winding_a30_loose_debiased change-t-il selon la présence d'une barre galactique ?"
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation négative entre l'absence de vue par la tranche et la forme arrondie du bulbe galactique.",
+    "hypothese": "Le lien entre t02_edgeon_a05_no_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon l'indice de proéminence du bulbe ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Relation positive entre les galaxies vues par la tranche et la forme de bulbe 'boxy'.",
+    "hypothese": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon le type de galaxie ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Lien inverse entre l'absence d'orientation par la tranche et la forme de bulbe 'boxy'.",
+    "hypothese": "Le lien entre t02_edgeon_a05_no_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon la classe morphologique globale ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Forte association entre les galaxies vues par la tranche et la forme de bulbe arrondie.",
+    "hypothese": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon l'arrondi général de la galaxie ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Lien entre la morphologie en forme de cigare et le bulbe 'boxy'.",
+    "hypothese": "Le lien entre t07_rounded_a18_cigar_shaped_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon l'asymétrie de la galaxie ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Relation entre les classifications de galaxies spirales à 2 ou 3 bras.",
+    "hypothese": "Le lien entre t11_arms_number_a32_2_debiased et t11_arms_number_a33_3_debiased change-t-il selon l'enroulement des bras ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Lien entre l'enroulement lâche des bras et la classification à 3 bras.",
+    "hypothese": "Le lien entre t10_arms_winding_a30_loose_debiased et t11_arms_number_a33_3_debiased change-t-il selon la proéminence du bulbe ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation physique entre la largeur de la gerbe (fWidth) et le premier paramètre de concentration (fConc1) dans les télescopes gamma.",
+    "hypothese": "Le lien entre fWidth et fConc1 change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien fort entre la largeur de la gerbe et la concentration globale de la lumière (fConc).",
+    "hypothese": "Le lien entre fWidth et fConc change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Corrélation entre la taille de la gerbe (fSize) et le troisième moment longitudinal (fM3Long).",
+    "hypothese": "Le lien entre fSize et fM3Long change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Lien fort, mécanique et attendu entre la taille totale de l'image (fSize) et sa concentration (fConc).",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Relation mécanique entre la taille (fSize) et la concentration secondaire (fConc1).",
+    "hypothese": ""
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "Lien entre la longueur de la gerbe (fLength) et sa concentration (fConc1).",
+    "hypothese": "Le lien entre fLength et fConc1 change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Redondance directe avec F10 mesurant la même relation géométrique sous un autre angle statistique.",
+    "hypothese": ""
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la largeur et la taille de la gerbe atmosphérique Cerenkov.",
+    "hypothese": "Le lien entre fWidth et fSize change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   }
+  },
+  "pistes": [
+   "Étudier l'impact de l'inclinaison des galaxies (edge-on) sur la perception de la forme du bulbe galactique dans les grands relevés.",
+   "Approfondir la discrimination gamma/hadron en combinant les paramètres de largeur (fWidth) et de concentration (fConc) pour les télescopes Tchernikov.",
+   "Analyser les relations multivariées entre le nombre de bras spiraux et l'enroulement pour classifier automatiquement la morphologie des galaxies spirales."
+  ],
+  "nouveautes": {
+   "43": {
+    "id": "H43",
+    "nouveaute": "deja_connu",
+    "explication": "L'influence de la vitesse de rotation et du couple sur les vibrations et la défaillance des machines est largement étudiée dans la maintenance prédictive."
+   },
+   "44": {
+    "id": "H44",
+    "nouveaute": "deja_connu",
+    "explication": "L'analyse des seuils d'usure des outils (tool wear) et leur relation avec le couple est un classique de la modélisation de la dégradation industrielle."
+   },
+   "45": {
+    "id": "H45",
+    "nouveaute": "partiellement_etudie",
+    "explication": "La prédiction de la durée de vie utile des turboréacteurs à partir des pressions et températures est un sujet majeur, bien que l'efficacité varie selon les architectures de modèles."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43804",
+    "x": "fWidth",
+    "y": "fConc",
+    "groupe": "class",
+    "seuil": null,
+    "plus_fort": "gamma",
+    "enonce": "Le lien entre fWidth et fConc change-t-il selon la classe class ?",
+    "requete_biblio": "MAGIC gamma telescope image parameters concentration width classification"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43804",
+    "x": "fSize",
+    "y": "fM3Long",
+    "groupe": "class",
+    "seuil": null,
+    "plus_fort": "gamma",
+    "enonce": "Le lien entre fSize et fM3Long change-t-il selon la classe class ?",
+    "requete_biblio": "Atmospheric Cherenkov telescopes longitudinal development gamma hadron separation"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "x": "t02_edgeon_a04_yes_debiased",
+    "y": "t09_bulge_shape_a25_rounded_debiased",
+    "groupe": "t05_bulge_prominence_a12_obvious_debiased",
+    "seuil": 0.5,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon le seuil de t05_bulge_prominence_a12_obvious_debiased ?",
+    "requete_biblio": "Galaxy Zoo bulge shape inclination morphology SDSS"
+   },
+   {
+    "type": "prediction",
+    "dataset_id": "43804",
+    "cible": "class",
+    "variables": [
+     "fWidth",
+     "fConc",
+     "fLength",
+     "fSize"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la classe class avec SEULEMENT les variables fWidth, fConc, fLength et fSize ?"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t10_arms_winding_a29_medium_debiased ~ t10_arms_winding_a30_loose_debiased",
+   "stat": 0.371,
+   "score": 0.8712750402109567,
+   "detail": {
+    "spearman": 0.394,
+    "pearson": -0.022,
+    "n": 13151,
+    "confirmation": "confirmé — ρ = +0.40 sur 13156 lignes (découverte : +0.39)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Lien non linéaire confirmé entre l'enroulement moyen et lâche des bras spiraux dans le catalogue SDSS.",
+    "hypothese": "Le lien entre t10_arms_winding_a29_medium_debiased et t10_arms_winding_a30_loose_debiased change-t-il selon la présence d'une barre galactique ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t02_edgeon_a05_no_debiased ~ t09_bulge_shape_a25_rounded_debiased",
+   "stat": 0.361,
+   "score": 0.8612565195970192,
+   "detail": {
+    "spearman": -0.717,
+    "pearson": -0.356,
+    "n": 13130,
+    "confirmation": "confirmé — ρ = -0.73 sur 13138 lignes (découverte : -0.72)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation négative entre l'absence de vue par la tranche et la forme arrondie du bulbe galactique.",
+    "hypothese": "Le lien entre t02_edgeon_a05_no_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon l'indice de proéminence du bulbe ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t02_edgeon_a04_yes_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+   "stat": 0.353,
+   "score": 0.8526619402624485,
+   "detail": {
+    "spearman": 0.501,
+    "pearson": 0.148,
+    "n": 13145,
+    "confirmation": "confirmé — ρ = +0.50 sur 13153 lignes (découverte : +0.50)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Relation positive entre les galaxies vues par la tranche et la forme de bulbe 'boxy'.",
+    "hypothese": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon le type de galaxie ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t02_edgeon_a05_no_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+   "stat": 0.352,
+   "score": 0.8515976107641257,
+   "detail": {
+    "spearman": -0.479,
+    "pearson": -0.128,
+    "n": 13130,
+    "confirmation": "confirmé — ρ = -0.48 sur 13138 lignes (découverte : -0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Lien inverse entre l'absence d'orientation par la tranche et la forme de bulbe 'boxy'.",
+    "hypothese": "Le lien entre t02_edgeon_a05_no_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon la classe morphologique globale ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t02_edgeon_a04_yes_debiased ~ t09_bulge_shape_a25_rounded_debiased",
+   "stat": 0.348,
+   "score": 0.8483280651270871,
+   "detail": {
+    "spearman": 0.762,
+    "pearson": 0.414,
+    "n": 13140,
+    "confirmation": "confirmé — ρ = +0.77 sur 13148 lignes (découverte : +0.76)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Forte association entre les galaxies vues par la tranche et la forme de bulbe arrondie.",
+    "hypothese": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon l'arrondi général de la galaxie ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t07_rounded_a18_cigar_shaped_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+   "stat": 0.323,
+   "score": 0.8226667520059833,
+   "detail": {
+    "spearman": 0.438,
+    "pearson": 0.115,
+    "n": 13145,
+    "confirmation": "confirmé — ρ = +0.46 sur 13153 lignes (découverte : +0.44)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Lien entre la morphologie en forme de cigare et le bulbe 'boxy'.",
+    "hypothese": "Le lien entre t07_rounded_a18_cigar_shaped_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon l'asymétrie de la galaxie ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t11_arms_number_a32_2_debiased ~ t11_arms_number_a33_3_debiased",
+   "stat": 0.322,
+   "score": 0.8224193978183802,
+   "detail": {
+    "spearman": 0.332,
+    "pearson": 0.009,
+    "n": 13151,
+    "confirmation": "confirmé — ρ = +0.34 sur 13155 lignes (découverte : +0.33)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Relation entre les classifications de galaxies spirales à 2 ou 3 bras.",
+    "hypothese": "Le lien entre t11_arms_number_a32_2_debiased et t11_arms_number_a33_3_debiased change-t-il selon l'enroulement des bras ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "t10_arms_winding_a30_loose_debiased ~ t11_arms_number_a33_3_debiased",
+   "stat": 0.311,
+   "score": 0.81109066579636,
+   "detail": {
+    "spearman": 0.347,
+    "pearson": 0.036,
+    "n": 13151,
+    "confirmation": "confirmé — ρ = +0.34 sur 13156 lignes (découverte : +0.35)"
+   },
+   "confirme": 1.0,
+   "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Lien entre l'enroulement lâche des bras et la classification à 3 bras.",
+    "hypothese": "Le lien entre t10_arms_winding_a30_loose_debiased et t11_arms_number_a33_3_debiased change-t-il selon la proéminence du bulbe ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fWidth ~ fConc1",
+   "stat": 0.247,
+   "score": 0.746962131211866,
+   "detail": {
+    "spearman": -0.833,
+    "pearson": -0.586,
+    "n": 9551,
+    "confirmation": "confirmé — ρ = -0.83 sur 9469 lignes (découverte : -0.83)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation physique entre la largeur de la gerbe (fWidth) et le premier paramètre de concentration (fConc1) dans les télescopes gamma.",
+    "hypothese": "Le lien entre fWidth et fConc1 change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fWidth ~ fConc",
+   "stat": 0.242,
+   "score": 0.742142040548687,
+   "detail": {
+    "spearman": -0.856,
+    "pearson": -0.614,
+    "n": 9551,
+    "confirmation": "confirmé — ρ = -0.85 sur 9469 lignes (découverte : -0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien fort entre la largeur de la gerbe et la concentration globale de la lumière (fConc).",
+    "hypothese": "Le lien entre fWidth et fConc change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fSize ~ fM3Long",
+   "stat": 0.229,
+   "score": 0.729480117327567,
+   "detail": {
+    "spearman": 0.303,
+    "pearson": 0.073,
+    "n": 9551,
+    "confirmation": "confirmé — ρ = +0.35 sur 9469 lignes (découverte : +0.30)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Corrélation entre la taille de la gerbe (fSize) et le troisième moment longitudinal (fM3Long).",
+    "hypothese": "Le lien entre fSize et fM3Long change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "fSize ~ fConc",
+   "stat": -0.911,
+   "score": 0.7287605250998553,
+   "detail": {
+    "spearman": -0.911,
+    "pearson": -0.85,
+    "n": 9551,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.91 sur 9469 lignes (découverte : -0.91)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Lien fort, mécanique et attendu entre la taille totale de l'image (fSize) et sa concentration (fConc).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "fSize ~ fConc1",
+   "stat": -0.883,
+   "score": 0.7067853689695739,
+   "detail": {
+    "spearman": -0.883,
+    "pearson": -0.808,
+    "n": 9551,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.89 sur 9469 lignes (découverte : -0.88)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Relation mécanique entre la taille (fSize) et la concentration secondaire (fConc1).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "fLength ~ fConc1",
+   "stat": 0.202,
+   "score": 0.7021550235879523,
+   "detail": {
+    "spearman": -0.802,
+    "pearson": -0.599,
+    "n": 9551,
+    "confirmation": "confirmé — ρ = -0.81 sur 9469 lignes (découverte : -0.80)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "Lien entre la longueur de la gerbe (fLength) et sa concentration (fConc1).",
+    "hypothese": "Le lien entre fLength et fConc1 change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "fWidth ~ fConc",
+   "stat": -0.856,
+   "score": 0.6848851058489512,
+   "detail": {
+    "spearman": -0.856,
+    "pearson": -0.614,
+    "n": 9551,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.85 sur 9469 lignes (découverte : -0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Redondance directe avec F10 mesurant la même relation géométrique sous un autre angle statistique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "fWidth ~ fSize",
+   "stat": 0.84,
+   "score": 0.6721362007964121,
+   "detail": {
+    "spearman": 0.84,
+    "pearson": 0.726,
+    "n": 9551,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.84 sur 9469 lignes (découverte : +0.84)"
+   },
+   "confirme": 1.0,
+   "dataset": "MAGIC-Gamma-Telescope-Dataset",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la largeur et la taille de la gerbe atmosphérique Cerenkov.",
+    "hypothese": "Le lien entre fWidth et fSize change-t-il selon la classe d'événement (gamma ou hadron) ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "MAGIC-Gamma-Telescope-Dataset",
+    "target": null,
+    "description": "MAGIC gamma telescope data 2004 Dataset Information. The data are MC generated (see below) to simulate registration of high energy gamma particles in a ground-based atmospheric Cherenkov gamma telescope using the imaging technique. Cherenkov gamma telescope observes high energy gamma rays, taking advantage of the radiation emitted by charged particles produced inside the electromagnetic showers in",
+    "url": "https://www.openml.org/d/43804",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 9551,
+     "confirmation": 9469
+    },
+    "did": "43804",
+    "colonnes": {
+     "num": [
+      "fLength",
+      "fWidth",
+      "fSize",
+      "fConc",
+      "fConc1",
+      "fAsym",
+      "fM3Long",
+      "fM3Trans",
+      "fAlpha",
+      "fDist"
+     ],
+     "groupes": [
+      "class"
+     ]
+    }
+   },
+   "lignes": 19020,
+   "colonnes": 12,
+   "fig": "2026-11-16_MAGIC_Gamma_Telescope_Dataset.png",
+   "n_findings": 16,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fWidth ~ fConc1",
+     "stat": 0.247,
+     "score": 0.746962131211866,
+     "detail": {
+      "spearman": -0.833,
+      "pearson": -0.586,
+      "n": 9551,
+      "confirmation": "confirmé — ρ = -0.83 sur 9469 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation physique entre la largeur de la gerbe (fWidth) et le premier paramètre de concentration (fConc1) dans les télescopes gamma.",
+      "hypothese": "Le lien entre fWidth et fConc1 change-t-il selon la classe d'événement (gamma ou hadron) ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fWidth ~ fConc",
+     "stat": 0.242,
+     "score": 0.742142040548687,
+     "detail": {
+      "spearman": -0.856,
+      "pearson": -0.614,
+      "n": 9551,
+      "confirmation": "confirmé — ρ = -0.85 sur 9469 lignes (découverte : -0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "Lien fort entre la largeur de la gerbe et la concentration globale de la lumière (fConc).",
+      "hypothese": "Le lien entre fWidth et fConc change-t-il selon la classe d'événement (gamma ou hadron) ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fSize ~ fM3Long",
+     "stat": 0.229,
+     "score": 0.729480117327567,
+     "detail": {
+      "spearman": 0.303,
+      "pearson": 0.073,
+      "n": 9551,
+      "confirmation": "confirmé — ρ = +0.35 sur 9469 lignes (découverte : +0.30)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Corrélation entre la taille de la gerbe (fSize) et le troisième moment longitudinal (fM3Long).",
+      "hypothese": "Le lien entre fSize et fM3Long change-t-il selon la classe d'événement (gamma ou hadron) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "fSize ~ fConc",
+     "stat": -0.911,
+     "score": 0.7287605250998553,
+     "detail": {
+      "spearman": -0.911,
+      "pearson": -0.85,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.91 sur 9469 lignes (découverte : -0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Lien fort, mécanique et attendu entre la taille totale de l'image (fSize) et sa concentration (fConc).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "fSize ~ fConc1",
+     "stat": -0.883,
+     "score": 0.7067853689695739,
+     "detail": {
+      "spearman": -0.883,
+      "pearson": -0.808,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.89 sur 9469 lignes (découverte : -0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "trivial",
+      "explication": "Relation mécanique entre la taille (fSize) et la concentration secondaire (fConc1).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "fLength ~ fConc1",
+     "stat": 0.202,
+     "score": 0.7021550235879523,
+     "detail": {
+      "spearman": -0.802,
+      "pearson": -0.599,
+      "n": 9551,
+      "confirmation": "confirmé — ρ = -0.81 sur 9469 lignes (découverte : -0.80)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "pertinent",
+      "explication": "Lien entre la longueur de la gerbe (fLength) et sa concentration (fConc1).",
+      "hypothese": "Le lien entre fLength et fConc1 change-t-il selon la classe d'événement (gamma ou hadron) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "fWidth ~ fConc",
+     "stat": -0.856,
+     "score": 0.6848851058489512,
+     "detail": {
+      "spearman": -0.856,
+      "pearson": -0.614,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.85 sur 9469 lignes (découverte : -0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "trivial",
+      "explication": "Redondance directe avec F10 mesurant la même relation géométrique sous un autre angle statistique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "fWidth ~ fSize",
+     "stat": 0.84,
+     "score": 0.6721362007964121,
+     "detail": {
+      "spearman": 0.84,
+      "pearson": 0.726,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.84 sur 9469 lignes (découverte : +0.84)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre la largeur et la taille de la gerbe atmosphérique Cerenkov.",
+      "hypothese": "Le lien entre fWidth et fSize change-t-il selon la classe d'événement (gamma ou hadron) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "fWidth ~ fConc1",
+     "stat": -0.833,
+     "score": 0.6662320081717499,
+     "detail": {
+      "spearman": -0.833,
+      "pearson": -0.586,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.83 sur 9469 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "fLength ~ fSize",
+     "stat": 0.832,
+     "score": 0.6652105302553664,
+     "detail": {
+      "spearman": 0.832,
+      "pearson": 0.706,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.84 sur 9469 lignes (découverte : +0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "fLength ~ fConc",
+     "stat": -0.826,
+     "score": 0.6610835099176816,
+     "detail": {
+      "spearman": -0.826,
+      "pearson": -0.632,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.83 sur 9469 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "fLength ~ fConc1",
+     "stat": -0.802,
+     "score": 0.641246061261604,
+     "detail": {
+      "spearman": -0.802,
+      "pearson": -0.599,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.81 sur 9469 lignes (découverte : -0.80)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "fLength ~ fWidth",
+     "stat": 0.753,
+     "score": 0.6027473042262976,
+     "detail": {
+      "spearman": 0.753,
+      "pearson": 0.769,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.75 sur 9469 lignes (découverte : +0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "fLength ~ fDist",
+     "stat": 0.477,
+     "score": 0.3815850452423202,
+     "detail": {
+      "spearman": 0.477,
+      "pearson": 0.411,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.48 sur 9469 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "fSize ~ fDist",
+     "stat": 0.42,
+     "score": 0.33572018398705356,
+     "detail": {
+      "spearman": 0.42,
+      "pearson": 0.435,
+      "n": 9551,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.43 sur 9469 lignes (découverte : +0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "MAGIC-Gamma-Telescope-Dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "target": null,
+    "description": "Galaxy Zoo 2 - Preprocessed Dataset Preprocessed galaxy images from SDSS with Galaxy Zoo 2 morphological classifications, ready for deep learning. 📁 Dataset Structure ├── labels.csv All ~239K galaxy labels (101 MB) ├── labels_sampled.csv 25K stratified sample (11 MB) ├── preprocessed_69x69.zip Full dataset at 69×69 resolution (2.8 GB) ├── preprocessed_224x224.zip Full dataset at 224×224 resolution",
+    "fichier": "labels_sampled.csv",
+    "url": "https://huggingface.co/datasets/marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 13151,
+     "confirmation": 13156
+    },
+    "did": "hf:marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "colonnes": {
+     "num": [
+      "t01_smooth_or_features_a01_smooth_debiased",
+      "t01_smooth_or_features_a02_features_or_disk_debiased",
+      "t01_smooth_or_features_a03_star_or_artifact_debiased",
+      "t02_edgeon_a04_yes_debiased",
+      "t02_edgeon_a05_no_debiased",
+      "t03_bar_a06_bar_debiased",
+      "t03_bar_a07_no_bar_debiased",
+      "t04_spiral_a08_spiral_debiased",
+      "t04_spiral_a09_no_spiral_debiased",
+      "t05_bulge_prominence_a10_no_bulge_debiased",
+      "t05_bulge_prominence_a11_just_noticeable_debiased",
+      "t05_bulge_prominence_a12_obvious_debiased",
+      "t05_bulge_prominence_a13_dominant_debiased",
+      "t06_odd_a14_yes_debiased",
+      "t06_odd_a15_no_debiased",
+      "t07_rounded_a16_completely_round_debiased",
+      "t07_rounded_a17_in_between_debiased",
+      "t07_rounded_a18_cigar_shaped_debiased",
+      "t08_odd_feature_a19_ring_debiased",
+      "t08_odd_feature_a20_lens_or_arc_debiased",
+      "t08_odd_feature_a21_disturbed_debiased",
+      "t08_odd_feature_a22_irregular_debiased",
+      "t08_odd_feature_a23_other_debiased",
+      "t08_odd_feature_a24_merger_debiased",
+      "t08_odd_feature_a38_dust_lane_debiased"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 26307,
+   "colonnes": 38,
+   "fig": "2026-11-16_marwa000000000_SDSS_GalaxyZoo2_Preproces.png",
+   "n_findings": 88,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t10_arms_winding_a29_medium_debiased ~ t10_arms_winding_a30_loose_debiased",
+     "stat": 0.371,
+     "score": 0.8712750402109567,
+     "detail": {
+      "spearman": 0.394,
+      "pearson": -0.022,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.40 sur 13156 lignes (découverte : +0.39)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Lien non linéaire confirmé entre l'enroulement moyen et lâche des bras spiraux dans le catalogue SDSS.",
+      "hypothese": "Le lien entre t10_arms_winding_a29_medium_debiased et t10_arms_winding_a30_loose_debiased change-t-il selon la présence d'une barre galactique ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t02_edgeon_a05_no_debiased ~ t09_bulge_shape_a25_rounded_debiased",
+     "stat": 0.361,
+     "score": 0.8612565195970192,
+     "detail": {
+      "spearman": -0.717,
+      "pearson": -0.356,
+      "n": 13130,
+      "confirmation": "confirmé — ρ = -0.73 sur 13138 lignes (découverte : -0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation négative entre l'absence de vue par la tranche et la forme arrondie du bulbe galactique.",
+      "hypothese": "Le lien entre t02_edgeon_a05_no_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon l'indice de proéminence du bulbe ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t02_edgeon_a04_yes_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+     "stat": 0.353,
+     "score": 0.8526619402624485,
+     "detail": {
+      "spearman": 0.501,
+      "pearson": 0.148,
+      "n": 13145,
+      "confirmation": "confirmé — ρ = +0.50 sur 13153 lignes (découverte : +0.50)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Relation positive entre les galaxies vues par la tranche et la forme de bulbe 'boxy'.",
+      "hypothese": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon le type de galaxie ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t02_edgeon_a05_no_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+     "stat": 0.352,
+     "score": 0.8515976107641257,
+     "detail": {
+      "spearman": -0.479,
+      "pearson": -0.128,
+      "n": 13130,
+      "confirmation": "confirmé — ρ = -0.48 sur 13138 lignes (découverte : -0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "Lien inverse entre l'absence d'orientation par la tranche et la forme de bulbe 'boxy'.",
+      "hypothese": "Le lien entre t02_edgeon_a05_no_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon la classe morphologique globale ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t02_edgeon_a04_yes_debiased ~ t09_bulge_shape_a25_rounded_debiased",
+     "stat": 0.348,
+     "score": 0.8483280651270871,
+     "detail": {
+      "spearman": 0.762,
+      "pearson": 0.414,
+      "n": 13140,
+      "confirmation": "confirmé — ρ = +0.77 sur 13148 lignes (découverte : +0.76)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Forte association entre les galaxies vues par la tranche et la forme de bulbe arrondie.",
+      "hypothese": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon l'arrondi général de la galaxie ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t07_rounded_a18_cigar_shaped_debiased ~ t09_bulge_shape_a26_boxy_debiased",
+     "stat": 0.323,
+     "score": 0.8226667520059833,
+     "detail": {
+      "spearman": 0.438,
+      "pearson": 0.115,
+      "n": 13145,
+      "confirmation": "confirmé — ρ = +0.46 sur 13153 lignes (découverte : +0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "Lien entre la morphologie en forme de cigare et le bulbe 'boxy'.",
+      "hypothese": "Le lien entre t07_rounded_a18_cigar_shaped_debiased et t09_bulge_shape_a26_boxy_debiased change-t-il selon l'asymétrie de la galaxie ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t11_arms_number_a32_2_debiased ~ t11_arms_number_a33_3_debiased",
+     "stat": 0.322,
+     "score": 0.8224193978183802,
+     "detail": {
+      "spearman": 0.332,
+      "pearson": 0.009,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.34 sur 13155 lignes (découverte : +0.33)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Relation entre les classifications de galaxies spirales à 2 ou 3 bras.",
+      "hypothese": "Le lien entre t11_arms_number_a32_2_debiased et t11_arms_number_a33_3_debiased change-t-il selon l'enroulement des bras ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t10_arms_winding_a30_loose_debiased ~ t11_arms_number_a33_3_debiased",
+     "stat": 0.311,
+     "score": 0.81109066579636,
+     "detail": {
+      "spearman": 0.347,
+      "pearson": 0.036,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.34 sur 13156 lignes (découverte : +0.35)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "Lien entre l'enroulement lâche des bras et la classification à 3 bras.",
+      "hypothese": "Le lien entre t10_arms_winding_a30_loose_debiased et t11_arms_number_a33_3_debiased change-t-il selon la proéminence du bulbe ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t01_smooth_or_features_a01_smooth_debiased ~ t10_arms_winding_a30_loose_debiased",
+     "stat": 0.308,
+     "score": 0.8077466730890692,
+     "detail": {
+      "spearman": -0.452,
+      "pearson": -0.145,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = -0.45 sur 13156 lignes (découverte : -0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t09_bulge_shape_a26_boxy_debiased ~ t09_bulge_shape_a27_no_bulge_debiased",
+     "stat": 0.305,
+     "score": 0.8049910944887255,
+     "detail": {
+      "spearman": 0.309,
+      "pearson": -0.004,
+      "n": 13145,
+      "confirmation": "confirmé — ρ = +0.32 sur 13153 lignes (découverte : +0.31)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t01_smooth_or_features_a02_features_or_disk_debiased ~ t10_arms_winding_a30_loose_debiased",
+     "stat": 0.304,
+     "score": 0.8040148510785321,
+     "detail": {
+      "spearman": 0.455,
+      "pearson": 0.151,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.45 sur 13156 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t10_arms_winding_a28_tight_debiased ~ t11_arms_number_a32_2_debiased",
+     "stat": 0.301,
+     "score": 0.8005445285380992,
+     "detail": {
+      "spearman": 0.388,
+      "pearson": 0.088,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.38 sur 13155 lignes (découverte : +0.39)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t11_arms_number_a33_3_debiased ~ t11_arms_number_a36_more_than_4_debiased",
+     "stat": 0.277,
+     "score": 0.7766192979316735,
+     "detail": {
+      "spearman": 0.354,
+      "pearson": 0.077,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.35 sur 13156 lignes (découverte : +0.35)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t04_spiral_a08_spiral_debiased ~ t10_arms_winding_a30_loose_debiased",
+     "stat": 0.271,
+     "score": 0.7712677962480408,
+     "detail": {
+      "spearman": 0.575,
+      "pearson": 0.304,
+      "n": 13151,
+      "confirmation": "confirmé — ρ = +0.57 sur 13156 lignes (découverte : +0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "t06_odd_a14_yes_debiased ~ t08_odd_feature_a22_irregular_debiased",
+     "stat": 0.26,
+     "score": 0.7598622291821449,
+     "detail": {
+      "spearman": 0.31,
+      "pearson": 0.05,
+      "n": 13131,
+      "confirmation": "confirmé — ρ = +0.29 sur 13139 lignes (découverte : +0.31)"
+     },
+     "confirme": 1.0,
+     "dataset": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "Xanadu00/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=Xanadu00%2Fautotrain-data-galaxy_classification&config="
+  },
+  {
+   "source": "hf_images",
+   "ref": "OneAstronomy/galaxyzoo10_legacysurvey",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "JayjitSingha/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=JayjitSingha%2Fautotrain-data-galaxy_classification&con"
+  },
+  {
+   "source": "hf_images",
+   "ref": "YuJJJJin/Galaxy10DECaLS.tsv",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "matthieulel/galaxy10_decals",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "VISHALMEENAMEENA/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=VISHALMEENAMEENA%2Fautotrain-data-galaxy_classification"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Arp4nj4iswal/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=Arp4nj4iswal%2Fautotrain-data-galaxy_classification&con"
+  },
+  {
+   "source": "hf_images",
+   "ref": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/splits?dataset=marwa000000000%2FSDSS-GalaxyZoo2-Preprocessed"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "mrJordi0/galaxy-zoo-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Smith42/sdss_gaia_crossmatched",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "kshitijd/mmu-l2-sdss",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "yzhuang/autotree_automl_100000_MagicTelescope_sgosdt_l256_dim10_d3_sd0",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "EduDevCommons/Comprehensive-Exoplanet-Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "jxie/higgs-normalized",
+   "erreur": "trop petit ((100000, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "mbeaty2/exoplanet-dataset",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "inaf-oact-ai/solar-flare-hmivideo-datasplits",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 43,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-22112025-1",
+    "x": "Rotational speed",
+    "y": "Torque",
+    "groupe": "Type",
+    "seui": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+    "requete_biblio": [
+     "machine failure rotational speed torque type"
+    ]
+   },
+   "statut": "réfutée",
+   "resume": "Dans nagapavan525/machine-failure-prediction-22112025-1, la corrélation Rotational speed~Torque vaut -0.92 pour « Type = 1 » contre -0.92 pour « Type = 2 » (écart 0.00, p = 0.72). [Testé sur : moitié de confirmation (4013 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "Type = 1": {
+      "rho": -0.917,
+      "pearson": -0.875,
+      "n": 2395
+     },
+     "Type = 2": {
+      "rho": -0.919,
+      "pearson": -0.879,
+      "n": 1207
+     },
+     "Type = 0": {
+      "rho": -0.918,
+      "pearson": -0.884,
+      "n": 411
+     }
+    },
+    "p_difference": 0.719,
+    "donnees_test": "moitié de confirmation (4013 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.72, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "Experimental Investigation of the Effects of Rotational Speed and Weight on Bit on Drillstring Vibrations, Torque and Rate of Penetration",
+     "annee": 2017,
+     "citations": 21,
+     "url": "https://doi.org/10.2118/188427-ms"
+    },
+    {
+     "titre": "INDUSTRIAL MACHINE FAILURE PATTERN ANALYSIS FOR AUTOMATED DEFECT DIAGNOSIS IN ADVANCED MANUFACTURING SYSTEMS",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://openalex.org/W7222908901"
+    },
+    {
+     "titre": "Big Data Analytics to Identify Failures in Production Machines and Propose a Preventive Maintenance Plan",
+     "annee": 2023,
+     "citations": 0,
+     "url": "https://doi.org/10.1007/978-3-031-47058-5_32"
+    },
+    {
+     "titre": "FAULTYER: Machine Learning-Based System for Predictive Maintenance and Failure Detection",
+     "annee": 2025,
+     "citations": 0,
+     "url": "https://doi.org/10.1109/ibdap65587.2025.11145829"
+    },
+    {
+     "titre": "Solutions for Torque and Speed Measurement on Electric Machine Controllers Test Benches",
+     "annee": 2021,
+     "citations": 8,
+     "url": "https://doi.org/10.37537/rev.elektron.5.1.131.2021"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Excellente. L'énoncé pose clairement la question de la modération sous forme observationnelle sans allégation de causalité abusive.",
+    "reformulation": "",
+    "diagnostic_statistique": "L'écart entre Spearman et Pearson est faible (< 0.05). La corrélation négative est quasi identique et extrêmement forte dans tous les sous-groupes (r ≈ -0.88, rho ≈ -0.92). L'absence de différence est statistiquement nette (p = 0.72).",
+    "modele_recommande": "Régression linéaire ou log-linéaire avec terme d'interaction : Torque ~ Rotational_speed * Type.",
+    "robustesse": "Très bonne robustesse. Effectifs importants dans chaque groupe (n de 411 à 2395) sur un jeu de confirmation indépendant de plus de 4000 lignes, offrant une forte puissance statistique.",
+    "interpretation_domaine": "Ce résultat reflète les lois physiques des moteurs (P = C * omega) sous-jacentes à ce jeu de données (dérivé d'AI4I 2020). Le couple est inversement proportionnel à la vitesse pour une puissance donnée ; le type de produit (qualité L/M/H) n'altère pas cette relation physique fondamentale.",
+    "action_pipeline": "Intégrer des règles d'invariance physique connues (ex: lois de puissance mécanique) pour éviter de tester des modérations sur des relations déterministes invariantes.",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'influence de la vitesse de rotation et du couple sur les vibrations et la défaillance des machines est largement étudiée dans la maintenance prédictive.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-22112025-1",
+    "x": "Tool wear",
+    "y": "Torque",
+    "seuil": 150.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre Tool wear et Torque est-il plus fort au-dessus du seuil de Tool wear de 150 ?",
+    "requete_biblio": [
+     "tool wear torque degradation threshold predictive maintenance"
+    ]
+   },
+   "statut": "réfutée",
+   "resume": "Dans nagapavan525/machine-failure-prediction-22112025-1, la corrélation Tool wear~Torque vaut +0.01 pour « Tool wear > 150 » contre +0.01 pour « Tool wear ≤ 150 » (p = 0.95). [Testé sur : moitié de confirmation (4013 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "Tool wear ≤ 150": {
+      "rho": 0.005,
+      "pearson": 0.005,
+      "n": 2833
+     },
+     "Tool wear > 150": {
+      "rho": 0.007,
+      "pearson": 0.006,
+      "n": 1180
+     }
+    },
+    "groupe_predit_plus_fort": "Tool wear > 150",
+    "p_difference": 0.954,
+    "donnees_test": "moitié de confirmation (4013 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.95, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "Degradation curves integration in physics-based models: Towards the predictive maintenance of industrial robots",
+     "annee": 2021,
+     "citations": 129,
+     "url": "https://doi.org/10.1016/j.rcim.2021.102177"
+    },
+    {
+     "titre": "Predictive Maintenance With Machine Learning",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://openalex.org/W7160729827"
+    },
+    {
+     "titre": "AI-Driven Predictive Maintenance in Infrastructure and Facilities Management",
+     "annee": 2025,
+     "citations": 9,
+     "url": "https://doi.org/10.4108/airo.9975"
+    },
+    {
+     "titre": "Artificial intelligence for predictive maintenance",
+     "annee": 2022,
+     "citations": 43,
+     "url": "https://doi.org/10.1088/1742-6596/2299/1/012001"
+    },
+    {
+     "titre": "Robust Baselines and Probability Calibration for TPM-Oriented Predictive Maintenance",
+     "annee": 2026,
+     "citations": 1,
+     "url": "https://doi.org/10.36001/ijphm.2026.v17i1.4659"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Bonne : l'énoncé utilise des termes observationnels appropriés et correspond bien au test bivarié réalisé.",
+    "reformulation": "",
+    "diagnostic_statistique": "Les corrélations linéaire et de rang sont quasi nulles des deux côtés du seuil (r ≈ 0.005 vs 0.007, p = 0.95). Il n'y a aucun lien, ni linéaire ni non-linéaire.",
+    "modele_recommande": "Régression segmentée (piecewise regression) ou GAM avec terme d'interaction seuil pour modéliser une rupture de pente.",
+    "robustesse": "Très bonne robustesse : l'échantillon de confirmation est grand (n = 4 013), la puissance est suffisante pour détecter même un lien faible.",
+    "interpretation_domaine": "Dans les datasets classiques de maintenance prédictive (type AI4I 2020), l'usure d'outil et le couple sont des variables de processus générées de façon largement indépendante, sauf au moment précis d'une panne spécifique.",
+    "action_pipeline": "Filtrer les tests de seuil : ne pas tester un changement de pente si la corrélation globale de base sur l'ensemble du jeu de données est quasi nulle (|r| < 0.05).",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'analyse des seuils d'usure des outils (tool wear) et leur relation avec le couple est un classique de la modélisation de la dégradation industrielle.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 45,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:nominal-io/nasa-turbofan-degradation",
+    "cible": "engine",
+    "variables": [
+     "(HPC outlet pressure) (psia)",
+     "(LPT outlet temperature) (◦R)",
+     "cycle"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire l'évolution des cycles de dégradation de l'engine avec les variables HPC outlet pressure et LPT outlet temperature ?",
+    "requete_biblio": [
+     "turbofan engine degradation prediction pressure temperature sensors"
+    ]
+   },
+   "statut": "non concluante",
+   "resume": "Dans nominal-io/nasa-turbofan-degradation, prédire engine avec (HPC outlet pressure) (psia), (LPT outlet temperature) (◦R), cycle donne r2 = -0.07 (hasard ≈ 0.00, p = 0.14 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (10320 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "r2": -0.067,
+    "hasard": -0.085,
+    "p_permutation": 0.143,
+    "p_z": 0.0713,
+    "validation": "aléatoire",
+    "n": 5000,
+    "donnees_test": "moitié de confirmation (10320 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.071, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "Remaining useful life predictions for turbofan engine degradation using semi-supervised deep architecture",
+     "annee": 2018,
+     "citations": 554,
+     "url": "https://doi.org/10.1016/j.ress.2018.11.027"
+    },
+    {
+     "titre": "Explainable Prediction of Remaining Useful Life for Turbofan Engines Using Kolmogorov–Arnold Network",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.3390/aerospace13110986"
+    },
+    {
+     "titre": "Echo State Network for the Remaining Useful Life Prediction of a Turbofan Engine",
+     "annee": 2016,
+     "citations": 43,
+     "url": "https://doi.org/10.36001/phme.2016.v3i1.1623"
+    },
+    {
+     "titre": "A deep learning-based prognostic approach for predicting turbofan engine degradation and remaining useful life",
+     "annee": 2025,
+     "citations": 59,
+     "url": "https://doi.org/10.1038/s41598-025-09155-z"
+    },
+    {
+     "titre": "A deep learning framework for remaining useful life prediction of turbofan engines with partial sensor failure",
+     "annee": 2026,
+     "citations": 6,
+     "url": "https://doi.org/10.1371/journal.pone.0347312"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé cherche à prédire l'identifiant du moteur ('engine') plutôt que la durée de vie restante (Remaining Useful Life, RUL) ou le cycle de dégradation, ce qui est une erreur de ciblage de la variable dépendante.",
+    "reformulation": "Comment prédire le nombre de cycles avant la panne (RUL) à partir de la pression de sortie du HPC et de la température de sortie du LPT ?",
+    "diagnostic_statistique": "Le R² négatif (-0.07) montre que le modèle linéaire échoue à prédire l'identifiant du moteur (variable nominale ou catégorielle 'engine'), ce qui est logiquement impossible et statistiquement aberrant.",
+    "modele_recommande": "Régression non linéaire ou modèle de survie (ex: Random Forest, LSTM, ou réseaux de neurones profonds) pour prédire la cible réelle de dégradation (RUL) et non l'ID du moteur.",
+    "robustesse": "La taille de l'échantillon (n=5000) est suffisante, mais la variable cible 'engine' est un identifiant d'appareil et non une mesure de dégradation continue, ce qui invalide le test de prédiction.",
+    "interpretation_domaine": "Dans la base NASA C-MAPSS (turbofan), les capteurs mesurent la dégradation physique au fil des cycles, mais la prédiction nécessite de transformer le 'cycle' en RUL (Remaining Useful Life) par moteur, et non d'utiliser l'ID du moteur comme cible.",
+    "action_pipeline": "Corriger le générateur d'hypothèses pour empêcher l'utilisation d'identifiants d'entités (IDs) comme variables cibles de prédiction numérique et cibler explicitement la RUL.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "La prédiction de la durée de vie utile des turboréacteurs à partir des pressions et températures est un sujet majeur, bien que l'efficacité varie selon les architectures de modèles.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
