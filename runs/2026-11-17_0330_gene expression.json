@@ -1,0 +1,1475 @@
+{
+ "id": "2026-11-17_0330_gene expression",
+ "date": "2026-11-17T03:37",
+ "sujet": "Biologie et génomique",
+ "question": "Quelles signatures moléculaires (gènes, protéines) distinguent les groupes biologiques, et lesquelles sont inattendues ?",
+ "keywords": [
+  "gene expression",
+  "protein",
+  "yeast",
+  "ecoli",
+  "microbiome",
+  "splice",
+  "dna",
+  "mice protein",
+  "leukemia",
+  "cell"
+ ],
+ "analyse": {
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Le score DMS et sa version binarisée (DMS_score_bin) mesurent fondamentalement la même quantité biologique, d'où la forte corrélation de Spearman.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La métrique alm (signal d'ancrage membranaire ou similaire) apporte une information pertinente pour prédire la localisation subcellulaire des protéines.",
+    "hypothese": "Le lien entre alm et class_protein_localization est-il plus fort pour les protéines membranaires que pour les protéines cytoplasmiques ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La position de fin de région génomique (region_end) aide à discriminer la cible fonctionnelle dans les benchmarks de séquençage d'ADN.",
+    "hypothese": "Le lien entre region_end et target change-t-il selon le chromosome ou la région codante ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "La position de début de région (region_start) montre une information prédictive similaire sur les cibles génomiques.",
+    "hypothese": "Le lien entre region_start et target change-t-il selon la longueur de la région ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "La variable mcg (signal de localisation de McGehee / membrane) présente une information mutuelle importante avec la localisation des protéines.",
+    "hypothese": "Le lien entre mcg et class_protein_localization est-il modulé par la présence d'autres signaux de ciblage comme alm ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La distance au site d'initiation de la transcription (distance_to_tss) contient un signal pertinent pour identifier les cibles régulatrices.",
+    "hypothese": "Le lien entre distance_to_tss et target change-t-il selon le type de gène (codant vs non-codant) ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Le score gvh (mesure heuristique de localisation) contribue à la classification de la localisation subcellulaire chez la levure.",
+    "hypothese": "Le lien entre gvh et class_protein_localization est-il plus fort dans le compartiment mitochondrial ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "La corrélation modérée entre mcg et gvh reflète des propriétés physico-chimiques partagées dans la prédiction de localisation des protéines de levure.",
+    "hypothese": "Le lien entre mcg et gvh change-t-il selon la classe de localisation de la protéine ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "La forte association entre effect_allele et other_allele découle de contraintes structurelles et de déséquilibre de liaison dans les bases de données de génomique.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Il s'agit du même constat que F1 concernant le lien entre le score de mutagénèse et sa binarisation.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "artefact",
+    "explication": "Résultat descriptif d'anomalies univariées ou multivariées sans portée mécanistique robuste propre au domaine.",
+    "hypothese": ""
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "artefact",
+    "explication": "Détection d'anomalies statistiques sur des index de position de mutations sans validation biologique sous-jacente.",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "artefact",
+    "explication": "Anomalies basées sur des coordonnées chromosomiques reflétant des artefacts de catalogage ou de tri des variants.",
+    "hypothese": ""
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "artefact",
+    "explication": "Anomalies positionnelles dans les benchmarks de séquencage liées à la structure des fichiers d'entrée.",
+    "hypothese": ""
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "La capacité à prédire la localisation des protéines à partir de variables biochimiques est confirmée sur des données indépendantes.",
+    "hypothese": "Le lien entre les caractéristiques biochimiques et class_protein_localization change-t-il selon la présence d'un peptide signal ?"
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "La prédiction de la cible génomique à partir des coordonnées de région est validée sur des échantillons non vus.",
+    "hypothese": "Le lien entre region_end et target change-t-il selon la valeur de distance_to_tss ?"
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "yeast",
+    "x": "mcg",
+    "y": "gvh",
+    "groupe": "alm",
+    "seuil": 0.5,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre mcg et gvh change-t-il selon le seuil de alm ?",
+    "requete_biblio": "yeast protein localization mcg gvh sequence features"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:engAbdullahHanif/mutascope-proteingym-v1.3",
+    "x": "position",
+    "y": "DMS_score",
+    "seuil": 100.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre position et DMS_score change-t-il de part et d'autre du seuil de position ?",
+    "requete_biblio": "deep mutational scanning position score threshold proteingym"
+   }
+  ],
+  "nouveautes": {
+   "46": {
+    "id": "H46",
+    "nouveaute": "deja_connu",
+    "explication": "La distinction gamma/hadron par les paramètres d'image dans les télescopes MAGIC est largement documentée dans la littérature astrophysique."
+   },
+   "47": {
+    "id": "H47",
+    "nouveaute": "deja_connu",
+    "explication": "L'utilisation de la taille et des moments d'inertie (fSize, fM3Long) pour la discrimination gamma/hadron est un classique de l'imagerie Tcherenkov."
+   },
+   "48": {
+    "id": "H48",
+    "nouveaute": "deja_connu",
+    "explication": "La morphologie des galaxies et la proéminence du bulbe dans Galaxy Zoo font l'objet d'études approfondies sur la structure des disques."
+   },
+   "49": {
+    "id": "H49",
+    "nouveaute": "deja_connu",
+    "explication": "La classification supervisée de base des paramètres de télescope pour séparer les gerbes est standard."
+   }
+  },
+  "pistes": [
+   "Approfondir les modèles non linéaires pour mapper les scores de mutagénèse profonde (ProteinGym)",
+   "Étudier l'interaction entre les signaux de localisation subcellulaire (mcg, gvh, alm) chez la levure",
+   "Analyser l'impact de la distance au TSS sur la spécificité des cibles génomiques"
+  ],
+  "synthese": "L'analyse des datasets biologiques et génomiques met en évidence des relations non linéaires entre les scores de mutagénèse et leurs binnings, ainsi que de fortes co-occurrences d'allèles dans les catalogues de scores polygéniques. Les attributs protéiques de localisation et les métriques de position génomique se révèlent être des prédicateurs clés pour classifier respectivement la localisation subcellulaire et les cibles transcriptionnelles. L'intégration de ces modèles prédictifs valide la robustesse de signatures moléculaires spécifiques à travers des sous-groupes indépendants.",
+  "recupere": true,
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "DMS_score ~ DMS_score_bin",
+   "stat": 0.469,
+   "score": 0.9686878960254183,
+   "detail": {
+    "spearman": 0.474,
+    "pearson": 0.005,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.48 sur 20000 lignes (découverte : +0.47)"
+   },
+   "confirme": 1.0,
+   "dataset": "engAbdullahHanif/mutascope-proteingym-v1.3",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Le score DMS et sa version binarisée (DMS_score_bin) mesurent fondamentalement la même quantité biologique, d'où la forte corrélation de Spearman.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "alm -> class_protein_localization",
+   "stat": 0.289,
+   "score": 0.6870100205755538,
+   "detail": {
+    "mutual_info": 0.289,
+    "part_de_l_info": 0.29,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "yeast",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La métrique alm (signal d'ancrage membranaire ou similaire) apporte une information pertinente pour prédire la localisation subcellulaire des protéines.",
+    "hypothese": "Le lien entre alm et class_protein_localization est-il plus fort pour les protéines membranaires que pour les protéines cytoplasmiques ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "region_end -> target",
+   "stat": 0.219,
+   "score": 0.6539765318099056,
+   "detail": {
+    "mutual_info": 0.219,
+    "part_de_l_info": 0.25,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "jzshared/dnalongbench",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "La position de fin de région génomique (region_end) aide à discriminer la cible fonctionnelle dans les benchmarks de séquençage d'ADN.",
+    "hypothese": "Le lien entre region_end et target change-t-il selon le chromosome ou la région codante ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "region_start -> target",
+   "stat": 0.218,
+   "score": 0.6535843923686804,
+   "detail": {
+    "mutual_info": 0.218,
+    "part_de_l_info": 0.25,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "jzshared/dnalongbench",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "La position de début de région (region_start) montre une information prédictive similaire sur les cibles génomiques.",
+    "hypothese": "Le lien entre region_start et target change-t-il selon la longueur de la région ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "mcg -> class_protein_localization",
+   "stat": 0.226,
+   "score": 0.624201769187525,
+   "detail": {
+    "mutual_info": 0.226,
+    "part_de_l_info": 0.22,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "yeast",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "La variable mcg (signal de localisation de McGehee / membrane) présente une information mutuelle importante avec la localisation des protéines.",
+    "hypothese": "Le lien entre mcg et class_protein_localization est-il modulé par la présence d'autres signaux de ciblage comme alm ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "distance_to_tss -> target",
+   "stat": 0.165,
+   "score": 0.5911564619578658,
+   "detail": {
+    "mutual_info": 0.165,
+    "part_de_l_info": 0.19,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "jzshared/dnalongbench",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La distance au site d'initiation de la transcription (distance_to_tss) contient un signal pertinent pour identifier les cibles régulatrices.",
+    "hypothese": "Le lien entre distance_to_tss et target change-t-il selon le type de gène (codant vs non-codant) ?"
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "gvh -> class_protein_localization",
+   "stat": 0.171,
+   "score": 0.5701080646009213,
+   "detail": {
+    "mutual_info": 0.171,
+    "part_de_l_info": 0.17,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "yeast",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Le score gvh (mesure heuristique de localisation) contribue à la classification de la localisation subcellulaire chez la levure.",
+    "hypothese": "Le lien entre gvh et class_protein_localization est-il plus fort dans le compartiment mitochondrial ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "mcg ~ gvh",
+   "stat": 0.544,
+   "score": 0.43489200065414696,
+   "detail": {
+    "spearman": 0.544,
+    "pearson": 0.594,
+    "n": 720,
+    "q": 3.7e-55,
+    "confirmation": "confirmé — ρ = +0.50 sur 733 lignes (découverte : +0.54)"
+   },
+   "confirme": 1.0,
+   "dataset": "yeast",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "La corrélation modérée entre mcg et gvh reflète des propriétés physico-chimiques partagées dans la prédiction de localisation des protéines de levure.",
+    "hypothese": "Le lien entre mcg et gvh change-t-il selon la classe de localisation de la protéine ?"
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "effect_allele ~ other_allele",
+   "stat": 0.594,
+   "score": 0.4155563976722236,
+   "detail": {
+    "cramers_v": 0.594,
+    "p": 0.0,
+    "confirmation": "confirmé — V = 0.60 (découverte : 0.59)"
+   },
+   "confirme": 1.0,
+   "dataset": "just-dna-seq/pgs-catalog",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "La forte association entre effect_allele et other_allele découle de contraintes structurelles et de déséquilibre de liaison dans les bases de données de génomique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "DMS_score ~ DMS_score_bin",
+   "stat": 0.474,
+   "score": 0.37933355781567907,
+   "detail": {
+    "spearman": 0.474,
+    "pearson": 0.005,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.48 sur 20000 lignes (découverte : +0.47)"
+   },
+   "confirme": 1.0,
+   "dataset": "engAbdullahHanif/mutascope-proteingym-v1.3",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Il s'agit du même constat que F1 concernant le lien entre le score de mutagénèse et sa binarisation.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ erl, pox, mcg",
+   "stat": 3.19,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 15,
+    "sur": 720,
+    "variables_qui_les_distinguent": "erl (3.2 σ), pox (2.9 σ), mcg (1.3 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "yeast",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "artefact",
+    "explication": "Résultat descriptif d'anomalies univariées ou multivariées sans portée mécanistique robuste propre au domaine.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ position, DMS_score, DMS_score_bin",
+   "stat": 2.89,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 400,
+    "sur": 20000,
+    "variables_qui_les_distinguent": "position (2.9 σ), DMS_score (0.5 σ), DMS_score_bin (0.0 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "engAbdullahHanif/mutascope-proteingym-v1.3",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "artefact",
+    "explication": "Détection d'anomalies statistiques sur des index de position de mutations sans validation biologique sous-jacente.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ hm_pos, chr_position, effect_weight",
+   "stat": 2.71,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 400,
+    "sur": 20000,
+    "variables_qui_les_distinguent": "hm_pos (2.7 σ), chr_position (2.7 σ), effect_weight (0.1 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "just-dna-seq/pgs-catalog",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "artefact",
+    "explication": "Anomalies basées sur des coordonnées chromosomiques reflétant des artefacts de catalogage ou de tri des variants.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ region_start, region_end, gene_start",
+   "stat": 2.86,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 400,
+    "sur": 20000,
+    "variables_qui_les_distinguent": "region_start (2.9 σ), region_end (2.9 σ), gene_start (2.9 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "jzshared/dnalongbench",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "artefact",
+    "explication": "Anomalies positionnelles dans les benchmarks de séquencage liées à la structure des fichiers d'entrée.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> class_protein_localization",
+   "stat": 0.386,
+   "score": 0.22853279683319538,
+   "detail": {
+    "balanced_accuracy": 0.386,
+    "baseline": 0.1,
+    "avec_seulement_alm": 0.183,
+    "confirmation": "confirmé — balanced_accuracy = 0.40 sur des données jamais vues (hasard 0.10, découverte 0.386)"
+   },
+   "confirme": 1.0,
+   "dataset": "yeast",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "pertinent",
+    "explication": "La capacité à prédire la localisation des protéines à partir de variables biochimiques est confirmée sur des données indépendantes.",
+    "hypothese": "Le lien entre les caractéristiques biochimiques et class_protein_localization change-t-il selon la présence d'un peptide signal ?"
+   }
+  },
+  {
+   "kind": "predictibilite_cible",
+   "vars": "* -> target",
+   "stat": 0.695,
+   "score": 0.15607513839359843,
+   "detail": {
+    "balanced_accuracy": 0.695,
+    "baseline": 0.5,
+    "avec_seulement_region_end": 0.524,
+    "confirmation": "confirmé — balanced_accuracy = 0.64 sur des données jamais vues (hasard 0.50, découverte 0.695)"
+   },
+   "confirme": 1.0,
+   "dataset": "jzshared/dnalongbench",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "La prédiction de la cible génomique à partir des coordonnées de région est validée sur des échantillons non vus.",
+    "hypothese": "Le lien entre region_end et target change-t-il selon la valeur de distance_to_tss ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "yeast",
+    "target": "class_protein_localization",
+    "description": "**Author**: **Source**: Unknown - **Please cite**:",
+    "url": "https://www.openml.org/d/181",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 720,
+     "confirmation": 733
+    },
+    "doublons_suspects": "31 lignes recopiées à l'identique (2%) : données probablement augmentées ou synthétiques, retirées avant analyse",
+    "did": "181",
+    "colonnes": {
+     "num": [
+      "mcg",
+      "gvh",
+      "alm",
+      "mit",
+      "erl",
+      "pox",
+      "vac",
+      "nuc"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 1484,
+   "colonnes": 9,
+   "fig": "2026-11-17_yeast.png",
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "alm -> class_protein_localization",
+     "stat": 0.289,
+     "score": 0.6870100205755538,
+     "detail": {
+      "mutual_info": 0.289,
+      "part_de_l_info": 0.29,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "yeast",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "La métrique alm (signal d'ancrage membranaire ou similaire) apporte une information pertinente pour prédire la localisation subcellulaire des protéines.",
+      "hypothese": "Le lien entre alm et class_protein_localization est-il plus fort pour les protéines membranaires que pour les protéines cytoplasmiques ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "mcg -> class_protein_localization",
+     "stat": 0.226,
+     "score": 0.624201769187525,
+     "detail": {
+      "mutual_info": 0.226,
+      "part_de_l_info": 0.22,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "yeast",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "La variable mcg (signal de localisation de McGehee / membrane) présente une information mutuelle importante avec la localisation des protéines.",
+      "hypothese": "Le lien entre mcg et class_protein_localization est-il modulé par la présence d'autres signaux de ciblage comme alm ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "gvh -> class_protein_localization",
+     "stat": 0.171,
+     "score": 0.5701080646009213,
+     "detail": {
+      "mutual_info": 0.171,
+      "part_de_l_info": 0.17,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "yeast",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Le score gvh (mesure heuristique de localisation) contribue à la classification de la localisation subcellulaire chez la levure.",
+      "hypothese": "Le lien entre gvh et class_protein_localization est-il plus fort dans le compartiment mitochondrial ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "mcg ~ gvh",
+     "stat": 0.544,
+     "score": 0.43489200065414696,
+     "detail": {
+      "spearman": 0.544,
+      "pearson": 0.594,
+      "n": 720,
+      "q": 3.7e-55,
+      "confirmation": "confirmé — ρ = +0.50 sur 733 lignes (découverte : +0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "yeast",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "La corrélation modérée entre mcg et gvh reflète des propriétés physico-chimiques partagées dans la prédiction de localisation des protéines de levure.",
+      "hypothese": "Le lien entre mcg et gvh change-t-il selon la classe de localisation de la protéine ?"
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ erl, pox, mcg",
+     "stat": 3.19,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 15,
+      "sur": 720,
+      "variables_qui_les_distinguent": "erl (3.2 σ), pox (2.9 σ), mcg (1.3 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "yeast",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "artefact",
+      "explication": "Résultat descriptif d'anomalies univariées ou multivariées sans portée mécanistique robuste propre au domaine.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> class_protein_localization",
+     "stat": 0.386,
+     "score": 0.22853279683319538,
+     "detail": {
+      "balanced_accuracy": 0.386,
+      "baseline": 0.1,
+      "avec_seulement_alm": 0.183,
+      "confirmation": "confirmé — balanced_accuracy = 0.40 sur des données jamais vues (hasard 0.10, découverte 0.386)"
+     },
+     "confirme": 1.0,
+     "dataset": "yeast",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "pertinent",
+      "explication": "La capacité à prédire la localisation des protéines à partir de variables biochimiques est confirmée sur des données indépendantes.",
+      "hypothese": "Le lien entre les caractéristiques biochimiques et class_protein_localization change-t-il selon la présence d'un peptide signal ?"
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "engAbdullahHanif/mutascope-proteingym-v1.3",
+    "target": null,
+    "description": "MutaScope: ProteinGym v1.3 single mutants Every single amino-acid substitution measured in the 217 deep mutational scanning (DMS) assays of ProteinGym (https://proteingym.org) v1.3, cleaned and validated, plus per-residue structure features and Foldseek 3Di tokens for the assays' AlphaFold2 structures. It is the processed data behind MutaScope (https://github.com/EngAbdullahHanif/mutascope), a pro",
+    "fichier": "data/variants.parquet",
+    "url": "https://huggingface.co/datasets/engAbdullahHanif/mutascope-proteingym-v1.3",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 348484,
+     "confirmation": 20000
+    },
+    "did": "hf:engAbdullahHanif/mutascope-proteingym-v1.3",
+    "colonnes": {
+     "num": [
+      "position",
+      "DMS_score",
+      "DMS_score_bin"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 696311,
+   "colonnes": 7,
+   "fig": "2026-11-17_engAbdullahHanif_mutascope_proteingym_v1.png",
+   "n_findings": 3,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "DMS_score ~ DMS_score_bin",
+     "stat": 0.469,
+     "score": 0.9686878960254183,
+     "detail": {
+      "spearman": 0.474,
+      "pearson": 0.005,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.48 sur 20000 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "engAbdullahHanif/mutascope-proteingym-v1.3",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "Le score DMS et sa version binarisée (DMS_score_bin) mesurent fondamentalement la même quantité biologique, d'où la forte corrélation de Spearman.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "DMS_score ~ DMS_score_bin",
+     "stat": 0.474,
+     "score": 0.37933355781567907,
+     "detail": {
+      "spearman": 0.474,
+      "pearson": 0.005,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.48 sur 20000 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "engAbdullahHanif/mutascope-proteingym-v1.3",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "Il s'agit du même constat que F1 concernant le lien entre le score de mutagénèse et sa binarisation.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ position, DMS_score, DMS_score_bin",
+     "stat": 2.89,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 400,
+      "sur": 20000,
+      "variables_qui_les_distinguent": "position (2.9 σ), DMS_score (0.5 σ), DMS_score_bin (0.0 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "engAbdullahHanif/mutascope-proteingym-v1.3",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "artefact",
+      "explication": "Détection d'anomalies statistiques sur des index de position de mutations sans validation biologique sous-jacente.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "just-dna-seq/pgs-catalog",
+    "target": null,
+    "description": "PGS Catalog — Scoring Files & Cleaned Metadata Complete mirror of PGS Catalog (https://www.pgscatalog.org/) scoring files converted to Apache Parquet format, together with cleaned and normalised metadata tables. Built automatically by the just-prs (https://github.com/longevity-genie/just-prs) pipeline. Last updated: 2026-06-14 16:02 UTC Release Statistics Metric Value -------- ------- Scoring file",
+    "fichier": "data/scores/PGS000460_hmPOS_GRCh38.parquet",
+    "url": "https://huggingface.co/datasets/just-dna-seq/pgs-catalog",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 2140679,
+     "confirmation": 20000
+    },
+    "did": "hf:just-dna-seq/pgs-catalog",
+    "colonnes": {
+     "num": [
+      "chr_position",
+      "effect_weight",
+      "hm_pos"
+     ],
+     "groupes": [
+      "effect_allele",
+      "other_allele",
+      "hm_source"
+     ]
+    }
+   },
+   "lignes": 4279140,
+   "colonnes": 10,
+   "fig": null,
+   "n_findings": 2,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "effect_allele ~ other_allele",
+     "stat": 0.594,
+     "score": 0.4155563976722236,
+     "detail": {
+      "cramers_v": 0.594,
+      "p": 0.0,
+      "confirmation": "confirmé — V = 0.60 (découverte : 0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "just-dna-seq/pgs-catalog",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "La forte association entre effect_allele et other_allele découle de contraintes structurelles et de déséquilibre de liaison dans les bases de données de génomique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ hm_pos, chr_position, effect_weight",
+     "stat": 2.71,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 400,
+      "sur": 20000,
+      "variables_qui_les_distinguent": "hm_pos (2.7 σ), chr_position (2.7 σ), effect_weight (0.1 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "just-dna-seq/pgs-catalog",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "artefact",
+      "explication": "Anomalies basées sur des coordonnées chromosomiques reflétant des artefacts de catalogage ou de tri des variants.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "jzshared/dnalongbench",
+    "target": "target",
+    "description": "",
+    "fichier": "eQTL/targets/combined_data.tsv",
+    "url": "https://huggingface.co/datasets/jzshared/dnalongbench",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 22831,
+     "confirmation": 20000
+    },
+    "did": "hf:jzshared/dnalongbench",
+    "colonnes": {
+     "num": [
+      "gene_start",
+      "gene_end",
+      "region_start",
+      "region_end",
+      "distance_to_tss"
+     ],
+     "groupes": [
+      "gene_strand",
+      "target",
+      "subset"
+     ]
+    }
+   },
+   "lignes": 46047,
+   "colonnes": 14,
+   "fig": null,
+   "n_findings": 5,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "region_end -> target",
+     "stat": 0.219,
+     "score": 0.6539765318099056,
+     "detail": {
+      "mutual_info": 0.219,
+      "part_de_l_info": 0.25,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "jzshared/dnalongbench",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "La position de fin de région génomique (region_end) aide à discriminer la cible fonctionnelle dans les benchmarks de séquençage d'ADN.",
+      "hypothese": "Le lien entre region_end et target change-t-il selon le chromosome ou la région codante ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "region_start -> target",
+     "stat": 0.218,
+     "score": 0.6535843923686804,
+     "detail": {
+      "mutual_info": 0.218,
+      "part_de_l_info": 0.25,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "jzshared/dnalongbench",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "La position de début de région (region_start) montre une information prédictive similaire sur les cibles génomiques.",
+      "hypothese": "Le lien entre region_start et target change-t-il selon la longueur de la région ?"
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "distance_to_tss -> target",
+     "stat": 0.165,
+     "score": 0.5911564619578658,
+     "detail": {
+      "mutual_info": 0.165,
+      "part_de_l_info": 0.19,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "jzshared/dnalongbench",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "La distance au site d'initiation de la transcription (distance_to_tss) contient un signal pertinent pour identifier les cibles régulatrices.",
+      "hypothese": "Le lien entre distance_to_tss et target change-t-il selon le type de gène (codant vs non-codant) ?"
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ region_start, region_end, gene_start",
+     "stat": 2.86,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 400,
+      "sur": 20000,
+      "variables_qui_les_distinguent": "region_start (2.9 σ), region_end (2.9 σ), gene_start (2.9 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "jzshared/dnalongbench",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "artefact",
+      "explication": "Anomalies positionnelles dans les benchmarks de séquencage liées à la structure des fichiers d'entrée.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> target",
+     "stat": 0.695,
+     "score": 0.15607513839359843,
+     "detail": {
+      "balanced_accuracy": 0.695,
+      "baseline": 0.5,
+      "avec_seulement_region_end": 0.524,
+      "confirmation": "confirmé — balanced_accuracy = 0.64 sur des données jamais vues (hasard 0.50, découverte 0.695)"
+     },
+     "confirme": 1.0,
+     "dataset": "jzshared/dnalongbench",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "pertinent",
+      "explication": "La prédiction de la cible génomique à partir des coordonnées de région est validée sur des échantillons non vus.",
+      "hypothese": "Le lien entre region_end et target change-t-il selon la valeur de distance_to_tss ?"
+     }
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "openml",
+   "ref": "40670",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "openml",
+   "ref": "46",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  },
+  {
+   "source": "openml",
+   "ref": "46588",
+   "erreur": "colonnes anonymes (V1, V2...)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 46,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43804",
+    "x": "fWidth",
+    "y": "fConc",
+    "groupe": "class",
+    "seuil": null,
+    "plus_fort": "gamma",
+    "enonce": "Le lien entre fWidth et fConc change-t-il selon la classe class ?",
+    "requete_biblio": "MAGIC gamma telescope image parameters concentration width classification"
+   },
+   "statut": "non concluante",
+   "resume": "Dans MAGIC-Gamma-Telescope-Dataset, la corrélation fWidth~fConc vaut -0.82 pour « class = h » contre -0.89 pour « class = g » (écart 0.07, p = 2.2e-33). [Testé sur : moitié de confirmation (9469 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "class = g": {
+      "rho": -0.887,
+      "pearson": -0.78,
+      "n": 6178
+     },
+     "class = h": {
+      "rho": -0.817,
+      "pearson": -0.669,
+      "n": 3291
+     }
+    },
+    "p_difference": 2.17e-33,
+    "donnees_test": "moitié de confirmation (9469 lignes jamais vues à l'exploration)",
+    "holm": "p = 2.2e-33, seuil corrigé 0.025 (4 tests cette nuit)"
+   },
+   "sujet": "Astronomie et physique",
+   "biblio": [
+    {
+     "titre": "The Major Gamma-Ray Imaging Cherenkov Telescopes (MAGIC)",
+     "annee": 2024,
+     "citations": 3,
+     "url": "https://doi.org/10.1007/978-981-19-6960-7_67"
+    },
+    {
+     "titre": "Observations of Markarian 421 with the MAGIC Telescope",
+     "annee": 2007,
+     "citations": 209,
+     "url": "https://doi.org/10.1086/518221"
+    },
+    {
+     "titre": "A Decision Tree Analysis on MAGIC Gamma Telescope (June 2024)",
+     "annee": 2025,
+     "citations": 1,
+     "url": "https://doi.org/10.36227/techrxiv.173895025.55949114/v1"
+    },
+    {
+     "titre": "Studies of active galactic nuclei with the MAGIC telescopes",
+     "annee": 2015,
+     "citations": 0,
+     "url": "https://doi.org/10.18452/17179"
+    },
+    {
+     "titre": "Measurement of very high energy gamma-ray emission from four blazars using the MAGIC telescope and a comparative blazar study",
+     "annee": 2006,
+     "citations": 19,
+     "url": "https://openalex.org/W3017337371"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé teste correctement une modération (variation du lien selon la classe) mais mélange l'interrogation et une affirmation sur la force (« et est-il plus fort... »).",
+    "reformulation": "Le lien entre fWidth et fConc diffère-t-il statistiquement selon la classe (gamma vs hadron) ?",
+    "diagnostic_statistique": "Les corrélations de Spearman et Pearson montrent de fortes différences (|Spearman - Pearson| > 0.10 dans les deux groupes : ~0.11 pour g et ~0.15 pour h), indiquant une non-linéarité prononcée et l'effet de valeurs extrêmes dans les images de télescope. L'écart entre les coefficients est statistiquement significatif (p < 0.001).",
+    "modele_recommande": "régression avec interaction non-linéaire ou GAM (Generalized Additive Model) avec splines pour capturer la courbure par classe y ~ s(x, by=class)",
+    "robustesse": "Bonne taille d'échantillon (n = 6178 et 3291), données observationnelles issues de simulations Monte Carlo pour l'instrumentation MAGIC. Facteurs de confusion liés à l'énergie incidente et à l'angle d'impact des rayons gamma.",
+    "interprétation_domaine": "En physique des astroparticules, les paramètres Hillas (fWidth, fConc) décrivent la forme des ellipses d'image dans la caméra Cherenkov. Les gerbes électromagnétiques (gamma) et hadroniques (hadrons de fond) ont des profils spatiaux différents, ce qui modifie la concentration de lumière par rapport à la largeur de l'ellipse.",
+    "action_pipeline": "Intégrer une vérification systématique de l'écart entre Spearman et Pearson pour déclencher l'utilisation de modèles non-linéaires.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La distinction gamma/hadron par les paramètres d'image dans les télescopes MAGIC est largement documentée dans la littérature astrophysique.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 47,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "43804",
+    "x": "fSize",
+    "y": "fM3Long",
+    "groupe": "class",
+    "seuil": null,
+    "plus_fort": "gamma",
+    "enonce": "Le lien entre fSize et fM3Long change-t-il selon la classe class ?",
+    "requete_biblio": "Atmospheric Cherenkov telescopes longitudinal development gamma hadron separation"
+   },
+   "statut": "confirmée",
+   "resume": "Dans MAGIC-Gamma-Telescope-Dataset, la corrélation fSize~fM3Long vaut +0.55 pour « class = g » contre -0.01 pour « class = h » (écart 0.56, p = 1.1e-186). Attention : relation non linéaire ou valeurs extrêmes dans « class = h » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (9469 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "class = g": {
+      "rho": 0.554,
+      "pearson": 0.551,
+      "n": 6178
+     },
+     "class = h": {
+      "rho": -0.005,
+      "pearson": -0.205,
+      "n": 3291
+     }
+    },
+    "p_difference": 1.07e-186,
+    "donnees_test": "moitié de confirmation (9469 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.1e-186, seuil corrigé 0.013 (4 tests cette nuit)",
+    "confusion": "aucune variable de confusion (âge, sexe) disponible dans ce dataset",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (fSize, fM3Long, class) parmi 12 essayés"
+   },
+   "sujet": "Astronomie et physique",
+   "confusion": [
+    null,
+    "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (fSize, fM3Long, class) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "Gamma-hadron Separation in Imaging Atmospheric Cherenkov Telescopes using Quantum Classifiers",
+     "annee": 2022,
+     "citations": 0,
+     "url": "https://doi.org/10.48550/arxiv.2210.03771"
+    },
+    {
+     "titre": "Gamma/hadron discrimination using composite Cherenkov telescopes",
+     "annee": 1999,
+     "citations": 2,
+     "url": "https://openalex.org/W93466245"
+    },
+    {
+     "titre": "A high performance likelihood reconstruction of γ-rays for imaging atmospheric Cherenkov telescopes",
+     "annee": 2009,
+     "citations": 457,
+     "url": "https://doi.org/10.1016/j.astropartphys.2009.09.001"
+    },
+    {
+     "titre": "Natural limit on the γ/hadron separation for a stand alone air Cherenkov telescope",
+     "annee": 2007,
+     "citations": 17,
+     "url": "https://doi.org/10.1088/0954-3899/34/11/005"
+    },
+    {
+     "titre": "Selection and 3D-reconstruction of gamma-ray-induced air showers with a stereoscopic system of atmospheric Cherenkov telescopes",
+     "annee": 2006,
+     "citations": 66,
+     "url": "https://doi.org/10.1016/j.astropartphys.2006.01.005"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé teste correctement une modération (effet de la classe sur le lien X-Y), mais la formulation initiale mélangeait test de structure et hypothèse d'intensité.",
+    "reformulation": "La classe (gamma vs hadron) modifie-t-elle la relation statistique entre fSize et fM3Long ?",
+    "diagnostic_statistique": "Différence majeure de corrélation entre les groupes (rho = 0.55 pour gamma, -0.005 pour hadron). De plus, l'écart notable entre Spearman (-0.205) et Pearson (-0.01) dans le groupe 'h' indique une relation non linéaire, des valeurs aberrantes ou une forte asymétrie.",
+    "modele_recommande": "Régression logistique ou GAM avec interaction (fM3Long ~ s(fSize) * class) pour capturer la non-linéarité.",
+    "robustesse": "Bonne taille d'échantillon (n > 3000 par groupe), mais absence de contrôle des facteurs instrumentaux de premier plan. Validation sur données indépendantes indisponible.",
+    "interpretation_domaine": "En physique des astroparticules, les gerbes de rayons gamma et les hadrons (bruit de fond) interagissent différemment avec l'atmosphère. Les paramètres d'image (fSize, fM3Long) traduisent cette morphologie distincte, expliquant le profil de corrélation radicalement différent selon la classe, bien documenté dans la littérature sur les télescopes Tchernov.",
+    "action_pipeline": "Ajouter un test systématique de non-linéarité (écart Spearman-Pearson) avant de valider les coefficients de corrélation linéaire dans les sous-groupes.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'utilisation de la taille et des moments d'inertie (fSize, fM3Long) pour la discrimination gamma/hadron est un classique de l'imagerie Tcherenkov.",
+   "pertinence": {
+    "niveau": 2,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 1.1e-186, seuil corrigé 0.013 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (fSize, fM3Long, class) parmi 12 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 48,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+    "x": "t02_edgeon_a04_yes_debiased",
+    "y": "t09_bulge_shape_a25_rounded_debiased",
+    "groupe": "t05_bulge_prominence_a12_obvious_debiased",
+    "seuil": 0.5,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon le seuil de t05_bulge_prominence_a12_obvious_debiased ?",
+    "requete_biblio": "Galaxy Zoo bulge shape inclination morphology SDSS"
+   },
+   "statut": "confirmée",
+   "resume": "Dans marwa000000000/SDSS-GalaxyZoo2-Preprocessed, la corrélation t02_edgeon_a04_yes_debiased~t09_bulge_shape_a25_rounded_debiased vaut +0.83 pour « t05_bulge_prominence_a12_obvious_debiased > 0.5 » contre +0.73 pour « t05_bulge_prominence_a12_obvious_debiased ≤ 0.5 » (p = 2.4e-51). Attention : relation non linéaire ou valeurs extrêmes dans « t05_bulge_prominence_a12_obvious_debiased ≤ 0.5, t05_bulge_prominence_a12_obvious_debiased > 0.5 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (13156 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "t05_bulge_prominence_a12_obvious_debiased ≤ 0.5": {
+      "rho": 0.732,
+      "pearson": 0.391,
+      "n": 8198
+     },
+     "t05_bulge_prominence_a12_obvious_debiased > 0.5": {
+      "rho": 0.835,
+      "pearson": 0.489,
+      "n": 4950
+     }
+    },
+    "groupe_predit_plus_fort": "t05_bulge_prominence_a12_obvious_debiased > 0.5",
+    "p_difference": 2.4e-51,
+    "donnees_test": "moitié de confirmation (13156 lignes jamais vues à l'exploration)",
+    "holm": "p = 2.4e-51, seuil corrigé 0.017 (4 tests cette nuit)",
+    "confusion": "aucune variable de confusion (âge, sexe) disponible dans ce dataset",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (t02_edgeon_a04_yes_debiased, t09_bulge_shape_a25_rounded_debiased, t05_bulge_prominence_a12_obvious_debiased) parmi 12 essayés"
+   },
+   "sujet": "Astronomie et physique",
+   "confusion": [
+    null,
+    "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (t02_edgeon_a04_yes_debiased, t09_bulge_shape_a25_rounded_debiased, t05_bulge_prominence_a12_obvious_debiased) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "The intrinsic shape of galaxies in SDSS/Galaxy Zoo",
+     "annee": 2013,
+     "citations": 87,
+     "url": "https://doi.org/10.1093/mnras/stt1168"
+    },
+    {
+     "titre": "Galaxy Zoo: the environmental dependence of bars and bulges in disc galaxies",
+     "annee": 2012,
+     "citations": 158,
+     "url": "https://doi.org/10.1111/j.1365-2966.2012.20972.x"
+    },
+    {
+     "titre": "Galaxy Zoo: finding offset discs and bars in SDSS galaxies★",
+     "annee": 2017,
+     "citations": 40,
+     "url": "https://doi.org/10.1093/mnras/stx1026"
+    },
+    {
+     "titre": "Galaxy Zoo 2: detailed morphological classifications for 304 122 galaxies from the Sloan Digital Sky Survey",
+     "annee": 2013,
+     "citations": 801,
+     "url": "https://doi.org/10.1093/mnras/stt1458"
+    },
+    {
+     "titre": "Galaxy Zoo: bars in disc galaxies★",
+     "annee": 2010,
+     "citations": 343,
+     "url": "https://doi.org/10.1111/j.1365-2966.2010.17834.x"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé formule correctement une question de modération (impact d'un tiers facteur sur un lien), en évitant tout terme causal non fondé sur des données observationnelles.",
+    "reformulation": "",
+    "diagnostic_statistique": "Forte divergence entre Pearson (0.39-0.49) et Spearman (0.73-0.84) dans les deux sous-groupes, signalant une forte non-linéarité ou des effets de seuil inhérents aux scores de probabilité morphologique de Galaxy Zoo. Le test montre néanmoins une différence statistiquement très significative entre les coefficients de corrélation selon le seuil de proéminence du bulbe.",
+    "modele_recommande": "régression avec interaction non linéaire y ~ s(x) * z ou GAM",
+    "robustesse": "Bonne taille d'échantillon (n > 4900 par groupe), mais absence de contrôles pour les biais de mesure ou la classification visuelle subjective propre à Galaxy Zoo.",
+    "interpretation_domaine": "En astrophysique (Galaxy Zoo), la morphologie des galaxies présente des corrélations géométriques fortes : une galaxie vue par la tranche (edge-on) limite la visibilité du bulbe, et la proéminence du bulbe modifie la perception de sa forme (arrondie ou non). La littérature confirme que l'inclinaison et la structure du bulbe interagissent fortement dans la classification morphologique.",
+    "action_pipeline": "Intégrer automatiquement un test de concordance de rangs et recommander un modèle additif généralisé (GAM) lorsque l'écart entre Pearson et Spearman dépasse le seuil critique.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La morphologie des galaxies et la proéminence du bulbe dans Galaxy Zoo font l'objet d'études approfondies sur la structure des disques.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 2.4e-51, seuil corrigé 0.017 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (t02_edgeon_a04_yes_debiased, t09_bulge_shape_a25_rounded_debiased, t05_bulge_prominence_a12_obvious_debiased) parmi 12 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 49,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "43804",
+    "cible": "class",
+    "variables": [
+     "fWidth",
+     "fConc",
+     "fLength",
+     "fSize"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la classe class avec SEULEMENT les variables fWidth, fConc, fLength et fSize ?"
+   },
+   "statut": "confirmée",
+   "resume": "Dans MAGIC-Gamma-Telescope-Dataset, prédire class avec fWidth, fConc, fLength, fSize donne balanced_accuracy = 0.76 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (9469 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "balanced_accuracy": 0.755,
+    "hasard": 0.5,
+    "p_permutation": 0.0476,
+    "p_z": 1e-12,
+    "validation": "aléatoire",
+    "n": 5000,
+    "donnees_test": "moitié de confirmation (9469 lignes jamais vues à l'exploration)",
+    "holm": "p = 1e-12, seuil corrigé 0.05 (4 tests cette nuit)",
+    "confusion": "contrôle non applicable à ce type de test",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (class, fWidth, fConc, fLength, fSize) parmi 12 essayés"
+   },
+   "sujet": "Astronomie et physique",
+   "confusion": [
+    null,
+    "contrôle non applicable à ce type de test"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (class, fWidth, fConc, fLength, fSize) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "None of the Above",
+     "annee": 2007,
+     "citations": 339,
+     "url": "https://doi.org/10.1057/9780230604360"
+    },
+    {
+     "titre": "The Nones: Social Characteristics of the Religiously Unaffiliated",
+     "annee": 2009,
+     "citations": 215,
+     "url": "https://doi.org/10.1353/sof.0.0181"
+    },
+    {
+     "titre": "A Billion Black Anthropocenes or None",
+     "annee": 2018,
+     "citations": 2835,
+     "url": "https://doi.org/10.5749/9781452962054"
+    },
+    {
+     "titre": "Noneism or Allism?",
+     "annee": 1990,
+     "citations": 138,
+     "url": "https://doi.org/10.1093/mind/xcix.393.24"
+    },
+    {
+     "titre": "The Religious \"Nones\": A Neglected Category",
+     "annee": 1968,
+     "citations": 201,
+     "url": "https://doi.org/10.2307/1384629"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "La formulation est claire et directe, mais relève d'une tâche de classification prédictive plutôt que d'une simple interrogation causale.",
+    "reformulation": "Quelle est la performance prédictive de la classe 'class' en utilisant exclusivement les variables fWidth, fConc, fLength et fSize dans le MAGIC Gamma Telescope Dataset ?",
+    "diagnostic_statistique": "La balanced accuracy obtenue est de 0.76, ce qui dépasse significativement le niveau du hasard (0.50) avec une p-valeur de permutation validée et un contrôle de Bonferroni-Holm rigoureux sur de grands échantillons.",
+    "modele_recommande": "Forêt aléatoire (Random Forest), XGBoost ou régression logistique avec splines pour capturer les non-linéarités des caractéristiques de gerbes de rayons gamma.",
+    "robustesse": "Testé sur un échantillon de confirmation important (n=5000 et jeu de test de 9469 lignes). Attention toutefois aux possibles biais de sélection inhérents aux simulations de Monte Carlo de l'expérience MAGIC.",
+    "interpretation_domaine": "En physique des astroparticules, les dimensions géométriques de l'image de la gerbe (longueur, largeur, taille, concentration) sont des descripteurs physiques fondamentaux pour discriminer les signaux gamma (photons) des bruits de fond hadroniques (zéros/hadrons).",
+    "action_pipeline": "Intégrer une validation croisée spatiale ou temporelle si disponible et automatiser l'évaluation des métriques de type AUC-ROC en plus de la balanced accuracy.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La classification supervisée de base des paramètres de télescope pour séparer les gerbes est standard.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 1e-12, seuil corrigé 0.05 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "contrôle non applicable à ce type de test"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (class, fWidth, fConc, fLength, fSize) parmi 12 essayés"
+     }
+    ]
+   }
+  }
+ ]
+}

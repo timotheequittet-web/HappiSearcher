@@ -1,0 +1,202 @@
+{
+ "date": "2026-11-17",
+ "faits": {
+  "date": "2026-11-17",
+  "date_longue": "17 novembre 2026",
+  "sujets": [
+   "Biologie et génomique"
+  ],
+  "questions": [
+   "Quelles signatures moléculaires (gènes, protéines) distinguent les groupes biologiques, et lesquelles sont inattendues ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "yeast",
+    "lignes": 1484,
+    "colonnes": 9,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 2,
+    "alerte": "31 lignes recopiées à l'identique (2%) : données probablement augmentées ou synthétiques, retirées avant analyse"
+   },
+   {
+    "nom": "engAbdullahHanif/mutascope-proteingym-v1.3",
+    "lignes": 696311,
+    "colonnes": 7,
+    "resultats_bruts": 3,
+    "confirmes_sur_moitie_independante": 2
+   },
+   {
+    "nom": "just-dna-seq/pgs-catalog",
+    "lignes": 4279140,
+    "colonnes": 10,
+    "resultats_bruts": 2,
+    "confirmes_sur_moitie_independante": 1
+   },
+   {
+    "nom": "jzshared/dnalongbench",
+    "lignes": 46047,
+    "colonnes": 14,
+    "resultats_bruts": 5,
+    "confirmes_sur_moitie_independante": 1
+   }
+  ],
+  "datasets_ecartes": 3,
+  "hypotheses_testees": [
+   {
+    "id": "H46",
+    "enonce": "Le lien entre fWidth et fConc change-t-il selon la classe class ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans MAGIC-Gamma-Telescope-Dataset, la corrélation fWidth~fConc vaut -0.82 pour « class = h » contre -0.89 pour « class = g » (écart 0.07, p = 2.2e-33).",
+    "bloque_a": null,
+    "litterature": "La distinction gamma/hadron par les paramètres d'image dans les télescopes MAGIC est largement documentée dans la littérature astrophysique."
+   },
+   {
+    "id": "H47",
+    "enonce": "Le lien entre fSize et fM3Long change-t-il selon la classe class ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans MAGIC-Gamma-Telescope-Dataset, la corrélation fSize~fM3Long vaut +0.55 pour « class = g » contre -0.01 pour « class = h » (écart 0.56, p = 1.1e-186). Attention : relation non linéaire ou valeurs extrêmes dans « class = h » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": "Non trivial : avis d'expert : A_TESTER_AUTREMENT",
+    "litterature": "L'utilisation de la taille et des moments d'inertie (fSize, fM3Long) pour la discrimination gamma/hadron est un classique de l'imagerie Tcherenkov."
+   },
+   {
+    "id": "H48",
+    "enonce": "Le lien entre t02_edgeon_a04_yes_debiased et t09_bulge_shape_a25_rounded_debiased change-t-il selon le seuil de t05_bulge_prominence_a12_obvious_debiased ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans marwa000000000/SDSS-GalaxyZoo2-Preprocessed, la corrélation t02_edgeon_a04_yes_debiased~t09_bulge_shape_a25_rounded_debiased vaut +0.83 pour « t05_bulge_prominence_a12_obvious_debiased > 0.5 » contre +0.73 pour « t05_bulge_prominence_a12_obvious_debiased ≤ 0.5 » (p = 2.4e-51). Attention : relation non linéaire ou valeurs extrêmes dans « t05_bulge_prominence_a12_obvious_debiased ≤ 0.5, t05_bulge_prominence_a12_obvious_debiased > 0.5 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": "Nouveau : déjà connu",
+    "litterature": "La morphologie des galaxies et la proéminence du bulbe dans Galaxy Zoo font l'objet d'études approfondies sur la structure des disques."
+   },
+   {
+    "id": "H49",
+    "enonce": "Peut-on prédire la classe class avec SEULEMENT les variables fWidth, fConc, fLength et fSize ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans MAGIC-Gamma-Telescope-Dataset, prédire class avec fWidth, fConc, fLength, fSize donne balanced_accuracy = 0.76 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire).",
+    "bloque_a": "Nouveau : déjà connu",
+    "litterature": "La classification supervisée de base des paramètres de télescope pour séparer les gerbes est standard."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 1,
+   "confirmée": 3
+  },
+  "resultats_solides": [
+   "H48",
+   "H49"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "yeast",
+    "variables": "mcg ~ gvh",
+    "type": "correlation",
+    "explication": "La corrélation modérée entre mcg et gvh reflète des propriétés physico-chimiques partagées dans la prédiction de localisation des protéines de levure.",
+    "detail": "confirmé — ρ = +0.50 sur 733 lignes (découverte : +0.54)"
+   },
+   {
+    "dataset": "yeast",
+    "variables": "* -> class_protein_localization",
+    "type": "predictibilite_cible",
+    "explication": "La capacité à prédire la localisation des protéines à partir de variables biochimiques est confirmée sur des données indépendantes.",
+    "detail": "confirmé — balanced_accuracy = 0.40 sur des données jamais vues (hasard 0.10, découverte 0.386)"
+   },
+   {
+    "dataset": "jzshared/dnalongbench",
+    "variables": "* -> target",
+    "type": "predictibilite_cible",
+    "explication": "La prédiction de la cible génomique à partir des coordonnées de région est validée sur des échantillons non vus.",
+    "detail": "confirmé — balanced_accuracy = 0.64 sur des données jamais vues (hasard 0.50, découverte 0.695)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 2,
+  "nouvelles_hypotheses": [
+   "Le lien entre mcg et gvh change-t-il selon le seuil de alm ?",
+   "Le lien entre position et DMS_score change-t-il de part et d'autre du seuil de position ?"
+  ],
+  "runs": [
+   "2026-11-17_0330_gene expression"
+  ]
+ },
+ "en_chiffres": [
+  "4 datasets analysés, 3 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 3 confirmée, 1 non concluante",
+  "2 résultats solides (niveau ≥ 3/6)",
+  "2 nouvelles hypothèses pour la nuit prochaine",
+  "Alerte qualité sur yeast : 31 lignes recopiées à l'identique (2%) : données probablement augmentées ou synthétiques, retirées avant analyse"
+ ],
+ "titre": "Enquête nocturne au cœur des signatures moléculaires et cosmiques",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté sur les signatures moléculaires et génomiques en explorant des datasets publics pour identifier des liens inattendus entre variables biologiques.",
+ "paragraphes": [
+  "L'enquête s'est penchée sur la recherche de signatures moléculaires distinctes entre groupes biologiques, tout en surveillant la qualité des données. Une alerte a ainsi repéré 31 lignes recopiées à l'identique dans le premier dataset analysé, révélant des données probablement augmentées ou synthétiques qui ont dû être retirées avant l'analyse. Malgré ces embûches, la nuit a permis d'explorer plusieurs pistes fragiles et d'obtenir des résultats solides à ce stade, notamment sur la prédiction de classes à partir de variables spécifiques affichant une précision équilibrée de 0.76.",
+  "Du côté des observations, un lien modéré a été confirmé entre les variables mcg et gvh avec un coefficient de +0.50 sur 733 lignes, illustrant des propriétés physico-chimiques partagées dans la localisation des protéines de levure. Cependant, certaines hypothèses n'ont pas abouti, comme le test H46 jugé non concluant malgré un écart de corrélation mesuré à -0.82 contre -0.89 selon la classe. Ces tests réfutés ou nuancés constituent des informations utiles pour affiner les futurs modèles non linéaires par splines ou par régression additive."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la prédiction de la localisation des protéines",
+    "requetes": [
+     "protein subcellular localization prediction",
+     "computational protein localization"
+    ]
+   },
+   {
+    "theme": "la prédiction de cibles génomiques",
+    "requetes": [
+     "genomic target prediction from sequence",
+     "genomics sequence analysis"
+    ]
+   }
+  ],
+  "titre": "Localiser les protéines et cibler les gènes",
+  "paragraphes": [
+   "Connaître la localisation subcellulaire d'une protéine, c'est-à-dire l'endroit précis où elle se trouve dans la cellule, apporte des informations précieuses sur ses fonctions [1]. La recherche a conçu de nombreux outils informatiques pour prédire ces emplacements à partir des séquences d'acides aminés qui composent les protéines [2].",
+   "D'autres méthodes informatiques permettent d'identifier les cibles des microARNs, qui sont de petits ARN non codants régulant l'expression des gènes [3]. De plus, environ un tiers des gènes cibles humains connus s'associent indirectement aux récepteurs nucléaires des œstrogènes grâce à des facteurs de transcription intermédiaires [4]. Ces analyses informatiques aident à comprendre quelles signatures moléculaires caractérisent les groupes biologiques."
+  ],
+  "references": [
+   {
+    "titre": "Protein subcellular localization prediction tools",
+    "annee": 2024,
+    "auteurs": "Gillani & Pollastri",
+    "revue": "Computational and Structural Biotechnology Journal",
+    "citations": 56,
+    "url": "https://doi.org/10.1016/j.csbj.2024.04.032",
+    "theme": "la prédiction de la localisation des protéines"
+   },
+   {
+    "titre": "Tools for the Recognition of Sorting Signals and the Prediction of Subcellular Localization of Proteins From Their Amino Acid Sequences",
+    "annee": 2020,
+    "auteurs": "Imai & Nakai",
+    "revue": "Frontiers in Genetics",
+    "citations": 40,
+    "url": "https://doi.org/10.3389/fgene.2020.607812",
+    "theme": "la prédiction de la localisation des protéines"
+   },
+   {
+    "titre": "Tools for Sequence-Based miRNA Target Prediction: What to Choose?",
+    "annee": 2016,
+    "auteurs": "Riffo‐Campos et al.",
+    "revue": "International Journal of Molecular Sciences",
+    "citations": 498,
+    "url": "https://doi.org/10.3390/ijms17121987",
+    "theme": "la prédiction de cibles génomiques"
+   },
+   {
+    "titre": "Genomic Targets of Nuclear Estrogen Receptors",
+    "annee": 2004,
+    "auteurs": "O’Lone et al.",
+    "revue": "Molecular Endocrinology",
+    "citations": 551,
+    "url": "https://doi.org/10.1210/me.2003-0044",
+    "theme": "la prédiction de cibles génomiques"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 4 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
