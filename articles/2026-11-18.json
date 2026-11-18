@@ -1,0 +1,184 @@
+{
+ "date": "2026-11-18",
+ "faits": {
+  "date": "2026-11-18",
+  "date_longue": "18 novembre 2026",
+  "sujets": [
+   "Écriture et geste"
+  ],
+  "questions": [
+   "Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "rakshitdabral/Signature-Verification-Dataset",
+    "lignes": 360,
+    "colonnes": 12,
+    "resultats_bruts": 12,
+    "confirmes_sur_moitie_independante": 11
+   },
+   {
+    "nom": "hsi-workshop/referential-gesture-challenge",
+    "lignes": 2525,
+    "colonnes": 17,
+    "resultats_bruts": 4,
+    "confirmes_sur_moitie_independante": 3
+   }
+  ],
+  "datasets_ecartes": 11,
+  "hypotheses_testees": [
+   {
+    "id": "H50",
+    "enonce": "Le lien entre position et DMS_score change-t-il de part et d'autre du seuil de position ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans engAbdullahHanif/mutascope-proteingym-v1.3, la corrélation position~DMS_score vaut -0.05 pour « position > 100 » contre +0.06 pour « position ≤ 100 » (p = 1.2e-204).",
+    "bloque_a": null,
+    "litterature": "La modulation des effets de position sur les scores de mutations protéiques est largement étudiée dans la littérature sur l'ingénierie des protéines."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "rakshitdabral/Signature-Verification-Dataset",
+    "variables": "nettete -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La netteté d'une image de signature varie fortement selon l'individu, reflétant la pression et la vitesse d'écriture uniques de chaque personne.",
+    "detail": "confirmé — η² = 0.88, p = 3.2e-27 sur 186 autres images (découverte : 0.827)"
+   },
+   {
+    "dataset": "rakshitdabral/Signature-Verification-Dataset",
+    "variables": "densite_contours -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La densité des contours des signatures dépend significativement de l'identité, capturant la complexité et la compacité du geste personnel.",
+    "detail": "confirmé — η² = 0.81, p = 8e-25 sur 186 autres images (découverte : 0.739)"
+   },
+   {
+    "dataset": "rakshitdabral/Signature-Verification-Dataset",
+    "variables": "entropie -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "L'entropie de l'image, qui mesure le désordre ou la richesse informationnelle de la signature, est fortement liée à la personne.",
+    "detail": "confirmé — η² = 0.94, p = 2.1e-29 sur 186 autres images (découverte : 0.901)"
+   },
+   {
+    "dataset": "rakshitdabral/Signature-Verification-Dataset",
+    "variables": "asymetrie_intensites -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "L'asymétrie des intensités dans l'image de la signature varie selon l'individu, traduisant des habitudes de tracé asymétriques.",
+    "detail": "confirmé — η² = 0.85, p = 3.3e-26 sur 186 autres images (découverte : 0.778)"
+   },
+   {
+    "dataset": "rakshitdabral/Signature-Verification-Dataset",
+    "variables": "centre_vs_bord -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "Le rapport entre le centre et le bord de l'image de la signature dépend de l'identité, montrant où le scripteur concentre ses mouvements.",
+    "detail": "confirmé — η² = 0.79, p = 4e-24 sur 186 autres images (découverte : 0.759)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 2,
+  "nouvelles_hypotheses": [
+   "Peut-on prédire la main utilisée (hand) avec SEULEMENT les coordonnées spatiales et pelviennes des gestes ?",
+   "Le lien entre peak_frame et clip_length change-t-il selon hand ?"
+  ],
+  "runs": [
+   "2026-11-18_0330_handwriting"
+  ]
+ },
+ "en_chiffres": [
+  "2 datasets analysés, 11 écartés (illisibles, hors sujet ou indisponibles)",
+  "1 hypothèse testée : 1 non concluante",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "2 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne sur l'écriture et le geste",
+ "chapo": "La Raspberry Pi a enquêté sur la question suivante : notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?",
+ "paragraphes": [
+  "Durant cette nuit d'analyse, la Raspberry a examiné 2 datasets et écarté 11 autres sources. L'investigation s'est penchée sur l'exploration de pistes concernant l'écriture et les caractéristiques visuelles des signatures. Plusieurs pistes ont émergé, montrant un lien entre des variables visuelles comme la netteté, la densité des contours, l'entropie, l'asymétrie des intensités ou encore le rapport entre le centre et le bord, et l'identité de la personne. Ces observations reflètent la complexité et la compacité du geste personnel.",
+  "Du côté des hypothèses testées, le test sur le lien entre la position et le score de mutation s'est révélé non concluant. Ce type de résultat reste une information utile pour orienter les recherches futures. L'exploration de cette nuit s'achève ainsi sur la formulation de 2 nouvelles hypothèses, prolongeant l'enquête sur l'analyse des mouvements et des coordonnées spatiales."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la vérification de signature biométrique par l'analyse des gestes",
+    "requetes": [
+     "offline signature verification behavioral biometrics",
+     "signature image feature extraction review"
+    ]
+   },
+   {
+    "theme": "l'analyse de l'écriture manuscrite pour la reconnaissance d'identité",
+    "requetes": [
+     "handwriting dynamics identity recognition",
+     "automatic writer identification methods"
+    ]
+   }
+  ],
+  "titre": "Identifier et comprendre les mouvements humains",
+  "paragraphes": [
+   "Les méthodes de la biométrie (c'est-à-dire la mesure de caractéristiques corporelles ou comportementales) cherchent à améliorer la sécurité [1]. Par exemple, les signaux électriques du cœur sont étudiés comme des traits d'identification uniques [2], tout comme l'activité du cerveau via des interfaces cerveau-machine [3].",
+   "Parallèlement, les technologies de reconnaissance automatique des textes manuscrits s'intègrent dans la numérisation des bibliothèques et des archives [4]. La détection des états émotionnels et physiologiques utilise également divers capteurs biométriques et cérébraux [5], tandis que la reconnaissance des activités humaines s'appuie sur l'analyse de signaux variés pour comprendre les comportements [6]. Ces travaux sur l'analyse des mouvements et de l'écriture s'intègrent dans la question de la nuit."
+  ],
+  "references": [
+   {
+    "titre": "Biometrics for Internet-of-Things Security: A Review",
+    "annee": 2021,
+    "auteurs": "Yang et al.",
+    "revue": "Sensors",
+    "citations": 181,
+    "url": "https://doi.org/10.3390/s21186163",
+    "theme": "la vérification de signature biométrique par l'analyse des gestes"
+   },
+   {
+    "titre": "Biometric Recognition: A Systematic Review on Electrocardiogram Data Acquisition Methods",
+    "annee": 2023,
+    "auteurs": "Pereira et al.",
+    "revue": "Sensors",
+    "citations": 87,
+    "url": "https://doi.org/10.3390/s23031507",
+    "theme": "la vérification de signature biométrique par l'analyse des gestes"
+   },
+   {
+    "titre": "Review on EEG‐Based Authentication Technology",
+    "annee": 2021,
+    "auteurs": "Zhang et al.",
+    "revue": "Computational Intelligence and Neuroscience",
+    "citations": 102,
+    "url": "https://doi.org/10.1155/2021/5229576",
+    "theme": "la vérification de signature biométrique par l'analyse des gestes"
+   },
+   {
+    "titre": "Understanding the application of handwritten text recognition technology in heritage contexts: a systematic review of Transkribus in published research",
+    "annee": 2022,
+    "auteurs": "Nockels et al.",
+    "revue": "Archival Science",
+    "citations": 139,
+    "url": "https://doi.org/10.1007/s10502-022-09397-0",
+    "theme": "l'analyse de l'écriture manuscrite pour la reconnaissance d'identité"
+   },
+   {
+    "titre": "A Review of AI Cloud and Edge Sensors, Methods, and Applications for the Recognition of Emotional, Affective and Physiological States",
+    "annee": 2022,
+    "auteurs": "Kaklauskas et al.",
+    "revue": "Sensors",
+    "citations": 90,
+    "url": "https://doi.org/10.3390/s22207824",
+    "theme": "l'analyse de l'écriture manuscrite pour la reconnaissance d'identité"
+   },
+   {
+    "titre": "A Comprehensive Methodological Survey of Human Activity Recognition Across Diverse Data Modalities",
+    "annee": 2025,
+    "auteurs": "Shin et al.",
+    "revue": "Sensors",
+    "citations": 58,
+    "url": "https://doi.org/10.3390/s25134028",
+    "theme": "l'analyse de l'écriture manuscrite pour la reconnaissance d'identité"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

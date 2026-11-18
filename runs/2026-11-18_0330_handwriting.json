@@ -1,0 +1,1296 @@
+{
+ "id": "2026-11-18_0330_handwriting",
+ "date": "2026-11-18T03:36",
+ "sujet": "Écriture et geste",
+ "question": "Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?",
+ "keywords": [
+  "handwriting",
+  "pendigits",
+  "signature verification",
+  "gesture",
+  "keystroke",
+  "mouse dynamics",
+  "optdigits"
+ ],
+ "analyse": {
+  "synthese": "Les analyses des signatures et des gestes confirment que nos mouvements et leurs traces graphiques portent des empreintes individuelles très marquées, permettant d'identifier un scripteur à partir de simples statistiques visuelles. Les caractéristiques structurelles des signatures (entropie, netteté) varient fortement d'une personne à l'autre, tandis que les gestes spatiaux montrent une structuration nette selon la main utilisée. Ces résultats confirment que nos habitudes motrices trahissent profondément notre identité au-delà du contenu explicite.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "La netteté d'une image de signature varie fortement selon l'individu, reflétant la pression et la vitesse d'écriture uniques de chaque personne.",
+    "hypothese": "Les variations de netteté des traits de signature permettent de classifier de manière fiable différents scripteurs."
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La densité des contours des signatures dépend significativement de l'identité, capturant la complexité et la compacité du geste personnel.",
+    "hypothese": "La densité des contours permet de discriminer l'identité des scripteurs avec une haute précision."
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'entropie de l'image, qui mesure le désordre ou la richesse informationnelle de la signature, est fortement liée à la personne.",
+    "hypothese": "L'entropie visuelle de la signature constitue un marqueur individuel stable du geste graphique."
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "L'asymétrie des intensités dans l'image de la signature varie selon l'individu, traduisant des habitudes de tracé asymétriques.",
+    "hypothese": "Le profil d'asymétrie des intensités caractérise l'orientation et la dynamique propre à chaque scripteur."
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Le rapport entre le centre et le bord de l'image de la signature dépend de l'identité, montrant où le scripteur concentre ses mouvements.",
+    "hypothese": "La distribution spatiale du centre vers les bords de la signature est une signature comportementale propre à l'individu."
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La symétrie gauche-droite de la signature varie selon la personne, reflétant sa morphologie d'écriture et son sens du tracé.",
+    "hypothese": "Le degré de symétrie horizontale de la signature aide à identifier le scripteur."
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Un ensemble de statistiques visuelles simples permet de prédire l'identité du scripteur bien au-delà du hasard.",
+    "hypothese": "L'utilisation combinée de descripteurs visuels simples permet d'atteindre une forte exactitude dans la vérification de signature."
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "artefact",
+    "explication": "La luminosité brute est fortement liée à l'identité, mais cela provient très probablement de variations d'exposition ou de conditions de numérisation.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Le pic d'image survient mécaniquement plus tard pour les clips vidéo plus longs.",
+    "hypothese": ""
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "La position horizontale pelvienne cible dépend de la main utilisée pour le geste, montrant une latéralisation corporelle marquée.",
+    "hypothese": "La main utilisée influence directement la projection spatiale horizontale du geste référentiel."
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "La coordonnée spatiale mondiale en x du geste est liée à la main effecttrice, confirmant la asymétrie spatiale des mouvements.",
+    "hypothese": "La position spatiale globale en x du geste varie systématiquement selon la main active."
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif identifiant des anomalies temporelles et spatiales basées sur les durées d'enregistrement.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Tester si la combinaison de l'entropie et de la netteté améliore la robustesse de l'identification dans rakshitdabral/Signature-Verification-Dataset.",
+   "Analyser la structure de la latéralité dans les coordonnées spatiales du dataset hsi-workshop/referential-gesture-challenge.",
+   "Étudier l'impact des variations de cadrage sur les descripteurs statistiques des signatures."
+  ],
+  "nouveautes": {
+   "50": {
+    "id": "H50",
+    "nouveaute": "deja_connu",
+    "explication": "La modulation des effets de position sur les scores de mutations protéiques est largement étudiée dans la littérature sur l'ingénierie des protéines."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "prediction",
+    "dataset_id": "hf:hsi-workshop/referential-gesture-challenge",
+    "cible": "hand",
+    "variables": [
+     "target_pelvis_x",
+     "target_pelvis_y",
+     "target_pelvis_z",
+     "target_world_x",
+     "target_world_y",
+     "target_world_z"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la main utilisée (hand) avec SEULEMENT les coordonnées spatiales et pelviennes des gestes ?",
+    "requete_biblio": "gesture kinematics hand side spatial coordinates prediction"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:hsi-workshop/referential-gesture-challenge",
+    "x": "peak_frame",
+    "y": "clip_length",
+    "groupe": "hand",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre peak_frame et clip_length change-t-il selon hand ?"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "nettete -> classe",
+   "stat": 0.827,
+   "score": 1.0,
+   "detail": {
+    "eta2": 0.827,
+    "p": 5.6e-25,
+    "famille": "normalisé",
+    "classe_min": "person_0203 (0.183)",
+    "classe_max": "person_0005 (0.334)",
+    "confirmation": "confirmé — η² = 0.88, p = 3.2e-27 sur 186 autres images (découverte : 0.827)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "La netteté d'une image de signature varie fortement selon l'individu, reflétant la pression et la vitesse d'écriture uniques de chaque personne.",
+    "hypothese": "Les variations de netteté des traits de signature permettent de classifier de manière fiable différents scripteurs."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "densite_contours -> classe",
+   "stat": 0.739,
+   "score": 1.0,
+   "detail": {
+    "eta2": 0.739,
+    "p": 4e-22,
+    "famille": "normalisé",
+    "classe_min": "person_0203 (0.080)",
+    "classe_max": "person_0221 (0.183)",
+    "confirmation": "confirmé — η² = 0.81, p = 8e-25 sur 186 autres images (découverte : 0.739)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "La densité des contours des signatures dépend significativement de l'identité, capturant la complexité et la compacité du geste personnel.",
+    "hypothese": "La densité des contours permet de discriminer l'identité des scripteurs avec une haute précision."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "entropie -> classe",
+   "stat": 0.901,
+   "score": 1.0,
+   "detail": {
+    "eta2": 0.901,
+    "p": 2.1e-27,
+    "famille": "normalisé",
+    "classe_min": "person_0203 (0.496)",
+    "classe_max": "person_0041 (2.152)",
+    "confirmation": "confirmé — η² = 0.94, p = 2.1e-29 sur 186 autres images (découverte : 0.901)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'entropie de l'image, qui mesure le désordre ou la richesse informationnelle de la signature, est fortement liée à la personne.",
+    "hypothese": "L'entropie visuelle de la signature constitue un marqueur individuel stable du geste graphique."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "asymetrie_intensites -> classe",
+   "stat": 0.778,
+   "score": 1.0,
+   "detail": {
+    "eta2": 0.778,
+    "p": 2.1e-23,
+    "famille": "normalisé",
+    "classe_min": "person_0235 (-6.108)",
+    "classe_max": "person_0221 (-3.467)",
+    "confirmation": "confirmé — η² = 0.85, p = 3.3e-26 sur 186 autres images (découverte : 0.778)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "L'asymétrie des intensités dans l'image de la signature varie selon l'individu, traduisant des habitudes de tracé asymétriques.",
+    "hypothese": "Le profil d'asymétrie des intensités caractérise l'orientation et la dynamique propre à chaque scripteur."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "centre_vs_bord -> classe",
+   "stat": 0.759,
+   "score": 1.0,
+   "detail": {
+    "eta2": 0.759,
+    "p": 8.5e-23,
+    "famille": "normalisé",
+    "classe_min": "person_0233 (-0.632)",
+    "classe_max": "person_0006 (-0.157)",
+    "confirmation": "confirmé — η² = 0.79, p = 4e-24 sur 186 autres images (découverte : 0.759)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Le rapport entre le centre et le bord de l'image de la signature dépend de l'identité, montrant où le scripteur concentre ses mouvements.",
+    "hypothese": "La distribution spatiale du centre vers les bords de la signature est une signature comportementale propre à l'individu."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "symetrie_gauche_droite -> classe",
+   "stat": 0.558,
+   "score": 0.8576030858824153,
+   "detail": {
+    "eta2": 0.558,
+    "p": 2.5e-16,
+    "famille": "normalisé",
+    "classe_min": "person_0235 (0.039)",
+    "classe_max": "person_0221 (0.354)",
+    "confirmation": "confirmé — η² = 0.62, p = 1.8e-18 sur 186 autres images (découverte : 0.558)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "La symétrie gauche-droite de la signature varie selon la personne, reflétant sa morphologie d'écriture et son sens du tracé.",
+    "hypothese": "Le degré de symétrie horizontale de la signature aide à identifier le scripteur."
+   }
+  },
+  {
+   "kind": "classe_predictible_par_stats_simples",
+   "vars": "12 stats visuelles -> classe",
+   "stat": 0.891,
+   "score": 0.7861111111111112,
+   "detail": {
+    "balanced_accuracy_toutes": 0.891,
+    "balanced_accuracy_normalisees_seules": 0.803,
+    "hasard": 0.077,
+    "n_images": 163,
+    "confirmation": "confirmé — précision 0.76 sur d'autres images (hasard 0.06)"
+   },
+   "confirme": true,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Un ensemble de statistiques visuelles simples permet de prédire l'identité du scripteur bien au-delà du hasard.",
+    "hypothese": "L'utilisation combinée de descripteurs visuels simples permet d'atteindre une forte exactitude dans la vérification de signature."
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "luminosite -> classe",
+   "stat": 0.878000020980835,
+   "score": 0.6,
+   "detail": {
+    "eta2": 0.878000020980835,
+    "p": 1.2e-26,
+    "famille": "brut",
+    "classe_min": "person_0004 (0.916)",
+    "classe_max": "person_0235 (0.987)",
+    "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+    "confirmation": "confirmé — η² = 0.93, p = 8.6e-29 sur 186 autres images (découverte : 0.878000020980835)"
+   },
+   "confirme": 1.0,
+   "dataset": "rakshitdabral/Signature-Verification-Dataset",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "artefact",
+    "explication": "La luminosité brute est fortement liée à l'identité, mais cela provient très probablement de variations d'exposition ou de conditions de numérisation.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "peak_frame ~ clip_length",
+   "stat": 0.553,
+   "score": 0.4427671079502162,
+   "detail": {
+    "spearman": 0.553,
+    "pearson": 0.557,
+    "n": 1266,
+    "q": 2.5e-101,
+    "confirmation": "confirmé — ρ = +0.52 sur 1259 lignes (découverte : +0.55)"
+   },
+   "confirme": 1.0,
+   "dataset": "hsi-workshop/referential-gesture-challenge",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "trivial",
+    "explication": "Le pic d'image survient mécaniquement plus tard pour les clips vidéo plus longs.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "hand ~ target_pelvis_x",
+   "stat": -0.551,
+   "score": 0.44050909419911294,
+   "detail": {
+    "spearman": -0.551,
+    "pearson": -0.566,
+    "n": 1266,
+    "q": 3.7e-100,
+    "confirmation": "confirmé — ρ = -0.59 sur 1259 lignes (découverte : -0.55)"
+   },
+   "confirme": 1.0,
+   "dataset": "hsi-workshop/referential-gesture-challenge",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "La position horizontale pelvienne cible dépend de la main utilisée pour le geste, montrant une latéralisation corporelle marquée.",
+    "hypothese": "La main utilisée influence directement la projection spatiale horizontale du geste référentiel."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "hand ~ target_world_x",
+   "stat": -0.543,
+   "score": 0.43420834146721354,
+   "detail": {
+    "spearman": -0.543,
+    "pearson": -0.556,
+    "n": 1266,
+    "q": 7.7e-97,
+    "confirmation": "confirmé — ρ = -0.59 sur 1259 lignes (découverte : -0.54)"
+   },
+   "confirme": 1.0,
+   "dataset": "hsi-workshop/referential-gesture-challenge",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "La coordonnée spatiale mondiale en x du geste est liée à la main effecttrice, confirmant la asymétrie spatiale des mouvements.",
+    "hypothese": "La position spatiale globale en x du geste varie systématiquement selon la main active."
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ global_recording_end_frame, global_recording_start_frame, target_world_y",
+   "stat": 1.57,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 26,
+    "sur": 1266,
+    "variables_qui_les_distinguent": "global_recording_end_frame (1.6 σ), global_recording_start_frame (1.6 σ), target_world_y (1.4 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "hsi-workshop/referential-gesture-challenge",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif identifiant des anomalies temporelles et spatiales basées sur les durées d'enregistrement.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "rakshitdabral/Signature-Verification-Dataset",
+    "labels": [
+     "person_0001",
+     "person_0002",
+     "person_0003",
+     "person_0004",
+     "person_0005",
+     "person_0006",
+     "person_0007",
+     "person_0008",
+     "person_0009",
+     "person_0010",
+     "person_0011",
+     "person_0012",
+     "person_0013",
+     "person_0014",
+     "person_0015",
+     "person_0016",
+     "person_0017",
+     "person_0018",
+     "person_0019",
+     "person_0020",
+     "person_0021",
+     "person_0022",
+     "person_0023",
+     "person_0024",
+     "person_0025",
+     "person_0026",
+     "person_0027",
+     "person_0028",
+     "person_0029",
+     "person_0030",
+     "person_0031",
+     "person_0032",
+     "person_0033",
+     "person_0034",
+     "person_0035",
+     "person_0036",
+     "person_0037",
+     "person_0038",
+     "person_0039",
+     "person_0040",
+     "person_0041",
+     "person_0042",
+     "person_0043",
+     "person_0044",
+     "person_0045",
+     "person_0046",
+     "person_0047",
+     "person_0048",
+     "person_0049",
+     "person_0050",
+     "person_0051",
+     "person_0052",
+     "person_0053",
+     "person_0054",
+     "person_0055",
+     "person_0056",
+     "person_0057",
+     "person_0058",
+     "person_0059",
+     "person_0060",
+     "person_0061",
+     "person_0062",
+     "person_0063",
+     "person_0064",
+     "person_0065",
+     "person_0066",
+     "person_0067",
+     "person_0068",
+     "person_0069",
+     "person_0070",
+     "person_0071",
+     "person_0072",
+     "person_0073",
+     "person_0074",
+     "person_0075",
+     "person_0076",
+     "person_0077",
+     "person_0078",
+     "person_0079",
+     "person_0080",
+     "person_0081",
+     "person_0082",
+     "person_0083",
+     "person_0084",
+     "person_0085",
+     "person_0086",
+     "person_0087",
+     "person_0088",
+     "person_0089",
+     "person_0090",
+     "person_0091",
+     "person_0092",
+     "person_0093",
+     "person_0094",
+     "person_0095",
+     "person_0096",
+     "person_0097",
+     "person_0098",
+     "person_0099",
+     "person_0100",
+     "person_0101",
+     "person_0102",
+     "person_0103",
+     "person_0104",
+     "person_0105",
+     "person_0106",
+     "person_0107",
+     "person_0108",
+     "person_0109",
+     "person_0110",
+     "person_0111",
+     "person_0112",
+     "person_0113",
+     "person_0114",
+     "person_0115",
+     "person_0116",
+     "person_0117",
+     "person_0118",
+     "person_0119",
+     "person_0120",
+     "person_0121",
+     "person_0122",
+     "person_0123",
+     "person_0124",
+     "person_0125",
+     "person_0126",
+     "person_0127",
+     "person_0128",
+     "person_0129",
+     "person_0130",
+     "person_0131",
+     "person_0132",
+     "person_0133",
+     "person_0134",
+     "person_0135",
+     "person_0136",
+     "person_0137",
+     "person_0138",
+     "person_0139",
+     "person_0140",
+     "person_0141",
+     "person_0142",
+     "person_0143",
+     "person_0144",
+     "person_0145",
+     "person_0146",
+     "person_0147",
+     "person_0148",
+     "person_0149",
+     "person_0150",
+     "person_0151",
+     "person_0152",
+     "person_0153",
+     "person_0154",
+     "person_0155",
+     "person_0156",
+     "person_0157",
+     "person_0158",
+     "person_0159",
+     "person_0160",
+     "person_0161",
+     "person_0162",
+     "person_0163",
+     "person_0164",
+     "person_0165",
+     "person_0166",
+     "person_0167",
+     "person_0168",
+     "person_0169",
+     "person_0170",
+     "person_0171",
+     "person_0172",
+     "person_0173",
+     "person_0174",
+     "person_0175",
+     "person_0176",
+     "person_0177",
+     "person_0178",
+     "person_0179",
+     "person_0180",
+     "person_0181",
+     "person_0182",
+     "person_0183",
+     "person_0184",
+     "person_0185",
+     "person_0186",
+     "person_0187",
+     "person_0188",
+     "person_0189",
+     "person_0190",
+     "person_0191",
+     "person_0192",
+     "person_0193",
+     "person_0194",
+     "person_0195",
+     "person_0196",
+     "person_0197",
+     "person_0198",
+     "person_0199",
+     "person_0200",
+     "person_0201",
+     "person_0202",
+     "person_0203",
+     "person_0204",
+     "person_0205",
+     "person_0206",
+     "person_0207",
+     "person_0208",
+     "person_0209",
+     "person_0210",
+     "person_0211",
+     "person_0212",
+     "person_0213",
+     "person_0214",
+     "person_0215",
+     "person_0216",
+     "person_0217",
+     "person_0218",
+     "person_0219",
+     "person_0220",
+     "person_0221",
+     "person_0222",
+     "person_0223",
+     "person_0224",
+     "person_0225",
+     "person_0226",
+     "person_0227",
+     "person_0228",
+     "person_0229",
+     "person_0230",
+     "person_0231",
+     "person_0232",
+     "person_0233",
+     "person_0234",
+     "person_0235",
+     "person_0236",
+     "person_0237",
+     "person_0238",
+     "person_0239",
+     "person_0240",
+     "person_0241",
+     "person_0242",
+     "person_0243",
+     "person_0244",
+     "person_0245",
+     "person_0246",
+     "person_0247",
+     "person_0248",
+     "person_0249",
+     "person_0250",
+     "person_0251",
+     "person_0252",
+     "person_0253",
+     "person_0254",
+     "person_0255",
+     "person_0256",
+     "person_0257",
+     "person_0258",
+     "person_0259",
+     "person_0260",
+     "person_0261",
+     "person_0262",
+     "person_0263",
+     "person_0264",
+     "person_0265",
+     "person_0266",
+     "person_0267",
+     "person_0268",
+     "person_0269",
+     "person_0270",
+     "person_0271",
+     "person_0272",
+     "person_0273",
+     "person_0274",
+     "person_0275",
+     "person_0276",
+     "person_0277",
+     "person_0278",
+     "person_0279",
+     "person_0280",
+     "person_0281",
+     "person_0282",
+     "person_0283",
+     "person_0284",
+     "person_0285",
+     "person_0286",
+     "person_0287",
+     "person_0288",
+     "person_0289",
+     "person_0290",
+     "person_0291",
+     "person_0292",
+     "person_0293",
+     "person_0294",
+     "person_0295",
+     "person_0296",
+     "person_0297",
+     "person_0298",
+     "person_0299",
+     "person_0300",
+     "person_0301",
+     "person_0302",
+     "person_0303",
+     "person_0304",
+     "person_0305",
+     "person_0306",
+     "person_0307",
+     "person_0308",
+     "person_0309",
+     "person_0310",
+     "person_0311",
+     "person_0312",
+     "person_0313",
+     "person_0314",
+     "person_0315"
+    ],
+    "total_rows": 6000,
+    "url": "https://huggingface.co/datasets/rakshitdabral/Signature-Verification-Dataset",
+    "niveaux_de_gris": true,
+    "description": "[images en niveaux de gris : pas d'analyse de couleur]",
+    "moities": {
+     "decouverte": 174,
+     "confirmation": 186
+    }
+   },
+   "lignes": 360,
+   "colonnes": 12,
+   "fig": "2026-11-18_rakshitdabral_Signature_Verification_Dat.png",
+   "n_findings": 12,
+   "findings": [
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "nettete -> classe",
+     "stat": 0.827,
+     "score": 1.0,
+     "detail": {
+      "eta2": 0.827,
+      "p": 5.6e-25,
+      "famille": "normalisé",
+      "classe_min": "person_0203 (0.183)",
+      "classe_max": "person_0005 (0.334)",
+      "confirmation": "confirmé — η² = 0.88, p = 3.2e-27 sur 186 autres images (découverte : 0.827)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "La netteté d'une image de signature varie fortement selon l'individu, reflétant la pression et la vitesse d'écriture uniques de chaque personne.",
+      "hypothese": "Les variations de netteté des traits de signature permettent de classifier de manière fiable différents scripteurs."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "densite_contours -> classe",
+     "stat": 0.739,
+     "score": 1.0,
+     "detail": {
+      "eta2": 0.739,
+      "p": 4e-22,
+      "famille": "normalisé",
+      "classe_min": "person_0203 (0.080)",
+      "classe_max": "person_0221 (0.183)",
+      "confirmation": "confirmé — η² = 0.81, p = 8e-25 sur 186 autres images (découverte : 0.739)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "La densité des contours des signatures dépend significativement de l'identité, capturant la complexité et la compacité du geste personnel.",
+      "hypothese": "La densité des contours permet de discriminer l'identité des scripteurs avec une haute précision."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "entropie -> classe",
+     "stat": 0.901,
+     "score": 1.0,
+     "detail": {
+      "eta2": 0.901,
+      "p": 2.1e-27,
+      "famille": "normalisé",
+      "classe_min": "person_0203 (0.496)",
+      "classe_max": "person_0041 (2.152)",
+      "confirmation": "confirmé — η² = 0.94, p = 2.1e-29 sur 186 autres images (découverte : 0.901)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "L'entropie de l'image, qui mesure le désordre ou la richesse informationnelle de la signature, est fortement liée à la personne.",
+      "hypothese": "L'entropie visuelle de la signature constitue un marqueur individuel stable du geste graphique."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "asymetrie_intensites -> classe",
+     "stat": 0.778,
+     "score": 1.0,
+     "detail": {
+      "eta2": 0.778,
+      "p": 2.1e-23,
+      "famille": "normalisé",
+      "classe_min": "person_0235 (-6.108)",
+      "classe_max": "person_0221 (-3.467)",
+      "confirmation": "confirmé — η² = 0.85, p = 3.3e-26 sur 186 autres images (découverte : 0.778)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "L'asymétrie des intensités dans l'image de la signature varie selon l'individu, traduisant des habitudes de tracé asymétriques.",
+      "hypothese": "Le profil d'asymétrie des intensités caractérise l'orientation et la dynamique propre à chaque scripteur."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "centre_vs_bord -> classe",
+     "stat": 0.759,
+     "score": 1.0,
+     "detail": {
+      "eta2": 0.759,
+      "p": 8.5e-23,
+      "famille": "normalisé",
+      "classe_min": "person_0233 (-0.632)",
+      "classe_max": "person_0006 (-0.157)",
+      "confirmation": "confirmé — η² = 0.79, p = 4e-24 sur 186 autres images (découverte : 0.759)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Le rapport entre le centre et le bord de l'image de la signature dépend de l'identité, montrant où le scripteur concentre ses mouvements.",
+      "hypothese": "La distribution spatiale du centre vers les bords de la signature est une signature comportementale propre à l'individu."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "symetrie_gauche_droite -> classe",
+     "stat": 0.558,
+     "score": 0.8576030858824153,
+     "detail": {
+      "eta2": 0.558,
+      "p": 2.5e-16,
+      "famille": "normalisé",
+      "classe_min": "person_0235 (0.039)",
+      "classe_max": "person_0221 (0.354)",
+      "confirmation": "confirmé — η² = 0.62, p = 1.8e-18 sur 186 autres images (découverte : 0.558)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "La symétrie gauche-droite de la signature varie selon la personne, reflétant sa morphologie d'écriture et son sens du tracé.",
+      "hypothese": "Le degré de symétrie horizontale de la signature aide à identifier le scripteur."
+     }
+    },
+    {
+     "kind": "classe_predictible_par_stats_simples",
+     "vars": "12 stats visuelles -> classe",
+     "stat": 0.891,
+     "score": 0.7861111111111112,
+     "detail": {
+      "balanced_accuracy_toutes": 0.891,
+      "balanced_accuracy_normalisees_seules": 0.803,
+      "hasard": 0.077,
+      "n_images": 163,
+      "confirmation": "confirmé — précision 0.76 sur d'autres images (hasard 0.06)"
+     },
+     "confirme": true,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Un ensemble de statistiques visuelles simples permet de prédire l'identité du scripteur bien au-delà du hasard.",
+      "hypothese": "L'utilisation combinée de descripteurs visuels simples permet d'atteindre une forte exactitude dans la vérification de signature."
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "luminosite -> classe",
+     "stat": 0.878000020980835,
+     "score": 0.6,
+     "detail": {
+      "eta2": 0.878000020980835,
+      "p": 1.2e-26,
+      "famille": "brut",
+      "classe_min": "person_0004 (0.916)",
+      "classe_max": "person_0235 (0.987)",
+      "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+      "confirmation": "confirmé — η² = 0.93, p = 8.6e-29 sur 186 autres images (découverte : 0.878000020980835)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "artefact",
+      "explication": "La luminosité brute est fortement liée à l'identité, mais cela provient très probablement de variations d'exposition ou de conditions de numérisation.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "contraste -> classe",
+     "stat": 0.8830000162124634,
+     "score": 0.6,
+     "detail": {
+      "eta2": 0.8830000162124634,
+      "p": 8.1e-27,
+      "famille": "brut",
+      "classe_min": "person_0006 (0.044)",
+      "classe_max": "person_0202 (0.156)",
+      "attention": "intensité brute : sensible à l'exposition, au scanner et au prétraitement (biais d'acquisition possible)",
+      "confirmation": "confirmé — η² = 0.92, p = 9.1e-29 sur 186 autres images (découverte : 0.8830000162124634)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "ratio_aspect -> classe",
+     "stat": 0.693,
+     "score": 0.595972892278175,
+     "detail": {
+      "eta2": 0.693,
+      "p": 1.2e-20,
+      "famille": "cadrage",
+      "classe_min": "person_0039 (1.305)",
+      "classe_max": "person_0236 (3.558)",
+      "attention": "dépend du recadrage / du cadrage des images (biais de préparation possible)",
+      "confirmation": "confirmé — η² = 0.73, p = 2.6e-22 sur 186 autres images (découverte : 0.693)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset"
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "part_fond -> classe",
+     "stat": 0.658,
+     "score": 0.574530100113427,
+     "detail": {
+      "eta2": 0.658,
+      "p": 1.6e-19,
+      "famille": "cadrage",
+      "classe_min": "person_0004 (0.000)",
+      "classe_max": "person_0202 (0.001)",
+      "attention": "dépend du recadrage / du cadrage des images (biais de préparation possible)",
+      "confirmation": "confirmé — η² = 0.47, p = 1.5e-13 sur 186 autres images (découverte : 0.658)"
+     },
+     "confirme": 1.0,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset"
+    },
+    {
+     "kind": "quasi_doublons",
+     "vars": "images",
+     "stat": 19,
+     "score": 0.4264367816091954,
+     "detail": {
+      "paires_quasi_identiques": 19,
+      "images_concernees": 22,
+      "sur": 174,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "rakshitdabral/Signature-Verification-Dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "hsi-workshop/referential-gesture-challenge",
+    "target": null,
+    "description": "Referential Gesture Challenge Data Structure Training data for the Referential Gesture Challenge at the 1st HSI Workshop (ECCV 2026). Contains ~2K pointing gesture clips from MM-Conv with synchronized speech, motion, and 3D scene graphs and ~1K pointing gesture from synthetic dataset with synchronized speech, motion, and 3D targets. Current top-level structure: text data/ annotations/ released tra",
+    "fichier": "data/annotations/gesture_train_split.csv",
+    "url": "https://huggingface.co/datasets/hsi-workshop/referential-gesture-challenge",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 1266,
+     "confirmation": 1259
+    },
+    "did": "hf:hsi-workshop/referential-gesture-challenge",
+    "colonnes": {
+     "num": [
+      "room_id",
+      "hand",
+      "peak_frame",
+      "clip_length",
+      "target_pelvis_x",
+      "target_pelvis_y",
+      "target_pelvis_z",
+      "target_world_x",
+      "target_world_y",
+      "target_world_z",
+      "alignment_score",
+      "alignment_angle_deg",
+      "global_recording_start_frame",
+      "global_recording_end_frame"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 2525,
+   "colonnes": 17,
+   "fig": "2026-11-18_hsi_workshop_referential_gesture_challen.png",
+   "n_findings": 4,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "peak_frame ~ clip_length",
+     "stat": 0.553,
+     "score": 0.4427671079502162,
+     "detail": {
+      "spearman": 0.553,
+      "pearson": 0.557,
+      "n": 1266,
+      "q": 2.5e-101,
+      "confirmation": "confirmé — ρ = +0.52 sur 1259 lignes (découverte : +0.55)"
+     },
+     "confirme": 1.0,
+     "dataset": "hsi-workshop/referential-gesture-challenge",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "trivial",
+      "explication": "Le pic d'image survient mécaniquement plus tard pour les clips vidéo plus longs.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "hand ~ target_pelvis_x",
+     "stat": -0.551,
+     "score": 0.44050909419911294,
+     "detail": {
+      "spearman": -0.551,
+      "pearson": -0.566,
+      "n": 1266,
+      "q": 3.7e-100,
+      "confirmation": "confirmé — ρ = -0.59 sur 1259 lignes (découverte : -0.55)"
+     },
+     "confirme": 1.0,
+     "dataset": "hsi-workshop/referential-gesture-challenge",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "La position horizontale pelvienne cible dépend de la main utilisée pour le geste, montrant une latéralisation corporelle marquée.",
+      "hypothese": "La main utilisée influence directement la projection spatiale horizontale du geste référentiel."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "hand ~ target_world_x",
+     "stat": -0.543,
+     "score": 0.43420834146721354,
+     "detail": {
+      "spearman": -0.543,
+      "pearson": -0.556,
+      "n": 1266,
+      "q": 7.7e-97,
+      "confirmation": "confirmé — ρ = -0.59 sur 1259 lignes (découverte : -0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "hsi-workshop/referential-gesture-challenge",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "La coordonnée spatiale mondiale en x du geste est liée à la main effecttrice, confirmant la asymétrie spatiale des mouvements.",
+      "hypothese": "La position spatiale globale en x du geste varie systématiquement selon la main active."
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ global_recording_end_frame, global_recording_start_frame, target_world_y",
+     "stat": 1.57,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 26,
+      "sur": 1266,
+      "variables_qui_les_distinguent": "global_recording_end_frame (1.6 σ), global_recording_start_frame (1.6 σ), target_world_y (1.4 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "hsi-workshop/referential-gesture-challenge",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Résultat descriptif identifiant des anomalies temporelles et spatiales basées sur les durées d'enregistrement.",
+      "hypothese": ""
+     }
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "jade-kai/handwriting-signatures-dataset",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "sl4shuur/handwriting-signatures-dataset",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "1aurent/individuality-of-handwriting",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=1aurent%2Findividuality-of-handwriting&config=default&s"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "23daVinci/IDCAR_Signature_Verification_Dataset_Serialized",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "MustafaJaved/signature-verification-data",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "knightnemo/wuji-hand-gestures-cropped",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "rakshitdabral/Signature-Verification-Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "LuisitoLuisito/handwriting-signatures-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "onepunchdimash/aalto_keystroke_features_normalized",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "CNGR/CN_Gesture_Recognition",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "knightnemo/wuji-hand-gestures-unprocessed",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 50,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:engAbdullahHanif/mutascope-proteingym-v1.3",
+    "x": "position",
+    "y": "DMS_score",
+    "seuil": 100.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre position et DMS_score change-t-il de part et d'autre du seuil de position ?",
+    "requete_biblio": "deep mutational scanning position score threshold proteingym"
+   },
+   "statut": "non concluante",
+   "resume": "Dans engAbdullahHanif/mutascope-proteingym-v1.3, la corrélation position~DMS_score vaut -0.05 pour « position > 100 » contre +0.06 pour « position ≤ 100 » (p = 1.2e-204). [Testé sur : moitié de confirmation (347827 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "position ≤ 100": {
+      "rho": 0.06,
+      "pearson": 0.005,
+      "n": 110720
+     },
+     "position > 100": {
+      "rho": -0.051,
+      "pearson": -0.012,
+      "n": 237107
+     }
+    },
+    "groupe_predit_plus_fort": "position > 100",
+    "p_difference": 1.16e-204,
+    "donnees_test": "moitié de confirmation (347827 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.2e-204, seuil corrigé 0.05 (1 tests cette nuit)"
+   },
+   "sujet": "Biologie et génomique",
+   "biblio": [
+    {
+     "titre": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+     "annee": 2024,
+     "citations": 21,
+     "url": "https://doi.org/10.48550/arxiv.2405.06729"
+    },
+    {
+     "titre": "Rosace-AA: enhancing interpretation of deep mutational scanning data with amino acid substitution and position-specific insights",
+     "annee": 2025,
+     "citations": 5,
+     "url": "https://doi.org/10.1093/bioadv/vbaf218"
+    },
+    {
+     "titre": "Learning inhibitor interactions from protein deep mutational scanning data and deep learning models",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.64898/2026.11.01.763444"
+    },
+    {
+     "titre": "High-resolution deep mutational scanning of the melanocortin-4 receptor enables target characterization for drug discovery",
+     "annee": 2024,
+     "citations": 27,
+     "url": "https://doi.org/10.7554/elife.104725.3"
+    },
+    {
+     "titre": "Reviewer #2 (Public review): High resolution deep mutational scanning of the melanocortin-4 receptor enables target characterization for drug discovery",
+     "annee": 2024,
+     "citations": 0,
+     "url": "https://doi.org/10.7554/elife.104725.1.sa1"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé cherche à évaluer une modification du lien de part et d'autre d'un seuil, mais le test se focalise sur l'intensité relative des corrélations (plus fort au-dessus).",
+    "reformulation": "Le lien entre la position des acides aminés et le score DMS diffère-t-il structurellement de part et d'autre de la position 100 ?",
+    "diagnostic_statistique": "Les corrélations de Pearson et de Spearman sont toutes deux extrêmement faibles (|r| < 0.06 dans les deux groupes). Bien que la grande taille d'échantillon (n > 100 000) rende la différence statistiquement significative (p = 1.2e-204), la taille d'effet est nulle en pratique. L'écart entre Pearson et Spearman suggère l'absence de relation monotone linéaire robuste.",
+    "modele_recommande": "Régression par morceaux (segmented regression) ou modèle additif généralisé (GAM) avec splines sur la position",
+    "robustesse": "La taille des échantillons est excellente (> 100 000 par groupe), mais les corrélations quasi nulles indiquent que la variable 'position' seule n'explique pas le score DMS de manière linéaire, quel que soit le sous-groupe.",
+    "interpretation_domaine": "En biologie évolutive et en Deep Mutational Scanning (ProteinGym), l'effet des mutations dépend souvent du domaine fonctionnel de la protéine plutôt que d'une simple position séquentielle linéaire globale, expliquant l'absence de corrélation globale linéaire.",
+    "action_pipeline": "Intégrer un filtre sur la taille d'effet minimale (ex: |r| > 0.15) avant de valider une hypothèse de différence de corrélation, pour éviter de surinterpréter des artefacts statistiques dus à de très grands échantillons.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La modulation des effets de position sur les scores de mutations protéiques est largement étudiée dans la littérature sur l'ingénierie des protéines.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
