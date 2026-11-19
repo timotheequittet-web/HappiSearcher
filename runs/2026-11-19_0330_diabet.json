@@ -1,0 +1,2787 @@
+{
+ "id": "2026-11-19_0330_diabet",
+ "date": "2026-11-19T03:36",
+ "sujet": "Santé métabolique",
+ "question": "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?",
+ "keywords": [
+  "diabet",
+  "obesity",
+  "medical cost",
+  "heart disease",
+  "stroke",
+  "kidney",
+  "liver patient"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des jeux de données métaboliques et sur l'obésité confirme des relations structurelles fortes entre l'âge, l'IMC, l'insuline et le diabète, tout en mettant en évidence des corrélations mécaniques dans le codage des traitements. Les symptômes cardinaux comme la polyurie et la polydipsie se confirment comme des marqueurs cliniques majeurs du diabète précoce. L'augmentation temporelle de la prévalence de l'obésité en Afrique valide également une tendance macro-épidémiologique robuste.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Le genre peut être prédit à partir des mesures morphologiques et du mode de vie, reflétant les dimorphismes sexuels de composition corporelle.",
+    "hypothese": "Le lien entre le poids et la masse grasse corporelle varie selon le genre dans les populations en surpoids."
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Confirmation du dimorphisme morphologique et comportemental permettant de prédire le genre à partir des habitudes de vie.",
+    "hypothese": "Les habitudes d'hydratation et d'activité physique influencent différemment l'indice de masse corporelle selon le sexe."
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'insuline est un prédicteur clé de l'issue diabétique, traduisant la résistance sous-jacente.",
+    "hypothese": "Le lien entre le taux d'insuline à jeun et le diagnostic de diabète est modulé par l'âge des patients."
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "L'âge est fortement corrélé au profil pondéral et aux habitudes dans la cohorte d'obésité.",
+    "hypothese": "L'évolution de l'IMC avec l'âge dépend des niveaux d'activité physique déclarés (FAF)."
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Forte corrélation négative mécanique entre les catégories mutuellement exclusives d'un même traitement (pas de prise vs prise stable)."
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Artefact de codage en variables binaires mutuellement exclusives pour la metformine."
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Artefact de codage binaire mutuellement exclusif pour le glipizide."
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Artefact de codage binaire mutuellement exclusif pour le glyburide."
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Relation non linéaire confirmée entre les niveaux d'insuline et le statut diabétique.",
+    "hypothese": "Le seuil d'insuline critique marquant le passage vers le diabète varie selon l'épaisseur de pli cutané."
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "L'âge présente un lien prédictif net avec le profil pondéral et comportemental.",
+    "hypothese": "Le lien entre la consommation d'eau (CH2O) et le poids corporel s'intensifie avec l'âge."
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Corrélation mécanique entre catégories mutuellement exclusives du devenir à la sortie de l'hôpital."
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Constat descriptif sur la concentration d'anomalies dans une sous-catégorie spécifique."
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Corrélation négative mécanique entre catégories ethniques mutuellement exclusives."
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "L'âge métabolique et gestationnel est prédictif des variables cliniques basales.",
+    "hypothese": "Le lien entre la pression artérielle et l'âge est modulé par le nombre de grossesses."
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif de répartition d'anomalies selon la classe de poids."
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "L'âge est modérément prédictif des marqueurs métaboliques et anthropométriques.",
+    "hypothese": "Le gradient d'âge modifie la relation entre l'épaisseur du pli cutané et la tension artérielle."
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "trivial",
+    "explication": "Artefact de codage mutuellement exclusif pour les sources d'admission hospitalière."
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "L'épaisseur du pli cutané apporte une information pertinente sur le risque diabétique.",
+    "hypothese": "Le lien entre le pli cutané et le risque de diabète est médié par l'indice de masse corporelle (BMI)."
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Artefact de codage mutuellement exclusif pour les types d'admission."
+   },
+   "F20": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "La glycorégulation à jeun est un indicateur fort mais partiel du diagnostic de diabète.",
+    "hypothese": "Le pouvoir prédictif de la glucoseémie sur l'issue diabétique change selon les classes d'âge."
+   },
+   "F21": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Forte association entre la polydipsie (soif excessive) et le diagnostic de diabète précoce.",
+    "hypothese": "Le lien entre polydipsie et diagnostic de diabète est plus marqué chez les patients plus âgés."
+   },
+   "F22": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Tendance temporelle claire à la hausse de la prévalence de l'obésité en Afrique au fil des années.",
+    "hypothese": "L'augmentation de la prévalence de l'obésité au cours du temps varie selon les sous-régions géographiques africaines."
+   },
+   "F23": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Forte cohérence logique entre la variable binaire d'hypertension et la catégorie de niveau de pression sanguine.",
+    "hypothese": "Le lien entre l'hypertension et le statut tabagique est modulé par l'indice de masse corporelle."
+   },
+   "F24": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation anatomique attendue entre l'adiposité sous-cutanée (SkinThickness) et l'IMC (BMI).",
+    "hypothese": "Le lien entre SkinThickness et BMI diffère selon le genre dans la cohorte Pima."
+   },
+   "F25": {
+    "id": "F25",
+    "verdict": "pertinent",
+    "explication": "Corrélation logique et cumulative entre l'âge et le nombre de grossesses (Pregnancies).",
+    "hypothese": "Le lien entre le nombre de grossesses et le taux de glucose basal est influencé par l'IMC."
+   },
+   "F26": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Corrélation positive classique entre la parité (preg) et l'âge dans les bases de données cliniques.",
+    "hypothese": "Le lien entre le nombre de grossesses et la pression artérielle est médié par l'âge."
+   },
+   "F27": {
+    "id": "F27",
+    "verdict": "pertinent",
+    "explication": "Corrélation métabolique entre l'épaisseur du pli cutané et les taux d'insuline circulants.",
+    "hypothese": "Le lien entre l'épaisseur cutanée et l'insuline change selon le niveau de tolérance au glucose."
+   },
+   "F28": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation physiopathologique entre la glycémie et l'insulinémie à jeun.",
+    "hypothese": "Le lien entre Glucose et Insulin est modulé par l'âge dans la population à risque."
+   },
+   "F29": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "La polyurie (miction fréquente) est fortement associée au diagnostic de diabète.",
+    "hypothese": "Le lien entre Polyurie et le diagnostic de diabète est renforcé chez les sujets présentant une polydipsie simultanée."
+   },
+   "F30": {
+    "id": "F30",
+    "verdict": "pertinent",
+    "explication": "Forte co-occurrence des symptômes cardinaux du diabète (polyurie et polydipsie).",
+    "hypothese": "L'association entre Polyuria et Polydipsia varie selon le niveau de glycémie à jeun."
+   }
+  },
+  "pistes": [
+   "Étudier l'interaction entre l'âge et la résistance à l'insuline dans la prédiction du diabète",
+   "Analyser l'impact des habitudes de vie (activité physique, hydratation) sur le gradient de poids selon le sexe",
+   "Explorer la modulation de la pression artérielle par l'IMC et l'âge dans les différentes cohortes cliniques"
+  ],
+  "nouveautes": {
+   "51": {
+    "id": "H51",
+    "nouveaute": "deja_connu",
+    "explication": "La reconnaissance de la main ou des mouvements à partir de données cinématiques et spatiales est un sujet largement exploré en vision par ordinateur."
+   },
+   "52": {
+    "id": "H52",
+    "nouveaute": "deja_connu",
+    "explication": "L'analyse des corrélations temporelles de gestes selon la main dominante est un classique de la biomécanique."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43483",
+    "x": "Glucose",
+    "y": "Outcome",
+    "groupe": "Age",
+    "seuil": 40.0,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre Glucose et Outcome change-t-il selon l'âge au-dessus de 40 ans ?",
+    "requete_biblio": "glucose outcome diabetes age interaction threshold"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "42909",
+    "x": "Weight",
+    "y": "NObeyesdad",
+    "groupe": "Gender",
+    "seuil": null,
+    "plus_fort": "Female",
+    "enonce": "Le lien entre Weight et NObeyesdad change-t-il selon le Gender ?",
+    "requete_biblio": "weight obesity level gender differences lifestyle"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "43341",
+    "x": "BMI",
+    "y": "highBP",
+    "groupe": "Smoking",
+    "seuil": null,
+    "plus_fort": "Smoking",
+    "enonce": "Le lien entre BMI et highBP change-t-il selon le statut Smoking ?",
+    "requete_biblio": "bmi high blood pressure smoking interaction metabolic"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "43483",
+    "x": "BMI",
+    "y": "Insulin",
+    "seuil": 30.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre BMI et Insulin présente-t-il une modification de pente au seuil de 30.0 pour l'obésité ?",
+    "requete_biblio": "bmi insulin resistance threshold overweight"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> Gender",
+   "stat": 0.907,
+   "score": 0.9067480555393651,
+   "detail": {
+    "balanced_accuracy": 0.907,
+    "hasard": 0.5,
+    "validation": "aléatoire",
+    "n": 1019,
+    "variables_les_plus_informatives": "Weight, Height, FCVC, FAF",
+    "confirmation": "confirmé — balanced_accuracy = 0.92 sur d'autres personnes / lignes (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "obesity-level-indicators",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Le genre peut être prédit à partir des mesures morphologiques et du mode de vie, reflétant les dimorphismes sexuels de composition corporelle.",
+    "hypothese": "Le lien entre le poids et la masse grasse corporelle varie selon le genre dans les populations en surpoids."
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> Gender",
+   "stat": 0.891,
+   "score": 0.8908565445485115,
+   "detail": {
+    "balanced_accuracy": 0.891,
+    "hasard": 0.5,
+    "validation": "aléatoire",
+    "n": 1063,
+    "variables_les_plus_informatives": "Height, Weight, FCVC, CH2O",
+    "confirmation": "confirmé — balanced_accuracy = 0.91 sur d'autres personnes / lignes (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "Tomerd88/obesity-lifestyle-analysis",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Confirmation du dimorphisme morphologique et comportemental permettant de prédire le genre à partir des habitudes de vie.",
+    "hypothese": "Les habitudes d'hydratation et d'activité physique influencent différemment l'indice de masse corporelle selon le sexe."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "Insulin -> Outcome",
+   "stat": 0.312,
+   "score": 0.7908154547989363,
+   "detail": {
+    "mutual_info": 0.312,
+    "part_de_l_info": 0.39,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'insuline est un prédicteur clé de l'issue diabétique, traduisant la résistance sous-jacente.",
+    "hypothese": "Le lien entre le taux d'insuline à jeun et le diagnostic de diabète est modulé par l'âge des patients."
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> Age",
+   "stat": 0.575,
+   "score": 0.7875731226090963,
+   "detail": {
+    "r2": 0.575,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 1019,
+    "variables_les_plus_informatives": "Weight, Height, FAF, TUE",
+    "confirmation": "confirmé — r2 = 0.47 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "obesity-level-indicators",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "L'âge est fortement corrélé au profil pondéral et aux habitudes dans la cohorte d'obésité.",
+    "hypothese": "L'évolution de l'IMC avec l'âge dépend des niveaux d'activité physique déclarés (FAF)."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "pioglitazone:No ~ pioglitazone:Steady",
+   "stat": -0.978,
+   "score": 0.7824024905637006,
+   "detail": {
+    "spearman": -0.978,
+    "pearson": -0.978,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.97 sur 20000 lignes (découverte : -0.98)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Forte corrélation négative mécanique entre les catégories mutuellement exclusives d'un même traitement (pas de prise vs prise stable)."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "metformin:No ~ metformin:Steady",
+   "stat": -0.943,
+   "score": 0.754059646828253,
+   "detail": {
+    "spearman": -0.943,
+    "pearson": -0.943,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.95 sur 20000 lignes (découverte : -0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Artefact de codage en variables binaires mutuellement exclusives pour la metformine."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "glipizide:No ~ glipizide:Steady",
+   "stat": -0.938,
+   "score": 0.7506831068337398,
+   "detail": {
+    "spearman": -0.938,
+    "pearson": -0.938,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.94 sur 20000 lignes (découverte : -0.94)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Artefact de codage binaire mutuellement exclusif pour le glipizide."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "glyburide:No ~ glyburide:Steady",
+   "stat": -0.925,
+   "score": 0.740354739045436,
+   "detail": {
+    "spearman": -0.925,
+    "pearson": -0.925,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.92 sur 20000 lignes (découverte : -0.93)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Artefact de codage binaire mutuellement exclusif pour le glyburide."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Insulin ~ Outcome",
+   "stat": 0.209,
+   "score": 0.7094536699045646,
+   "detail": {
+    "spearman": 0.543,
+    "pearson": 0.334,
+    "n": 384,
+    "confirmation": "confirmé — ρ = +0.58 sur 384 lignes (découverte : +0.54)"
+   },
+   "confirme": 1.0,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Relation non linéaire confirmée entre les niveaux d'insuline et le statut diabétique.",
+    "hypothese": "Le seuil d'insuline critique marquant le passage vers le diabète varie selon l'épaisseur de pli cutané."
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> Age",
+   "stat": 0.418,
+   "score": 0.7088895480374098,
+   "detail": {
+    "r2": 0.418,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 1063,
+    "variables_les_plus_informatives": "Weight, FAF, Height, CH2O",
+    "confirmation": "confirmé — r2 = 0.57 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "Tomerd88/obesity-lifestyle-analysis",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "L'âge présente un lien prédictif net avec le profil pondéral et comportemental.",
+    "hypothese": "Le lien entre la consommation d'eau (CH2O) et le poids corporel s'intensifie avec l'âge."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "discharge_disposition_id:Discharged to Home ~ discharge_disposition_id:Other",
+   "stat": -0.88,
+   "score": 0.7036291666448089,
+   "detail": {
+    "spearman": -0.88,
+    "pearson": -0.88,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.88 sur 20000 lignes (découverte : -0.88)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Corrélation mécanique entre catégories mutuellement exclusives du devenir à la sortie de l'hôpital."
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> family_history_with_overweight = no",
+   "stat": 3.8,
+   "score": 0.6875920471281296,
+   "detail": {
+    "taux_dans_ce_groupe": "7.7%",
+    "taux_global": "2.1%",
+    "p": 3.7e-09,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "obesity-level-indicators",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Constat descriptif sur la concentration d'anomalies dans une sous-catégorie spécifique."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "race:Caucasian ~ race:AfricanAmerican",
+   "stat": -0.832,
+   "score": 0.665475110942388,
+   "detail": {
+    "spearman": -0.832,
+    "pearson": -0.832,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.83 sur 20000 lignes (découverte : -0.83)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "trivial",
+    "explication": "Corrélation négative mécanique entre catégories ethniques mutuellement exclusives."
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> age",
+   "stat": 0.325,
+   "score": 0.6625513548568122,
+   "detail": {
+    "r2": 0.325,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 389,
+    "variables_les_plus_informatives": "preg, skin, pres, insu",
+    "confirmation": "confirmé — r2 = 0.30 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "Diabetes",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "pertinent",
+    "explication": "L'âge métabolique et gestationnel est prédictif des variables cliniques basales.",
+    "hypothese": "Le lien entre la pression artérielle et l'âge est modulé par le nombre de grossesses."
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> NObeyesdad = Normal_Weight",
+   "stat": 3.2,
+   "score": 0.6593847758081335,
+   "detail": {
+    "taux_dans_ce_groupe": "6.6%",
+    "taux_global": "2.1%",
+    "p": 0.00021,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "obesity-level-indicators",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif de répartition d'anomalies selon la classe de poids."
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> Age",
+   "stat": 0.229,
+   "score": 0.6145521977333277,
+   "detail": {
+    "r2": 0.229,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 384,
+    "variables_les_plus_informatives": "Pregnancies, BloodPressure, Insulin, SkinThickness",
+    "confirmation": "confirmé — r2 = 0.36 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "L'âge est modérément prédictif des marqueurs métaboliques et anthropométriques.",
+    "hypothese": "Le gradient d'âge modifie la relation entre l'épaisseur du pli cutané et la tension artérielle."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "admission_source_id:Emergency ~ admission_source_id:Referral",
+   "stat": -0.754,
+   "score": 0.6035326566644478,
+   "detail": {
+    "spearman": -0.754,
+    "pearson": -0.754,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "trivial",
+    "explication": "Artefact de codage mutuellement exclusif pour les sources d'admission hospitalière."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "SkinThickness -> Outcome",
+   "stat": 0.16,
+   "score": 0.6008911057585595,
+   "detail": {
+    "mutual_info": 0.16,
+    "part_de_l_info": 0.2,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "L'épaisseur du pli cutané apporte une information pertinente sur le risque diabétique.",
+    "hypothese": "Le lien entre le pli cutané et le risque de diabète est médié par l'indice de masse corporelle (BMI)."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "admission_type_id:Emergency ~ admission_type_id:Elective",
+   "stat": -0.748,
+   "score": 0.5982173165173571,
+   "detail": {
+    "spearman": -0.748,
+    "pearson": -0.748,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+   },
+   "confirme": 1.0,
+   "dataset": "imodels/diabetes-readmission",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Artefact de codage mutuellement exclusif pour les types d'admission."
+   }
+  },
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "Glucose -> Outcome",
+   "stat": 0.106,
+   "score": 0.533304485684558,
+   "detail": {
+    "mutual_info": 0.106,
+    "part_de_l_info": 0.13,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F20",
+   "avis": {
+    "id": "F20",
+    "verdict": "pertinent",
+    "explication": "La glycorégulation à jeun est un indicateur fort mais partiel du diagnostic de diabète.",
+    "hypothese": "Le pouvoir prédictif de la glucoseémie sur l'issue diabétique change selon les classes d'âge."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Polydipsia ~ class",
+   "stat": 0.723,
+   "score": 0.5064406286961657,
+   "detail": {
+    "cramers_v": 0.723,
+    "p": 1.3e-29,
+    "confirmation": "confirmé — V = 0.57 (découverte : 0.72)"
+   },
+   "confirme": 1.0,
+   "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset",
+   "id": "F21",
+   "avis": {
+    "id": "F21",
+    "verdict": "pertinent",
+    "explication": "Forte association entre la polydipsie (soif excessive) et le diagnostic de diabète précoce.",
+    "hypothese": "Le lien entre polydipsie et diagnostic de diabète est plus marqué chez les patients plus âgés."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "year ~ Obesity among adults, BMI >= 30 kg/m2 (age-standardized estimate) (%) - Sex: both sexes - Age group: 18+  years of age",
+   "stat": 0.597,
+   "score": 0.4774502462263078,
+   "detail": {
+    "spearman": 0.597,
+    "pearson": 0.501,
+    "n": 974,
+    "q": 4.9e-95,
+    "confirmation": "confirmé — ρ = +0.61 sur 970 lignes (découverte : +0.60)"
+   },
+   "confirme": 1.0,
+   "dataset": "electricsheepafrica/africa-owid-obesity-prevalence-adults-who-gho",
+   "id": "F22",
+   "avis": {
+    "id": "F22",
+    "verdict": "pertinent",
+    "explication": "Tendance temporelle claire à la hausse de la prévalence de l'obésité en Afrique au fil des années.",
+    "hypothese": "L'augmentation de la prévalence de l'obésité au cours du temps varie selon les sous-régions géographiques africaines."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "highBP ~ BPLevel",
+   "stat": 0.671,
+   "score": 0.469391467202317,
+   "detail": {
+    "cramers_v": 0.671,
+    "p": 4.5e-45,
+    "confirmation": "confirmé — V = 0.75 (découverte : 0.67)"
+   },
+   "confirme": 1.0,
+   "dataset": "Diabetes-Dataset-2019",
+   "id": "F23",
+   "avis": {
+    "id": "F23",
+    "verdict": "pertinent",
+    "explication": "Forte cohérence logique entre la variable binaire d'hypertension et la catégorie de niveau de pression sanguine.",
+    "hypothese": "Le lien entre l'hypertension et le statut tabagique est modulé par l'indice de masse corporelle."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "SkinThickness ~ BMI",
+   "stat": 0.583,
+   "score": 0.46612826066341395,
+   "detail": {
+    "spearman": 0.583,
+    "pearson": 0.541,
+    "n": 384,
+    "q": 9.9e-35,
+    "confirmation": "confirmé — ρ = +0.59 sur 384 lignes (découverte : +0.58)"
+   },
+   "confirme": 1.0,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F24",
+   "avis": {
+    "id": "F24",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation anatomique attendue entre l'adiposité sous-cutanée (SkinThickness) et l'IMC (BMI).",
+    "hypothese": "Le lien entre SkinThickness et BMI diffère selon le genre dans la cohorte Pima."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Pregnancies ~ Age",
+   "stat": 0.58,
+   "score": 0.46421282173848744,
+   "detail": {
+    "spearman": 0.58,
+    "pearson": 0.513,
+    "n": 384,
+    "q": 1.1e-34,
+    "confirmation": "confirmé — ρ = +0.63 sur 384 lignes (découverte : +0.58)"
+   },
+   "confirme": 1.0,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F25",
+   "avis": {
+    "id": "F25",
+    "verdict": "pertinent",
+    "explication": "Corrélation logique et cumulative entre l'âge et le nombre de grossesses (Pregnancies).",
+    "hypothese": "Le lien entre le nombre de grossesses et le taux de glucose basal est influencé par l'IMC."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "preg ~ age",
+   "stat": 0.58,
+   "score": 0.4637246646606795,
+   "detail": {
+    "spearman": 0.58,
+    "pearson": 0.513,
+    "n": 389,
+    "q": 7.6e-35,
+    "confirmation": "confirmé — ρ = +0.63 sur 379 lignes (découverte : +0.58)"
+   },
+   "confirme": 1.0,
+   "dataset": "Diabetes",
+   "id": "F26",
+   "avis": {
+    "id": "F26",
+    "verdict": "pertinent",
+    "explication": "Corrélation positive classique entre la parité (preg) et l'âge dans les bases de données cliniques.",
+    "hypothese": "Le lien entre le nombre de grossesses et la pression artérielle est médié par l'âge."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "skin ~ insu",
+   "stat": 0.547,
+   "score": 0.4374591070722444,
+   "detail": {
+    "spearman": 0.547,
+    "pearson": 0.416,
+    "n": 389,
+    "q": 1.4e-30,
+    "confirmation": "confirmé — ρ = +0.53 sur 379 lignes (découverte : +0.55)"
+   },
+   "confirme": 1.0,
+   "dataset": "Diabetes",
+   "id": "F27",
+   "avis": {
+    "id": "F27",
+    "verdict": "pertinent",
+    "explication": "Corrélation métabolique entre l'épaisseur du pli cutané et les taux d'insuline circulants.",
+    "hypothese": "Le lien entre l'épaisseur cutanée et l'insuline change selon le niveau de tolérance au glucose."
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Glucose ~ Insulin",
+   "stat": 0.545,
+   "score": 0.43625279292004926,
+   "detail": {
+    "spearman": 0.545,
+    "pearson": 0.448,
+    "n": 384,
+    "q": 4.7e-30,
+    "confirmation": "confirmé — ρ = +0.59 sur 384 lignes (découverte : +0.55)"
+   },
+   "confirme": 1.0,
+   "dataset": "Pima-Indians-Diabetes-Dataset",
+   "id": "F28",
+   "avis": {
+    "id": "F28",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation physiopathologique entre la glycémie et l'insulinémie à jeun.",
+    "hypothese": "Le lien entre Glucose et Insulin est modulé par l'âge dans la population à risque."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Polyuria ~ class",
+   "stat": 0.622,
+   "score": 0.4351649003801806,
+   "detail": {
+    "cramers_v": 0.622,
+    "p": 2.1e-23,
+    "confirmation": "confirmé — V = 0.71 (découverte : 0.62)"
+   },
+   "confirme": 1.0,
+   "dataset": "early-stage-diabetes",
+   "id": "F29",
+   "avis": {
+    "id": "F29",
+    "verdict": "pertinent",
+    "explication": "La polyurie (miction fréquente) est fortement associée au diagnostic de diabète.",
+    "hypothese": "Le lien entre Polyurie et le diagnostic de diabète est renforcé chez les sujets présentant une polydipsie simultanée."
+   }
+  },
+  {
+   "kind": "association_categorielle",
+   "vars": "Polyuria ~ Polydipsia",
+   "stat": 0.618,
+   "score": 0.43245808603307667,
+   "detail": {
+    "cramers_v": 0.618,
+    "p": 4e-23,
+    "confirmation": "confirmé — V = 0.57 (découverte : 0.62)"
+   },
+   "confirme": 1.0,
+   "dataset": "early-stage-diabetes",
+   "id": "F30",
+   "avis": {
+    "id": "F30",
+    "verdict": "pertinent",
+    "explication": "Forte co-occurrence des symptômes cardinaux du diabète (polyurie et polydipsie).",
+    "hypothese": "L'association entre Polyuria et Polydipsia varie selon le niveau de glycémie à jeun."
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Early-Stage-Diabetes-Risk-Prediction-Dataset",
+    "target": null,
+    "description": "Data Set Information: This has been collected using direct questionnaires from the patients of Sylhet Diabetes Hospital in Sylhet, Bangladesh and approved by a doctor. Data Set Information: This has been col- lected using direct questionnaires from the patients of Sylhet Diabetes Hospital in Sylhet, Bangladesh and approved by a doctor. Attribute Information: Age 1.20-65 Sex 1. Male, 2.Female Polyu",
+    "url": "https://www.openml.org/d/43643",
+    "meta_cols": {
+     "age": "Age",
+     "sexe": "Gender"
+    },
+    "moities": {
+     "decouverte": 244,
+     "confirmation": 276
+    },
+    "did": "43643",
+    "colonnes": {
+     "num": [
+      "Age"
+     ],
+     "groupes": [
+      "Gender",
+      "Polyuria",
+      "Polydipsia",
+      "sudden_weight_loss",
+      "weakness",
+      "Polyphagia",
+      "Genital_thrush",
+      "visual_blurring",
+      "Itching",
+      "Irritability"
+     ]
+    }
+   },
+   "lignes": 520,
+   "colonnes": 17,
+   "fig": null,
+   "n_findings": 10,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "Polydipsia ~ class",
+     "stat": 0.723,
+     "score": 0.5064406286961657,
+     "detail": {
+      "cramers_v": 0.723,
+      "p": 1.3e-29,
+      "confirmation": "confirmé — V = 0.57 (découverte : 0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset",
+     "id": "F21",
+     "avis": {
+      "id": "F21",
+      "verdict": "pertinent",
+      "explication": "Forte association entre la polydipsie (soif excessive) et le diagnostic de diabète précoce.",
+      "hypothese": "Le lien entre polydipsie et diagnostic de diabète est plus marqué chez les patients plus âgés."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ Polydipsia",
+     "stat": 0.581,
+     "score": 0.4064512679001822,
+     "detail": {
+      "cramers_v": 0.581,
+      "p": 1.2e-19,
+      "confirmation": "confirmé — V = 0.60 (découverte : 0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ class",
+     "stat": 0.528,
+     "score": 0.36928866405594013,
+     "detail": {
+      "cramers_v": 0.528,
+      "p": 1.7e-16,
+      "confirmation": "confirmé — V = 0.77 (découverte : 0.53)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "partial_paresis ~ class",
+     "stat": 0.489,
+     "score": 0.3420543508905688,
+     "detail": {
+      "cramers_v": 0.489,
+      "p": 2.3e-14,
+      "confirmation": "confirmé — V = 0.37 (découverte : 0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Gender ~ class",
+     "stat": 0.461,
+     "score": 0.3229839875833981,
+     "detail": {
+      "cramers_v": 0.461,
+      "p": 5.7e-13,
+      "confirmation": "confirmé — V = 0.42 (découverte : 0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "visual_blurring ~ muscle_stiffness",
+     "stat": 0.451,
+     "score": 0.3158117792179389,
+     "detail": {
+      "cramers_v": 0.451,
+      "p": 1.8e-12,
+      "confirmation": "confirmé — V = 0.35 (découverte : 0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Itching ~ delayed_healing",
+     "stat": 0.451,
+     "score": 0.31561438558878885,
+     "detail": {
+      "cramers_v": 0.451,
+      "p": 1.9e-12,
+      "confirmation": "confirmé — V = 0.44 (découverte : 0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ sudden_weight_loss",
+     "stat": 0.449,
+     "score": 0.3145612464859152,
+     "detail": {
+      "cramers_v": 0.449,
+      "p": 2.2e-12,
+      "confirmation": "confirmé — V = 0.43 (découverte : 0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polydipsia ~ sudden_weight_loss",
+     "stat": 0.426,
+     "score": 0.2982731471121085,
+     "detail": {
+      "cramers_v": 0.426,
+      "p": 2.8e-11,
+      "confirmation": "confirmé — V = 0.37 (découverte : 0.43)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "sudden_weight_loss ~ class",
+     "stat": 0.421,
+     "score": 0.2947704513431415,
+     "detail": {
+      "cramers_v": 0.421,
+      "p": 4.8e-11,
+      "confirmation": "confirmé — V = 0.44 (découverte : 0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "Early-Stage-Diabetes-Risk-Prediction-Dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "obesity-level-indicators",
+    "target": null,
+    "description": "will be updated",
+    "url": "https://www.openml.org/d/42909",
+    "meta_cols": {
+     "sexe": "Gender",
+     "age": "Age"
+    },
+    "moities": {
+     "decouverte": 1019,
+     "confirmation": 1092
+    },
+    "did": "42909",
+    "colonnes": {
+     "num": [
+      "Age",
+      "Height",
+      "Weight",
+      "FCVC",
+      "NCP",
+      "CH2O",
+      "FAF",
+      "TUE"
+     ],
+     "groupes": [
+      "Gender",
+      "family_history_with_overweight",
+      "FAVC",
+      "CAEC",
+      "SMOKE",
+      "SCC",
+      "CALC",
+      "MTRANS",
+      "NObeyesdad"
+     ]
+    }
+   },
+   "lignes": 2111,
+   "colonnes": 17,
+   "fig": "2026-11-19_obesity_level_indicators.png",
+   "n_findings": 8,
+   "findings": [
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> Gender",
+     "stat": 0.907,
+     "score": 0.9067480555393651,
+     "detail": {
+      "balanced_accuracy": 0.907,
+      "hasard": 0.5,
+      "validation": "aléatoire",
+      "n": 1019,
+      "variables_les_plus_informatives": "Weight, Height, FCVC, FAF",
+      "confirmation": "confirmé — balanced_accuracy = 0.92 sur d'autres personnes / lignes (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "obesity-level-indicators",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Le genre peut être prédit à partir des mesures morphologiques et du mode de vie, reflétant les dimorphismes sexuels de composition corporelle.",
+      "hypothese": "Le lien entre le poids et la masse grasse corporelle varie selon le genre dans les populations en surpoids."
+     }
+    },
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> Age",
+     "stat": 0.575,
+     "score": 0.7875731226090963,
+     "detail": {
+      "r2": 0.575,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 1019,
+      "variables_les_plus_informatives": "Weight, Height, FAF, TUE",
+      "confirmation": "confirmé — r2 = 0.47 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "obesity-level-indicators",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "L'âge est fortement corrélé au profil pondéral et aux habitudes dans la cohorte d'obésité.",
+      "hypothese": "L'évolution de l'IMC avec l'âge dépend des niveaux d'activité physique déclarés (FAF)."
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> family_history_with_overweight = no",
+     "stat": 3.8,
+     "score": 0.6875920471281296,
+     "detail": {
+      "taux_dans_ce_groupe": "7.7%",
+      "taux_global": "2.1%",
+      "p": 3.7e-09,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "obesity-level-indicators",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Constat descriptif sur la concentration d'anomalies dans une sous-catégorie spécifique."
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> NObeyesdad = Normal_Weight",
+     "stat": 3.2,
+     "score": 0.6593847758081335,
+     "detail": {
+      "taux_dans_ce_groupe": "6.6%",
+      "taux_global": "2.1%",
+      "p": 0.00021,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "obesity-level-indicators",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "trivial",
+      "explication": "Résultat descriptif de répartition d'anomalies selon la classe de poids."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "family_history_with_overweight ~ NObeyesdad",
+     "stat": 0.568,
+     "score": 0.3977080597663515,
+     "detail": {
+      "cramers_v": 0.568,
+      "p": 5.1e-68,
+      "confirmation": "confirmé — V = 0.52 (découverte : 0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "obesity-level-indicators"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Gender ~ NObeyesdad",
+     "stat": 0.56,
+     "score": 0.3921647882683572,
+     "detail": {
+      "cramers_v": 0.56,
+      "p": 4.6e-66,
+      "confirmation": "confirmé — V = 0.56 (découverte : 0.56)"
+     },
+     "confirme": 1.0,
+     "dataset": "obesity-level-indicators"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Height ~ Weight",
+     "stat": 0.471,
+     "score": 0.3770440656423866,
+     "detail": {
+      "spearman": 0.471,
+      "pearson": 0.483,
+      "n": 1019,
+      "q": 5e-56,
+      "confirmation": "confirmé — ρ = +0.45 sur 1092 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "obesity-level-indicators"
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ TUE, FCVC, Weight",
+     "stat": 1.4,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 21,
+      "sur": 1019,
+      "variables_qui_les_distinguent": "TUE (1.4 σ), FCVC (1.3 σ), Weight (1.1 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "obesity-level-indicators"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "early-stage-diabetes",
+    "target": null,
+    "description": "test",
+    "url": "https://www.openml.org/d/42994",
+    "meta_cols": {
+     "age": "Age",
+     "sexe": "Gender"
+    },
+    "moities": {
+     "decouverte": 257,
+     "confirmation": 263
+    },
+    "did": "42994",
+    "colonnes": {
+     "num": [
+      "Age"
+     ],
+     "groupes": [
+      "Gender",
+      "Polyuria",
+      "Polydipsia",
+      "sudden weight loss",
+      "weakness",
+      "Polyphagia",
+      "Genital thrush",
+      "visual blurring",
+      "Itching",
+      "Irritability"
+     ]
+    }
+   },
+   "lignes": 520,
+   "colonnes": 17,
+   "fig": null,
+   "n_findings": 14,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ class",
+     "stat": 0.622,
+     "score": 0.4351649003801806,
+     "detail": {
+      "cramers_v": 0.622,
+      "p": 2.1e-23,
+      "confirmation": "confirmé — V = 0.71 (découverte : 0.62)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes",
+     "id": "F29",
+     "avis": {
+      "id": "F29",
+      "verdict": "pertinent",
+      "explication": "La polyurie (miction fréquente) est fortement associée au diagnostic de diabète.",
+      "hypothese": "Le lien entre Polyurie et le diagnostic de diabète est renforcé chez les sujets présentant une polydipsie simultanée."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ Polydipsia",
+     "stat": 0.618,
+     "score": 0.43245808603307667,
+     "detail": {
+      "cramers_v": 0.618,
+      "p": 4e-23,
+      "confirmation": "confirmé — V = 0.57 (découverte : 0.62)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes",
+     "id": "F30",
+     "avis": {
+      "id": "F30",
+      "verdict": "pertinent",
+      "explication": "Forte co-occurrence des symptômes cardinaux du diabète (polyurie et polydipsie).",
+      "hypothese": "L'association entre Polyuria et Polydipsia varie selon le niveau de glycémie à jeun."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polydipsia ~ class",
+     "stat": 0.595,
+     "score": 0.41620460071306137,
+     "detail": {
+      "cramers_v": 0.595,
+      "p": 1.5e-21,
+      "confirmation": "confirmé — V = 0.68 (découverte : 0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Gender ~ Alopecia",
+     "stat": 0.469,
+     "score": 0.32840245562265613,
+     "detail": {
+      "cramers_v": 0.469,
+      "p": 5.4e-14,
+      "confirmation": "NON confirmé — V = 0.18 (découverte : 0.47)"
+     },
+     "confirme": 0.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyphagia ~ partial paresis",
+     "stat": 0.455,
+     "score": 0.31857485250737466,
+     "detail": {
+      "cramers_v": 0.455,
+      "p": 3e-13,
+      "confirmation": "confirmé — V = 0.28 (découverte : 0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ sudden weight loss",
+     "stat": 0.455,
+     "score": 0.31826128403606113,
+     "detail": {
+      "cramers_v": 0.455,
+      "p": 3.1e-13,
+      "confirmation": "confirmé — V = 0.43 (découverte : 0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "visual blurring ~ muscle stiffness",
+     "stat": 0.448,
+     "score": 0.3134948773384993,
+     "detail": {
+      "cramers_v": 0.448,
+      "p": 7e-13,
+      "confirmation": "confirmé — V = 0.36 (découverte : 0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Gender ~ class",
+     "stat": 0.438,
+     "score": 0.3069296199393135,
+     "detail": {
+      "cramers_v": 0.438,
+      "p": 2.1e-12,
+      "confirmation": "confirmé — V = 0.43 (découverte : 0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyuria ~ partial paresis",
+     "stat": 0.43,
+     "score": 0.3011938317713111,
+     "detail": {
+      "cramers_v": 0.43,
+      "p": 5.3e-12,
+      "confirmation": "confirmé — V = 0.44 (découverte : 0.43)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Alopecia ~ class",
+     "stat": 0.429,
+     "score": 0.3001530797135114,
+     "detail": {
+      "cramers_v": 0.429,
+      "p": 6.2e-12,
+      "confirmation": "NON confirmé — V = 0.11 (découverte : 0.43)"
+     },
+     "confirme": 0.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "partial paresis ~ class",
+     "stat": 0.421,
+     "score": 0.2943818109430869,
+     "detail": {
+      "cramers_v": 0.421,
+      "p": 1.6e-11,
+      "confirmation": "confirmé — V = 0.43 (découverte : 0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polyphagia ~ delayed healing",
+     "stat": 0.406,
+     "score": 0.2843168430102877,
+     "detail": {
+      "cramers_v": 0.406,
+      "p": 7.4e-11,
+      "confirmation": "NON confirmé — V = 0.12 (découverte : 0.41)"
+     },
+     "confirme": 0.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "weakness ~ delayed healing",
+     "stat": 0.405,
+     "score": 0.283195794752537,
+     "detail": {
+      "cramers_v": 0.405,
+      "p": 8.8e-11,
+      "confirmation": "confirmé — V = 0.25 (découverte : 0.41)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Polydipsia ~ Alopecia",
+     "stat": 0.401,
+     "score": 0.28048262741557195,
+     "detail": {
+      "cramers_v": 0.401,
+      "p": 1.3e-10,
+      "confirmation": "confirmé — V = 0.21 (découverte : 0.40)"
+     },
+     "confirme": 1.0,
+     "dataset": "early-stage-diabetes"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Diabetes-Dataset-2019",
+    "target": null,
+    "description": "Context This dataset was collected by Neha Prerna Tigga and Dr. Shruti Garg of the Department of Computer Science and Engineering, BIT Mesra, Ranchi-835215 for research, non-commercial purposes only. An article is also published implementing this dataset. For more information and citation of this dataset please refer: Tigga, N. P., Garg, S. (2020). Prediction of Type 2 Diabetes using Machine Learn",
+    "url": "https://www.openml.org/d/43341",
+    "meta_cols": {
+     "age": "Age",
+     "sexe": "Gender"
+    },
+    "moities": {
+     "decouverte": 475,
+     "confirmation": 477
+    },
+    "did": "43341",
+    "colonnes": {
+     "num": [
+      "BMI",
+      "Sleep",
+      "SoundSleep",
+      "Pregancies"
+     ],
+     "groupes": [
+      "Age",
+      "Gender",
+      "Family_Diabetes",
+      "highBP",
+      "PhysicallyActive",
+      "Smoking",
+      "Alcohol",
+      "RegularMedicine",
+      "JunkFood",
+      "Stress"
+     ]
+    }
+   },
+   "lignes": 952,
+   "colonnes": 18,
+   "fig": "2026-11-19_Diabetes_Dataset_2019.png",
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "association_categorielle",
+     "vars": "highBP ~ BPLevel",
+     "stat": 0.671,
+     "score": 0.469391467202317,
+     "detail": {
+      "cramers_v": 0.671,
+      "p": 4.5e-45,
+      "confirmation": "confirmé — V = 0.75 (découverte : 0.67)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes-Dataset-2019",
+     "id": "F23",
+     "avis": {
+      "id": "F23",
+      "verdict": "pertinent",
+      "explication": "Forte cohérence logique entre la variable binaire d'hypertension et la catégorie de niveau de pression sanguine.",
+      "hypothese": "Le lien entre l'hypertension et le statut tabagique est modulé par l'indice de masse corporelle."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Sleep ~ SoundSleep",
+     "stat": 0.447,
+     "score": 0.3573084388308563,
+     "detail": {
+      "spearman": 0.447,
+      "pearson": 0.489,
+      "n": 475,
+      "q": 6.9e-24,
+      "confirmation": "confirmé — ρ = +0.55 sur 477 lignes (découverte : +0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes-Dataset-2019"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Age ~ highBP",
+     "stat": 0.429,
+     "score": 0.3005866778990243,
+     "detail": {
+      "cramers_v": 0.429,
+      "p": 7.2e-19,
+      "confirmation": "confirmé — V = 0.43 (découverte : 0.43)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes-Dataset-2019"
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ Sleep, Pregancies, SoundSleep",
+     "stat": 2.15,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 8,
+      "sur": 475,
+      "variables_qui_les_distinguent": "Sleep (2.2 σ), Pregancies (2.0 σ), SoundSleep (1.1 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Diabetes-Dataset-2019"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "highBP ~ RegularMedicine",
+     "stat": 0.416,
+     "score": 0.2909843581263629,
+     "detail": {
+      "cramers_v": 0.416,
+      "p": 1.5e-18,
+      "confirmation": "confirmé — V = 0.48 (découverte : 0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes-Dataset-2019"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Age ~ Diabetic",
+     "stat": 0.407,
+     "score": 0.2848316941825495,
+     "detail": {
+      "cramers_v": 0.407,
+      "p": 2.2e-31,
+      "confirmation": "confirmé — V = 0.58 (découverte : 0.41)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes-Dataset-2019"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Pima-Indians-Diabetes-Dataset",
+    "target": "Outcome",
+    "description": "Context The unprocessed dataset was acquired from UCI Machine Learning organisation. This dataset is preprocessed by me, originally from the National Institute of Diabetes and Digestive and Kidney Diseases. The objective of the dataset is to accurately predict whether or not, a patient has diabetes, based on multiple features included in the dataset. I've achieved an accuracy metric score of 92.86",
+    "url": "https://www.openml.org/d/43483",
+    "meta_cols": {
+     "age": "Age"
+    },
+    "moities": {
+     "decouverte": 384,
+     "confirmation": 384
+    },
+    "did": "43483",
+    "colonnes": {
+     "num": [
+      "Pregnancies",
+      "Glucose",
+      "BloodPressure",
+      "SkinThickness",
+      "Insulin",
+      "BMI",
+      "DiabetesPedigreeFunction",
+      "Age",
+      "Outcome"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 768,
+   "colonnes": 9,
+   "fig": "2026-11-19_Pima_Indians_Diabetes_Dataset.png",
+   "n_findings": 13,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Insulin -> Outcome",
+     "stat": 0.312,
+     "score": 0.7908154547989363,
+     "detail": {
+      "mutual_info": 0.312,
+      "part_de_l_info": 0.39,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "L'insuline est un prédicteur clé de l'issue diabétique, traduisant la résistance sous-jacente.",
+      "hypothese": "Le lien entre le taux d'insuline à jeun et le diagnostic de diabète est modulé par l'âge des patients."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Insulin ~ Outcome",
+     "stat": 0.209,
+     "score": 0.7094536699045646,
+     "detail": {
+      "spearman": 0.543,
+      "pearson": 0.334,
+      "n": 384,
+      "confirmation": "confirmé — ρ = +0.58 sur 384 lignes (découverte : +0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Relation non linéaire confirmée entre les niveaux d'insuline et le statut diabétique.",
+      "hypothese": "Le seuil d'insuline critique marquant le passage vers le diabète varie selon l'épaisseur de pli cutané."
+     }
+    },
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> Age",
+     "stat": 0.229,
+     "score": 0.6145521977333277,
+     "detail": {
+      "r2": 0.229,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 384,
+      "variables_les_plus_informatives": "Pregnancies, BloodPressure, Insulin, SkinThickness",
+      "confirmation": "confirmé — r2 = 0.36 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "pertinent",
+      "explication": "L'âge est modérément prédictif des marqueurs métaboliques et anthropométriques.",
+      "hypothese": "Le gradient d'âge modifie la relation entre l'épaisseur du pli cutané et la tension artérielle."
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "SkinThickness -> Outcome",
+     "stat": 0.16,
+     "score": 0.6008911057585595,
+     "detail": {
+      "mutual_info": 0.16,
+      "part_de_l_info": 0.2,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F18",
+     "avis": {
+      "id": "F18",
+      "verdict": "pertinent",
+      "explication": "L'épaisseur du pli cutané apporte une information pertinente sur le risque diabétique.",
+      "hypothese": "Le lien entre le pli cutané et le risque de diabète est médié par l'indice de masse corporelle (BMI)."
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "Glucose -> Outcome",
+     "stat": 0.106,
+     "score": 0.533304485684558,
+     "detail": {
+      "mutual_info": 0.106,
+      "part_de_l_info": 0.13,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F20",
+     "avis": {
+      "id": "F20",
+      "verdict": "pertinent",
+      "explication": "La glycorégulation à jeun est un indicateur fort mais partiel du diagnostic de diabète.",
+      "hypothese": "Le pouvoir prédictif de la glucoseémie sur l'issue diabétique change selon les classes d'âge."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "SkinThickness ~ BMI",
+     "stat": 0.583,
+     "score": 0.46612826066341395,
+     "detail": {
+      "spearman": 0.583,
+      "pearson": 0.541,
+      "n": 384,
+      "q": 9.9e-35,
+      "confirmation": "confirmé — ρ = +0.59 sur 384 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F24",
+     "avis": {
+      "id": "F24",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation anatomique attendue entre l'adiposité sous-cutanée (SkinThickness) et l'IMC (BMI).",
+      "hypothese": "Le lien entre SkinThickness et BMI diffère selon le genre dans la cohorte Pima."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Pregnancies ~ Age",
+     "stat": 0.58,
+     "score": 0.46421282173848744,
+     "detail": {
+      "spearman": 0.58,
+      "pearson": 0.513,
+      "n": 384,
+      "q": 1.1e-34,
+      "confirmation": "confirmé — ρ = +0.63 sur 384 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F25",
+     "avis": {
+      "id": "F25",
+      "verdict": "pertinent",
+      "explication": "Corrélation logique et cumulative entre l'âge et le nombre de grossesses (Pregnancies).",
+      "hypothese": "Le lien entre le nombre de grossesses et le taux de glucose basal est influencé par l'IMC."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Glucose ~ Insulin",
+     "stat": 0.545,
+     "score": 0.43625279292004926,
+     "detail": {
+      "spearman": 0.545,
+      "pearson": 0.448,
+      "n": 384,
+      "q": 4.7e-30,
+      "confirmation": "confirmé — ρ = +0.59 sur 384 lignes (découverte : +0.55)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset",
+     "id": "F28",
+     "avis": {
+      "id": "F28",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation physiopathologique entre la glycémie et l'insulinémie à jeun.",
+      "hypothese": "Le lien entre Glucose et Insulin est modulé par l'âge dans la population à risque."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Insulin ~ Outcome",
+     "stat": 0.543,
+     "score": 0.43457275667074424,
+     "detail": {
+      "spearman": 0.543,
+      "pearson": 0.334,
+      "n": 384,
+      "q": 6.6e-30,
+      "confirmation": "confirmé — ρ = +0.58 sur 384 lignes (découverte : +0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Glucose ~ Outcome",
+     "stat": 0.482,
+     "score": 0.3852964999289911,
+     "detail": {
+      "spearman": 0.482,
+      "pearson": 0.492,
+      "n": 384,
+      "q": 7.8e-23,
+      "confirmation": "confirmé — ρ = +0.49 sur 384 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset"
+    },
+    {
+     "kind": "correlation",
+     "vars": "BloodPressure ~ Age",
+     "stat": 0.406,
+     "score": 0.3249248282799274,
+     "detail": {
+      "spearman": 0.406,
+      "pearson": 0.342,
+      "n": 384,
+      "q": 6.6e-16,
+      "confirmation": "confirmé — ρ = +0.33 sur 384 lignes (découverte : +0.41)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset"
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ SkinThickness, BMI, DiabetesPedigreeFunction",
+     "stat": 2.48,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 8,
+      "sur": 384,
+      "variables_qui_les_distinguent": "SkinThickness (2.5 σ), BMI (2.2 σ), DiabetesPedigreeFunction (1.9 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Pima-Indians-Diabetes-Dataset"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> Outcome",
+     "stat": 0.849,
+     "score": 0.27948182502603797,
+     "detail": {
+      "balanced_accuracy": 0.849,
+      "baseline": 0.5,
+      "avec_seulement_Insulin": 0.791,
+      "confirmation": "confirmé — balanced_accuracy = 0.86 sur des données jamais vues (hasard 0.50, découverte 0.849)"
+     },
+     "confirme": 1.0,
+     "dataset": "Pima-Indians-Diabetes-Dataset"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Diabetes",
+    "target": null,
+    "description": "https://archive.ics.uci.edu/ml/datasets/Diabetes",
+    "url": "https://www.openml.org/d/43063",
+    "meta_cols": {
+     "age": "age"
+    },
+    "moities": {
+     "decouverte": 389,
+     "confirmation": 379
+    },
+    "did": "43063",
+    "colonnes": {
+     "num": [
+      "preg",
+      "plas",
+      "pres",
+      "skin",
+      "insu",
+      "mass",
+      "pedi",
+      "age"
+     ],
+     "groupes": [
+      "class"
+     ]
+    }
+   },
+   "lignes": 768,
+   "colonnes": 9,
+   "fig": "2026-11-19_Diabetes.png",
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> age",
+     "stat": 0.325,
+     "score": 0.6625513548568122,
+     "detail": {
+      "r2": 0.325,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 389,
+      "variables_les_plus_informatives": "preg, skin, pres, insu",
+      "confirmation": "confirmé — r2 = 0.30 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "Diabetes",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "pertinent",
+      "explication": "L'âge métabolique et gestationnel est prédictif des variables cliniques basales.",
+      "hypothese": "Le lien entre la pression artérielle et l'âge est modulé par le nombre de grossesses."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "preg ~ age",
+     "stat": 0.58,
+     "score": 0.4637246646606795,
+     "detail": {
+      "spearman": 0.58,
+      "pearson": 0.513,
+      "n": 389,
+      "q": 7.6e-35,
+      "confirmation": "confirmé — ρ = +0.63 sur 379 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes",
+     "id": "F26",
+     "avis": {
+      "id": "F26",
+      "verdict": "pertinent",
+      "explication": "Corrélation positive classique entre la parité (preg) et l'âge dans les bases de données cliniques.",
+      "hypothese": "Le lien entre le nombre de grossesses et la pression artérielle est médié par l'âge."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "skin ~ insu",
+     "stat": 0.547,
+     "score": 0.4374591070722444,
+     "detail": {
+      "spearman": 0.547,
+      "pearson": 0.416,
+      "n": 389,
+      "q": 1.4e-30,
+      "confirmation": "confirmé — ρ = +0.53 sur 379 lignes (découverte : +0.55)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes",
+     "id": "F27",
+     "avis": {
+      "id": "F27",
+      "verdict": "pertinent",
+      "explication": "Corrélation métabolique entre l'épaisseur du pli cutané et les taux d'insuline circulants.",
+      "hypothese": "Le lien entre l'épaisseur cutanée et l'insuline change selon le niveau de tolérance au glucose."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "skin ~ mass",
+     "stat": 0.424,
+     "score": 0.3390959760847935,
+     "detail": {
+      "spearman": 0.424,
+      "pearson": 0.38,
+      "n": 389,
+      "q": 2e-17,
+      "confirmation": "confirmé — ρ = +0.46 sur 379 lignes (découverte : +0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes"
+    },
+    {
+     "kind": "correlation",
+     "vars": "pres ~ age",
+     "stat": 0.41,
+     "score": 0.32830849334042683,
+     "detail": {
+      "spearman": 0.41,
+      "pearson": 0.267,
+      "n": 389,
+      "q": 2.2e-16,
+      "confirmation": "confirmé — ρ = +0.28 sur 379 lignes (découverte : +0.41)"
+     },
+     "confirme": 1.0,
+     "dataset": "Diabetes"
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ mass, pres, insu",
+     "stat": 1.71,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 8,
+      "sur": 389,
+      "variables_qui_les_distinguent": "mass (1.7 σ), pres (1.7 σ), insu (1.2 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Diabetes"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Tomerd88/obesity-lifestyle-analysis",
+    "target": null,
+    "description": "<video src=\"https://cdn-uploads.huggingface.co/production/uploads/69d98e416f24734dd0943c55/eKTE3OIHtHQfCqqNsmtm8.mp4\" controls=\"controls\" style=\"max-width: 720px;\" </video Obesity Levels & Lifestyle Dynamics: A Predictive Research Study Student: Tomer Dariel Academic Institution: Reichman University (IDC Herzliya) Course: Introduction to Data Science --- 1. Project Overview This research explores ",
+    "fichier": "Obesity.csv",
+    "url": "https://huggingface.co/datasets/Tomerd88/obesity-lifestyle-analysis",
+    "meta_cols": {
+     "age": "Age",
+     "sexe": "Gender"
+    },
+    "moities": {
+     "decouverte": 1063,
+     "confirmation": 1048
+    },
+    "did": "hf:Tomerd88/obesity-lifestyle-analysis",
+    "colonnes": {
+     "num": [
+      "Age",
+      "Height",
+      "Weight",
+      "FCVC",
+      "NCP",
+      "CH2O",
+      "FAF",
+      "TUE"
+     ],
+     "groupes": [
+      "Gender",
+      "CALC",
+      "FAVC",
+      "SCC",
+      "SMOKE",
+      "family_history_with_overweight",
+      "CAEC",
+      "MTRANS",
+      "NObeyesdad"
+     ]
+    }
+   },
+   "lignes": 2111,
+   "colonnes": 17,
+   "fig": "2026-11-19_Tomerd88_obesity_lifestyle_analysis.png",
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> Gender",
+     "stat": 0.891,
+     "score": 0.8908565445485115,
+     "detail": {
+      "balanced_accuracy": 0.891,
+      "hasard": 0.5,
+      "validation": "aléatoire",
+      "n": 1063,
+      "variables_les_plus_informatives": "Height, Weight, FCVC, CH2O",
+      "confirmation": "confirmé — balanced_accuracy = 0.91 sur d'autres personnes / lignes (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "Tomerd88/obesity-lifestyle-analysis",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Confirmation du dimorphisme morphologique et comportemental permettant de prédire le genre à partir des habitudes de vie.",
+      "hypothese": "Les habitudes d'hydratation et d'activité physique influencent différemment l'indice de masse corporelle selon le sexe."
+     }
+    },
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> Age",
+     "stat": 0.418,
+     "score": 0.7088895480374098,
+     "detail": {
+      "r2": 0.418,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 1063,
+      "variables_les_plus_informatives": "Weight, FAF, Height, CH2O",
+      "confirmation": "confirmé — r2 = 0.57 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "Tomerd88/obesity-lifestyle-analysis",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "L'âge présente un lien prédictif net avec le profil pondéral et comportemental.",
+      "hypothese": "Le lien entre la consommation d'eau (CH2O) et le poids corporel s'intensifie avec l'âge."
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "Gender ~ NObeyesdad",
+     "stat": 0.566,
+     "score": 0.39624202862480223,
+     "detail": {
+      "cramers_v": 0.566,
+      "p": 1.6e-70,
+      "confirmation": "confirmé — V = 0.55 (découverte : 0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "Tomerd88/obesity-lifestyle-analysis"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Height ~ Weight",
+     "stat": 0.495,
+     "score": 0.39601585261979855,
+     "detail": {
+      "spearman": 0.495,
+      "pearson": 0.493,
+      "n": 1063,
+      "q": 2.4e-65,
+      "confirmation": "confirmé — ρ = +0.43 sur 1048 lignes (découverte : +0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "Tomerd88/obesity-lifestyle-analysis"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "family_history_with_overweight ~ NObeyesdad",
+     "stat": 0.539,
+     "score": 0.3776448592538591,
+     "detail": {
+      "cramers_v": 0.539,
+      "p": 8e-64,
+      "confirmation": "confirmé — V = 0.55 (découverte : 0.54)"
+     },
+     "confirme": 1.0,
+     "dataset": "Tomerd88/obesity-lifestyle-analysis"
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ FCVC, TUE, Weight",
+     "stat": 1.28,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 22,
+      "sur": 1063,
+      "variables_qui_les_distinguent": "FCVC (1.3 σ), TUE (1.1 σ), Weight (0.9 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Tomerd88/obesity-lifestyle-analysis"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "electricsheepafrica/africa-owid-obesity-prevalence-adults-who-gho",
+    "target": null,
+    "description": "Obesity Prevalence Adults Who Gho Africa (Our World in Data) Africa (World Health Organization) Size category: 1K<n<10K - Formats: parquet - Sector: other_unclassified - Engineered by Electric Sheep Africa (https://huggingface.co/electricsheepafrica) ! size (https://img.shields.io/badge/size-1K%3Cn%3C10K-blue) ! sector (https://img.shields.io/badge/sector-other_unclassified-green) ! downloads (htt",
+    "fichier": "data/train-00000-of-00001.parquet",
+    "url": "https://huggingface.co/datasets/electricsheepafrica/africa-owid-obesity-prevalence-adults-who-gho",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 974,
+     "confirmation": 970
+    },
+    "did": "hf:electricsheepafrica/africa-owid-obesity-prevalence-adults-who-gho",
+    "colonnes": {
+     "num": [
+      "year",
+      "Obesity among adults, BMI >= 30 kg/m2 (age-standardized estimate) (%) - Sex: both sexes - Age group: 18+  years of age"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 1944,
+   "colonnes": 4,
+   "fig": "2026-11-19_electricsheepafrica_africa_owid_obesity_.png",
+   "n_findings": 1,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "year ~ Obesity among adults, BMI >= 30 kg/m2 (age-standardized estimate) (%) - Sex: both sexes - Age group: 18+  years of age",
+     "stat": 0.597,
+     "score": 0.4774502462263078,
+     "detail": {
+      "spearman": 0.597,
+      "pearson": 0.501,
+      "n": 974,
+      "q": 4.9e-95,
+      "confirmation": "confirmé — ρ = +0.61 sur 970 lignes (découverte : +0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/africa-owid-obesity-prevalence-adults-who-gho",
+     "id": "F22",
+     "avis": {
+      "id": "F22",
+      "verdict": "pertinent",
+      "explication": "Tendance temporelle claire à la hausse de la prévalence de l'obésité en Afrique au fil des années.",
+      "hypothese": "L'augmentation de la prévalence de l'obésité au cours du temps varie selon les sous-régions géographiques africaines."
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "imodels/diabetes-readmission",
+    "target": null,
+    "description": "Port of the diabetes-readmission dataset from UCI (link here (https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008)). See details there and use carefully. Basic preprocessing done by the imodels team (https://github.com/csinva/imodels) in this notebook (https://github.com/csinva/imodels-data/blob/master/notebooks_fetch_data/00_get_datasets_custom.ipynb). The target",
+    "fichier": "train.csv",
+    "url": "https://huggingface.co/datasets/imodels/diabetes-readmission",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 40981,
+     "confirmation": 20000
+    },
+    "did": "hf:imodels/diabetes-readmission",
+    "colonnes": {
+     "num": [
+      "time_in_hospital",
+      "num_lab_procedures",
+      "num_procedures",
+      "num_medications",
+      "number_outpatient",
+      "number_emergency",
+      "number_inpatient",
+      "number_diagnoses",
+      "change",
+      "diabetesMed",
+      "race:AfricanAmerican",
+      "race:Asian",
+      "race:Caucasian",
+      "race:Hispanic",
+      "race:Other",
+      "gender:Female",
+      "gender:Male",
+      "age:70+",
+      "age:[0-10)",
+      "age:[10-20)",
+      "age:[20-50)",
+      "age:[50-70)",
+      "admission_type_id:Elective",
+      "admission_type_id:Emergency",
+      "admission_type_id:New Born"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 81410,
+   "colonnes": 151,
+   "fig": "2026-11-19_imodels_diabetes_readmission.png",
+   "n_findings": 21,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "pioglitazone:No ~ pioglitazone:Steady",
+     "stat": -0.978,
+     "score": 0.7824024905637006,
+     "detail": {
+      "spearman": -0.978,
+      "pearson": -0.978,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.97 sur 20000 lignes (découverte : -0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "Forte corrélation négative mécanique entre les catégories mutuellement exclusives d'un même traitement (pas de prise vs prise stable)."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "metformin:No ~ metformin:Steady",
+     "stat": -0.943,
+     "score": 0.754059646828253,
+     "detail": {
+      "spearman": -0.943,
+      "pearson": -0.943,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.95 sur 20000 lignes (découverte : -0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Artefact de codage en variables binaires mutuellement exclusives pour la metformine."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "glipizide:No ~ glipizide:Steady",
+     "stat": -0.938,
+     "score": 0.7506831068337398,
+     "detail": {
+      "spearman": -0.938,
+      "pearson": -0.938,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.94 sur 20000 lignes (découverte : -0.94)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Artefact de codage binaire mutuellement exclusif pour le glipizide."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "glyburide:No ~ glyburide:Steady",
+     "stat": -0.925,
+     "score": 0.740354739045436,
+     "detail": {
+      "spearman": -0.925,
+      "pearson": -0.925,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.92 sur 20000 lignes (découverte : -0.93)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "Artefact de codage binaire mutuellement exclusif pour le glyburide."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "discharge_disposition_id:Discharged to Home ~ discharge_disposition_id:Other",
+     "stat": -0.88,
+     "score": 0.7036291666448089,
+     "detail": {
+      "spearman": -0.88,
+      "pearson": -0.88,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.88 sur 20000 lignes (découverte : -0.88)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "trivial",
+      "explication": "Corrélation mécanique entre catégories mutuellement exclusives du devenir à la sortie de l'hôpital."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "race:Caucasian ~ race:AfricanAmerican",
+     "stat": -0.832,
+     "score": 0.665475110942388,
+     "detail": {
+      "spearman": -0.832,
+      "pearson": -0.832,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.83 sur 20000 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "trivial",
+      "explication": "Corrélation négative mécanique entre catégories ethniques mutuellement exclusives."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "admission_source_id:Emergency ~ admission_source_id:Referral",
+     "stat": -0.754,
+     "score": 0.6035326566644478,
+     "detail": {
+      "spearman": -0.754,
+      "pearson": -0.754,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F17",
+     "avis": {
+      "id": "F17",
+      "verdict": "trivial",
+      "explication": "Artefact de codage mutuellement exclusif pour les sources d'admission hospitalière."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "admission_type_id:Emergency ~ admission_type_id:Elective",
+     "stat": -0.748,
+     "score": 0.5982173165173571,
+     "detail": {
+      "spearman": -0.748,
+      "pearson": -0.748,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission",
+     "id": "F19",
+     "avis": {
+      "id": "F19",
+      "verdict": "trivial",
+      "explication": "Artefact de codage mutuellement exclusif pour les types d'admission."
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "age:70+ ~ age:[50-70)",
+     "stat": -0.724,
+     "score": 0.5792792065096356,
+     "detail": {
+      "spearman": -0.724,
+      "pearson": -0.724,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.72 sur 20000 lignes (découverte : -0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    },
+    {
+     "kind": "correlation",
+     "vars": "A1Cresult:None ~ A1Cresult:>8",
+     "stat": -0.663,
+     "score": 0.5301606013418391,
+     "detail": {
+      "spearman": -0.663,
+      "pearson": -0.663,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.66 sur 20000 lignes (découverte : -0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    },
+    {
+     "kind": "correlation",
+     "vars": "insulin:No ~ insulin:Steady",
+     "stat": -0.614,
+     "score": 0.4910922098208939,
+     "detail": {
+      "spearman": -0.614,
+      "pearson": -0.614,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.62 sur 20000 lignes (découverte : -0.61)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    },
+    {
+     "kind": "correlation",
+     "vars": "admission_source_id:Referral ~ admission_type_id:Elective",
+     "stat": 0.606,
+     "score": 0.4849543529438582,
+     "detail": {
+      "spearman": 0.606,
+      "pearson": 0.606,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.61 sur 20000 lignes (découverte : +0.61)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    },
+    {
+     "kind": "correlation",
+     "vars": "admission_source_id:Emergency ~ admission_type_id:Emergency",
+     "stat": 0.598,
+     "score": 0.4784953030010772,
+     "detail": {
+      "spearman": 0.598,
+      "pearson": 0.598,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.60 sur 20000 lignes (découverte : +0.60)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    },
+    {
+     "kind": "correlation",
+     "vars": "insulin:No ~ diabetesMed",
+     "stat": -0.592,
+     "score": 0.47391919131676724,
+     "detail": {
+      "spearman": -0.592,
+      "pearson": -0.592,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.59 sur 20000 lignes (découverte : -0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    },
+    {
+     "kind": "correlation",
+     "vars": "insulin:No ~ change",
+     "stat": -0.514,
+     "score": 0.41138604344370666,
+     "detail": {
+      "spearman": -0.514,
+      "pearson": -0.514,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.51 sur 20000 lignes (découverte : -0.51)"
+     },
+     "confirme": 1.0,
+     "dataset": "imodels/diabetes-readmission"
+    }
+   ]
+  }
+ ],
+ "echecs": [],
+ "hypotheses_testees": [
+  {
+   "id": 51,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:hsi-workshop/referential-gesture-challenge",
+    "cible": "hand",
+    "variables": [
+     "target_pelvis_x",
+     "target_pelvis_y",
+     "target_pelvis_z",
+     "target_world_x",
+     "target_world_y",
+     "target_world_z"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la main utilisée (hand) avec SEULEMENT les coordonnées spatiales et pelviennes des gestes ?",
+    "requete_biblio": "gesture kinematics hand side spatial coordinates prediction"
+   },
+   "statut": "confirmée",
+   "resume": "Dans hsi-workshop/referential-gesture-challenge, prédire hand avec target_pelvis_x, target_pelvis_y, target_pelvis_z, target_world_x, target_world_y, target_world_z donne balanced_accuracy = 0.85 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (1259 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "balanced_accuracy": 0.852,
+    "hasard": 0.503,
+    "p_permutation": 0.0476,
+    "p_z": 1e-12,
+    "validation": "aléatoire",
+    "n": 1259,
+    "donnees_test": "moitié de confirmation (1259 lignes jamais vues à l'exploration)",
+    "holm": "p = 1e-12, seuil corrigé 0.025 (2 tests cette nuit)",
+    "confusion": "contrôle non applicable à ce type de test",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (hand, target_pelvis_x, target_pelvis_y, target_pelvis_z, target_world_x, target_world_y, target_world_z) parmi 12 essayés"
+   },
+   "sujet": "Écriture et geste",
+   "confusion": [
+    null,
+    "contrôle non applicable à ce type de test"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (hand, target_pelvis_x, target_pelvis_y, target_pelvis_z, target_world_x, target_world_y, target_world_z) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "Communication for coordination: gesture kinematics and conventionality affect synchronization success in piano duos",
+     "annee": 2017,
+     "citations": 58,
+     "url": "https://doi.org/10.1007/s00426-017-0893-3"
+    },
+    {
+     "titre": "Hand Gesture Recognition Based on Computer Vision: A Review of Techniques",
+     "annee": 2020,
+     "citations": 790,
+     "url": "https://doi.org/10.3390/jimaging6080073"
+    },
+    {
+     "titre": "Bayesian Estimation of Hand Kinematics from Spatially Tracked Landmarks",
+     "annee": 2025,
+     "citations": 0,
+     "url": "https://doi.org/10.56578/jisc040203"
+    },
+    {
+     "titre": "Spatial Interpretation of Pointing Gestures",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.25972/opus-44134"
+    },
+    {
+     "titre": "Survey on Hand Gesture Recognition From Visual Input",
+     "annee": 2025,
+     "citations": 62,
+     "url": "https://doi.org/10.1109/access.2025.3593428"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé correspond exactement aux variables testées. Il s'agit d'une tâche de prédiction valide sur des données observationnelles.",
+    "reformulation": "",
+    "diagnostic_statistique": "La balanced accuracy de 0.85 dépasse nettement le hasard (0.50), confirmé par un test de permutation significatif (p < 0.05). Le modèle capte un signal prédictif robuste dans les coordonnées spatiales et pelviennes.",
+    "modele_recommande": "régression logistique, forêts aléatoires (Random Forest) ou XGBoost pour la classification binaire",
+    "robustesse": "La taille de l'échantillon (n = 1259) sur un jeu de test indépendant garantit une bonne puissance statistique, mais l'absence de validation sur un dataset externe limite la généralisation à d'autres contextes de capture.",
+    "interpretation_domaine": "En kinésiologie et analyse du mouvement, la position relative de la main par rapport au bassin (coordonnées pelviennes et spatiales) reflète l'ergonomie corporelle et la latéralité, un phénomène biomécanique bien documenté dans la littérature sur les gestes de pointage.",
+    "action_pipeline": "Ajouter l'extraction automatique de caractéristiques géométriques relatives (distances euclidiennes main-bassin) pour améliorer encore la précision prédictive.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La reconnaissance de la main ou des mouvements à partir de données cinématiques et spatiales est un sujet largement exploré en vision par ordinateur.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 1e-12, seuil corrigé 0.025 (2 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "contrôle non applicable à ce type de test"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (hand, target_pelvis_x, target_pelvis_y, target_pelvis_z, target_world_x, target_world_y, target_world_z) parmi 12 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 52,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:hsi-workshop/referential-gesture-challenge",
+    "x": "peak_frame",
+    "y": "clip_length",
+    "groupe": "hand",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre peak_frame et clip_length change-t-il selon hand ?"
+   },
+   "statut": "réfutée",
+   "resume": "Dans hsi-workshop/referential-gesture-challenge, la corrélation peak_frame~clip_length vaut +0.55 pour « hand = 1 » contre +0.49 pour « hand = 0 » (écart 0.06, p = 0.16). [Testé sur : moitié de confirmation (1259 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "hand = 1": {
+      "rho": 0.548,
+      "pearson": 0.551,
+      "n": 774
+     },
+     "hand = 0": {
+      "rho": 0.489,
+      "pearson": 0.491,
+      "n": 485
+     }
+    },
+    "p_difference": 0.164,
+    "donnees_test": "moitié de confirmation (1259 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.16, seuil corrigé 0.05 (2 tests cette nuit)"
+   },
+   "sujet": "Écriture et geste",
+   "biblio": [],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation est correcte et questionne bien une modération (effet de la variable 'hand' sur le lien entre 'peak_frame' et 'clip_length').",
+    "reformulation": "",
+    "diagnostic_statistique": "L'écart de corrélation entre les deux groupes (0.55 vs 0.49) n'est pas statistiquement significatif (p = 0.16). Les différences entre Pearson et Spearman sont très faibles (< 0.005), indiquant des relations quasi-linéaires sans valeurs extrêmes majeures.",
+    "modele_recommande": "régression linéaire avec interaction y ~ x * z",
+    "robustesse": "Les tailles d'échantillon sont correctes (n = 774 et n = 485). Cependant, l'absence de significativité statistique indique que l'hypothèse de modération n'est pas soutenue par ces données.",
+    "interpretation_domaine": "En analyse du mouvement et des gestes référentiels, la trame du pic du geste (peak_frame) est mécaniquement corrélée à la durée totale du clip (clip_length), quelle que soit la main utilisée (gauche ou droite). La main utilisée ne modifie pas significativement cette proportionnalité temporelle.",
+    "action_pipeline": "Éviter de générer des hypothèses de modération sur des sous-groupes lorsque l'écart observé entre les coefficients de corrélation est trop faible et non significatif.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'analyse des corrélations temporelles de gestes selon la main dominante est un classique de la biomécanique.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}

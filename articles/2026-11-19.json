@@ -1,0 +1,248 @@
+{
+ "date": "2026-11-19",
+ "faits": {
+  "date": "2026-11-19",
+  "date_longue": "19 novembre 2026",
+  "sujets": [
+   "Santé métabolique"
+  ],
+  "questions": [
+   "Quels facteurs modifient le lien entre poids, glycémie et maladie (âge, sexe, tabac, mode de vie) ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Early-Stage-Diabetes-Risk-Prediction-Dataset",
+    "lignes": 520,
+    "colonnes": 17,
+    "resultats_bruts": 10,
+    "confirmes_sur_moitie_independante": 10
+   },
+   {
+    "nom": "obesity-level-indicators",
+    "lignes": 2111,
+    "colonnes": 17,
+    "resultats_bruts": 8,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "early-stage-diabetes",
+    "lignes": 520,
+    "colonnes": 17,
+    "resultats_bruts": 14,
+    "confirmes_sur_moitie_independante": 11
+   },
+   {
+    "nom": "Diabetes-Dataset-2019",
+    "lignes": 952,
+    "colonnes": 18,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "Pima-Indians-Diabetes-Dataset",
+    "lignes": 768,
+    "colonnes": 9,
+    "resultats_bruts": 13,
+    "confirmes_sur_moitie_independante": 9
+   },
+   {
+    "nom": "Diabetes",
+    "lignes": 768,
+    "colonnes": 9,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "Tomerd88/obesity-lifestyle-analysis",
+    "lignes": 2111,
+    "colonnes": 17,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "electricsheepafrica/africa-owid-obesity-prevalence-adults-who-gho",
+    "lignes": 1944,
+    "colonnes": 4,
+    "resultats_bruts": 1,
+    "confirmes_sur_moitie_independante": 1
+   },
+   {
+    "nom": "imodels/diabetes-readmission",
+    "lignes": 81410,
+    "colonnes": 151,
+    "resultats_bruts": 21,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 0,
+  "hypotheses_testees": [
+   {
+    "id": "H51",
+    "enonce": "Peut-on prédire la main utilisée (hand) avec SEULEMENT les coordonnées spatiales et pelviennes des gestes ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans hsi-workshop/referential-gesture-challenge, prédire hand avec target_pelvis_x, target_pelvis_y, target_pelvis_z, target_world_x, target_world_y, target_world_z donne balanced_accuracy = 0.85 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire).",
+    "bloque_a": "Nouveau : déjà connu",
+    "litterature": "La reconnaissance de la main ou des mouvements à partir de données cinématiques et spatiales est un sujet largement exploré en vision par ordinateur."
+   },
+   {
+    "id": "H52",
+    "enonce": "Le lien entre peak_frame et clip_length change-t-il selon hand ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans hsi-workshop/referential-gesture-challenge, la corrélation peak_frame~clip_length vaut +0.55 pour « hand = 1 » contre +0.49 pour « hand = 0 » (écart 0.06, p = 0.16).",
+    "bloque_a": null,
+    "litterature": "L'analyse des corrélations temporelles de gestes selon la main dominante est un classique de la biomécanique."
+   }
+  ],
+  "bilan_tests": {
+   "confirmée": 1,
+   "réfutée": 1
+  },
+  "resultats_solides": [
+   "H51"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "obesity-level-indicators",
+    "variables": "signal -> Gender",
+    "type": "attribut_cache",
+    "explication": "Le genre peut être prédit à partir des mesures morphologiques et du mode de vie, reflétant les dimorphismes sexuels de composition corporelle.",
+    "detail": "confirmé — balanced_accuracy = 0.92 sur d'autres personnes / lignes (hasard 0.50)"
+   },
+   {
+    "dataset": "Tomerd88/obesity-lifestyle-analysis",
+    "variables": "signal -> Gender",
+    "type": "attribut_cache",
+    "explication": "Confirmation du dimorphisme morphologique et comportemental permettant de prédire le genre à partir des habitudes de vie.",
+    "detail": "confirmé — balanced_accuracy = 0.91 sur d'autres personnes / lignes (hasard 0.50)"
+   },
+   {
+    "dataset": "obesity-level-indicators",
+    "variables": "signal -> Age",
+    "type": "attribut_cache",
+    "explication": "L'âge est fortement corrélé au profil pondéral et aux habitudes dans la cohorte d'obésité.",
+    "detail": "confirmé — r2 = 0.47 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   {
+    "dataset": "Pima-Indians-Diabetes-Dataset",
+    "variables": "Insulin ~ Outcome",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Relation non linéaire confirmée entre les niveaux d'insuline et le statut diabétique.",
+    "detail": "confirmé — ρ = +0.58 sur 384 lignes (découverte : +0.54)"
+   },
+   {
+    "dataset": "Tomerd88/obesity-lifestyle-analysis",
+    "variables": "signal -> Age",
+    "type": "attribut_cache",
+    "explication": "L'âge présente un lien prédictif net avec le profil pondéral et comportemental.",
+    "detail": "confirmé — r2 = 0.57 sur d'autres personnes / lignes (hasard 0.00)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre Glucose et Outcome change-t-il selon l'âge au-dessus de 40 ans ?",
+   "Le lien entre Weight et NObeyesdad change-t-il selon le Gender ?",
+   "Le lien entre BMI et highBP change-t-il selon le statut Smoking ?",
+   "Le lien entre BMI et Insulin présente-t-il une modification de pente au seuil de 30.0 pour l'obésité ?"
+  ],
+  "runs": [
+   "2026-11-19_0330_diabet"
+  ]
+ },
+ "en_chiffres": [
+  "9 datasets analysés",
+  "2 hypothèses testées : 1 confirmée, 1 réfutée",
+  "1 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête métabolique : quand les données dessinent les profils",
+ "chapo": "La Raspberry Pi a passé la nuit du 19 novembre 2026 à enquêter sur les facteurs modifiant le lien entre poids, glycémie et maladie.",
+ "paragraphes": [
+  "Durant cette session d'analyse portant sur le sujet de la santé métabolique, l'exploration s'est penchée sur plusieurs hypothèses pour vérifier si la main utilisée lors de gestes pouvait être prédite à partir de coordonnées spatiales et pelviennes, obtenant ainsi un résultat solide à ce stade. En revanche, l'hypothèse testant si le lien entre le cadre d'un pic et la longueur d'un clip changeait selon la main a été réfutée, ce qui constitue une information utile pour écarter cette piste.",
+  "L'enquête a également mis en lumière plusieurs pistes intéressantes concernant les attributs cachés et les relations observées. Par exemple, le genre et l'âge ont pu être prédits à partir de mesures morphologiques et d'habitudes de vie. De plus, une relation non linéaire a été confirmée entre les niveaux d'insuline et le statut diabétique. Ces vérifications ouvrent de nouvelles questions pour les prochaines nuits d'analyse du robot chercheur."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la relation entre obésité, âge et facteurs de mode de vie",
+    "requetes": [
+     "obesity risk factors age lifestyle",
+     "obesity lifestyle analysis review"
+    ]
+   },
+   {
+    "theme": "la prédiction du diabète et les niveaux d'insuline",
+    "requetes": [
+     "early stage diabetes prediction insulin",
+     "diabetes risk prediction models"
+    ]
+   }
+  ],
+  "titre": "Poids, âge et diabète : ce que sait la science",
+  "paragraphes": [
+   "L'excès de poids et l'obésité, c'est-à-dire un indice de masse corporelle supérieur à 30, augmentent de façon importante à travers le monde [1, 2]. La recherche sait que l'obésité, l'âge et le mode de vie influencent les modifications de notre organisme et augmentent les risques de maladies liées au vieillissement [1, 3]. Par exemple, le régime alimentaire occidental et le manque d'activité physique contribuent fortement à l'augmentation de l'obésité [2]. D'autres facteurs comme le tabagisme et l'âge jouent également un rôle dans les risques pour la santé [3].",
+   "Du côté du diabète, la maladie est liée à des modifications de la production d'insuline, l'hormone qui régule le taux de sucre dans le sang, souvent influencée par la génétique [4, 5]. Les scientifiques étudient comment certains anticorps et des anomalies de nos cellules permettent de prédire l'apparition des différents types de diabète [4, 5, 6]. Cependant, les interactions exactes entre les divers facteurs environnementaux et biologiques restent à préciser. Ces observations permettent de s'interroger sur la manière dont l'âge, le sexe, le tabac et le mode de vie modifient les liens complexes entre le poids, la glycémie et l'apparition de maladies."
+  ],
+  "references": [
+   {
+    "titre": "The epigenetic aging, obesity, and lifestyle",
+    "annee": 2022,
+    "auteurs": "Franzago et al.",
+    "revue": "Frontiers in Cell and Developmental Biology",
+    "citations": 88,
+    "url": "https://doi.org/10.3389/fcell.2022.985274",
+    "theme": "la relation entre obésité, âge et facteurs de mode de vie"
+   },
+   {
+    "titre": "Prevalence, risk factors, and interventions for obesity in Saudi Arabia: A systematic review",
+    "annee": 2022,
+    "auteurs": "Salem et al.",
+    "revue": "Obesity Reviews",
+    "citations": 192,
+    "url": "https://doi.org/10.1111/obr.13448",
+    "theme": "la relation entre obésité, âge et facteurs de mode de vie"
+   },
+   {
+    "titre": "The Impact of Lifestyle Risk Factors on Female Infertility",
+    "annee": 2007,
+    "auteurs": "Kelly‐Weeder & Cox",
+    "revue": "Women & Health",
+    "citations": 145,
+    "url": "https://doi.org/10.1300/j013v44n04_01",
+    "theme": "la relation entre obésité, âge et facteurs de mode de vie"
+   },
+   {
+    "titre": "Early prediction of autoimmune (type 1) diabetes",
+    "annee": 2017,
+    "auteurs": "Regnell & Lernmark",
+    "revue": "Diabetologia",
+    "citations": 237,
+    "url": "https://doi.org/10.1007/s00125-017-4308-1",
+    "theme": "la prédiction du diabète et les niveaux d'insuline"
+   },
+   {
+    "titre": "Diabetes and Insulin Secretion",
+    "annee": 2005,
+    "auteurs": "Koster et al.",
+    "revue": "Diabetes",
+    "citations": 200,
+    "url": "https://doi.org/10.2337/diabetes.54.11.3065",
+    "theme": "la prédiction du diabète et les niveaux d'insuline"
+   },
+   {
+    "titre": "Autoimmune Diabetes Not Requiring Insulin at Diagnosis (Latent Autoimmune Diabetes of the Adult)",
+    "annee": 2001,
+    "auteurs": "Pozzilli & Mario",
+    "revue": "Diabetes Care",
+    "citations": 336,
+    "url": "https://doi.org/10.2337/diacare.24.8.1460",
+    "theme": "la prédiction du diabète et les niveaux d'insuline"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
