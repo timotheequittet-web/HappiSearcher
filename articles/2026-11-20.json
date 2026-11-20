@@ -1,0 +1,209 @@
+{
+ "date": "2026-11-20",
+ "faits": {
+  "date": "2026-11-20",
+  "date_longue": "20 novembre 2026",
+  "sujets": [
+   "Signatures dans la démarche (IMU)"
+  ],
+  "questions": [
+   "Les signaux d'accéléromètre et de gyroscope (téléphone, montre) trahissent-ils le genre, l'âge ou l'identité de la personne, et quels axes portent cette information ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "jerredchen00/image-as-an-imu-finetuning",
+    "lignes": 513,
+    "colonnes": 15,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   },
+   {
+    "nom": "rockerritesh/accelerometerData",
+    "lignes": 44724,
+    "colonnes": 4,
+    "resultats_bruts": 7,
+    "confirmes_sur_moitie_independante": 4
+   }
+  ],
+  "datasets_ecartes": 7,
+  "hypotheses_testees": [
+   {
+    "id": "H53",
+    "enonce": "Le lien entre Glucose et Outcome change-t-il selon l'âge au-dessus de 40 ans ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans Pima-Indians-Diabetes-Dataset, la corrélation Glucose~Outcome vaut +0.40 pour « Age > 40 » contre +0.48 pour « Age ≤ 40 » (p = 0.42).",
+    "bloque_a": null,
+    "litterature": "L'interaction entre l'âge et la glycémie sur le risque de diabète est abondamment documentée dans la littérature métabolique."
+   },
+   {
+    "id": "H54",
+    "enonce": "Le lien entre Weight et NObeyesdad change-t-il selon le Gender ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "pas assez de données dans les sous-groupes",
+    "bloque_a": null,
+    "litterature": "Le dimorphisme sexuel dans la composition corporelle et la relation poids-obésité est un fait clinique établi."
+   },
+   {
+    "id": "H55",
+    "enonce": "Le lien entre BMI et highBP change-t-il selon le statut Smoking ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans Diabetes-Dataset-2019, la corrélation BMI~highBP vaut +0.51 pour « Smoking = yes » contre +0.09 pour « Smoking = no » (écart 0.42, p = 0.00034).",
+    "bloque_a": "Nouveau : déjà partiellement étudié",
+    "litterature": "L'amplification de l'effet de l'IMC sur l'hypertension chez les fumeurs est observée mais les mécanismes précis d'interaction restent discutés."
+   },
+   {
+    "id": "H56",
+    "enonce": "Le lien entre BMI et Insulin présente-t-il une modification de pente au seuil de 30.0 pour l'obésité ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans Pima-Indians-Diabetes-Dataset, la corrélation BMI~Insulin vaut +0.11 pour « BMI > 30 » contre +0.20 pour « BMI ≤ 30 » (p = 0.44).",
+    "bloque_a": null,
+    "litterature": "Le lien non linéaire et le plateau d'insuline selon le seuil d'obésité de 30 kg/m² sont largement décrits dans les études sur la résistance à l'insuline."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 1,
+   "non testable": 1,
+   "confirmée": 1,
+   "réfutée": 1
+  },
+  "resultats_solides": [
+   "H55"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "rockerritesh/accelerometerData",
+    "variables": "x ~ z",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "La corrélation non linéaire entre axes x et z suggère une trajectoire curviligne typique des mouvements de main ou de balancement.",
+    "detail": "confirmé — ρ = +0.36 sur 20000 lignes (découverte : +0.38)"
+   },
+   {
+    "dataset": "jerredchen00/image-as-an-imu-finetuning",
+    "variables": "bRa_qx ~ bta_y",
+    "type": "correlation",
+    "explication": "L'orientation spatiale (bRa_qx) est très fortement liée à la composante de translation bta_y, reflétant le couplage cinématique corps-capteur.",
+    "detail": "confirmé — ρ = -0.80 sur 254 lignes (découverte : -0.79)"
+   },
+   {
+    "dataset": "jerredchen00/image-as-an-imu-finetuning",
+    "variables": "bRa_qx ~ bta_z",
+    "type": "correlation",
+    "explication": "Le couplage négatif robuste entre rotation x et translation z illustre la compensation angulaire lors des mouvements d'élévation.",
+    "detail": "confirmé — ρ = -0.74 sur 254 lignes (découverte : -0.77)"
+   },
+   {
+    "dataset": "rockerritesh/accelerometerData",
+    "variables": "y ~ z",
+    "type": "correlation",
+    "explication": "L'anticorrélation forte entre y et z reflète le basculement d'inclinaison de l'appareil mobile dans le plan vertical sagittal.",
+    "detail": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.76)"
+   },
+   {
+    "dataset": "rockerritesh/accelerometerData",
+    "variables": "x ~ y",
+    "type": "correlation",
+    "explication": "L'anticorrélation x-y traduit la compensation dans le plan transversal et frontal lors de la manipulation du smartphone.",
+    "detail": "confirmé — ρ = -0.66 sur 20000 lignes (découverte : -0.67)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre z et y présente-t-il une pente plus forte en dessous du seuil de 0.0 pour z dans accelerometerData ?",
+   "Le lien entre x et y présente-t-il une modification de pente de part et d'autre de 0.0 pour x dans accelerometerData ?",
+   "Le lien entre y et z se retrouve-t-il dans d'autres datasets de démarche ou capteurs inertiels ?",
+   "Le lien entre bRa_qx et bta_y présente-t-il une pente plus forte au-dessus du seuil de 0.0 pour bRa_qx dans image-as-an-imu-finetuning ?"
+  ],
+  "runs": [
+   "2026-11-20_0330_imu"
+  ]
+ },
+ "en_chiffres": [
+  "2 datasets analysés, 7 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 1 non concluante, 1 non testable, 1 confirmée, 1 réfutée",
+  "1 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Mouvements et métabolisme : l'enquête nocturne de la Raspberry",
+ "chapo": "Durant la nuit du 20 novembre 2026, la Raspberry s'est penchée sur les signaux des capteurs de mouvement et a passé au crible 4 hypothèses statistiques.",
+ "paragraphes": [
+  "Sur le front des hypothèses, la machine a obtenu 1 résultat solide à ce stade avec l'hypothèse H55. Les données indiquent que le lien entre l'indice de masse corporelle (BMI) et la tension élevée (highBP) varie selon le statut tabagique : la corrélation atteint +0.51 pour « Smoking = yes » contre +0.09 pour « Smoking = no » (écart de 0.42, p = 0.00034). En revanche, l'existence d'une modification de pente entre BMI et insuline au seuil d'obésité de 30.0 (H56) est réfutée (p = 0.44), avec des corrélations respectives de +0.11 au-dessus du seuil et +0.20 en dessous.",
+  "En parallèle, l'exploration des données inertielles a dégagé plusieurs pistes prometteuses sur la dynamique des mouvements. La Raspberry a notamment relevé une forte anticorrélation entre les axes y et z (ρ = -0.75), qui reflète le basculement de l'appareil, ainsi qu'un lien très net entre rotation spatiale bRa_qx et composante de translation bta_y (ρ = -0.80). Ces constats génèrent 4 nouvelles hypothèses pour les prochaines nuits."
+ ],
+ "redaction": "rédigé par gemini-3.8-flash, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "Biométrie et reconnaissance du profil par analyse de la démarche via IMU",
+    "requetes": [
+     "inertial sensor gait biometric recognition",
+     "smartphone accelerometer gait analysis review"
+    ]
+   },
+   {
+    "theme": "Estimation cinématique et orientation corporelle par capteurs inertiels portables",
+    "requetes": [
+     "wearable IMU kinematic motion tracking",
+     "inertial sensor human motion capture"
+    ]
+   }
+  ],
+  "titre": "Lectures de référence",
+  "paragraphes": [],
+  "references": [
+   {
+    "titre": "Inertial Sensor-Based Gait Recognition: A Review",
+    "annee": 2015,
+    "auteurs": "Šprager & Jurič",
+    "revue": "Sensors",
+    "citations": 404,
+    "url": "https://doi.org/10.3390/s150922089",
+    "theme": "Biométrie et reconnaissance du profil par analyse de la démarche via IMU"
+   },
+   {
+    "titre": "Gait Analysis Using Wearable Sensors",
+    "annee": 2012,
+    "auteurs": "Tao et al.",
+    "revue": "Sensors",
+    "citations": 1422,
+    "url": "https://doi.org/10.3390/s120202255",
+    "theme": "Biométrie et reconnaissance du profil par analyse de la démarche via IMU"
+   },
+   {
+    "titre": "Class Energy Image Analysis for Video Sensor-Based Gait Recognition: A Review",
+    "annee": 2015,
+    "auteurs": "Lv et al.",
+    "revue": "Sensors",
+    "citations": 45,
+    "url": "https://doi.org/10.3390/s150100932",
+    "theme": "Biométrie et reconnaissance du profil par analyse de la démarche via IMU"
+   },
+   {
+    "titre": "IMU-Based Systems for Upper-Limb Kinematic Analysis in Clinical Applications: A Systematic Review",
+    "annee": 2024,
+    "auteurs": "Favata et al.",
+    "revue": "IEEE Sensors Journal",
+    "citations": 47,
+    "url": "https://doi.org/10.1109/jsen.2024.3436532",
+    "theme": "Estimation cinématique et orientation corporelle par capteurs inertiels portables"
+   },
+   {
+    "titre": "Exploring the Role of Wearable Technology in Sport Kinematics and Kinetics: A Systematic Review",
+    "annee": 2019,
+    "auteurs": "Adesida et al.",
+    "revue": "Sensors",
+    "citations": 375,
+    "url": "https://doi.org/10.3390/s19071597",
+    "theme": "Estimation cinématique et orientation corporelle par capteurs inertiels portables"
+   }
+  ],
+  "redaction": "Sélection automatique d'articles de synthèse (OpenAlex), sans texte rédigé"
+ }
+}
