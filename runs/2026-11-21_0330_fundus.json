@@ -1,0 +1,1205 @@
+{
+ "id": "2026-11-21_0330_fundus",
+ "date": "2026-11-21T03:36",
+ "sujet": "Ce que révèle l'œil",
+ "question": "Les images de l'œil (fond d'œil, rétine, iris) contiennent-elles des informations au-delà du diagnostic, comme le sexe, l'âge ou une maladie générale ?",
+ "keywords": [
+  "fundus",
+  "retina",
+  "retinal",
+  "iris",
+  "eye",
+  "ophthalm",
+  "diabetic retinopathy",
+  "glaucoma"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des images de fond d'œil montre que les métriques visuelles de base (luminosité, canaux de couleur) corrèlent fortement entre elles, tandis que les métriques globales permettent d'obtenir des indices sur certaines pathologies ou sources de données. Toutefois, la prédiction fine des classes diagnostiques à partir de simples statistiques d'image reste limitée sans modèles de deep learning avancés. La recherche se poursuit pour évaluer si ces caractéristiques de capture contiennent des biais cachés liés aux patients.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "artefact",
+    "explication": "La concentration anormale des cas dans une source spécifique (rfmid2) reflète un biais de collection de données plutôt qu'une relation biologique.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "La concentration des anomalies par famille/centre (NANDED_INDIA) indique un effet de site ou d'origine géographique.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "artefact",
+    "explication": "La surreprésentation des anomalies en Inde est un artefact lié aux jeux de données sources inclus dans le benchmark.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "artefact",
+    "explication": "La concentration sur la raison d'étiquetage 'unmapped_condition' est un artéfact de structuration de métadonnées.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "artefact",
+    "explication": "La répartition inégale selon les splits d'évaluation traduit des choix de partitionnement des données.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Le lien entre le rognage sombre (dark_clip) et la résolution de l'image (orig_height) dépend des algorithmes de redimensionnement.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "La forte corrélation entre la luminosité globale (brightness) et le canal vert (mean_g) est mécanique dans les images couleur RVB.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "La corrélation entre la luminosité et le canal rouge (mean_r) relève de la définition mathématique de la luminance.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Il est possible de prédire partiellement la classe diagnostique à partir de statistiques visuelles simples normalisées, montrant l'existence de signatures physiques globales.",
+    "hypothese": "Le lien entre brightness et label varie-t-il selon la région d'acquisition de l'image dans FundusShift ?"
+   }
+  },
+  "pistes": [
+   "Étudier l'impact des variations d'illumination (brightness) sur la détection des pathologies rétiniennes.",
+   "Analyser si les artefacts de capture (contraste, netteté) masquent des informations cliniques sur l'âge ou le sexe.",
+   "Évaluer l'effet de la résolution d'origine (orig_width) sur la précision des scores de diagnostic de la rétinopathie diabétique."
+  ],
+  "nouveautes": {
+   "57": {
+    "id": "H57",
+    "nouveaute": "deja_connu",
+    "explication": "L'utilisation de capteurs accélérométriques pour l'analyse du mouvement est un sujet amplement documenté en biomécanique."
+   },
+   "58": {
+    "id": "H58",
+    "nouveaute": "deja_connu",
+    "explication": "La dynamique du mouvement humain capturée par smartphone fait l'objet d'une vaste littérature en kinésiologie."
+   },
+   "59": {
+    "id": "H59",
+    "nouveaute": "partiellement_etudie",
+    "explication": "L'estimation de la phase de marche par IMU est bien étudiée, mais la généralisation inter-dataset reste un défi ouvert."
+   },
+   "60": {
+    "id": "H60",
+    "nouveaute": "deja_connu",
+    "explication": "Les filtres basés sur les quaternions pour l'orientation des IMU sont des méthodes standards en traitement du signal."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:le-dang1haha/FundusShift",
+    "x": "brightness",
+    "y": "contrast",
+    "groupe": "region",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre brightness et contrast change-t-il selon la region dans FundusShift ?",
+    "requete_biblio": "retinal fundus image illumination contrast region analysis"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:le-dang1haha/FundusShift",
+    "x": "sharpness",
+    "y": "mean_g",
+    "groupe": "normal_scope",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre sharpness et mean_g change-t-il selon la normal_scope dans FundusShift ?",
+    "requete_biblio": "fundus image sharpness green channel normality"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:le-dang1haha/FundusShift",
+    "x": "fov_fraction",
+    "y": "brightness",
+    "seuil": 0.8,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre fov_fraction et brightness présente-t-il une pente plus forte au-dessus du seuil de 0.8 pour fov_fraction dans FundusShift ?",
+    "requete_biblio": "field of view fraction fundus image brightness threshold"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> source = rfmid2",
+   "stat": 27.9,
+   "score": 0.9,
+   "detail": {
+    "taux_dans_ce_groupe": "55.7%",
+    "taux_global": "2.0%",
+    "p": 0.0,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "artefact",
+    "explication": "La concentration anormale des cas dans une source spécifique (rfmid2) reflète un biais de collection de données plutôt qu'une relation biologique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> family = NANDED_INDIA",
+   "stat": 17.4,
+   "score": 0.9,
+   "detail": {
+    "taux_dans_ce_groupe": "34.8%",
+    "taux_global": "2.0%",
+    "p": 0.0,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "artefact",
+    "explication": "La concentration des anomalies par famille/centre (NANDED_INDIA) indique un effet de site ou d'origine géographique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> country = India",
+   "stat": 9.6,
+   "score": 0.9,
+   "detail": {
+    "taux_dans_ce_groupe": "19.2%",
+    "taux_global": "2.0%",
+    "p": 0.0,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "artefact",
+    "explication": "La surreprésentation des anomalies en Inde est un artefact lié aux jeux de données sources inclus dans le benchmark.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> label_reason = unmapped_condition",
+   "stat": 12.4,
+   "score": 0.9,
+   "detail": {
+    "taux_dans_ce_groupe": "24.9%",
+    "taux_global": "2.0%",
+    "p": 0.0,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "artefact",
+    "explication": "La concentration sur la raison d'étiquetage 'unmapped_condition' est un artéfact de structuration de métadonnées.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> split = unused",
+   "stat": 5.9,
+   "score": 0.7927120669056152,
+   "detail": {
+    "taux_dans_ce_groupe": "11.7%",
+    "taux_global": "2.0%",
+    "p": 6.6e-298,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "artefact",
+    "explication": "La répartition inégale selon les splits d'évaluation traduit des choix de partitionnement des données.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "dark_clip ~ orig_height",
+   "stat": 0.29,
+   "score": 0.7904795204716346,
+   "detail": {
+    "spearman": -0.303,
+    "pearson": 0.012,
+    "n": 19995,
+    "confirmation": "confirmé — ρ = -0.32 sur 19999 lignes (découverte : -0.30)"
+   },
+   "confirme": 1.0,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Le lien entre le rognage sombre (dark_clip) et la résolution de l'image (orig_height) dépend des algorithmes de redimensionnement.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "brightness ~ mean_g",
+   "stat": 0.97,
+   "score": 0.7762149204296872,
+   "detail": {
+    "spearman": 0.97,
+    "pearson": 0.972,
+    "n": 19995,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.97 sur 19999 lignes (découverte : +0.97)"
+   },
+   "confirme": 1.0,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "La forte corrélation entre la luminosité globale (brightness) et le canal vert (mean_g) est mécanique dans les images couleur RVB.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "brightness ~ mean_r",
+   "stat": 0.916,
+   "score": 0.7329581623828441,
+   "detail": {
+    "spearman": 0.916,
+    "pearson": 0.919,
+    "n": 19995,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.92 sur 19999 lignes (découverte : +0.92)"
+   },
+   "confirme": 1.0,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "La corrélation entre la luminosité et le canal rouge (mean_r) relève de la définition mathématique de la luminance.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "classe_predictible_par_stats_simples",
+   "vars": "17 stats visuelles -> classe",
+   "stat": 0.48,
+   "score": 0.0708994708994708,
+   "detail": {
+    "balanced_accuracy_toutes": 0.48,
+    "balanced_accuracy_normalisees_seules": 0.535,
+    "hasard": 0.5,
+    "n_images": 181,
+    "confirmation": "confirmé — précision 0.64 sur d'autres images (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "le-dang1haha/FundusShift",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Il est possible de prédire partiellement la classe diagnostique à partir de statistiques visuelles simples normalisées, montrant l'existence de signatures physiques globales.",
+    "hypothese": "Le lien entre brightness et label varie-t-il selon la région d'acquisition de l'image dans FundusShift ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "le-dang1haha/FundusShift",
+    "labels": [
+     "N",
+     "D",
+     "G"
+    ],
+    "total_rows": 23805,
+    "url": "https://huggingface.co/datasets/le-dang1haha/FundusShift",
+    "niveaux_de_gris": false,
+    "moities": {
+     "decouverte": 181,
+     "confirmation": 179
+    }
+   },
+   "lignes": 360,
+   "colonnes": 17,
+   "fig": null,
+   "n_findings": 1,
+   "findings": [
+    {
+     "kind": "classe_predictible_par_stats_simples",
+     "vars": "17 stats visuelles -> classe",
+     "stat": 0.48,
+     "score": 0.0708994708994708,
+     "detail": {
+      "balanced_accuracy_toutes": 0.48,
+      "balanced_accuracy_normalisees_seules": 0.535,
+      "hasard": 0.5,
+      "n_images": 181,
+      "confirmation": "confirmé — précision 0.64 sur d'autres images (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Il est possible de prédire partiellement la classe diagnostique à partir de statistiques visuelles simples normalisées, montrant l'existence de signatures physiques globales.",
+      "hypothese": "Le lien entre brightness et label varie-t-il selon la région d'acquisition de l'image dans FundusShift ?"
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "abirT/combined_ophthalmology_evaluation_dataset",
+    "target": null,
+    "description": "",
+    "fichier": "data/dataset-00000-of-00001.parquet",
+    "url": "https://huggingface.co/datasets/abirT/combined_ophthalmology_evaluation_dataset",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 8400,
+     "confirmation": 8485
+    },
+    "did": "hf:abirT/combined_ophthalmology_evaluation_dataset",
+    "colonnes": {
+     "num": [],
+     "groupes": []
+    }
+   },
+   "lignes": 16885,
+   "colonnes": 3,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "le-dang1haha/FundusShift",
+    "target": "label",
+    "description": "FundusShift A source-held-out benchmark for colour fundus screening under acquisition shift. FundusShift harmonises 15 openly licensed colour fundus photograph collections into one screening task and evaluates models on whole collections that never appear in development . It keeps the native annotation and the collection identity next to the harmonised label, removes duplicates and patient overlap",
+    "fichier": "metadata/splits_final.csv",
+    "url": "https://huggingface.co/datasets/le-dang1haha/FundusShift",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 20240,
+     "confirmation": 20000
+    },
+    "did": "hf:le-dang1haha/FundusShift",
+    "colonnes": {
+     "num": [
+      "fov_fraction",
+      "brightness",
+      "contrast",
+      "sharpness",
+      "dark_clip",
+      "bright_clip",
+      "mean_r",
+      "mean_g",
+      "mean_b",
+      "proc_width",
+      "proc_height",
+      "orig_width",
+      "orig_height",
+      "aspect"
+     ],
+     "groupes": [
+      "split",
+      "region",
+      "label",
+      "label_reason",
+      "normal_scope"
+     ]
+    }
+   },
+   "lignes": 40414,
+   "colonnes": 35,
+   "fig": "2026-11-21_le_dang1haha_FundusShift.png",
+   "n_findings": 47,
+   "findings": [
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> source = rfmid2",
+     "stat": 27.9,
+     "score": 0.9,
+     "detail": {
+      "taux_dans_ce_groupe": "55.7%",
+      "taux_global": "2.0%",
+      "p": 0.0,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "artefact",
+      "explication": "La concentration anormale des cas dans une source spécifique (rfmid2) reflète un biais de collection de données plutôt qu'une relation biologique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> family = NANDED_INDIA",
+     "stat": 17.4,
+     "score": 0.9,
+     "detail": {
+      "taux_dans_ce_groupe": "34.8%",
+      "taux_global": "2.0%",
+      "p": 0.0,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "artefact",
+      "explication": "La concentration des anomalies par famille/centre (NANDED_INDIA) indique un effet de site ou d'origine géographique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> country = India",
+     "stat": 9.6,
+     "score": 0.9,
+     "detail": {
+      "taux_dans_ce_groupe": "19.2%",
+      "taux_global": "2.0%",
+      "p": 0.0,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "artefact",
+      "explication": "La surreprésentation des anomalies en Inde est un artefact lié aux jeux de données sources inclus dans le benchmark.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> label_reason = unmapped_condition",
+     "stat": 12.4,
+     "score": 0.9,
+     "detail": {
+      "taux_dans_ce_groupe": "24.9%",
+      "taux_global": "2.0%",
+      "p": 0.0,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "artefact",
+      "explication": "La concentration sur la raison d'étiquetage 'unmapped_condition' est un artéfact de structuration de métadonnées.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> split = unused",
+     "stat": 5.9,
+     "score": 0.7927120669056152,
+     "detail": {
+      "taux_dans_ce_groupe": "11.7%",
+      "taux_global": "2.0%",
+      "p": 6.6e-298,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "artefact",
+      "explication": "La répartition inégale selon les splits d'évaluation traduit des choix de partitionnement des données.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "dark_clip ~ orig_height",
+     "stat": 0.29,
+     "score": 0.7904795204716346,
+     "detail": {
+      "spearman": -0.303,
+      "pearson": 0.012,
+      "n": 19995,
+      "confirmation": "confirmé — ρ = -0.32 sur 19999 lignes (découverte : -0.30)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Le lien entre le rognage sombre (dark_clip) et la résolution de l'image (orig_height) dépend des algorithmes de redimensionnement.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "brightness ~ mean_g",
+     "stat": 0.97,
+     "score": 0.7762149204296872,
+     "detail": {
+      "spearman": 0.97,
+      "pearson": 0.972,
+      "n": 19995,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.97 sur 19999 lignes (découverte : +0.97)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "La forte corrélation entre la luminosité globale (brightness) et le canal vert (mean_g) est mécanique dans les images couleur RVB.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "brightness ~ mean_r",
+     "stat": 0.916,
+     "score": 0.7329581623828441,
+     "detail": {
+      "spearman": 0.916,
+      "pearson": 0.919,
+      "n": 19995,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.92 sur 19999 lignes (découverte : +0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "La corrélation entre la luminosité et le canal rouge (mean_r) relève de la définition mathématique de la luminance.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "family ~ normal_scope",
+     "stat": 0.979,
+     "score": 0.6853817818571142,
+     "detail": {
+      "cramers_v": 0.979,
+      "p": 0.0,
+      "confirmation": "confirmé — V = 0.98 (découverte : 0.98)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift"
+    },
+    {
+     "kind": "correlation",
+     "vars": "orig_width ~ orig_height",
+     "stat": 0.852,
+     "score": 0.6812794477743715,
+     "detail": {
+      "spearman": 0.852,
+      "pearson": 0.869,
+      "n": 19995,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.85 sur 19999 lignes (découverte : +0.85)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift"
+    },
+    {
+     "kind": "correlation",
+     "vars": "mean_r ~ mean_g",
+     "stat": 0.851,
+     "score": 0.6806219035726387,
+     "detail": {
+      "spearman": 0.851,
+      "pearson": 0.851,
+      "n": 19995,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.85 sur 19999 lignes (découverte : +0.85)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift"
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> region = South Asia",
+     "stat": 3.4,
+     "score": 0.6695842450765864,
+     "detail": {
+      "taux_dans_ce_groupe": "6.8%",
+      "taux_global": "2.0%",
+      "p": 2.1e-130,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "le-dang1haha/FundusShift"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "country ~ normal_scope",
+     "stat": 0.908,
+     "score": 0.6357625782733675,
+     "detail": {
+      "cramers_v": 0.908,
+      "p": 0.0,
+      "confirmation": "confirmé — V = 0.91 (découverte : 0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift"
+    },
+    {
+     "kind": "correlation",
+     "vars": "brightness ~ mean_b",
+     "stat": 0.739,
+     "score": 0.5913997561772404,
+     "detail": {
+      "spearman": 0.739,
+      "pearson": 0.769,
+      "n": 19995,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.75 sur 19999 lignes (découverte : +0.74)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift"
+    },
+    {
+     "kind": "correlation",
+     "vars": "mean_g ~ mean_b",
+     "stat": 0.721,
+     "score": 0.5765878628519862,
+     "detail": {
+      "spearman": 0.721,
+      "pearson": 0.755,
+      "n": 19995,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.73 sur 19999 lignes (découverte : +0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "le-dang1haha/FundusShift"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "harvardairobotics/Fundus2RNFLT",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/splits?dataset=harvardairobotics%2FFundus2RNFLT"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "SyedaParsa/retinaldisease",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "AbrarShahid/diabetic_retinopathy_rohingya",
+   "erreur": "trop petit ((1450, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "DoB24/fundus-10class-augmented",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Nj-1111/Glaucoma_Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "harvardairobotics/Fundus-CoT",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "YukunZhou/MICCAI_FLARE_diabetic_retinopathy",
+   "erreur": "trop petit ((4558, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "abirT/ophthalmologydataset",
+   "erreur": "trop petit ((2000, 2))"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 57,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:rockerritesh/accelerometerData",
+    "x": "z",
+    "y": "y",
+    "seuil": 0.0,
+    "forme": "pente",
+    "plus_fort": "en_dessous",
+    "enonce": "Le lien entre z et y présente-t-il une pente plus forte en dessous du seuil de 0.0 pour z dans accelerometerData ?",
+    "requete_biblio": "accelerometer sensor hand tilt vertical axis correlation"
+   },
+   "statut": "non testable",
+   "resume": "pas assez de données dans les sous-groupes [Testé sur : moitié de confirmation (22572 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "donnees_test": "moitié de confirmation (22572 lignes jamais vues à l'exploration)"
+   },
+   "sujet": "Signatures dans la démarche (IMU)",
+   "biblio": [
+    {
+     "titre": "Using an accelerometer sensor to measure human hand motion",
+     "annee": 2000,
+     "citations": 52,
+     "url": "https://openalex.org/W1551002110"
+    },
+    {
+     "titre": "The Self‐Calibrating Tilt Accelerometer: A Method for Observing Tilt and Correcting Drift With a Triaxial Accelerometer",
+     "annee": 2024,
+     "citations": 3,
+     "url": "https://doi.org/10.1029/2024ea003909"
+    },
+    {
+     "titre": "City bus seat vibration analysis using 6-axis accelerometer and gyroscope sensors",
+     "annee": 2024,
+     "citations": 11,
+     "url": "https://doi.org/10.1038/s41598-024-80804-5"
+    },
+    {
+     "titre": "A literature review about the deployment of accelerometers as non-seismic soil landslide tilting sensors",
+     "annee": 2025,
+     "citations": 1,
+     "url": "https://doi.org/10.28927/sr.2025.003023"
+    },
+    {
+     "titre": "Tracking bridge tilt behaviour using sensor fusion techniques",
+     "annee": 2020,
+     "citations": 48,
+     "url": "https://doi.org/10.1007/s13349-020-00400-9"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé est correct et utilise le terme 'lien' pour des données observationnelles, mais il introduit un découpage par seuil non testable en l'état.",
+    "reformulation": "Le lien entre l'axe vertical z et la variable y varie-t-il selon les plages de valeurs de z dans accelerometerData ?",
+    "diagnostic_statistique": "Le test a échoué en raison d'un effectif insuffisant dans les sous-groupes formés par le seuil 0.0, empêchant une estimation robuste des pentes.",
+    "modele_recommande": "Régression segmentée ou modèle additif généralisé (GAM) avec splines pour capturer la non-linéarité sans arbitrairement vider les sous-groupes.",
+    "robustesse": "La taille globale du dataset (22572 lignes) est correcte, mais le découpage binaire crée des déséquilibres. Présence potentielle de facteurs de confusion liés aux mouvements brusques ou aux vibrations.",
+    "interpretation_domaine": "En biomécanique ou en analyse de mouvement (accélérométrie), l'axe z capte souvent la gravité (inclinaison) ou les accélérations verticales. Un changement de pente autour de zéro correspond souvent à un changement de posture ou d'orientation.",
+    "action_pipeline": "Ajouter un contrôle préalable sur la distribution de la variable de seuil pour éviter de tester des coupures générant des sous-groupes vides ou trop petits.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'utilisation de capteurs accélérométriques pour l'analyse du mouvement est un sujet amplement documenté en biomécanique.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 58,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:rockerritesh/accelerometerData",
+    "x": "x",
+    "y": "y",
+    "seuil": 0.0,
+    "forme": "pente",
+    "plus_fort": "en_dessous",
+    "enonce": "Le lien entre x et y présente-t-il une modification de pente de part et d'autre de 0.0 pour x dans accelerometerData ?",
+    "requete_biblio": "smartphone accelerometer lateral tilt hand movement"
+   },
+   "statut": "réfutée",
+   "resume": "Dans rockerritesh/accelerometerData, la corrélation x~y vaut -0.20 pour « x ≤ 0 » contre -0.65 pour « x > 0 » (p = 1.4e-212) : effet INVERSE de celui prédit. [Testé sur : moitié de confirmation (22572 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "x ≤ 0": {
+      "rho": -0.204,
+      "pearson": -0.11,
+      "n": 3588
+     },
+     "x > 0": {
+      "rho": -0.649,
+      "pearson": -0.575,
+      "n": 18984
+     }
+    },
+    "groupe_predit_plus_fort": "x ≤ 0",
+    "p_difference": 1.4e-212,
+    "donnees_test": "moitié de confirmation (22572 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.4e-212, seuil corrigé 0.025 (2 tests cette nuit)"
+   },
+   "sujet": "Signatures dans la démarche (IMU)",
+   "biblio": [
+    {
+     "titre": "OpenCap: Human movement dynamics from smartphone videos",
+     "annee": 2023,
+     "citations": 654,
+     "url": "https://doi.org/10.1371/journal.pcbi.1011462"
+    },
+    {
+     "titre": "Tracking the Evolution of Smartphone Sensing for Monitoring Human Movement",
+     "annee": 2015,
+     "citations": 237,
+     "url": "https://doi.org/10.3390/s150818901"
+    },
+    {
+     "titre": "Effect of Body Position and Support Surface on the Postural Control Challenge During the Pallof Press Exercise: A Smartphone Accelerometer-Based Study",
+     "annee": 2025,
+     "citations": 1,
+     "url": "https://doi.org/10.3390/medicina61020312"
+    },
+    {
+     "titre": "Predicting upper-bound text entry speeds for discrete-tilt-based input on smartphones",
+     "annee": 2014,
+     "citations": 5,
+     "url": "https://doi.org/10.1186/s40166-014-0003-6"
+    },
+    {
+     "titre": "Smartphone Sensors for Health Monitoring and Diagnosis",
+     "annee": 2019,
+     "citations": 494,
+     "url": "https://doi.org/10.3390/s19092164"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé cherche à tester un changement de pente autour de 0, ce qui est correct, mais la prédiction initiale (« plus fort en dessous de 0 ») était fausse.",
+    "reformulation": "Comment la relation entre l'accélération x et l'axe y varie-t-elle de part et d'autre du seuil x = 0.0 dans les données d'accéléromètre ?",
+    "diagnostic_statistique": "L'effet observé est statistiquement significatif mais inversé par rapport à l'hypothèse : la corrélation est beaucoup plus forte au-dessus de 0. De plus, les écarts entre Pearson et Spearman (|rho - r| > 0.07) suggèrent une légère non-linéarité ou la présence de valeurs influentes dans les groupes.",
+    "modele_recommande": "Régression segmentée (segmented package sous R) ou modèle additif généralisé (GAM) pour capturer la rupture de pente.",
+    "robustesse": "La taille d'échantillon est très grande (N > 22000), garantissant une forte puissance statistique. Cependant, il s'agit de données observationnelles issues de capteurs de mouvement, sensibles aux bruits d'orientation du smartphone.",
+    "interpretation_domaine": "En biomécanique et analyse du mouvement (comme décrit dans la littérature sur les capteurs smartphones), l'accélération selon les axes traduit l'inclinaison ou les mouvements de l'appareil. Une asymétrie de la corrélation de part et d'autre de 0 reflète souvent une limite physique du geste, une asymétrie posturale ou un effet de seuil gravitationnel sur l'axe.",
+    "action_pipeline": "Mettre à jour le générateur d'hypothèses pour tester les ruptures de pente de manière bilatérale sans présumer du groupe le plus fort.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La dynamique du mouvement humain capturée par smartphone fait l'objet d'une vaste littérature en kinésiologie.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 59,
+   "spec": {
+    "type": "replication",
+    "dataset_id": "hf:rockerritesh/accelerometerData",
+    "x": "y",
+    "y": "z",
+    "mots_cles": [
+     "accelerometer",
+     "imu",
+     "gait",
+     "walking"
+    ],
+    "enonce": "Le lien entre y et z se retrouve-t-il dans d'autres datasets de démarche ou capteurs inertiels ?",
+    "requete_biblio": "imu vertical forward acceleration gait analysis"
+   },
+   "statut": "non concluante",
+   "resume": "Aucun autre dataset contenant à la fois « y » et « z » n'a été trouvé. [Testé sur : moitié de confirmation (22572 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "origine": {
+     "rho": -0.75,
+     "n": 22572
+    },
+    "donnees_test": "moitié de confirmation (22572 lignes jamais vues à l'exploration)"
+   },
+   "sujet": "Signatures dans la démarche (IMU)",
+   "biblio": [
+    {
+     "titre": "IMU-Based Joint Angle Measurement for Gait Analysis",
+     "annee": 2014,
+     "citations": 1011,
+     "url": "https://doi.org/10.3390/s140406891"
+    },
+    {
+     "titre": "Gait Phase Estimation by Using LSTM in IMU-Based Gait Analysis—Proof of Concept",
+     "annee": 2021,
+     "citations": 86,
+     "url": "https://doi.org/10.3390/s21175749"
+    },
+    {
+     "titre": "A Novel Foot-Forward Segmentation Algorithm for Improving IMU-Based Gait Analysis",
+     "annee": 2024,
+     "citations": 19,
+     "url": "https://doi.org/10.1109/tim.2024.3449951"
+    },
+    {
+     "titre": "Is This the Real Life, or Is This Just Laboratory? A Scoping Review of IMU-Based Running Gait Analysis",
+     "annee": 2022,
+     "citations": 132,
+     "url": "https://doi.org/10.3390/s22051722"
+    },
+    {
+     "titre": "Estimating vertical ground reaction forces during gait from lower limb kinematics and vertical acceleration using wearable inertial sensors",
+     "annee": 2023,
+     "citations": 31,
+     "url": "https://doi.org/10.3389/fbioe.2023.1199459"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé cherche à évaluer la réplication de l'analyse sur d'autres datasets, ce qui relève d'une méta-analyse ou d'une validation externe plutôt que d'un test d'hypothèse statistique intrinsèque au dataset unique présent.",
+    "reformulation": "La structure du lien entre y et z observée dans ce dataset est-elle généralisable à d'autres mesures de capteurs inertiels similaires ?",
+    "diagnostic_statistique": "Forte corrélation linéaire négative initiale (rho = -0.75, n = 22572), mais impossibilité technique d'effectuer une réplication externe faute de trouver d'autres datasets contenant simultanément ces variables.",
+    "modele_recommande": "Aucun modèle statistique supplémentaire sur ce dataset ne résout le manque de données externes ; privilégier la recherche de bases de données ouvertes alternatives (PhysioNet, UCI Machine Learning Repository).",
+    "robustesse": "La taille de l'échantillon d'origine est très satisfaisante (n = 22,572), mais l'absence de réplication externe limite fortement la validité externe et expose à un risque de sur-apprentissage lié au contexte spécifique du capteur.",
+    "interpretation_domaine": "En biomécanique et analyse de la marche (gait analysis), les relations entre axes de capteurs inertiels dépendent fortement du placement exact du capteur et de la calibration, ce qui explique la difficulté à trouver des variables strictement équivalentes dans d'autres datasets.",
+    "action_pipeline": "Ajouter une étape de vérification de la disponibilité des datasets externes avant de lancer le test de réplication, et élargir les critères de recherche sémantique pour les mots-clés des capteurs inertiels.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "L'estimation de la phase de marche par IMU est bien étudiée, mais la généralisation inter-dataset reste un défi ouvert.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 60,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:jerredchen00/image-as-an-imu-finetuning",
+    "x": "bRa_qx",
+    "y": "bta_y",
+    "seuil": 0.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre bRa_qx et bta_y présente-t-il une pente plus forte au-dessus du seuil de 0.0 pour bRa_qx dans image-as-an-imu-finetuning ?",
+    "requete_biblio": "quaternion orientation translation camera imu motion"
+   },
+   "statut": "réfutée",
+   "resume": "Dans jerredchen00/image-as-an-imu-finetuning, la corrélation bRa_qx~bta_y vaut -0.53 pour « bRa_qx > 0 » contre -0.59 pour « bRa_qx ≤ 0 » (p = 0.45). [Testé sur : moitié de confirmation (254 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "bRa_qx ≤ 0": {
+      "rho": -0.594,
+      "pearson": -0.626,
+      "n": 119
+     },
+     "bRa_qx > 0": {
+      "rho": -0.528,
+      "pearson": -0.515,
+      "n": 135
+     }
+    },
+    "groupe_predit_plus_fort": "bRa_qx > 0",
+    "p_difference": 0.449,
+    "donnees_test": "moitié de confirmation (254 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.45, seuil corrigé 0.05 (2 tests cette nuit)"
+   },
+   "sujet": "Signatures dans la démarche (IMU)",
+   "biblio": [
+    {
+     "titre": "Keeping a Good Attitude: A Quaternion-Based Orientation Filter for IMUs and MARGs",
+     "annee": 2015,
+     "citations": 427,
+     "url": "https://doi.org/10.3390/s150819302"
+    },
+    {
+     "titre": "fastSW: Efficient Piecewise Linear Approximation of Quaternion-Based Orientation Sensor Signals for Motion Capturing with Wearable IMUs",
+     "annee": 2021,
+     "citations": 2,
+     "url": "https://doi.org/10.3390/s21155180"
+    },
+    {
+     "titre": "Optimization based IMU camera calibration",
+     "annee": 2011,
+     "citations": 70,
+     "url": "https://doi.org/10.1109/iros.2011.6095067"
+    },
+    {
+     "titre": "Mirror Based IMU-camera and Internal Camera Calibration",
+     "annee": 2011,
+     "citations": 6,
+     "url": "https://doi.org/10.1109/rvsp.2011.66"
+    },
+    {
+     "titre": "Pose estimation of a VTOL UAV using IMU, Camera and GPS",
+     "annee": 2010,
+     "citations": 0,
+     "url": "https://openalex.org/W64458623"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé est correct et utilise prudemment le terme « lien ». La formulation cible une non-linéarité sous forme de seuil.",
+    "reformulation": "",
+    "diagnostic_statistique": "La différence de corrélation entre les deux groupes n'est pas statistiquement significative (p = 0.45). Les coefficients de Pearson et Spearman sont proches dans les deux groupes, suggérant une absence de rupture de pente majeure à 0.0.",
+    "modele_recommande": "régression linéaire simple ou GAM pour capturer l'ensemble du nuage de points",
+    "robustesse": "La taille des échantillons (n = 119 et n = 135) est correcte, mais testée sur un jeu de confirmation indépendant. Les données proviennent de mesures de capteurs IMU et caméra, sujettes au bruit cinématique.",
+    "interpretation_domaine": "En cinématique, les quaternions d'orientation (bRa_qx) et les translations (bta_y) sont mathématiquement liés par les transformations de pose, mais un seuil à 0.0 ne correspond pas à une discontinuité physique connue dans les filtres de orientation IMU.",
+    "action_pipeline": "Éviter de tester arbitrairement des seuils à 0.0 sans justification cinématique préalable, et privilégier des tests de non-linéarité continus.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Les filtres basés sur les quaternions pour l'orientation des IMU sont des méthodes standards en traitement du signal.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
