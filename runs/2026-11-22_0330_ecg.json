@@ -1,0 +1,1083 @@
+{
+ "id": "2026-11-22_0330_ecg",
+ "date": "2026-11-22T03:36",
+ "sujet": "Signaux du cœur et du cerveau",
+ "question": "Quels motifs des signaux ECG/EEG distinguent les individus, leur état (éveil, émotion) ou annoncent une anomalie ?",
+ "keywords": [
+  "ecg",
+  "eeg",
+  "emg",
+  "ppg",
+  "heartbeat",
+  "arrhythmia",
+  "eye-state",
+  "sleep stage",
+  "emotion recognition"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des signaux EEG montre de très fortes corrélations de rang entre électrodes homologues et voisines (notamment frontales et occipitales), confirmées sur l'échantillon de test indépendant. L'écart marqué entre Spearman et Pearson met en évidence de fortes non-linéarités ou la présence de dérives et artefacts de signal typiques des casques EEG portables (ex. Emotiv EPOC). Nous explorons comment l'état oculaire (yeux ouverts vs fermés) module la synchronie inter-hémisphérique et la prédictibilité de l'état oculaire à partir des signaux fronto-occipitaux.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Les électrodes frontopolarisées symétriques AF3 et AF4 présentent une corrélation monotone très élevée (rho=0.90), reflétant une forte symétrie bi-frontale du signal EEG.",
+    "hypothese": "La corrélation frontale AF3-AF4 est modifiée par l'ouverture ou la fermeture des yeux (eyeDetection)."
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Les électrodes occipitales et pariétales droites (O2 et P8) sont fortement corrélées (rho=0.79), ce qui correspond à la propagation de l'activité visuelle et du rythme alpha postérieur.",
+    "hypothese": "Le couplage O2-P8 augmente lors de la fermeture des yeux en raison de la synchronisation du rythme alpha."
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "P8 et T8 sont des électrodes adjacentes sur la région temporo-pariétale droite captant largement des signaux de conduction de volume similaires.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "F8 et AF4 sont deux capteurs frontaux droits très proches sur le scalp, dont la covariance est principalement d'origine spatiale.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "T8 et F8 sont adjacentes sur la chaîne latérale droite de l'hémisphère, partageant le même environnement physique et musculaire.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "FC6 et F4 sont situées à proximité immédiate sur le cortex fronto-central droit.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Le couplage F4-AF4 mesure la cohérence antéro-postérieure frontale droite, sensible aux mouvements oculaires et à la concentration.",
+    "hypothese": "Le lien F4-AF4 est plus fort lors des clignements ou mouvements oculaires associés à l'état yeux ouverts."
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "F3 et F4 forment la paire frontale clé pour mesurer l'asymétrie frontale et l'engagement cognitivo-émotionnel.",
+    "hypothese": "La relation entre F3 et F4 varie selon l'état d'ouverture des yeux codé par eyeDetection."
+   }
+  },
+  "pistes": [
+   "Tester si la fermeture des yeux (eyeDetection) amplifie la synchronie inter-hémisphérique postérieure (O1-O2).",
+   "Évaluer dans quelle mesure l'état oculaire est prédictible à partir des seuls capteurs frontaux et occipitaux.",
+   "Analyser si l'asymétrie frontale F3-F4 diffère significativement entre yeux ouverts et fermés."
+  ],
+  "nouveautes": {
+   "61": {
+    "id": "H61",
+    "nouveaute": "deja_connu",
+    "explication": "L'hétérogénéité des caractéristiques photométriques selon les populations et les types d'équipements rétiniens est documentée dans la littérature."
+   },
+   "62": {
+    "id": "H62",
+    "nouveaute": "partiellement_etudie",
+    "explication": "La relation entre netteté et luminance selon la sévérité de la rétinopathie a été explorée pour le contrôle qualité sans être formalisée en corrélation par sous-groupe."
+   },
+   "63": {
+    "id": "H63",
+    "nouveaute": "deja_connu",
+    "explication": "La dépendance non linéaire entre champ de vue effectif et luminosité globale découle de la géométrie optique des rétinographes."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "x": "AF3",
+    "y": "AF4",
+    "groupe": "eyeDetection",
+    "seuil": null,
+    "plus_fort": "0",
+    "enonce": "Le lien entre AF3 et AF4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "EEG eye state detection frontal electrode coherence AF3 AF4"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "x": "O1",
+    "y": "O2",
+    "groupe": "eyeDetection",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre O1 et O2 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "occipital EEG alpha synchronization eye open closed O1 O2"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "x": "F3",
+    "y": "F4",
+    "groupe": "eyeDetection",
+    "seuil": null,
+    "plus_fort": "0",
+    "enonce": "Le lien entre F3 et F4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "frontal asymmetry EEG eye state classification F3 F4"
+   },
+   {
+    "type": "prediction",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "cible": "eyeDetection",
+    "variables": [
+     "AF3",
+     "AF4",
+     "O1",
+     "O2"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire eyeDetection avec seulement AF3, AF4, O1, O2 dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "EEG eye state detection minimal frontal occipital channels"
+   }
+  ],
+  "modele": "gemini-3.8-flash"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "AF3 ~ AF4",
+   "stat": 0.69,
+   "score": 1,
+   "detail": {
+    "spearman": 0.896,
+    "pearson": 0.206,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.90 sur 7535 lignes (découverte : +0.90)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Les électrodes frontopolarisées symétriques AF3 et AF4 présentent une corrélation monotone très élevée (rho=0.90), reflétant une forte symétrie bi-frontale du signal EEG.",
+    "hypothese": "La corrélation frontale AF3-AF4 est modifiée par l'ouverture ou la fermeture des yeux (eyeDetection)."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "O2 ~ P8",
+   "stat": 0.682,
+   "score": 1,
+   "detail": {
+    "spearman": 0.786,
+    "pearson": 0.104,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.79 sur 7535 lignes (découverte : +0.79)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Les électrodes occipitales et pariétales droites (O2 et P8) sont fortement corrélées (rho=0.79), ce qui correspond à la propagation de l'activité visuelle et du rythme alpha postérieur.",
+    "hypothese": "Le couplage O2-P8 augmente lors de la fermeture des yeux en raison de la synchronisation du rythme alpha."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "P8 ~ T8",
+   "stat": 0.54,
+   "score": 1,
+   "detail": {
+    "spearman": 0.72,
+    "pearson": -0.18,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.72 sur 7535 lignes (découverte : +0.72)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "P8 et T8 sont des électrodes adjacentes sur la région temporo-pariétale droite captant largement des signaux de conduction de volume similaires.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "F8 ~ AF4",
+   "stat": 0.521,
+   "score": 1,
+   "detail": {
+    "spearman": 0.733,
+    "pearson": 0.213,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.74 sur 7535 lignes (découverte : +0.73)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "F8 et AF4 sont deux capteurs frontaux droits très proches sur le scalp, dont la covariance est principalement d'origine spatiale.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "T8 ~ F8",
+   "stat": 0.47,
+   "score": 0.9704648068332595,
+   "detail": {
+    "spearman": 0.642,
+    "pearson": -0.171,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.65 sur 7535 lignes (découverte : +0.64)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "T8 et F8 sont adjacentes sur la chaîne latérale droite de l'hémisphère, partageant le même environnement physique et musculaire.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "FC6 ~ F4",
+   "stat": 0.457,
+   "score": 0.956961652438332,
+   "detail": {
+    "spearman": 0.72,
+    "pearson": -0.263,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.73 sur 7535 lignes (découverte : +0.72)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "FC6 et F4 sont situées à proximité immédiate sur le cortex fronto-central droit.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "F4 ~ AF4",
+   "stat": 0.434,
+   "score": 0.9335138113145058,
+   "detail": {
+    "spearman": 0.815,
+    "pearson": 0.382,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.81 sur 7535 lignes (découverte : +0.81)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Le couplage F4-AF4 mesure la cohérence antéro-postérieure frontale droite, sensible aux mouvements oculaires et à la concentration.",
+    "hypothese": "Le lien F4-AF4 est plus fort lors des clignements ou mouvements oculaires associés à l'état yeux ouverts."
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "F3 ~ F4",
+   "stat": 0.415,
+   "score": 0.9146700070490263,
+   "detail": {
+    "spearman": 0.738,
+    "pearson": -0.324,
+    "n": 7445,
+    "confirmation": "confirmé — ρ = +0.74 sur 7535 lignes (découverte : +0.74)"
+   },
+   "confirme": 1.0,
+   "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "F3 et F4 forment la paire frontale clé pour mesurer l'asymétrie frontale et l'engagement cognitivo-émotionnel.",
+    "hypothese": "La relation entre F3 et F4 varie selon l'état d'ouverture des yeux codé par eyeDetection."
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "target": null,
+    "description": "",
+    "fichier": "EEG-Eye-State-Classification.csv",
+    "url": "https://huggingface.co/datasets/gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 7445,
+     "confirmation": 7535
+    },
+    "did": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "colonnes": {
+     "num": [
+      "AF3",
+      "F7",
+      "F3",
+      "FC5",
+      "T7",
+      "P7",
+      "O1",
+      "O2",
+      "P8",
+      "T8",
+      "FC6",
+      "F4",
+      "F8",
+      "AF4",
+      "eyeDetection"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 14980,
+   "colonnes": 15,
+   "fig": "2026-11-22_gymprathap_Brain_Computer_Interaction_Ey.png",
+   "n_findings": 65,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "AF3 ~ AF4",
+     "stat": 0.69,
+     "score": 1,
+     "detail": {
+      "spearman": 0.896,
+      "pearson": 0.206,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.90 sur 7535 lignes (découverte : +0.90)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Les électrodes frontopolarisées symétriques AF3 et AF4 présentent une corrélation monotone très élevée (rho=0.90), reflétant une forte symétrie bi-frontale du signal EEG.",
+      "hypothese": "La corrélation frontale AF3-AF4 est modifiée par l'ouverture ou la fermeture des yeux (eyeDetection)."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "O2 ~ P8",
+     "stat": 0.682,
+     "score": 1,
+     "detail": {
+      "spearman": 0.786,
+      "pearson": 0.104,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.79 sur 7535 lignes (découverte : +0.79)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Les électrodes occipitales et pariétales droites (O2 et P8) sont fortement corrélées (rho=0.79), ce qui correspond à la propagation de l'activité visuelle et du rythme alpha postérieur.",
+      "hypothese": "Le couplage O2-P8 augmente lors de la fermeture des yeux en raison de la synchronisation du rythme alpha."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "P8 ~ T8",
+     "stat": 0.54,
+     "score": 1,
+     "detail": {
+      "spearman": 0.72,
+      "pearson": -0.18,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.72 sur 7535 lignes (découverte : +0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "trivial",
+      "explication": "P8 et T8 sont des électrodes adjacentes sur la région temporo-pariétale droite captant largement des signaux de conduction de volume similaires.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "F8 ~ AF4",
+     "stat": 0.521,
+     "score": 1,
+     "detail": {
+      "spearman": 0.733,
+      "pearson": 0.213,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.74 sur 7535 lignes (découverte : +0.73)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "F8 et AF4 sont deux capteurs frontaux droits très proches sur le scalp, dont la covariance est principalement d'origine spatiale.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "T8 ~ F8",
+     "stat": 0.47,
+     "score": 0.9704648068332595,
+     "detail": {
+      "spearman": 0.642,
+      "pearson": -0.171,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.65 sur 7535 lignes (découverte : +0.64)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "T8 et F8 sont adjacentes sur la chaîne latérale droite de l'hémisphère, partageant le même environnement physique et musculaire.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "FC6 ~ F4",
+     "stat": 0.457,
+     "score": 0.956961652438332,
+     "detail": {
+      "spearman": 0.72,
+      "pearson": -0.263,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.73 sur 7535 lignes (découverte : +0.72)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "FC6 et F4 sont situées à proximité immédiate sur le cortex fronto-central droit.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "F4 ~ AF4",
+     "stat": 0.434,
+     "score": 0.9335138113145058,
+     "detail": {
+      "spearman": 0.815,
+      "pearson": 0.382,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.81 sur 7535 lignes (découverte : +0.81)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Le couplage F4-AF4 mesure la cohérence antéro-postérieure frontale droite, sensible aux mouvements oculaires et à la concentration.",
+      "hypothese": "Le lien F4-AF4 est plus fort lors des clignements ou mouvements oculaires associés à l'état yeux ouverts."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "F3 ~ F4",
+     "stat": 0.415,
+     "score": 0.9146700070490263,
+     "detail": {
+      "spearman": 0.738,
+      "pearson": -0.324,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.74 sur 7535 lignes (découverte : +0.74)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "F3 et F4 forment la paire frontale clé pour mesurer l'asymétrie frontale et l'engagement cognitivo-émotionnel.",
+      "hypothese": "La relation entre F3 et F4 varie selon l'état d'ouverture des yeux codé par eyeDetection."
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "T8 ~ FC6",
+     "stat": 0.351,
+     "score": 0.8509491588097282,
+     "detail": {
+      "spearman": 0.696,
+      "pearson": 0.345,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.70 sur 7535 lignes (découverte : +0.70)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "T7 ~ O1",
+     "stat": 0.334,
+     "score": 0.8337206761090143,
+     "detail": {
+      "spearman": 0.447,
+      "pearson": -0.114,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.47 sur 7535 lignes (découverte : +0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "AF3 ~ T8",
+     "stat": 0.331,
+     "score": 0.8312803210551107,
+     "detail": {
+      "spearman": 0.511,
+      "pearson": -0.18,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.52 sur 7535 lignes (découverte : +0.51)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "P7 ~ FC6",
+     "stat": 0.319,
+     "score": 0.818909248742018,
+     "detail": {
+      "spearman": 0.327,
+      "pearson": -0.008,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.34 sur 7535 lignes (découverte : +0.33)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "F3 ~ P7",
+     "stat": 0.307,
+     "score": 0.8074077960063124,
+     "detail": {
+      "spearman": 0.314,
+      "pearson": 0.007,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.33 sur 7535 lignes (découverte : +0.31)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "T7 ~ P7",
+     "stat": 0.275,
+     "score": 0.7749174157678377,
+     "detail": {
+      "spearman": 0.659,
+      "pearson": 0.384,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.66 sur 7535 lignes (découverte : +0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "O1 ~ AF4",
+     "stat": 0.272,
+     "score": 0.7717811435282641,
+     "detail": {
+      "spearman": 0.343,
+      "pearson": 0.071,
+      "n": 7445,
+      "confirmation": "confirmé — ρ = +0.35 sur 7535 lignes (découverte : +0.34)"
+     },
+     "confirme": 1.0,
+     "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "fatima3597/heartbeat_Sounds",
+    "target": "label",
+    "description": "",
+    "fichier": "set_b.csv",
+    "url": "https://huggingface.co/datasets/fatima3597/heartbeat_Sounds",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 204,
+     "confirmation": 211
+    },
+    "did": "hf:fatima3597/heartbeat_Sounds",
+    "colonnes": {
+     "num": [],
+     "groupes": [
+      "label"
+     ]
+    }
+   },
+   "lignes": 415,
+   "colonnes": 4,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "LidongYang/EEG_Image_decode",
+   "erreur": "500 Server Error: Internal Server Error for url: https://datasets-server.huggingface.co/splits?dataset=LidongYang%2FEEG_Image_decode"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "PULSE-ECG/ecg-log",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "sigmanova/synthetic_data_for_eeg",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "kgarg47/kahlus-raw-eeg-waveforms-efa0d90",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "huseyincavus/physionet-ecg-arrhythmia-1.0.0",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Haitao999/things-eeg",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "luobosi/Multisite-PPG",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Emulated-Inc/radar-heartbeat-intervals",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 61,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:le-dang1haha/FundusShift",
+    "x": "brightness",
+    "y": "contrast",
+    "groupe": "region",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre brightness et contrast change-t-il selon la region dans FundusShift ?",
+    "requete_biblio": "retinal fundus image illumination contrast region analysis"
+   },
+   "statut": "confirmée",
+   "resume": "Dans le-dang1haha/FundusShift, la corrélation brightness~contrast vaut +0.79 pour « region = Latin America » contre +0.11 pour « region = East Asia » (écart 0.68, p = 6e-141). [Testé sur : moitié de confirmation (20174 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "region = East Asia": {
+      "rho": 0.112,
+      "pearson": 0.142,
+      "n": 14696
+     },
+     "region = South Asia": {
+      "rho": 0.299,
+      "pearson": 0.237,
+      "n": 4079
+     },
+     "region = Latin America": {
+      "rho": 0.787,
+      "pearson": 0.779,
+      "n": 745
+     },
+     "region = Middle East": {
+      "rho": 0.36,
+      "pearson": 0.433,
+      "n": 363
+     },
+     "region = Europe": {
+      "rho": 0.304,
+      "pearson": 0.368,
+      "n": 290
+     }
+    },
+    "p_difference": 5.96e-141,
+    "donnees_test": "moitié de confirmation (20174 lignes jamais vues à l'exploration)",
+    "holm": "p = 6e-141, seuil corrigé 0.017 (3 tests cette nuit)",
+    "confusion": "aucune variable de confusion (âge, sexe) disponible dans ce dataset",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (brightness, contrast, region) parmi 12 essayés"
+   },
+   "sujet": "Ce que révèle l'œil",
+   "confusion": [
+    null,
+    "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (brightness, contrast, region) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "Modeling and Enhancing Low-Quality Retinal Fundus Images",
+     "annee": 2020,
+     "citations": 252,
+     "url": "https://doi.org/10.1109/tmi.2020.3043495"
+    },
+    {
+     "titre": "Retinal Fundus Image Analysis for Diagnosis of Glaucoma: A Comprehensive Survey",
+     "annee": 2016,
+     "citations": 140,
+     "url": "https://doi.org/10.1109/access.2016.2596761"
+    },
+    {
+     "titre": "Infrared imaging of sub-retinal structures in the human ocular fundus",
+     "annee": 1996,
+     "citations": 330,
+     "url": "https://doi.org/10.1016/0042-6989(95)00100-e"
+    },
+    {
+     "titre": "Validating Retinal Fundus Image Analysis Algorithms: Issues and a Proposal",
+     "annee": 2013,
+     "citations": 183,
+     "url": "https://doi.org/10.1167/iovs.12-10347"
+    },
+    {
+     "titre": "A Robust Preprocessing Pipeline for Reliable NPDR Analysis from Retinal Fundus Images",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.25258/ijddt.16.52s.8"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "Très bonne formulation : elle reste prudente et décrit fidèlement un effet modérateur sur des données observationnelles.",
+    "reformulation": "",
+    "diagnostic_statistique": "Écarts Spearman-Pearson inférieurs à 0.08 dans tous les groupes, écartant une non-linéarité majeure. La corrélation passe de quasi nulle/faible en Asie de l'Est (r=0.14) à très forte en Amérique Latine (r=0.78), avec une différence hautement significative (p < 1e-100).",
+    "modele_recommande": "Régression linéaire multiple avec terme d'interaction : contrast ~ brightness * region",
+    "robustesse": "Échantillon de confirmation massif (N > 20 000), mais très fort déséquilibre d'effectifs (73 % en Asie de l'Est contre 1,4 % en Europe). Absence de variables cliniques ou techniques (type de caméra, mydriase) pour contrôler la confusion.",
+    "interpretation_domaine": "Phénomène attendu dans un dataset de 'domain shift'. La région est un proxy direct de la pigmentation rétinienne (mélanine) et surtout des protocoles d'acquisition locaux (marques de rétinographes, réglages d'exposition et de flash), modifiant conjointement la dynamique du contraste et de la luminosité.",
+    "action_pipeline": "Ajouter l'extraction des métadonnées d'acquisition (modèle de caméra rétinienne, protocole d'imagerie) si disponibles pour distinguer le biais machine de l'effet démographique.",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'hétérogénéité des caractéristiques photométriques selon les populations et les types d'équipements rétiniens est documentée dans la littérature.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 6e-141, seuil corrigé 0.017 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (brightness, contrast, region) parmi 12 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 62,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:le-dang1haha/FundusShift",
+    "x": "sharpness",
+    "y": "mean_g",
+    "groupe": "normal_scope",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre sharpness et mean_g change-t-il selon la normal_scope dans FundusShift ?",
+    "requete_biblio": "fundus image sharpness green channel normality"
+   },
+   "statut": "confirmée",
+   "resume": "Dans le-dang1haha/FundusShift, la corrélation sharpness~mean_g vaut +0.71 pour « normal_scope = dr_only » contre +0.53 pour « normal_scope = full » (écart 0.19, p = 4.8e-88). Attention : relation non linéaire ou valeurs extrêmes dans « normal_scope = full » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (20174 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "normal_scope = dr_only": {
+      "rho": 0.715,
+      "pearson": 0.721,
+      "n": 14402
+     },
+     "normal_scope = full": {
+      "rho": 0.528,
+      "pearson": 0.22,
+      "n": 5771
+     }
+    },
+    "p_difference": 4.77e-88,
+    "donnees_test": "moitié de confirmation (20174 lignes jamais vues à l'exploration)",
+    "holm": "p = 4.8e-88, seuil corrigé 0.05 (3 tests cette nuit)",
+    "confusion": "aucune variable de confusion (âge, sexe) disponible dans ce dataset",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (sharpness, mean_g, normal_scope) parmi 12 essayés"
+   },
+   "sujet": "Ce que révèle l'œil",
+   "confusion": [
+    null,
+    "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (sharpness, mean_g, normal_scope) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "A shortest path approach to optic disc detection in retinal fundus images",
+     "annee": 2017,
+     "citations": 5,
+     "url": "https://doi.org/10.35119/maio.v1i4.43"
+    },
+    {
+     "titre": "A comparison between a white LED confocal imaging system and a conventional flash fundus camera using chromaticity analysis",
+     "annee": 2019,
+     "citations": 37,
+     "url": "https://doi.org/10.1186/s12886-019-1241-8"
+    },
+    {
+     "titre": "Contextual anatomy-guided deep learning for accurate fovea segmentation in diabetic retinopathy fundus images",
+     "annee": 2026,
+     "citations": 1,
+     "url": "https://doi.org/10.1038/s41598-026-40287-y"
+    },
+    {
+     "titre": "Optic disc and cup segmentation using Vision Mamba UNet with enhanced edge-guided attention in fundus images",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.1186/s12886-026-05371-x"
+    },
+    {
+     "titre": "Iterative Augmentation of Visual Evidence for Weakly-Supervised Lesion Localization in Deep Interpretability Frameworks: Application to Color Fundus Images",
+     "annee": 2020,
+     "citations": 42,
+     "url": "https://doi.org/10.1109/tmi.2020.2994463"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "Acceptable mais imprécise : il s'agit d'une modération où la définition de normalité modifie la relation entre deux caractéristiques d'image.",
+    "reformulation": "La définition de normalité (normal_scope) modère-t-elle le lien entre la netteté (sharpness) et l'intensité moyenne du canal vert (mean_g) ?",
+    "diagnostic_statistique": "Forte divergence entre Spearman (0.53) et Pearson (0.22) dans le groupe 'full' (|diff| = 0.31 > 0.15), révélant une nette non-linéarité, un effet de saturation ou des valeurs aberrantes.",
+    "modele_recommande": "Modèle additif généralisé (GAM) avec splines d'interaction : mean_g ~ s(sharpness, by=normal_scope) + normal_scope",
+    "robustesse": "Échantillons très larges (14 402 et 5 771), puissance excellente, mais absence totale de variables cliniques ou techniques (type de caméra, dilatation pupillaire) qui constituent des facteurs de confusion majeurs.",
+    "interpretation_domaine": "Le canal vert fournit le contraste structurel clé en rétinographie. Dans 'full', l'inclusion de pathologies variées (cataracte, glaucome) altère la luminance et la netteté de façon non linéaire par rapport à une cohorte homogène 'dr_only'.",
+    "action_pipeline": "Ajouter une règle forçant l'usage d'un GAM ou d'une régression robuste dès que |Spearman - Pearson| > 0.15 avant de valider la différence de corrélation.",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "La relation entre netteté et luminance selon la sévérité de la rétinopathie a été explorée pour le contrôle qualité sans être formalisée en corrélation par sous-groupe.",
+   "pertinence": {
+    "niveau": 2,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 4.8e-88, seuil corrigé 0.05 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (sharpness, mean_g, normal_scope) parmi 12 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 63,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:le-dang1haha/FundusShift",
+    "x": "fov_fraction",
+    "y": "brightness",
+    "seuil": 0.8,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre fov_fraction et brightness présente-t-il une pente plus forte au-dessus du seuil de 0.8 pour fov_fraction dans FundusShift ?",
+    "requete_biblio": "field of view fraction fundus image brightness threshold"
+   },
+   "statut": "confirmée",
+   "resume": "Dans le-dang1haha/FundusShift, la corrélation fov_fraction~brightness vaut +0.49 pour « fov_fraction > 0.8 » contre +0.19 pour « fov_fraction ≤ 0.8 » (p = 4.3e-93). Attention : relation non linéaire ou valeurs extrêmes dans « fov_fraction > 0.8 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (20174 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "fov_fraction ≤ 0.8": {
+      "rho": 0.187,
+      "pearson": 0.068,
+      "n": 15695
+     },
+     "fov_fraction > 0.8": {
+      "rho": 0.49,
+      "pearson": 0.157,
+      "n": 4478
+     }
+    },
+    "groupe_predit_plus_fort": "fov_fraction > 0.8",
+    "p_difference": 4.31e-93,
+    "donnees_test": "moitié de confirmation (20174 lignes jamais vues à l'exploration)",
+    "holm": "p = 4.3e-93, seuil corrigé 0.025 (3 tests cette nuit)",
+    "confusion": "aucune variable de confusion (âge, sexe) disponible dans ce dataset",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (fov_fraction, brightness) parmi 12 essayés"
+   },
+   "sujet": "Ce que révèle l'œil",
+   "confusion": [
+    null,
+    "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (fov_fraction, brightness) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "Digital Ocular Fundus Imaging: A Review",
+     "annee": 2011,
+     "citations": 242,
+     "url": "https://doi.org/10.1159/000329597"
+    },
+    {
+     "titre": "Microaneurysm detection in fundus images using a two-step convolutional neural network",
+     "annee": 2019,
+     "citations": 163,
+     "url": "https://doi.org/10.1186/s12938-019-0675-9"
+    },
+    {
+     "titre": "Retinal vessel segmentation by improved matched filtering: evaluation on a new high‐resolution fundus image database",
+     "annee": 2013,
+     "citations": 517,
+     "url": "https://doi.org/10.1049/iet-ipr.2012.0455"
+    },
+    {
+     "titre": "Efficient registration of limited field of view ocular fundus imagery",
+     "annee": 2013,
+     "citations": 0,
+     "url": "https://openalex.org/W2118683632"
+    },
+    {
+     "titre": "Quality evaluation of digital fundus images through combined measures",
+     "annee": 2014,
+     "citations": 29,
+     "url": "https://doi.org/10.1117/1.jmi.1.1.014001"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "Imparfaite. L'énoncé parle de « pente », mais le pipeline a comparé des coefficients de corrélation de Spearman entre deux sous-groupes scindés arbitrairement.",
+    "reformulation": "La relation entre fov_fraction et brightness présente-t-elle un changement de pente (rupture) au-delà de fov_fraction = 0.8 ?",
+    "diagnostic_statistique": "Forte non-linéarité ou présence de valeurs extrêmes : pour fov_fraction > 0.8, l'écart |Spearman - Pearson| est de 0.33 (0.49 contre 0.16), dépassant largement le seuil de 0.15. Une comparaison de corrélations linéaires est inadaptée pour tester un effet de seuil sur une pente.",
+    "modele_recommande": "Régression segmentée (piecewise linear regression) ou modèle additif généralisé (GAM) avec test de rupture de pente.",
+    "robustesse": "Taille d'échantillon très large (N > 20 000) garantissant une puissance statistique maximale, mais absence totale de métadonnées cliniques ou techniques (type de caméra, dilatation pupillaire) pouvant créer des biais de confusion.",
+    "interpretation_domaine": "En imagerie du fond d'œil, fov_fraction reflète la part visible de la rétine (dépendant du cadrage et de la dilatation pupillaire). Au-delà de 0.8, l'illumination du capteur et l'exposition automatique du rétinographe peuvent saturer ou croître plus rapidement avec la surface capturée, ce qui explique ce changement de dynamique photométrique.",
+    "action_pipeline": "Remplacer le test de comparaison de corrélations par une régression segmentée (spline ou segmented) pour toute hypothèse formulée en termes de « seuil » ou de « pente ».",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La dépendance non linéaire entre champ de vue effectif et luminosité globale découle de la géométrie optique des rétinographes.",
+   "pertinence": {
+    "niveau": 2,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 4.3e-93, seuil corrigé 0.025 (3 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (fov_fraction, brightness) parmi 12 essayés"
+     }
+    ]
+   }
+  }
+ ]
+}

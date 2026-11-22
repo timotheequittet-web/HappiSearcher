@@ -1,0 +1,168 @@
+{
+ "date": "2026-11-22",
+ "faits": {
+  "date": "2026-11-22",
+  "date_longue": "22 novembre 2026",
+  "sujets": [
+   "Signaux du cœur et du cerveau"
+  ],
+  "questions": [
+   "Quels motifs des signaux ECG/EEG distinguent les individus, leur état (éveil, émotion) ou annoncent une anomalie ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "lignes": 14980,
+    "colonnes": 15,
+    "resultats_bruts": 65,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "fatima3597/heartbeat_Sounds",
+    "lignes": 415,
+    "colonnes": 4,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 8,
+  "hypotheses_testees": [
+   {
+    "id": "H61",
+    "enonce": "Le lien entre brightness et contrast change-t-il selon la region dans FundusShift ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans le-dang1haha/FundusShift, la corrélation brightness~contrast vaut +0.79 pour « region = Latin America » contre +0.11 pour « region = East Asia » (écart 0.68, p = 6e-141).",
+    "bloque_a": "Nouveau : déjà connu",
+    "litterature": "L'hétérogénéité des caractéristiques photométriques selon les populations et les types d'équipements rétiniens est documentée dans la littérature."
+   },
+   {
+    "id": "H62",
+    "enonce": "Le lien entre sharpness et mean_g change-t-il selon la normal_scope dans FundusShift ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans le-dang1haha/FundusShift, la corrélation sharpness~mean_g vaut +0.71 pour « normal_scope = dr_only » contre +0.53 pour « normal_scope = full » (écart 0.19, p = 4.8e-88). Attention : relation non linéaire ou valeurs extrêmes dans « normal_scope = full » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": "Non trivial : avis d'expert : A_TESTER_AUTREMENT",
+    "litterature": "La relation entre netteté et luminance selon la sévérité de la rétinopathie a été explorée pour le contrôle qualité sans être formalisée en corrélation par sous-groupe."
+   },
+   {
+    "id": "H63",
+    "enonce": "Le lien entre fov_fraction et brightness présente-t-il une pente plus forte au-dessus du seuil de 0.8 pour fov_fraction dans FundusShift ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans le-dang1haha/FundusShift, la corrélation fov_fraction~brightness vaut +0.49 pour « fov_fraction > 0.8 » contre +0.19 pour « fov_fraction ≤ 0.8 » (p = 4.3e-93). Attention : relation non linéaire ou valeurs extrêmes dans « fov_fraction > 0.8 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": "Non trivial : avis d'expert : A_TESTER_AUTREMENT",
+    "litterature": "La dépendance non linéaire entre champ de vue effectif et luminosité globale découle de la géométrie optique des rétinographes."
+   }
+  ],
+  "bilan_tests": {
+   "confirmée": 3
+  },
+  "resultats_solides": [
+   "H61"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "variables": "AF3 ~ AF4",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Les électrodes frontopolarisées symétriques AF3 et AF4 présentent une corrélation monotone très élevée (rho=0.90), reflétant une forte symétrie bi-frontale du signal EEG.",
+    "detail": "confirmé — ρ = +0.90 sur 7535 lignes (découverte : +0.90)"
+   },
+   {
+    "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "variables": "O2 ~ P8",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Les électrodes occipitales et pariétales droites (O2 et P8) sont fortement corrélées (rho=0.79), ce qui correspond à la propagation de l'activité visuelle et du rythme alpha postérieur.",
+    "detail": "confirmé — ρ = +0.79 sur 7535 lignes (découverte : +0.79)"
+   },
+   {
+    "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "variables": "F4 ~ AF4",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Le couplage F4-AF4 mesure la cohérence antéro-postérieure frontale droite, sensible aux mouvements oculaires et à la concentration.",
+    "detail": "confirmé — ρ = +0.81 sur 7535 lignes (découverte : +0.81)"
+   },
+   {
+    "dataset": "gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "variables": "F3 ~ F4",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "F3 et F4 forment la paire frontale clé pour mesurer l'asymétrie frontale et l'engagement cognitivo-émotionnel.",
+    "detail": "confirmé — ρ = +0.74 sur 7535 lignes (découverte : +0.74)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre AF3 et AF4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+   "Le lien entre O1 et O2 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+   "Le lien entre F3 et F4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+   "Peut-on prédire eyeDetection avec seulement AF3, AF4, O1, O2 dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?"
+  ],
+  "runs": [
+   "2026-11-22_0330_ecg"
+  ]
+ },
+ "en_chiffres": [
+  "2 datasets analysés, 8 écartés (illisibles, hors sujet ou indisponibles)",
+  "3 hypothèses testées : 3 confirmée",
+  "1 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Signaux du cœur et du cerveau : un résultat tient la route",
+ "chapo": "Nuit du 22 novembre 2026. Question du jour : Quels motifs des signaux ECG/EEG distinguent les individus, leur état (éveil, émotion) ou annoncent une anomalie ? Datasets étudiés : gymprathap/Brain-Computer-Interaction-Eye-State-Classification, fatima3597/heartbeat_Sounds.",
+ "paragraphes": [
+  "La Raspberry a d'abord testé 3 hypothèses proposées lors d'une nuit précédente, chaque fois sur une moitié des données qui n'avait jamais servi à les formuler. 3 ont tenu le choc.",
+  "À retenir — Le lien entre brightness et contrast change-t-il selon la region dans FundusShift ? Dans le-dang1haha/FundusShift, la corrélation brightness~contrast vaut +0.79 pour « region = Latin America » contre +0.11 pour « region = East Asia » (écart 0.68, p = 6e-141). C'est un résultat solide à ce stade (niveau 4/6).",
+  "Le lien entre sharpness et mean_g change-t-il selon la normal_scope dans FundusShift ? Confirmée, mais elle bloque à l'étape « Non trivial : avis d'expert : A_TESTER_AUTREMENT » : on ne la présente donc pas comme un résultat solide.",
+  "Le lien entre fov_fraction et brightness présente-t-il une pente plus forte au-dessus du seuil de 0.8 pour fov_fraction dans FundusShift ? Confirmée, mais elle bloque à l'étape « Non trivial : avis d'expert : A_TESTER_AUTREMENT » : on ne la présente donc pas comme un résultat solide.",
+  "Côté exploration, la piste la plus intéressante concerne gymprathap/Brain-Computer-Interaction-Eye-State-Classification (AF3 ~ AF4) : Les électrodes frontopolarisées symétriques AF3 et AF4 présentent une corrélation monotone très élevée (rho=0.90), reflétant une forte symétrie bi-frontale du signal EEG. Elle sera testée formellement plus tard.",
+  "4 nouvelles hypothèses attendent la nuit prochaine."
+ ],
+ "redaction": "rédigé automatiquement à partir des données (sans LLM)",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "Signaux du cœur et du cerveau",
+    "requetes": [
+     "ecg eeg emg review",
+     "ecg eeg"
+    ]
+   }
+  ],
+  "titre": "Lectures de référence",
+  "paragraphes": [],
+  "references": [
+   {
+    "titre": "Wavelet transforms and the ECG: a review",
+    "annee": 2005,
+    "auteurs": "Addison",
+    "revue": "Physiological Measurement",
+    "citations": 1070,
+    "url": "https://doi.org/10.1088/0967-3334/26/5/r01",
+    "theme": "Signaux du cœur et du cerveau"
+   },
+   {
+    "titre": "Removal of Artifacts from EEG Signals: A Review",
+    "annee": 2019,
+    "auteurs": "Xiao et al.",
+    "revue": "Sensors",
+    "citations": 996,
+    "url": "https://doi.org/10.3390/s19050987",
+    "theme": "Signaux du cœur et du cerveau"
+   },
+   {
+    "titre": "Modulations of Heart Rate, ECG, and Cardio-Respiratory Coupling Observed in Polysomnography",
+    "annee": 2016,
+    "auteurs": "Penzel et al.",
+    "revue": "Frontiers in Physiology",
+    "citations": 201,
+    "url": "https://doi.org/10.3389/fphys.2016.00460",
+    "theme": "Signaux du cœur et du cerveau"
+   }
+  ],
+  "redaction": "Sélection automatique d'articles de synthèse (OpenAlex), sans texte rédigé"
+ }
+}
