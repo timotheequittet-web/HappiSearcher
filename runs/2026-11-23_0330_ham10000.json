@@ -1,0 +1,1795 @@
+{
+ "id": "2026-11-23_0330_ham10000",
+ "date": "2026-11-23T03:42",
+ "sujet": "Imagerie médicale et attributs cachés",
+ "question": "Les images médicales (peau, radio, IRM) permettent-elles de retrouver le sexe ou l'âge du patient, et ces informations biaisent-elles les diagnostics ?",
+ "keywords": [
+  "ham10000",
+  "skin lesion",
+  "dermatology",
+  "chest x-ray",
+  "xray",
+  "mri",
+  "ultrasound"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des métadonnées cliniques et des caractéristiques d'images médicales montre qu'il est possible de prédire l'âge ou de retrouver des informations démographiques et techniques à partir de simples variables tabulaires ou statistiques visuelles. Les résultats confirment l'existence de corrélations fortes entre la structure des images (résolution, espacement des pixels) et les métadonnées, ainsi qu'entre l'âge et les indicateurs cliniques de stigmatisation ou de recours aux soins. Enfin, la prédiction de la classe de diagnostic radiologique repose parfois sur des caractéristiques de surface ou de netteté, soulignant le risque de biais techniques.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Le traitement donné dépend par définition du diagnostic posé par le médecin.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une concentration anormale de cas de sarcome de Kaposi reflète probablement des spécificités épidémiologiques locales ou des biais de recrutement.",
+    "hypothese": "Le lien entre age et skin_ntd_type change-t-il selon body_site ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'âge du patient peut être prédit à partir de variables socio-comportementales et cliniques.",
+    "hypothese": "Peut-on prédire age avec seulement child, scarring, self_medication, stigma_experienced dans electricsheepafrica/skin-diseases-dermatology ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Lien mécanique entre la largeur de l'image et l'espacement des pixels (résolution et métadonnées DICOM).",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Variante de la même relation technique liée aux dimensions des images DICOM.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "La variable 'child' est une définition directe ou un sous-ensemble de la variable 'age'.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif évident liant un traitement antifongique topique à un diagnostic de mycose.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Forte association entre la durée des symptômes en semaines et le caractère chronique de la maladie cutanée.",
+    "hypothese": "Le lien entre duration_weeks et chronic change-t-il selon severity ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la stigmatisation ressentie et l'impact psychologique chez les patients dermatologiques.",
+    "hypothese": "Le lien entre stigma_experienced et psychological_impact change-t-il selon sex ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Lien technique géométrique entre la hauteur de l'image et l'espacement des pixels.",
+    "hypothese": ""
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Variante de la relation géométrique précédente sur les dimensions DICOM.",
+    "hypothese": ""
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Relation mécanique : un diagnostic purement clinique exclut par définition la réalisation d'un examen KOH.",
+    "hypothese": ""
+   },
+   "F13": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "La position des structures (centre vs bord) varie selon la classe de diagnostic (ex. pneumonie), suggérant un biais de cadrage.",
+    "hypothese": ""
+   },
+   "F14": {
+    "id": "F14",
+    "verdict": "trivial",
+    "explication": "Relation géométrique basique entre la largeur et la hauteur des images.",
+    "hypothese": ""
+   },
+   "F15": {
+    "id": "F15",
+    "verdict": "artefact",
+    "explication": "Présence de paires d'images quasi-identiques dans le dataset, constituant un doublon technique.",
+    "hypothese": ""
+   },
+   "F16": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "La netteté des images diffère selon la classe clinique, ce qui indique un possible biais de qualité d'acquisition.",
+    "hypothese": ""
+   },
+   "F17": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "Les statistiques visuelles simples permettent de prédire la classe de diagnostic, montrant des artefacts d'acquisition.",
+    "hypothese": ""
+   },
+   "F18": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "La densité des contours varie selon la classe, révélant un signal visuel non clinique exploité par les modèles.",
+    "hypothese": ""
+   },
+   "F19": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Description d'anomalies de métadonnées basées sur les dimensions techniques des fichiers d'images.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Explorer l'impact des biais de cadrage et de netteté dans la classification des radiographies pulmonaires.",
+   "Analyser les corrélations entre attributs socio-démographiques (âge, sexe) et la sévérité des atteintes cutanées.",
+   "Vérifier si les modèles de deep learning reposent sur des métadonnées cachées plutôt que sur les lésions elles-mêmes."
+  ],
+  "nouveautes": {
+   "64": {
+    "id": "H64",
+    "nouveaute": "deja_connu",
+    "explication": "La modulation de la asymétrie frontale ou de la cohérence EEG selon l'état des yeux est largement documentée en interfaces cerveau-machine."
+   },
+   "65": {
+    "id": "H65",
+    "nouveaute": "deja_connu",
+    "explication": "La modulation des ondes alpha occipitales selon l'ouverture des yeux est un phénomène neurophysiologique classique."
+   },
+   "66": {
+    "id": "H66",
+    "nouveaute": "deja_connu",
+    "explication": "L'asymétrie EEG frontale liée aux états émotionnels et attentionnels est un sujet très étudié."
+   },
+   "67": {
+    "id": "H67",
+    "nouveaute": "deja_connu",
+    "explication": "La classification de l'état de vigilance ou d'ouverture des yeux à partir de signaux EEG multi-électrodes est un standard de la discipline."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "x": "duration_weeks",
+    "y": "psychological_impact",
+    "groupe": "sex",
+    "seuil": null,
+    "plus_fort": "Female",
+    "enonce": "Le lien entre duration_weeks et psychological_impact change-t-il selon sex ?",
+    "requete_biblio": "skin disease duration psychological impact gender differences"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "x": "age",
+    "y": "stigma_experienced",
+    "groupe": "severity",
+    "seuil": null,
+    "plus_fort": "Severe",
+    "enonce": "Le lien entre age et stigma_experienced change-t-il selon severity ?",
+    "requete_biblio": "dermatological stigma age severity clinical correlation"
+   },
+   {
+    "type": "prediction",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "cible": "sex",
+    "variables": [
+     "age",
+     "duration_weeks",
+     "chronic",
+     "itching",
+     "pain",
+     "stigma_experienced",
+     "psychological_impact"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire sex avec seulement age, duration_weeks, chronic, itching, pain, stigma_experienced, psychological_impact ?"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "x": "duration_weeks",
+    "y": "psychological_impact",
+    "seuil": 4.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre duration_weeks et psychological_impact est-il plus fort au-dessus d'un seuil de duration_weeks de 4.0 semaines ?"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "variable_cle_pour_cible",
+   "vars": "treatment_given -> diagnosis",
+   "stat": 1.487,
+   "score": 0.9366372942584421,
+   "detail": {
+    "mutual_info": 1.487,
+    "part_de_l_info": 0.54,
+    "confirmation": "non applicable — revalidation impossible ('b')"
+   },
+   "confirme": null,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Le traitement donné dépend par définition du diagnostic posé par le médecin.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> diagnosis = kaposi_sarcoma",
+   "stat": 8.1,
+   "score": 0.9,
+   "detail": {
+    "taux_dans_ce_groupe": "16.2%",
+    "taux_global": "2.0%",
+    "p": 6.2e-35,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Une concentration anormale de cas de sarcome de Kaposi reflète probablement des spécificités épidémiologiques locales ou des biais de recrutement.",
+    "hypothese": "Le lien entre age et skin_ntd_type change-t-il selon body_site ?"
+   }
+  },
+  {
+   "kind": "attribut_cache",
+   "vars": "signal -> age",
+   "stat": 0.402,
+   "score": 0.700804574487526,
+   "detail": {
+    "r2": 0.402,
+    "hasard": 0.0,
+    "validation": "aléatoire",
+    "n": 4993,
+    "variables_les_plus_informatives": "child, scarring, self_medication, stigma_experienced",
+    "confirmation": "confirmé — r2 = 0.42 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   "confirme": true,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'âge du patient peut être prédit à partir de variables socio-comportementales et cliniques.",
+    "hypothese": "Peut-on prédire age avec seulement child, scarring, self_medication, stigma_experienced dans electricsheepafrica/skin-diseases-dermatology ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "OriginalImage[Width ~ OriginalImagePixelSpacing[x",
+   "stat": -0.862,
+   "score": 0.689594234007997,
+   "detail": {
+    "spearman": -0.862,
+    "pearson": -0.835,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.86 sur 20000 lignes (découverte : -0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "iraqigold/nih-chest-xray-14-flat",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Lien mécanique entre la largeur de l'image et l'espacement des pixels (résolution et métadonnées DICOM).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "OriginalImage[Width ~ y]",
+   "stat": -0.862,
+   "score": 0.689594234007997,
+   "detail": {
+    "spearman": -0.862,
+    "pearson": -0.835,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.86 sur 20000 lignes (découverte : -0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "iraqigold/nih-chest-xray-14-flat",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Variante de la même relation technique liée aux dimensions des images DICOM.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "age ~ child",
+   "stat": -0.856,
+   "score": 0.6847993666209994,
+   "detail": {
+    "spearman": -0.856,
+    "pearson": -0.682,
+    "n": 4993,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.85 sur 5007 lignes (découverte : -0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "La variable 'child' est une définition directe ou un sous-ensemble de la variable 'age'.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "anomalies_concentrees",
+   "vars": "anomalies -> treatment_given = topical_antifungal",
+   "stat": 3.5,
+   "score": 0.6752760910815939,
+   "detail": {
+    "taux_dans_ce_groupe": "7.0%",
+    "taux_global": "2.0%",
+    "p": 2.2e-20,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Résultat descriptif évident liant un traitement antifongique topique à un diagnostic de mycose.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "duration_weeks ~ chronic",
+   "stat": 0.837,
+   "score": 0.6699328102888491,
+   "detail": {
+    "spearman": 0.837,
+    "pearson": 0.773,
+    "n": 4993,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.83 sur 5007 lignes (découverte : +0.84)"
+   },
+   "confirme": 1.0,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Forte association entre la durée des symptômes en semaines et le caractère chronique de la maladie cutanée.",
+    "hypothese": "Le lien entre duration_weeks et chronic change-t-il selon severity ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "stigma_experienced ~ psychological_impact",
+   "stat": 0.82,
+   "score": 0.6561886328019759,
+   "detail": {
+    "spearman": 0.82,
+    "pearson": 0.82,
+    "n": 4993,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.82 sur 5007 lignes (découverte : +0.82)"
+   },
+   "confirme": 1.0,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la stigmatisation ressentie et l'impact psychologique chez les patients dermatologiques.",
+    "hypothese": "Le lien entre stigma_experienced et psychological_impact change-t-il selon sex ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Height] ~ OriginalImagePixelSpacing[x",
+   "stat": -0.753,
+   "score": 0.6026237232884787,
+   "detail": {
+    "spearman": -0.753,
+    "pearson": -0.8,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+   },
+   "confirme": 1.0,
+   "dataset": "iraqigold/nih-chest-xray-14-flat",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "trivial",
+    "explication": "Lien technique géométrique entre la hauteur de l'image et l'espacement des pixels.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Height] ~ y]",
+   "stat": -0.753,
+   "score": 0.6026237232884787,
+   "detail": {
+    "spearman": -0.753,
+    "pearson": -0.8,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+   },
+   "confirme": 1.0,
+   "dataset": "iraqigold/nih-chest-xray-14-flat",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Variante de la relation géométrique précédente sur les dimensions DICOM.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "clinical_diagnosis_only ~ koh_prep_done",
+   "stat": -0.714,
+   "score": 0.5712045325830702,
+   "detail": {
+    "spearman": -0.714,
+    "pearson": -0.714,
+    "n": 4993,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.71 sur 5007 lignes (découverte : -0.71)"
+   },
+   "confirme": 1.0,
+   "dataset": "electricsheepafrica/skin-diseases-dermatology",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Relation mécanique : un diagnostic purement clinique exclut par définition la réalisation d'un examen KOH.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "centre_vs_bord -> classe",
+   "stat": 0.262,
+   "score": 0.5616940745694048,
+   "detail": {
+    "eta2": 0.262,
+    "p": 3.5e-12,
+    "famille": "normalisé",
+    "classe_min": "NORMAL (0.187)",
+    "classe_max": "PNEUMONIA (0.463)",
+    "confirmation": "confirmé — η² = 0.26, p = 1.3e-11 sur 177 autres images (découverte : 0.262)"
+   },
+   "confirme": 1.0,
+   "dataset": "trpakov/chest-xray-classification",
+   "id": "F13",
+   "avis": {
+    "id": "F13",
+    "verdict": "pertinent",
+    "explication": "La position des structures (centre vs bord) varie selon la classe de diagnostic (ex. pneumonie), suggérant un biais de cadrage.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "OriginalImage[Width ~ Height]",
+   "stat": 0.669,
+   "score": 0.5350097997711217,
+   "detail": {
+    "spearman": 0.669,
+    "pearson": 0.59,
+    "n": 20000,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.67 sur 20000 lignes (découverte : +0.67)"
+   },
+   "confirme": 1.0,
+   "dataset": "iraqigold/nih-chest-xray-14-flat",
+   "id": "F14",
+   "avis": {
+    "id": "F14",
+    "verdict": "trivial",
+    "explication": "Relation géométrique basique entre la largeur et la hauteur des images.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "quasi_doublons",
+   "vars": "images",
+   "stat": 19,
+   "score": 0.5076502732240438,
+   "detail": {
+    "paires_quasi_identiques": 19,
+    "images_concernees": 38,
+    "sur": 183,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "trpakov/chest-xray-classification",
+   "id": "F15",
+   "avis": {
+    "id": "F15",
+    "verdict": "artefact",
+    "explication": "Présence de paires d'images quasi-identiques dans le dataset, constituant un doublon technique.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "nettete -> classe",
+   "stat": 0.18,
+   "score": 0.47951402639728347,
+   "detail": {
+    "eta2": 0.18,
+    "p": 7.2e-09,
+    "famille": "normalisé",
+    "classe_min": "PNEUMONIA (0.154)",
+    "classe_max": "NORMAL (0.192)",
+    "confirmation": "confirmé — η² = 0.18, p = 1.8e-08 sur 177 autres images (découverte : 0.18)"
+   },
+   "confirme": 1.0,
+   "dataset": "trpakov/chest-xray-classification",
+   "id": "F16",
+   "avis": {
+    "id": "F16",
+    "verdict": "pertinent",
+    "explication": "La netteté des images diffère selon la classe clinique, ce qui indique un possible biais de qualité d'acquisition.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "classe_predictible_par_stats_simples",
+   "vars": "12 stats visuelles -> classe",
+   "stat": 0.711,
+   "score": 0.4336549165120591,
+   "detail": {
+    "balanced_accuracy_toutes": 0.711,
+    "balanced_accuracy_normalisees_seules": 0.717,
+    "hasard": 0.5,
+    "n_images": 183,
+    "confirmation": "confirmé — précision 0.97 sur d'autres images (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "trpakov/chest-xray-classification",
+   "id": "F17",
+   "avis": {
+    "id": "F17",
+    "verdict": "pertinent",
+    "explication": "Les statistiques visuelles simples permettent de prédire la classe de diagnostic, montrant des artefacts d'acquisition.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "densite_contours -> classe",
+   "stat": 0.101,
+   "score": 0.4014316886738919,
+   "detail": {
+    "eta2": 0.101,
+    "p": 1.1e-05,
+    "famille": "normalisé",
+    "classe_min": "PNEUMONIA (0.047)",
+    "classe_max": "NORMAL (0.066)",
+    "confirmation": "confirmé — η² = 0.16, p = 6.4e-08 sur 177 autres images (découverte : 0.101)"
+   },
+   "confirme": 1.0,
+   "dataset": "trpakov/chest-xray-classification",
+   "id": "F18",
+   "avis": {
+    "id": "F18",
+    "verdict": "pertinent",
+    "explication": "La densité des contours varie selon la classe, révélant un signal visuel non clinique exploité par les modèles.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ OriginalImage[Width, OriginalImagePixelSpacing[x, y]",
+   "stat": 1.8,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 400,
+    "sur": 20000,
+    "variables_qui_les_distinguent": "OriginalImage[Width (1.8 σ), OriginalImagePixelSpacing[x (1.7 σ), y] (1.7 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "iraqigold/nih-chest-xray-14-flat",
+   "id": "F19",
+   "avis": {
+    "id": "F19",
+    "verdict": "trivial",
+    "explication": "Description d'anomalies de métadonnées basées sur les dimensions techniques des fichiers d'images.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "trpakov/chest-xray-classification",
+    "labels": [
+     "PNEUMONIA",
+     "NORMAL"
+    ],
+    "total_rows": 12230,
+    "url": "https://huggingface.co/datasets/trpakov/chest-xray-classification",
+    "niveaux_de_gris": true,
+    "description": "[images en niveaux de gris : pas d'analyse de couleur]",
+    "moities": {
+     "decouverte": 183,
+     "confirmation": 177
+    }
+   },
+   "lignes": 360,
+   "colonnes": 12,
+   "fig": "2026-11-23_trpakov_chest_xray_classification.png",
+   "n_findings": 5,
+   "findings": [
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "centre_vs_bord -> classe",
+     "stat": 0.262,
+     "score": 0.5616940745694048,
+     "detail": {
+      "eta2": 0.262,
+      "p": 3.5e-12,
+      "famille": "normalisé",
+      "classe_min": "NORMAL (0.187)",
+      "classe_max": "PNEUMONIA (0.463)",
+      "confirmation": "confirmé — η² = 0.26, p = 1.3e-11 sur 177 autres images (découverte : 0.262)"
+     },
+     "confirme": 1.0,
+     "dataset": "trpakov/chest-xray-classification",
+     "id": "F13",
+     "avis": {
+      "id": "F13",
+      "verdict": "pertinent",
+      "explication": "La position des structures (centre vs bord) varie selon la classe de diagnostic (ex. pneumonie), suggérant un biais de cadrage.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "quasi_doublons",
+     "vars": "images",
+     "stat": 19,
+     "score": 0.5076502732240438,
+     "detail": {
+      "paires_quasi_identiques": 19,
+      "images_concernees": 38,
+      "sur": 183,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "trpakov/chest-xray-classification",
+     "id": "F15",
+     "avis": {
+      "id": "F15",
+      "verdict": "artefact",
+      "explication": "Présence de paires d'images quasi-identiques dans le dataset, constituant un doublon technique.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "nettete -> classe",
+     "stat": 0.18,
+     "score": 0.47951402639728347,
+     "detail": {
+      "eta2": 0.18,
+      "p": 7.2e-09,
+      "famille": "normalisé",
+      "classe_min": "PNEUMONIA (0.154)",
+      "classe_max": "NORMAL (0.192)",
+      "confirmation": "confirmé — η² = 0.18, p = 1.8e-08 sur 177 autres images (découverte : 0.18)"
+     },
+     "confirme": 1.0,
+     "dataset": "trpakov/chest-xray-classification",
+     "id": "F16",
+     "avis": {
+      "id": "F16",
+      "verdict": "pertinent",
+      "explication": "La netteté des images diffère selon la classe clinique, ce qui indique un possible biais de qualité d'acquisition.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "classe_predictible_par_stats_simples",
+     "vars": "12 stats visuelles -> classe",
+     "stat": 0.711,
+     "score": 0.4336549165120591,
+     "detail": {
+      "balanced_accuracy_toutes": 0.711,
+      "balanced_accuracy_normalisees_seules": 0.717,
+      "hasard": 0.5,
+      "n_images": 183,
+      "confirmation": "confirmé — précision 0.97 sur d'autres images (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "trpakov/chest-xray-classification",
+     "id": "F17",
+     "avis": {
+      "id": "F17",
+      "verdict": "pertinent",
+      "explication": "Les statistiques visuelles simples permettent de prédire la classe de diagnostic, montrant des artefacts d'acquisition.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "densite_contours -> classe",
+     "stat": 0.101,
+     "score": 0.4014316886738919,
+     "detail": {
+      "eta2": 0.101,
+      "p": 1.1e-05,
+      "famille": "normalisé",
+      "classe_min": "PNEUMONIA (0.047)",
+      "classe_max": "NORMAL (0.066)",
+      "confirmation": "confirmé — η² = 0.16, p = 6.4e-08 sur 177 autres images (découverte : 0.101)"
+     },
+     "confirme": 1.0,
+     "dataset": "trpakov/chest-xray-classification",
+     "id": "F18",
+     "avis": {
+      "id": "F18",
+      "verdict": "pertinent",
+      "explication": "La densité des contours varie selon la classe, révélant un signal visuel non clinique exploité par les modèles.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "electricsheepafrica/skin-diseases-dermatology",
+    "target": "diagnosis",
+    "description": "Skin Diseases & Dermatology (Fungal, Scabies, NTDs, Treatment Access) Africa (Electric Sheep Africa metadata inventory) Size category: 10K<n<100K - Formats: csv - Sector: health - Engineered by Electric Sheep Africa (https://huggingface.co/electricsheepafrica) ! size (https://img.shields.io/badge/size-10K%3Cn%3C100K-blue) ! sector (https://img.shields.io/badge/sector-health-green) ! downloads (htt",
+    "fichier": "data/skin_dermatology_clinic.csv",
+    "url": "https://huggingface.co/datasets/electricsheepafrica/skin-diseases-dermatology",
+    "meta_cols": {
+     "age": "age",
+     "sexe": "sex"
+    },
+    "moities": {
+     "decouverte": 4993,
+     "confirmation": 5007
+    },
+    "did": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "colonnes": {
+     "num": [
+      "age",
+      "child",
+      "urban",
+      "hiv_positive",
+      "duration_weeks",
+      "chronic",
+      "recurrent",
+      "itching",
+      "pain",
+      "cosmetic_concern",
+      "functional_impairment",
+      "stigma_experienced",
+      "psychological_impact",
+      "clinical_diagnosis_only",
+      "koh_prep_done",
+      "skin_biopsy_done",
+      "wood_lamp_done",
+      "dermatologist_seen",
+      "traditional_remedy_used",
+      "self_medication",
+      "treatment_affordable",
+      "improved",
+      "secondary_infection",
+      "scarring"
+     ],
+     "groupes": [
+      "sex",
+      "skin_ntd_type",
+      "body_site",
+      "severity"
+     ]
+    }
+   },
+   "lignes": 10000,
+   "colonnes": 34,
+   "fig": "2026-11-23_electricsheepafrica_skin_diseases_dermat.png",
+   "n_findings": 16,
+   "findings": [
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "treatment_given -> diagnosis",
+     "stat": 1.487,
+     "score": 0.9366372942584421,
+     "detail": {
+      "mutual_info": 1.487,
+      "part_de_l_info": 0.54,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "Le traitement donné dépend par définition du diagnostic posé par le médecin.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> diagnosis = kaposi_sarcoma",
+     "stat": 8.1,
+     "score": 0.9,
+     "detail": {
+      "taux_dans_ce_groupe": "16.2%",
+      "taux_global": "2.0%",
+      "p": 6.2e-35,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Une concentration anormale de cas de sarcome de Kaposi reflète probablement des spécificités épidémiologiques locales ou des biais de recrutement.",
+      "hypothese": "Le lien entre age et skin_ntd_type change-t-il selon body_site ?"
+     }
+    },
+    {
+     "kind": "attribut_cache",
+     "vars": "signal -> age",
+     "stat": 0.402,
+     "score": 0.700804574487526,
+     "detail": {
+      "r2": 0.402,
+      "hasard": 0.0,
+      "validation": "aléatoire",
+      "n": 4993,
+      "variables_les_plus_informatives": "child, scarring, self_medication, stigma_experienced",
+      "confirmation": "confirmé — r2 = 0.42 sur d'autres personnes / lignes (hasard 0.00)"
+     },
+     "confirme": true,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "L'âge du patient peut être prédit à partir de variables socio-comportementales et cliniques.",
+      "hypothese": "Peut-on prédire age avec seulement child, scarring, self_medication, stigma_experienced dans electricsheepafrica/skin-diseases-dermatology ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "age ~ child",
+     "stat": -0.856,
+     "score": 0.6847993666209994,
+     "detail": {
+      "spearman": -0.856,
+      "pearson": -0.682,
+      "n": 4993,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.85 sur 5007 lignes (découverte : -0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "La variable 'child' est une définition directe ou un sous-ensemble de la variable 'age'.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "anomalies_concentrees",
+     "vars": "anomalies -> treatment_given = topical_antifungal",
+     "stat": 3.5,
+     "score": 0.6752760910815939,
+     "detail": {
+      "taux_dans_ce_groupe": "7.0%",
+      "taux_global": "2.0%",
+      "p": 2.2e-20,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Résultat descriptif évident liant un traitement antifongique topique à un diagnostic de mycose.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "duration_weeks ~ chronic",
+     "stat": 0.837,
+     "score": 0.6699328102888491,
+     "detail": {
+      "spearman": 0.837,
+      "pearson": 0.773,
+      "n": 4993,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.83 sur 5007 lignes (découverte : +0.84)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "Forte association entre la durée des symptômes en semaines et le caractère chronique de la maladie cutanée.",
+      "hypothese": "Le lien entre duration_weeks et chronic change-t-il selon severity ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "stigma_experienced ~ psychological_impact",
+     "stat": 0.82,
+     "score": 0.6561886328019759,
+     "detail": {
+      "spearman": 0.82,
+      "pearson": 0.82,
+      "n": 4993,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.82 sur 5007 lignes (découverte : +0.82)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre la stigmatisation ressentie et l'impact psychologique chez les patients dermatologiques.",
+      "hypothese": "Le lien entre stigma_experienced et psychological_impact change-t-il selon sex ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "clinical_diagnosis_only ~ koh_prep_done",
+     "stat": -0.714,
+     "score": 0.5712045325830702,
+     "detail": {
+      "spearman": -0.714,
+      "pearson": -0.714,
+      "n": 4993,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.71 sur 5007 lignes (découverte : -0.71)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Relation mécanique : un diagnostic purement clinique exclut par définition la réalisation d'un examen KOH.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "clinical_diagnosis_only -> diagnosis",
+     "stat": 0.258,
+     "score": 0.49291370911222204,
+     "detail": {
+      "mutual_info": 0.258,
+      "part_de_l_info": 0.09,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    },
+    {
+     "kind": "variable_cle_pour_cible",
+     "vars": "skin_ntd_type -> diagnosis",
+     "stat": 0.212,
+     "score": 0.47651478891373467,
+     "detail": {
+      "mutual_info": 0.212,
+      "part_de_l_info": 0.08,
+      "confirmation": "non applicable — revalidation impossible ('b')"
+     },
+     "confirme": null,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    },
+    {
+     "kind": "correlation",
+     "vars": "clinical_diagnosis_only ~ wood_lamp_done",
+     "stat": -0.593,
+     "score": 0.47430124679770264,
+     "detail": {
+      "spearman": -0.593,
+      "pearson": -0.593,
+      "n": 4993,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.54 sur 5007 lignes (découverte : -0.59)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "diagnosis ~ treatment_given",
+     "stat": 0.513,
+     "score": 0.35892687319819744,
+     "detail": {
+      "cramers_v": 0.513,
+      "p": 0.0,
+      "confirmation": "confirmé — V = 0.51 (découverte : 0.51)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    },
+    {
+     "kind": "correlation",
+     "vars": "clinical_diagnosis_only ~ skin_biopsy_done",
+     "stat": -0.44,
+     "score": 0.3517407274940636,
+     "detail": {
+      "spearman": -0.44,
+      "pearson": -0.44,
+      "n": 4993,
+      "q": 1.8e-233,
+      "confirmation": "confirmé — ρ = -0.47 sur 5007 lignes (découverte : -0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    },
+    {
+     "kind": "predictibilite_cible",
+     "vars": "* -> diagnosis",
+     "stat": 0.476,
+     "score": 0.3334429710794102,
+     "detail": {
+      "balanced_accuracy": 0.476,
+      "baseline": 0.059,
+      "avec_seulement_treatment_given": 0.308,
+      "confirmation": "confirmé — balanced_accuracy = 0.49 sur des données jamais vues (hasard 0.06, découverte 0.476)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    },
+    {
+     "kind": "association_categorielle",
+     "vars": "diagnosis ~ skin_ntd_type",
+     "stat": 0.447,
+     "score": 0.3130495168499705,
+     "detail": {
+      "cramers_v": 0.447,
+      "p": 0.0,
+      "confirmation": "confirmé — V = 0.45 (découverte : 0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "electricsheepafrica/skin-diseases-dermatology"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "iraqigold/nih-chest-xray-14-flat",
+    "target": null,
+    "description": "",
+    "fichier": "Data_Entry_2017.csv",
+    "url": "https://huggingface.co/datasets/iraqigold/nih-chest-xray-14-flat",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 55951,
+     "confirmation": 20000
+    },
+    "did": "hf:iraqigold/nih-chest-xray-14-flat",
+    "colonnes": {
+     "num": [
+      "Follow-up #",
+      "Patient ID",
+      "Patient Age",
+      "OriginalImage[Width",
+      "Height]",
+      "OriginalImagePixelSpacing[x",
+      "y]"
+     ],
+     "groupes": [
+      "Patient Gender",
+      "View Position"
+     ]
+    }
+   },
+   "lignes": 112120,
+   "colonnes": 12,
+   "fig": "2026-11-23_iraqigold_nih_chest_xray_14_flat.png",
+   "n_findings": 6,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "OriginalImage[Width ~ OriginalImagePixelSpacing[x",
+     "stat": -0.862,
+     "score": 0.689594234007997,
+     "detail": {
+      "spearman": -0.862,
+      "pearson": -0.835,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.86 sur 20000 lignes (découverte : -0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "iraqigold/nih-chest-xray-14-flat",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "Lien mécanique entre la largeur de l'image et l'espacement des pixels (résolution et métadonnées DICOM).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "OriginalImage[Width ~ y]",
+     "stat": -0.862,
+     "score": 0.689594234007997,
+     "detail": {
+      "spearman": -0.862,
+      "pearson": -0.835,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.86 sur 20000 lignes (découverte : -0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "iraqigold/nih-chest-xray-14-flat",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "Variante de la même relation technique liée aux dimensions des images DICOM.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Height] ~ OriginalImagePixelSpacing[x",
+     "stat": -0.753,
+     "score": 0.6026237232884787,
+     "detail": {
+      "spearman": -0.753,
+      "pearson": -0.8,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "iraqigold/nih-chest-xray-14-flat",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "trivial",
+      "explication": "Lien technique géométrique entre la hauteur de l'image et l'espacement des pixels.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Height] ~ y]",
+     "stat": -0.753,
+     "score": 0.6026237232884787,
+     "detail": {
+      "spearman": -0.753,
+      "pearson": -0.8,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.75 sur 20000 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "iraqigold/nih-chest-xray-14-flat",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "trivial",
+      "explication": "Variante de la relation géométrique précédente sur les dimensions DICOM.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "OriginalImage[Width ~ Height]",
+     "stat": 0.669,
+     "score": 0.5350097997711217,
+     "detail": {
+      "spearman": 0.669,
+      "pearson": 0.59,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.67 sur 20000 lignes (découverte : +0.67)"
+     },
+     "confirme": 1.0,
+     "dataset": "iraqigold/nih-chest-xray-14-flat",
+     "id": "F14",
+     "avis": {
+      "id": "F14",
+      "verdict": "trivial",
+      "explication": "Relation géométrique basique entre la largeur et la hauteur des images.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ OriginalImage[Width, OriginalImagePixelSpacing[x, y]",
+     "stat": 1.8,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 400,
+      "sur": 20000,
+      "variables_qui_les_distinguent": "OriginalImage[Width (1.8 σ), OriginalImagePixelSpacing[x (1.7 σ), y] (1.7 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "iraqigold/nih-chest-xray-14-flat",
+     "id": "F19",
+     "avis": {
+      "id": "F19",
+      "verdict": "trivial",
+      "explication": "Description d'anomalies de métadonnées basées sur les dimensions techniques des fichiers d'images.",
+      "hypothese": ""
+     }
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "arudaev/chest-xray-14",
+   "erreur": "500 Server Error: Internal Server Error for url: https://datasets-server.huggingface.co/rows?dataset=arudaev%2Fchest-xray-14&config=default&split=trai"
+  },
+  {
+   "source": "hf_images",
+   "ref": "inGeniia/chest-xrays-evaluation_cnn-cls",
+   "erreur": "500 Server Error: Internal Server Error for url: https://datasets-server.huggingface.co/splits?dataset=inGeniia%2Fchest-xrays-evaluation_cnn-cls"
+  },
+  {
+   "source": "hf_images",
+   "ref": "UniqueData/dermatology-dataset-acne-redness-and-bags-under-the-eyes",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "BJyotibrat/Masoud-Nickparvar-Brain-Tumor-MRI-Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "arudaev/chest-xray-14-320",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "FOMO-MRI/FOMO45K",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "hamdan07/UltraSound-lung",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "hyliu/mri_data",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "yungprof/ham10000-indabax",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "hawking32/ham10000_ttv",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 64,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "x": "AF3",
+    "y": "AF4",
+    "groupe": "eyeDetection",
+    "seuil": null,
+    "plus_fort": "0",
+    "enonce": "Le lien entre AF3 et AF4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "EEG eye state detection frontal electrode coherence AF3 AF4"
+   },
+   "statut": "non concluante",
+   "resume": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, la corrélation AF3~AF4 vaut +0.90 pour « eyeDetection = 0 » contre +0.89 pour « eyeDetection = 1 » (p = 0.0049). Attention : relation non linéaire ou valeurs extrêmes dans « eyeDetection = 0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (7535 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "eyeDetection = 0": {
+      "rho": 0.901,
+      "pearson": 0.569,
+      "n": 4136
+     },
+     "eyeDetection = 1": {
+      "rho": 0.888,
+      "pearson": 0.921,
+      "n": 3399
+     }
+    },
+    "groupe_predit_plus_fort": "eyeDetection = 0",
+    "p_difference": 0.00493,
+    "donnees_test": "moitié de confirmation (7535 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.0049, seuil corrigé 0.05 (4 tests cette nuit)"
+   },
+   "sujet": "Signaux du cœur et du cerveau",
+   "biblio": [
+    {
+     "titre": "Implementing Random Forest for Eye State Detection in an EEG-Based Brain-Computer Interface System",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.33395/sinkron.v10i3.16054"
+    },
+    {
+     "titre": "Modeling EEG Signals as Graphs: A GNN-Based Framework for Eye State Detection with Embedding Space Analysis",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.6025/jdp/2026/16/2/53-73"
+    },
+    {
+     "titre": "Quantitative and Qualitative Trade-Off Analysis of Drowsy Driver Detection Methods: Single Electrode Wearable EEG Device, Multi-Electrode Wearable EEG Device, and Head-Mounted Gyroscope",
+     "annee": 2016,
+     "citations": 1,
+     "url": "https://doi.org/10.13016/m25r3x"
+    },
+    {
+     "titre": "A multimodal approach to estimating vigilance using EEG and forehead EOG",
+     "annee": 2017,
+     "citations": 505,
+     "url": "https://doi.org/10.1088/1741-2552/aa5a98"
+    },
+    {
+     "titre": "EEG ANALYSIS OF REAL AND IMAGINARY ARM MOVEMENTS BY SPECTRAL COHERENCE",
+     "annee": 2021,
+     "citations": 5,
+     "url": "https://doi.org/10.17482/uumfd.793775"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "La formulation est correcte : elle interroge bien une modération (l'effet de eyeDetection sur le lien AF3-AF4) sur des données observationnelles EEG.",
+    "reformulation": "",
+    "diagnostic_statistique": "Forte divergence entre Spearman (0.90) et Pearson (0.57) dans le groupe eyeDetection = 0, révélant une non-linéarité prononcée, des saturations ou des artefacts de mesure (bruit).",
+    "modele_recommande": "régression avec interaction sur splines (GAM) ou régression robuste (ex: Huber) y ~ s(x) * z",
+    "robustesse": "Bonne taille d'échantillon (>3000 par groupe), mais les signaux EEG bruts souffrent souvent d'artefacts de clignement ou de mouvements oculaires qui perturbent la corrélation linéaire.",
+    "interpretation_domaine": "Les électrodes frontales AF3 et AF4 captent fortement les mouvements oculaires (EOG) et l'état de vigilance. La non-linéarité observée reflète probablement des artefacts physiologiques lorsque les yeux sont ouverts ou fermés.",
+    "action_pipeline": "Intégrer une alerte automatique de non-linéarité dès que l'écart |Spearman - Pearson| dépasse 0.15 pour basculer automatiquement sur une modélisation non linéaire.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La modulation de la asymétrie frontale ou de la cohérence EEG selon l'état des yeux est largement documentée en interfaces cerveau-machine.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 65,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "x": "O1",
+    "y": "O2",
+    "groupe": "eyeDetection",
+    "seuil": null,
+    "plus_fort": "1",
+    "enonce": "Le lien entre O1 et O2 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "occipital EEG alpha synchronization eye open closed O1 O2"
+   },
+   "statut": "confirmée",
+   "resume": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, la corrélation O1~O2 vaut +0.54 pour « eyeDetection = 1 » contre +0.41 pour « eyeDetection = 0 » (p = 1.6e-13). Attention : relation non linéaire ou valeurs extrêmes dans « eyeDetection = 0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (7535 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "eyeDetection = 0": {
+      "rho": 0.408,
+      "pearson": 0.156,
+      "n": 4136
+     },
+     "eyeDetection = 1": {
+      "rho": 0.54,
+      "pearson": 0.67,
+      "n": 3399
+     }
+    },
+    "groupe_predit_plus_fort": "eyeDetection = 1",
+    "p_difference": 1.57e-13,
+    "donnees_test": "moitié de confirmation (7535 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.6e-13, seuil corrigé 0.013 (4 tests cette nuit)",
+    "confusion": "aucune variable de confusion (âge, sexe) disponible dans ce dataset",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (O1, O2, eyeDetection) parmi 12 essayés"
+   },
+   "sujet": "Signaux du cœur et du cerveau",
+   "confusion": [
+    null,
+    "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (O1, O2, eyeDetection) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "Symbolic time series analysis of electroencephalographic (EEG) epileptic seizure and brain dynamics with eye-open and eye-closed subjects during resting states",
+     "annee": 2017,
+     "citations": 53,
+     "url": "https://doi.org/10.1186/s40101-017-0136-8"
+    },
+    {
+     "titre": "Occipital alpha-band brain waves when the eyes are closed are shaped by ongoing visual processes",
+     "annee": 2022,
+     "citations": 82,
+     "url": "https://doi.org/10.1038/s41598-022-05289-6"
+    },
+    {
+     "titre": "Finding thalamic BOLD correlates to posterior alpha EEG",
+     "annee": 2012,
+     "citations": 117,
+     "url": "https://doi.org/10.1016/j.neuroimage.2012.08.025"
+    },
+    {
+     "titre": "Long-range alpha and beta and short-range gamma EEG synchronization distinguishes phasic and tonic REM periods",
+     "annee": 2017,
+     "citations": 53,
+     "url": "https://doi.org/10.1093/sleep/zsx210"
+    },
+    {
+     "titre": "Estimation of Eye Closure Degree Using EEG Sensors and Its Application in Driver Drowsiness Detection",
+     "annee": 2014,
+     "citations": 83,
+     "url": "https://doi.org/10.3390/s140917491"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "Correcte, la question de modulation du lien par l'état des yeux est bien posée, mais utilise à tort le terme de corrélation pour la modération.",
+    "reformulation": "L'état des yeux (eyeDetection) modifie-t-il la relation entre les électrodes occipitales O1 et O2 ?",
+    "diagnostic_statistique": "Forte divergence entre Pearson (0.156) et Spearman (0.408) pour eyeDetection = 0, indiquant une non-linéarité prononcée, des valeurs extrêmes ou une saturation du signal EEG.",
+    "modele_recommande": "régression avec interaction y ~ x * z ou GAM (Generalized Additive Models)",
+    "robustesse": "Bonne taille d'échantillon (n > 3300 par groupe), mais absence de facteurs de confusion physiologiques et risque d'artefacts de mouvement liés aux yeux.",
+    "interpretation_domaine": "En neurophysiologie, les ondes alpha occipitales (enregistrées en O1 et O2) augmentent et se synchronisent fortement lorsque les yeux sont fermés, expliquant la variation du lien selon eyeDetection.",
+    "action_pipeline": "Intégrer un test automatique de non-linéarité (écart Pearson-Spearman) pour imposer l'utilisation de modèles additifs généralisés (GAM) avant le calcul des corrélations.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La modulation des ondes alpha occipitales selon l'ouverture des yeux est un phénomène neurophysiologique classique.",
+   "pertinence": {
+    "niveau": 2,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 1.6e-13, seuil corrigé 0.013 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "aucune variable de confusion (âge, sexe) disponible dans ce dataset"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (O1, O2, eyeDetection) parmi 12 essayés"
+     }
+    ]
+   }
+  },
+  {
+   "id": 66,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "x": "F3",
+    "y": "F4",
+    "groupe": "eyeDetection",
+    "seuil": null,
+    "plus_fort": "0",
+    "enonce": "Le lien entre F3 et F4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "frontal asymmetry EEG eye state classification F3 F4"
+   },
+   "statut": "non concluante",
+   "resume": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, la corrélation F3~F4 vaut +0.77 pour « eyeDetection = 0 » contre +0.71 pour « eyeDetection = 1 » (p = 7.5e-09). Attention : relation non linéaire ou valeurs extrêmes dans « eyeDetection = 0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté. [Testé sur : moitié de confirmation (7535 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "eyeDetection = 0": {
+      "rho": 0.767,
+      "pearson": 0.276,
+      "n": 4136
+     },
+     "eyeDetection = 1": {
+      "rho": 0.706,
+      "pearson": 0.794,
+      "n": 3399
+     }
+    },
+    "groupe_predit_plus_fort": "eyeDetection = 0",
+    "p_difference": 7.53e-09,
+    "donnees_test": "moitié de confirmation (7535 lignes jamais vues à l'exploration)",
+    "holm": "p = 7.5e-09, seuil corrigé 0.025 (4 tests cette nuit)"
+   },
+   "sujet": "Signaux du cœur et du cerveau",
+   "biblio": [
+    {
+     "titre": "The validity of individual frontal alpha asymmetry EEG neurofeedback",
+     "annee": 2015,
+     "citations": 110,
+     "url": "https://doi.org/10.1093/scan/nsv090"
+    },
+    {
+     "titre": "Frontal EEG Asymmetry and Middle Line Power Difference in Discrete Emotions",
+     "annee": 2018,
+     "citations": 161,
+     "url": "https://doi.org/10.3389/fnbeh.2018.00225"
+    },
+    {
+     "titre": "Frontal EEG Asymmetry of Emotion for the Same Auditory Stimulus",
+     "annee": 2020,
+     "citations": 59,
+     "url": "https://doi.org/10.1109/access.2020.3000788"
+    },
+    {
+     "titre": "Relationship between adult attachment patterns, emotional experience and EEG frontal asymmetry",
+     "annee": 2007,
+     "citations": 65,
+     "url": "https://doi.org/10.1016/j.paid.2007.10.021"
+    },
+    {
+     "titre": "EEG Frontal Alpha Asymmetry and Dream Affect: Alpha Oscillations over the Right Frontal Cortex during REM Sleep and Presleep Wakefulness Predict Anger in REM Sleep Dreams",
+     "annee": 2019,
+     "citations": 74,
+     "url": "https://doi.org/10.1523/jneurosci.2884-18.2019"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "La formulation est correcte : elle interroge bien une modification du lien entre F3 et F4 selon l'état des yeux, sans abus causal.",
+    "reformulation": "",
+    "diagnostic_statistique": "Forte divergence entre Pearson (0.276) et Spearman (0.767) pour eyeDetection = 0, indiquant une relation non linéaire ou la présence d'artefacts et valeurs extrêmes fréquents en EEG.",
+    "modele_recommande": "Modèle additif généralisé (GAM) ou régression robuste avec interaction pour tenir compte de la non-linéarité.",
+    "robustesse": "Bonne taille d'échantillon (n > 3300 par groupe) sur un jeu de test indépendant, mais forte sensibilité aux bruits et artéfacts oculaires dans les signaux EEG bruts.",
+    "interpretation_domaine": "L'asymétrie frontale (F3/F4) est un marqueur classique en EEG lié aux émotions et à l'état d'alerte, influencé par les mouvements oculaires (ici capturés par eyeDetection).",
+    "action_pipeline": "Ajouter un filtre automatique pour détecter et exclure les artéfacts extrêmes en EEG avant le calcul des corrélations, et systématiser l'usage des modèles non linéaires (GAM) en cas d'écart Pearson/Spearman.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'asymétrie EEG frontale liée aux états émotionnels et attentionnels est un sujet très étudié.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 67,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:gymprathap/Brain-Computer-Interaction-Eye-State-Classification",
+    "cible": "eyeDetection",
+    "variables": [
+     "AF3",
+     "AF4",
+     "O1",
+     "O2"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire eyeDetection avec seulement AF3, AF4, O1, O2 dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "requete_biblio": "EEG eye state detection minimal frontal occipital channels"
+   },
+   "statut": "confirmée",
+   "resume": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, prédire eyeDetection avec AF3, AF4, O1, O2 donne balanced_accuracy = 0.71 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (7535 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "balanced_accuracy": 0.715,
+    "hasard": 0.503,
+    "p_permutation": 0.0476,
+    "p_z": 1e-12,
+    "validation": "aléatoire",
+    "n": 5000,
+    "donnees_test": "moitié de confirmation (7535 lignes jamais vues à l'exploration)",
+    "holm": "p = 1e-12, seuil corrigé 0.017 (4 tests cette nuit)",
+    "confusion": "contrôle non applicable à ce type de test",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (eyeDetection, AF3, AF4, O1, O2) parmi 12 essayés"
+   },
+   "sujet": "Signaux du cœur et du cerveau",
+   "confusion": [
+    null,
+    "contrôle non applicable à ce type de test"
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (eyeDetection, AF3, AF4, O1, O2) parmi 12 essayés"
+   ],
+   "biblio": [
+    {
+     "titre": "Fusing Frontal and Occipital EEG Features to Detect “Brain Switch” by Utilizing Convolutional Neural Network",
+     "annee": 2019,
+     "citations": 13,
+     "url": "https://doi.org/10.1109/access.2019.2924185"
+    },
+    {
+     "titre": "Implementing Random Forest for Eye State Detection in an EEG-Based Brain-Computer Interface System",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.33395/sinkron.v10i3.16054"
+    },
+    {
+     "titre": "Depression Detection using Resting State Three-channel EEG Signal",
+     "annee": 2020,
+     "citations": 27,
+     "url": "https://doi.org/10.48550/arxiv.2002.09175"
+    },
+    {
+     "titre": "Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload",
+     "annee": 2014,
+     "citations": 354,
+     "url": "https://doi.org/10.3389/fnins.2014.00322"
+    },
+    {
+     "titre": "Multimodal Detection of External and Internal Attention in Virtual Reality using EEG and Eye Tracking Features",
+     "annee": 2024,
+     "citations": 33,
+     "url": "https://doi.org/10.1145/3670653.3670657"
+    }
+   ],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé est clair et correspond précisément au test de prédiction effectué sur un sous-ensemble de canaux EEG.",
+    "reformulation": "",
+    "diagnostic_statistique": "Modèle prédictif significatif avec une balanced accuracy de 0.715 (p = 0.048 par permutation, p < 1e-12 corrigé de Holm), supérieur au hasard (0.503).",
+    "modele_recommande": "Forêt aléatoire (Random Forest) ou Gradient Boosting (XGBoost) adaptés à la classification binaire sur signaux physiologiques.",
+    "robustesse": "Testé sur un échantillon de confirmation correct (n=5000 à 7535 lignes), mais absence de validation sur un dataset externe indépendant.",
+    "interpretation_domaine": "La littérature confirme que l'analyse combinée des canaux frontaux (AF3, AF4) et occipitaux (O1, O2) permet de détecter l'état des yeux (ouvert/fermé) via l'activité EEG, reflétant les rythmes alpha associés au cortex visuel.",
+    "action_pipeline": "Ajouter un test de généralisation croisée inter-individus (Leave-One-Subject-Out) pour s'assurer que le modèle n'apprend pas des artefacts propres à un seul sujet.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La classification de l'état de vigilance ou d'ouverture des yeux à partir de signaux EEG multi-électrodes est un standard de la discipline.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 1e-12, seuil corrigé 0.017 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "contrôle non applicable à ce type de test"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (eyeDetection, AF3, AF4, O1, O2) parmi 12 essayés"
+     }
+    ]
+   }
+  }
+ ]
+}

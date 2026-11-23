@@ -1,0 +1,198 @@
+{
+ "date": "2026-11-23",
+ "faits": {
+  "date": "2026-11-23",
+  "date_longue": "23 novembre 2026",
+  "sujets": [
+   "Imagerie médicale et attributs cachés"
+  ],
+  "questions": [
+   "Les images médicales (peau, radio, IRM) permettent-elles de retrouver le sexe ou l'âge du patient, et ces informations biaisent-elles les diagnostics ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "trpakov/chest-xray-classification",
+    "lignes": 360,
+    "colonnes": 12,
+    "resultats_bruts": 5,
+    "confirmes_sur_moitie_independante": 4
+   },
+   {
+    "nom": "electricsheepafrica/skin-diseases-dermatology",
+    "lignes": 10000,
+    "colonnes": 34,
+    "resultats_bruts": 16,
+    "confirmes_sur_moitie_independante": 10
+   },
+   {
+    "nom": "iraqigold/nih-chest-xray-14-flat",
+    "lignes": 112120,
+    "colonnes": 12,
+    "resultats_bruts": 6,
+    "confirmes_sur_moitie_independante": 5
+   }
+  ],
+  "datasets_ecartes": 10,
+  "hypotheses_testees": [
+   {
+    "id": "H64",
+    "enonce": "Le lien entre AF3 et AF4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, la corrélation AF3~AF4 vaut +0.90 pour « eyeDetection = 0 » contre +0.89 pour « eyeDetection = 1 » (p = 0.0049). Attention : relation non linéaire ou valeurs extrêmes dans « eyeDetection = 0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "La modulation de la asymétrie frontale ou de la cohérence EEG selon l'état des yeux est largement documentée en interfaces cerveau-machine."
+   },
+   {
+    "id": "H65",
+    "enonce": "Le lien entre O1 et O2 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "statut": "confirmée",
+    "niveau": 2,
+    "qualification": "piste fragile (niveau 2/6)",
+    "resultat": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, la corrélation O1~O2 vaut +0.54 pour « eyeDetection = 1 » contre +0.41 pour « eyeDetection = 0 » (p = 1.6e-13). Attention : relation non linéaire ou valeurs extrêmes dans « eyeDetection = 0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": "Non trivial : avis d'expert : A_TESTER_AUTREMENT",
+    "litterature": "La modulation des ondes alpha occipitales selon l'ouverture des yeux est un phénomène neurophysiologique classique."
+   },
+   {
+    "id": "H66",
+    "enonce": "Le lien entre F3 et F4 change-t-il selon eyeDetection dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, la corrélation F3~F4 vaut +0.77 pour « eyeDetection = 0 » contre +0.71 pour « eyeDetection = 1 » (p = 7.5e-09). Attention : relation non linéaire ou valeurs extrêmes dans « eyeDetection = 0 » (Spearman ≠ Pearson) ; un modèle non linéaire (GAM, splines, log) serait plus adapté.",
+    "bloque_a": null,
+    "litterature": "L'asymétrie EEG frontale liée aux états émotionnels et attentionnels est un sujet très étudié."
+   },
+   {
+    "id": "H67",
+    "enonce": "Peut-on prédire eyeDetection avec seulement AF3, AF4, O1, O2 dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans gymprathap/Brain-Computer-Interaction-Eye-State-Classification, prédire eyeDetection avec AF3, AF4, O1, O2 donne balanced_accuracy = 0.71 (hasard ≈ 0.50, p = 0.048 sur 20 permutations, validation aléatoire).",
+    "bloque_a": "Nouveau : déjà connu",
+    "litterature": "La classification de l'état de vigilance ou d'ouverture des yeux à partir de signaux EEG multi-électrodes est un standard de la discipline."
+   }
+  ],
+  "bilan_tests": {
+   "non concluante": 2,
+   "confirmée": 2
+  },
+  "resultats_solides": [
+   "H67"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "electricsheepafrica/skin-diseases-dermatology",
+    "variables": "signal -> age",
+    "type": "attribut_cache",
+    "explication": "L'âge du patient peut être prédit à partir de variables socio-comportementales et cliniques.",
+    "detail": "confirmé — r2 = 0.42 sur d'autres personnes / lignes (hasard 0.00)"
+   },
+   {
+    "dataset": "electricsheepafrica/skin-diseases-dermatology",
+    "variables": "duration_weeks ~ chronic",
+    "type": "correlation",
+    "explication": "Forte association entre la durée des symptômes en semaines et le caractère chronique de la maladie cutanée.",
+    "detail": "confirmé — ρ = +0.83 sur 5007 lignes (découverte : +0.84)"
+   },
+   {
+    "dataset": "electricsheepafrica/skin-diseases-dermatology",
+    "variables": "stigma_experienced ~ psychological_impact",
+    "type": "correlation",
+    "explication": "Forte corrélation entre la stigmatisation ressentie et l'impact psychologique chez les patients dermatologiques.",
+    "detail": "confirmé — ρ = +0.82 sur 5007 lignes (découverte : +0.82)"
+   },
+   {
+    "dataset": "trpakov/chest-xray-classification",
+    "variables": "centre_vs_bord -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La position des structures (centre vs bord) varie selon la classe de diagnostic (ex. pneumonie), suggérant un biais de cadrage.",
+    "detail": "confirmé — η² = 0.26, p = 1.3e-11 sur 177 autres images (découverte : 0.262)"
+   },
+   {
+    "dataset": "trpakov/chest-xray-classification",
+    "variables": "nettete -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "La netteté des images diffère selon la classe clinique, ce qui indique un possible biais de qualité d'acquisition.",
+    "detail": "confirmé — η² = 0.18, p = 1.8e-08 sur 177 autres images (découverte : 0.18)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre duration_weeks et psychological_impact change-t-il selon sex ?",
+   "Le lien entre age et stigma_experienced change-t-il selon severity ?",
+   "Peut-on prédire sex avec seulement age, duration_weeks, chronic, itching, pain, stigma_experienced, psychological_impact ?",
+   "Le lien entre duration_weeks et psychological_impact est-il plus fort au-dessus d'un seuil de duration_weeks de 4.0 semaines ?"
+  ],
+  "runs": [
+   "2026-11-23_0330_ham10000"
+  ]
+ },
+ "en_chiffres": [
+  "3 datasets analysés, 10 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 2 non concluante, 2 confirmée",
+  "1 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne : les secrets cachés des images médicales",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté pour savoir si les images médicales trahissent des informations cachées sur les patients et si des biais techniques s'y glissent.",
+ "paragraphes": [
+  "L'enquête s'est penchée sur l'analyse de plusieurs jeux de données pour tester des hypothèses variées. Concernant les signaux cérébraux, une piste fragile a émergé : le lien entre les signaux O1 et O2 change selon l'état des yeux. Un test s'est toutefois distingué par un résultat solide à ce stade, montrant qu'il est possible de prédire l'état d'ouverture des yeux à partir de mesures électriques précises, avec une exactitude équilibrée de 0.71.",
+  "L'investigation a également mis au jour des pistes intéressantes du côté de la dermatologie et de la radiologie. Dans le jeu de données sur les maladies cutanées, une forte association a été confirmée entre la durée des symptômes en semaines et le caractère chronique de la maladie, ainsi qu'entre la stigmatisation ressentie et l'impact psychologique. Du côté des radiographies thoraciques, la Raspberry Pi a relevé une alerte qualité : la position des structures et la netteté des images varient selon la classe de diagnostic, signalant un possible biais de cadrage ou de qualité d'acquisition."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "les biais algorithmiques dans l'imagerie médicale",
+    "requetes": [
+     "algorithmic bias in medical imaging",
+     "confounding factors medical imaging"
+    ]
+   },
+   {
+    "theme": "la prédiction d'attributs démographiques à partir d'images médicales",
+    "requetes": [
+     "predicting patient demographics from medical images",
+     "demographic bias in deep learning medical diagnostics"
+    ]
+   }
+  ],
+  "titre": "Les pièges cachés de l'intelligence artificielle en imagerie médicale",
+  "paragraphes": [
+   "L'intelligence artificielle, c'est-à-dire des programmes informatiques capables de simuler l'intelligence humaine, est de plus en plus utilisée pour analyser des images médicales comme des radiographies ou des examens de peau [1, 2]. Ces programmes peuvent repérer des détails invisibles pour l'œil humain et aider les médecins dans leurs diagnostics, mais ils comportent aussi des risques d'erreurs systématiques que l'on appelle des biais [1, 2]. La recherche sait que ces systèmes peuvent reproduire ou accentuer des inégalités déjà présentes dans les données de santé [3]. Ces programmes apprennent à partir de grandes quantités de données et peuvent intégrer des informations démographiques, ce qui pose la question de leur capacité à identifier des caractéristiques personnelles des patients et l'impact de ces données sur la fiabilité des soins."
+  ],
+  "references": [
+   {
+    "titre": "Bias in artificial intelligence for medical imaging: fundamentals, detection, avoidance, mitigation, challenges, ethics, and prospects",
+    "annee": 2024,
+    "auteurs": "Koçak et al.",
+    "revue": "Diagnostic and Interventional Radiology",
+    "citations": 373,
+    "url": "https://doi.org/10.4274/dir.2024.242854",
+    "theme": "les biais algorithmiques dans l'imagerie médicale"
+   },
+   {
+    "titre": "Machine Learning and Bias in Medical Imaging: Opportunities and Challenges",
+    "annee": 2024,
+    "auteurs": "Vrudhula et al.",
+    "revue": "Circulation Cardiovascular Imaging",
+    "citations": 106,
+    "url": "https://doi.org/10.1161/circimaging.123.015495",
+    "theme": "les biais algorithmiques dans l'imagerie médicale"
+   },
+   {
+    "titre": "Ethical framework for responsible foundational models in medical imaging",
+    "annee": 2025,
+    "auteurs": "Jha et al.",
+    "revue": "Frontiers in Medicine",
+    "citations": 38,
+    "url": "https://doi.org/10.3389/fmed.2025.1544501",
+    "theme": "les biais algorithmiques dans l'imagerie médicale"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 3 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
