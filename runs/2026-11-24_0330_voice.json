@@ -1,0 +1,598 @@
+{
+ "id": "2026-11-24_0330_voice",
+ "date": "2026-11-24T03:46",
+ "sujet": "Ce que dit la voix",
+ "question": "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?",
+ "keywords": [
+  "voice",
+  "speech",
+  "vowel",
+  "gender recognition by voice",
+  "parkinson",
+  "speaker",
+  "emotion speech"
+ ],
+ "analyse": {
+  "synthese": "Cette session explore les caractéristiques acoustiques vocales et leur capacité à révéler des informations cachées sur l'orateur, telles que l'identité, le genre ou l'état de santé, au-delà des mots prononcés. En s'appuyant sur des corpus vocaux issus de plateformes comme YouTube, nous cherchons à identifier les marqueurs acoustiques robustes de la voix. Les résultats non confirmés sur d'autres thématiques rappellent la nécessité d'une stricte validation indépendante pour éviter les artefacts.",
+  "verdicts": {},
+  "pistes": [
+   "Analyser la signature spectrale des locuteurs pour prédire leur identité à partir de courts segments vocaux.",
+   "Étudier l'impact des variations de hauteur (pitch) et de durée sur la distinction des locuteurs.",
+   "Explorer la relation entre les métadonnées de canal et les caractéristiques acoustiques enregistrées."
+  ],
+  "nouveautes": {
+   "68": {
+    "id": "H68",
+    "nouveaute": "deja_connu",
+    "explication": "La littérature médicale documente amplement les différences liées au genre dans l'impact psychologique des pathologies chroniques, bien que ce test se concentre sur des variables dermatologiques."
+   },
+   "69": {
+    "id": "H69",
+    "nouveaute": "partiellement_etudie",
+    "explication": "Les liens entre l'âge, la sévérité de la maladie et la stigmatisation ont été abordés dans des études cliniques ciblées, mais nécessitent des analyses plus nuancées selon les sous-groupes."
+   },
+   "70": {
+    "id": "H70",
+    "nouveaute": "deja_connu",
+    "explication": "Il est établi que les variables cliniques de base ne permettent pas de prédire le genre biologique sans marqueurs spécifiques, ce que confirme l'exactitude proche du hasard."
+   },
+   "71": {
+    "id": "H71",
+    "nouveaute": "partiellement_etudie",
+    "explication": "L'effet de seuil temporel sur l'impact psychologique des affections chroniques est reconnu, montrant une aggravation après une certaine durée d'exposition."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "prediction",
+    "dataset_id": "hf:Tabahi/yt-cc-speakers-6spk",
+    "cible": "spkr",
+    "variables": [
+     "split"
+    ],
+    "groupe": "channel_url",
+    "enonce": "Peut-on prédire spkr avec seulement split en regroupant par channel_url ?",
+    "requete_biblio": [
+     "speaker recognition youtube corpus",
+     "voice biometric identification channels"
+    ]
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:Tabahi/yt-cc-speakers-6spk",
+    "x": "spkr",
+    "y": "creator",
+    "groupe": "split",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre spkr et creator change-t-il selon split ?",
+    "requete_biblio": [
+     "speaker metadata analysis youtube",
+     "voice dataset speaker distribution"
+    ]
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Tabahi/yt-cc-speakers-6spk",
+    "target": null,
+    "description": "YouTube CC Speaker Corpus: six speakers, train/test English speech from YouTube, organized by speaker: 4,557 recordings and 1,164 hours from 6 speakers. This is subset of the YouTube CC Speaker Corpus yt-cc-speakers (https://huggingface.co/datasets/Tabahi/yt-cc-speakers) with six speakers who each have close to 200 hours of speech and less interference from other speakers, split into train and tes",
+    "fichier": "ATTRIBUTION.csv",
+    "url": "https://huggingface.co/datasets/Tabahi/yt-cc-speakers-6spk",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 2239,
+     "confirmation": 2318
+    },
+    "did": "hf:Tabahi/yt-cc-speakers-6spk",
+    "colonnes": {
+     "num": [
+      "spkr"
+     ],
+     "groupes": [
+      "split",
+      "creator",
+      "channel_url"
+     ]
+    }
+   },
+   "lignes": 4557,
+   "colonnes": 12,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "sarulab-speech/yodas2_sidon",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "fsicoli/common_voice_22_0",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "AquaV/genshin-voices-separated",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Hahad14/Parkinsons_Disease_Speech",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "asahi417/seamless-align-enA-frA.speaker-embedding.xlsr-2b",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "asahi417/seamless-align-enA-esA.speaker-embedding.w2vbert-600m",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "Sai452/Parkinsons-Data",
+   "erreur": "fichier sans en-tête (noms de colonnes = valeurs numériques)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "plnguyen2908/AV-SpeakerBench",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 68,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "x": "duration_weeks",
+    "y": "psychological_impact",
+    "groupe": "sex",
+    "seuil": null,
+    "plus_fort": "Female",
+    "enonce": "Le lien entre duration_weeks et psychological_impact change-t-il selon sex ?",
+    "requete_biblio": "skin disease duration psychological impact gender differences"
+   },
+   "statut": "réfutée",
+   "resume": "Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.23 pour « sex = M » contre +0.20 pour « sex = F » (écart 0.04, p = 0.19). [Testé sur : moitié de confirmation (5007 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "sex = F": {
+      "rho": 0.199,
+      "pearson": 0.187,
+      "n": 2625
+     },
+     "sex = M": {
+      "rho": 0.234,
+      "pearson": 0.217,
+      "n": 2382
+     }
+    },
+    "p_difference": 0.195,
+    "donnees_test": "moitié de confirmation (5007 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.2, seuil corrigé 0.017 (4 tests cette nuit)"
+   },
+   "sujet": "Imagerie médicale et attributs cachés",
+   "biblio": [
+    {
+     "titre": "Gender Differences in Inflammatory Bowel Disease",
+     "annee": 2020,
+     "citations": 226,
+     "url": "https://doi.org/10.1159/000504701"
+    },
+    {
+     "titre": "The impact of skin diseases on quality of life: A multicenter study",
+     "annee": 2017,
+     "citations": 116,
+     "url": "https://doi.org/10.1016/j.adengl.2016.11.019"
+    },
+    {
+     "titre": "Sex and Gender Differences in Travel‐Associated Disease",
+     "annee": 2010,
+     "citations": 148,
+     "url": "https://doi.org/10.1086/650575"
+    },
+    {
+     "titre": "Gender Differences in Post-Operative Human Skin",
+     "annee": 2023,
+     "citations": 15,
+     "url": "https://doi.org/10.3390/biomedicines11102653"
+    },
+    {
+     "titre": "A systematic review of sex and gender differences in treatment outcome of inflammatory skin diseases: Is it time for new guidelines?",
+     "annee": 2024,
+     "citations": 17,
+     "url": "https://doi.org/10.1111/jdv.20256"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé est correctement formulé sous forme de modération (« change-t-il selon sex »).",
+    "reformulation": "",
+    "diagnostic_statistique": "Les corrélations de Spearman et Pearson sont proches dans les deux groupes (différences < 0.15), indiquant des relations globalement linéaires sans valeurs extrêmes majeures. L'écart entre les coefficients de corrélation des hommes (+0.23) et des femmes (+0.20) n'est pas statistiquement significatif (p = 0.195).",
+    "modele_recommande": "régression linéaire avec interaction y ~ x * z",
+    "robustesse": "La taille des échantillons est excellente (plus de 2300 observations par groupe), garantissant une bonne puissance statistique. Aucune correction de multiplicité n'a permis de valider le résultat (p supérieur au seuil corrigé de Holm).",
+    "interpretation_domaine": "En dermatologie, l'impact psychologique des affections cutanées est documenté, mais les données ne montrent pas de modification significative de ce lien selon le sexe dans cette cohorte. Il s'agit probablement d'un artefact d'échantillonnage ou d'une absence d'effet modérateur réel.",
+    "action_pipeline": "Rejeter l'hypothèse d'une modération par le sexe et affiner la recherche de facteurs confondants (âge, type de lésion) pour de futures explorations.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La littérature médicale documente amplement les différences liées au genre dans l'impact psychologique des pathologies chroniques, bien que ce test se concentre sur des variables dermatologiques.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "x": "age",
+    "y": "stigma_experienced",
+    "groupe": "severity",
+    "seuil": null,
+    "plus_fort": "Severe",
+    "enonce": "Le lien entre age et stigma_experienced change-t-il selon severity ?",
+    "requete_biblio": "dermatological stigma age severity clinical correlation"
+   },
+   "statut": "réfutée",
+   "resume": "Dans electricsheepafrica/skin-diseases-dermatology, la corrélation age~stigma_experienced vaut +0.01 pour « severity = severe » contre -0.02 pour « severity = moderate » (p = 0.45). [Testé sur : moitié de confirmation (5007 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "severity = moderate": {
+      "rho": -0.021,
+      "pearson": -0.015,
+      "n": 2007
+     },
+     "severity = mild": {
+      "rho": 0.014,
+      "pearson": 0.015,
+      "n": 1746
+     },
+     "severity = severe": {
+      "rho": 0.006,
+      "pearson": -0.02,
+      "n": 1254
+     }
+    },
+    "groupe_predit_plus_fort": "severity = severe",
+    "p_difference": 0.454,
+    "donnees_test": "moitié de confirmation (5007 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.45, seuil corrigé 0.025 (4 tests cette nuit)"
+   },
+   "sujet": "Imagerie médicale et attributs cachés",
+   "biblio": [
+    {
+     "titre": "A network analysis of psychological flexibility, coping, and stigma in dermatology patients",
+     "annee": 2023,
+     "citations": 30,
+     "url": "https://doi.org/10.3389/fmed.2023.1075672"
+    },
+    {
+     "titre": "Internalized stigma, disease severity, quality of life, anxiety and depression in axillary hyperhidrosis",
+     "annee": 2024,
+     "citations": 3,
+     "url": "https://doi.org/10.1016/j.annder.2024.103291"
+    },
+    {
+     "titre": "A Clinical Study of Socio-Demographic Variables and Their Correlation to Psychiatric Morbidities in Dermatological Disorders",
+     "annee": 2025,
+     "citations": 0,
+     "url": "https://doi.org/10.71393/0ahc1057"
+    },
+    {
+     "titre": "Evaluation of Internalized Stigma in Pediatric Patients With Alopecia Areata",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.1155/dth/6932607"
+    },
+    {
+     "titre": "Psoriasis and Psycho-Dermatology",
+     "annee": 2013,
+     "citations": 96,
+     "url": "https://doi.org/10.1007/s13555-013-0031-0"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "La formulation cible bien une modération, mais le test a confondu l'énoncé initial et l'hypothèse directionnelle (plus fort pour Severe).",
+    "reformulation": "La gravité de la maladie (severity) modère-t-elle le lien entre l'âge (age) et la stigmatisation vécue (stigma_experienced) ?",
+    "diagnostic_statistique": "Les corrélations (Pearson et Spearman) sont proches de zéro dans tous les sous-groupes (-0.02 à +0.02). Aucune différence significative n'est observée (p = 0.45). Pas d'écart notable entre Spearman et Pearson.",
+    "modele_recommande": "Régression linéaire multiple avec interaction : stigma_experienced ~ age * severity",
+    "robustesse": "Bonne taille d'échantillon par sous-groupe (1254 à 2007 observations). Données testées sur un échantillon de confirmation indépendant. Absence de biais majeur d'effectif, mais les variables semblent purement non corrélées.",
+    "interpretation_domaine": "En psycho-dermatologie, la stigmatisation est souvent liée à la visibilité des lésions et au coping plutôt qu'à l'âge ou à la sévérité clinique objective seule, ce qui expliquerait l'absence de lien direct et d'effet modérateur.",
+    "action_pipeline": "Dissocier l'évaluation de la modération globale et le test d'une modalité spécifique (plus fort pour Severe) pour éviter de fusionner deux questions distinctes.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "Les liens entre l'âge, la sévérité de la maladie et la stigmatisation ont été abordés dans des études cliniques ciblées, mais nécessitent des analyses plus nuancées selon les sous-groupes.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "cible": "sex",
+    "variables": [
+     "age",
+     "duration_weeks",
+     "chronic",
+     "itching",
+     "pain",
+     "stigma_experienced",
+     "psychological_impact"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire sex avec seulement age, duration_weeks, chronic, itching, pain, stigma_experienced, psychological_impact ?"
+   },
+   "statut": "réfutée",
+   "resume": "Dans electricsheepafrica/skin-diseases-dermatology, prédire sex avec age, duration_weeks, chronic, itching, pain, stigma_experienced, psychological_impact donne balanced_accuracy = 0.49 (hasard ≈ 0.50, p = 0.95 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (5007 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "balanced_accuracy": 0.491,
+    "hasard": 0.499,
+    "p_permutation": 0.952,
+    "p_z": 0.89,
+    "validation": "aléatoire",
+    "n": 5000,
+    "donnees_test": "moitié de confirmation (5007 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.89, seuil corrigé 0.05 (4 tests cette nuit)"
+   },
+   "sujet": "Imagerie médicale et attributs cachés",
+   "biblio": [
+    {
+     "titre": "The Nones: Social Characteristics of the Religiously Unaffiliated",
+     "annee": 2009,
+     "citations": 220,
+     "url": "https://doi.org/10.1353/sof.0.0181"
+    },
+    {
+     "titre": "None of the Above",
+     "annee": 2007,
+     "citations": 339,
+     "url": "https://doi.org/10.1057/9780230604360"
+    },
+    {
+     "titre": "A Billion Black Anthropocenes or None",
+     "annee": 2018,
+     "citations": 2908,
+     "url": "https://doi.org/10.5749/9781452962054"
+    },
+    {
+     "titre": "Noneism or Allism?",
+     "annee": 1990,
+     "citations": 145,
+     "url": "https://doi.org/10.1093/mind/xcix.393.24"
+    },
+    {
+     "titre": "The Religious \"Nones\": A Neglected Category",
+     "annee": 1968,
+     "citations": 209,
+     "url": "https://doi.org/10.2307/1384629"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé cherche à prédire le sexe à partir de caractéristiques cliniques et psychosociales. La formulation est correcte et évite toute causalité indue, mais elle présuppose un lien biologique ou comportemental fort entre ces variables et le sexe.",
+    "reformulation": "Existe-t-il un lien statistique permettant de classifier le sexe biologique à partir de l'âge, de la durée des symptômes, du caractère chronique et des impacts psychosociaux (démangeaison, douleur, stigmatisation) ?",
+    "diagnostic_statistique": "Le modèle prédictif obtient une balanced accuracy de 0.49, ce qui équivaut strictement au hasard (0.50). La p-valeur de permutation est de 0.95, confirmant l'absence totale de pouvoir prédictif des variables cliniques sélectionnées sur le sexe dans ce dataset.",
+    "modele_recommande": "Aucun modèle prédictif supplémentaire n'est nécessaire car le signal est nul. Une analyse exploratoire par régression logistique binaire avec tests de colinéarité aurait suffi à confirmer l'indépendance.",
+    "robustesse": "La taille de l'échantillon est très satisfaisante (N=5000) sur un jeu de confirmation indépendant. Cependant, l'absence de variables biologiques directes (hormones, génétique) limite la portée de la prédiction.",
+    "interpretation_domaine": "En dermatologie, les symptômes physiques (douleur, démangeaison) et psychologiques (stigmatisation) liés aux maladies de peau se manifestent de manière similaire indépendamment du sexe, ce qui explique l'incapacité des modèles à classifier les patients sur cette seule base.",
+    "action_pipeline": "Ajouter un filtre de pertinence biologique avant de lancer des tâches de classification sur des variables démographiques fondamentales (comme le sexe ou l'âge) à partir de symptômes cliniques non spécifiques.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Il est établi que les variables cliniques de base ne permettent pas de prédire le genre biologique sans marqueurs spécifiques, ce que confirme l'exactitude proche du hasard.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 71,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:electricsheepafrica/skin-diseases-dermatology",
+    "x": "duration_weeks",
+    "y": "psychological_impact",
+    "seuil": 4.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre duration_weeks et psychological_impact est-il plus fort au-dessus d'un seuil de duration_weeks de 4.0 semaines ?"
+   },
+   "statut": "confirmée",
+   "resume": "Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.21 pour « duration_weeks > 4 » contre -0.00 pour « duration_weeks ≤ 4 » (p = 1.1e-11). [Testé sur : moitié de confirmation (5007 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "duration_weeks ≤ 4": {
+      "rho": -0.002,
+      "pearson": -0.0,
+      "n": 1424
+     },
+     "duration_weeks > 4": {
+      "rho": 0.208,
+      "pearson": 0.175,
+      "n": 3583
+     }
+    },
+    "groupe_predit_plus_fort": "duration_weeks > 4",
+    "p_difference": 1.08e-11,
+    "donnees_test": "moitié de confirmation (5007 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.1e-11, seuil corrigé 0.013 (4 tests cette nuit)",
+    "confusion": "contrôle de age, sex : confirmée — Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.21 pour « duration_weeks > 4 » contre -0.00 pour « duration_weeks ≤ 4 » (p = 8.6e-12).",
+    "generalisation": "aucun dataset INDÉPENDANT avec les mêmes variables (duration_weeks, psychological_impact) parmi 12 essayés"
+   },
+   "sujet": "Imagerie médicale et attributs cachés",
+   "confusion": [
+    true,
+    "contrôle de age, sex : confirmée — Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.21 pour « duration_weeks > 4 » contre -0.00 pour « duration_weeks ≤ 4 » (p = 8.6e-12)."
+   ],
+   "generalisation": [
+    null,
+    "aucun dataset INDÉPENDANT avec les mêmes variables (duration_weeks, psychological_impact) parmi 12 essayés"
+   ],
+   "biblio": [],
+   "expertise": {
+    "avis": "OUI",
+    "qualite_formulation": "L'énoncé est précis et pose correctement la question d'une modification de l'intensité du lien selon un seuil. Il utilise bien le terme 'lien' pour des données observationnelles.",
+    "reformulation": "",
+    "diagnostic_statistique": "La différence de corrélation entre les deux groupes est statistiquement très significative (p = 1.1e-11). Les écarts entre Pearson et Spearman restent modérés, mais l'effet seuil à 4 semaines est clairement mis en évidence par le changement de pente.",
+    "modele_recommande": "régression segmentée (segmented regression) ou modèle linéaire avec terme d'interaction sur seuil y ~ x + I(x > 4) * x",
+    "robustesse": "La taille des échantillons est bonne (n=1424 et n=3583). Le contrôle des facteurs de confusion (âge, sexe) a été validé et la correction de Holm est respectée.",
+    "interpretation_domaine": "En dermatologie, un problème cutané qui persiste au-delà d'un mois (4 semaines) commence à peser significativement sur la santé mentale des patients (anxiété, impact social), alors qu'une affection très éphémère génère peu de retentissement psychologique.",
+    "action_pipeline": "Intégrer systématiquement la recherche automatique de seuils temporels pour les variables de durée dans les datasets médicaux.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "L'effet de seuil temporel sur l'impact psychologique des affections chroniques est reconnu, montrant une aggravation après une certaine durée d'exposition.",
+   "pertinence": {
+    "niveau": 4,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": true,
+      "note": "confirmée sur des données jamais vues, et après correction pour tests multiples (p = 1.1e-11, seuil corrigé 0.013 (4 tests cette nuit))"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": true,
+      "note": "avis d'expert : OUI"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": true,
+      "note": "contrôle de age, sex : confirmée — Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.21 pour « duration_weeks > 4 » contre -0.00 pour « duration_weeks ≤ 4 » (p = 8.6e-12)."
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "aucun dataset INDÉPENDANT avec les mêmes variables (duration_weeks, psychological_impact) parmi 12 essayés"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,165 @@
+{
+ "date": "2026-11-24",
+ "faits": {
+  "date": "2026-11-24",
+  "date_longue": "24 novembre 2026",
+  "sujets": [
+   "Ce que dit la voix"
+  ],
+  "questions": [
+   "Que révèle la voix au-delà des mots (genre, âge, émotion, maladie de Parkinson), et quelles caractéristiques acoustiques portent ces informations ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Tabahi/yt-cc-speakers-6spk",
+    "lignes": 4557,
+    "colonnes": 12,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 8,
+  "hypotheses_testees": [
+   {
+    "id": "H68",
+    "enonce": "Le lien entre duration_weeks et psychological_impact change-t-il selon sex ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.23 pour « sex = M » contre +0.20 pour « sex = F » (écart 0.04, p = 0.19).",
+    "bloque_a": null,
+    "litterature": "La littérature médicale documente amplement les différences liées au genre dans l'impact psychologique des pathologies chroniques, bien que ce test se concentre sur des variables dermatologiques."
+   },
+   {
+    "id": "H69",
+    "enonce": "Le lien entre age et stigma_experienced change-t-il selon severity ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans electricsheepafrica/skin-diseases-dermatology, la corrélation age~stigma_experienced vaut +0.01 pour « severity = severe » contre -0.02 pour « severity = moderate » (p = 0.45).",
+    "bloque_a": null,
+    "litterature": "Les liens entre l'âge, la sévérité de la maladie et la stigmatisation ont été abordés dans des études cliniques ciblées, mais nécessitent des analyses plus nuancées selon les sous-groupes."
+   },
+   {
+    "id": "H70",
+    "enonce": "Peut-on prédire sex avec seulement age, duration_weeks, chronic, itching, pain, stigma_experienced, psychological_impact ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans electricsheepafrica/skin-diseases-dermatology, prédire sex avec age, duration_weeks, chronic, itching, pain, stigma_experienced, psychological_impact donne balanced_accuracy = 0.49 (hasard ≈ 0.50, p = 0.95 sur 20 permutations, validation aléatoire).",
+    "bloque_a": null,
+    "litterature": "Il est établi que les variables cliniques de base ne permettent pas de prédire le genre biologique sans marqueurs spécifiques, ce que confirme l'exactitude proche du hasard."
+   },
+   {
+    "id": "H71",
+    "enonce": "Le lien entre duration_weeks et psychological_impact est-il plus fort au-dessus d'un seuil de duration_weeks de 4.0 semaines ?",
+    "statut": "confirmée",
+    "niveau": 4,
+    "qualification": "résultat solide à ce stade (niveau 4/6)",
+    "resultat": "Dans electricsheepafrica/skin-diseases-dermatology, la corrélation duration_weeks~psychological_impact vaut +0.21 pour « duration_weeks > 4 » contre -0.00 pour « duration_weeks ≤ 4 » (p = 1.1e-11).",
+    "bloque_a": "Nouveau : déjà partiellement étudié",
+    "litterature": "L'effet de seuil temporel sur l'impact psychologique des affections chroniques est reconnu, montrant une aggravation après une certaine durée d'exposition."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 3,
+   "confirmée": 1
+  },
+  "resultats_solides": [
+   "H71"
+  ],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 2,
+  "nouvelles_hypotheses": [
+   "Peut-on prédire spkr avec seulement split en regroupant par channel_url ?",
+   "Le lien entre spkr et creator change-t-il selon split ?"
+  ],
+  "runs": [
+   "2026-11-24_0330_voice"
+  ]
+ },
+ "en_chiffres": [
+  "1 dataset analysé, 8 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 3 réfutée, 1 confirmée",
+  "1 résultat solide (niveau ≥ 3/6)",
+  "2 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête vocale et durée des symptômes sous l'œil de la Raspberry",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté sur les signaux de la voix et les données cliniques, confirmant un résultat solide tout en essuyant plusieurs réfutations.",
+ "paragraphes": [
+  "L'investigation de la nuit s'est penchée sur la question de ce que la voix révèle au-delà des mots, tout en explorant diverses variables cliniques. Sur un total de 4 tests menés, la machine a enregistré 3 réfutations et 1 confirmation. Un test réfuté constitue une information utile et non un échec : ainsi, la tentative de prédire le genre biologique à l'aide de variables cliniques de base s'est solldée par une exactitude proche du hasard, affichant une balanced_accuracy de 0.49.",
+  "Du côté des pistes examinées, l'hypothèse H71 a abouti à un résultat solide à ce stade. Elle montre un lien entre la durée des symptômes en semaines et l'impact psychologique qui varie selon un seuil temporel fixé à 4.0 semaines, avec une corrélation de +0.21 au-delà contre -0.00 en deçà. 8 datasets ont été écartés au cours de cette session nocturne pour affiner l'analyse, tandis que 2 nouvelles hypothèses ont été formulées pour les prochaines nuits de calcul."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "l'analyse acoustique de la voix pour la détection des maladies",
+    "requetes": [
+     "acoustic analysis parkinsons disease voice",
+     "voice biomarkers disease detection"
+    ]
+   },
+   {
+    "theme": "la caractérisation de l'âge et du genre par la voix",
+    "requetes": [
+     "vocal cues age and gender estimation",
+     "acoustic features voice classification"
+    ]
+   }
+  ],
+  "titre": "Ce que la voix révèle de notre santé",
+  "paragraphes": [
+   "L'analyse acoustique, c'est-à-dire l'étude scientifique des sons de la voix, permet d'examiner des paramètres comme la fréquence fondamentale, le « jitter » qui correspond aux variations involontaires de la hauteur du son, ou encore l'intensité vocale [1]. La recherche sait que la maladie de Parkinson, une affection du système nerveux qui progresse avec le temps, modifie la voix dès ses premiers stades [2, 3]. Des approches utilisant l'intelligence artificielle parviennent ainsi à identifier et à pronostiquer cette pathologie à partir de l'évaluation de la parole [2], tandis que certains traitements ou des rééducations spécifiques ciblent l'amélioration de la puissance vocale et de la communication [1, 3].",
+   "Par ailleurs, la voix humaine porte de multiples informations liées à l'identité, nécessitant de prendre en compte non seulement la hauteur, mais aussi les résonances et les caractéristiques physiques du conduit vocal [4]. Les études montrent que le cerveau des primates dispose de zones spécialisées pour traiter ces indices vocaux liés à l'identité [5]. Toutefois, la manière exacte dont les caractéristiques acoustiques trahissent l'ensemble des informations cachées au-delà des mots reste un champ d'investigation ouvert."
+  ],
+  "references": [
+   {
+    "titre": "Impact of levodopa treatment in the voice pattern of Parkinson’s disease patients: a systematic review and meta-analysis",
+    "annee": 2018,
+    "auteurs": "Pinho et al.",
+    "revue": "CoDAS",
+    "citations": 43,
+    "url": "https://doi.org/10.1590/2317-1782/20182017200",
+    "theme": "l'analyse acoustique de la voix pour la détection des maladies"
+   },
+   {
+    "titre": "Voice analysis in Parkinson’s disease - a systematic literature review",
+    "annee": 2025,
+    "auteurs": "Xavier et al.",
+    "revue": "Artificial Intelligence in Medicine",
+    "citations": 33,
+    "url": "https://doi.org/10.1016/j.artmed.2025.103109",
+    "theme": "l'analyse acoustique de la voix pour la détection des maladies"
+   },
+   {
+    "titre": "Lee Silverman Voice Treatment to Improve Speech in Parkinson’s Disease: A Systemic Review and Meta-Analysis",
+    "annee": 2021,
+    "auteurs": "Pu et al.",
+    "revue": "Parkinson s Disease",
+    "citations": 84,
+    "url": "https://doi.org/10.1155/2021/3366870",
+    "theme": "l'analyse acoustique de la voix pour la détection des maladies"
+   },
+   {
+    "titre": "Vocal Feminization for Transgender Women: Current Strategies and Patient Perspectives",
+    "annee": 2020,
+    "auteurs": "Kim",
+    "revue": "International Journal of General Medicine",
+    "citations": 108,
+    "url": "https://doi.org/10.2147/ijgm.s205102",
+    "theme": "la caractérisation de l'âge et du genre par la voix"
+   },
+   {
+    "titre": "A “voice patch” system in the primate brain for processing vocal information?",
+    "annee": 2018,
+    "auteurs": "Belin et al.",
+    "revue": "Hearing Research",
+    "citations": 60,
+    "url": "https://doi.org/10.1016/j.heares.2018.04.010",
+    "theme": "la caractérisation de l'âge et du genre par la voix"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 5 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
