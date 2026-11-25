@@ -1,0 +1,194 @@
+{
+ "date": "2026-11-25",
+ "faits": {
+  "date": "2026-11-25",
+  "date_longue": "25 novembre 2026",
+  "sujets": [
+   "Détection d'anomalies et pannes"
+  ],
+  "questions": [
+   "Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "LucasThil/nasa_turbofan_degradation_FD001",
+    "lignes": 20631,
+    "colonnes": 27,
+    "resultats_bruts": 93,
+    "confirmes_sur_moitie_independante": 15
+   },
+   {
+    "nom": "nagapavan525/machine-failure-prediction-08_02_2026",
+    "lignes": 8000,
+    "colonnes": 6,
+    "resultats_bruts": 3,
+    "confirmes_sur_moitie_independante": 2
+   },
+   {
+    "nom": "SSS18/predictive-maintenance-engine-data",
+    "lignes": 15628,
+    "colonnes": 7,
+    "resultats_bruts": 1,
+    "confirmes_sur_moitie_independante": 0
+   }
+  ],
+  "datasets_ecartes": 4,
+  "hypotheses_testees": [
+   {
+    "id": "H72",
+    "enonce": "Peut-on prédire spkr avec seulement split en regroupant par channel_url ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "window shape cannot be larger than input array shape",
+    "bloque_a": null,
+    "litterature": "La biométrie vocale et l'identification des locuteurs sont des sujets largement documentés dans la littérature en traitement de la parole."
+   },
+   {
+    "id": "H73",
+    "enonce": "Le lien entre spkr et creator change-t-il selon split ?",
+    "statut": "non testable",
+    "niveau": 0,
+    "qualification": "non testable",
+    "resultat": "pas assez de données dans les sous-groupes",
+    "bloque_a": null,
+    "litterature": "L'analyse de distribution et l'anonymisation des locuteurs ont fait l'objet de travaux récents, mais l'interaction fine avec des critères de métadonnées de type split reste peu explorée à grande échelle."
+   }
+  ],
+  "bilan_tests": {
+   "non testable": 2
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+    "variables": "Rotational speed ~ Torque",
+    "type": "correlation",
+    "explication": "Forte corrélation négative entre la vitesse de rotation et le couple sur les machines, traduisant la charge mécanique de fonctionnement.",
+    "detail": "confirmé — ρ = -0.92 sur 4013 lignes (découverte : -0.92)"
+   },
+   {
+    "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+    "variables": "s_9 ~ s_14",
+    "type": "correlation",
+    "explication": "Forte corrélation entre les capteurs s_9 et s_14 du turboréacteur, indiquant une colinéarité dans la mesure de performance interne.",
+    "detail": "confirmé — ρ = +0.89 sur 10380 lignes (découverte : +0.89)"
+   },
+   {
+    "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+    "variables": "Air temperature ~ Process temperature",
+    "type": "correlation",
+    "explication": "Forte corrélation entre la température de l'air et la température du processus, reflétant l'échauffement thermique global de la machine.",
+    "detail": "confirmé — ρ = +0.87 sur 4013 lignes (découverte : +0.86)"
+   },
+   {
+    "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+    "variables": "s_11 ~ s_12",
+    "type": "correlation",
+    "explication": "Corrélation négative marquée entre deux capteurs internes (s_11 et s_12) du turboréacteur.",
+    "detail": "confirmé — ρ = -0.83 sur 10380 lignes (découverte : -0.83)"
+   },
+   {
+    "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+    "variables": "s_4 ~ s_11",
+    "type": "correlation",
+    "explication": "Forte colinéarité entre les capteurs s_4 et s_11 reflétant la dynamique de dégradation du moteur.",
+    "detail": "confirmé — ρ = +0.81 sur 10380 lignes (découverte : +0.81)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 4,
+  "nouvelles_hypotheses": [
+   "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+   "Le lien entre time_cycles et RUL est-il plus fort au-dessus du seuil de 150.0 cycles ?",
+   "Le lien entre lub_oil_temp et coolant_temp change-t-il selon l'engine_condition ?",
+   "Le Torque montre-t-il un saut à partir d'un seuil de Tool wear de 150.0 ?"
+  ],
+  "runs": [
+   "2026-11-25_0330_fault"
+  ]
+ },
+ "en_chiffres": [
+  "3 datasets analysés, 4 écartés (illisibles, hors sujet ou indisponibles)",
+  "2 hypothèses testées : 2 non testable",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "4 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne sur les signaux de pannes et les capteurs",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté sur les signaux précurseurs des pannes et les capteurs qui les trahissent en premier.",
+ "paragraphes": [
+  "L'enquête menée cette nuit s'est penchée sur la question de savoir si les anomalies et pannes sont annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier. Pour y répondre, la Raspberry a scruté plusieurs jeux de données publics. Face aux hypothèses initiales posées sur les données, des obstacles techniques sont apparus : 2 hypothèses ont été déclarées non testables en raison d'une taille de fenêtre trop grande face au tableau de données, ou d'un manque de données dans les sous-groupes.",
+  "Malgré ces limites, l'analyse a mis en lumière de robustes pistes d'observation concernant le comportement mécanique. Une forte corrélation négative de -0.92 a été repérée entre la vitesse de rotation et le couple sur les machines, traduisant la charge mécanique de fonctionnement. Du côté des moteurs d'avion, une colinéarité marquée a été observée entre certains capteurs internes de performance, comme le lien positif de +0.89 entre s_9 et s_14, ou encore le lien négatif de -0.83 entre s_11 et s_12. Ces observations n'établissent aucun lien de cause à effet, mais ouvrent la voie à 4 nouvelles hypothèses pour de futures nuits d'analyse."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la prédiction des pannes de turboréacteurs par analyse de capteurs",
+    "requetes": [
+     "turbofan engine degradation prognostic sensors",
+     "turbofan failure prediction review"
+    ]
+   },
+   {
+    "theme": "la maintenance prédictive par détection d'anomalies industrielles",
+    "requetes": [
+     "industrial machinery anomaly detection review",
+     "predictive maintenance sensor data"
+    ]
+   }
+  ],
+  "titre": "Surveiller les machines pour éviter les pannes",
+  "paragraphes": [
+   "La surveillance de l'état des systèmes, une approche stratégique pour assurer la sécurité des équipements, permet de prévoir les pannes et d'évaluer la durée de vie restante des composants [1, 2]. Pour y parvenir, la recherche utilise des techniques d'analyse de données en temps réel et des modèles informatiques d'intelligence artificielle [2, 3]. Cependant, la complexité de ces modèles informatiques limite encore leur compréhension directe par l'humain dans des situations réelles [3].",
+   "Dans le secteur industriel, l'arrêt imprévu des machines pose un défi majeur pour la sécurité et engendre des pertes économiques [4]. La maintenance prédictive, qui vise à anticiper ces défaillances, s'appuie notamment sur l'analyse de données de capteurs et de signaux sonores, bien que le traitement de bruits parasites et le manque de données sur certains équipements restent des difficultés notables [4, 5]. L'analyse de ces flux de données permettra-t-elle d'identifier quel capteur donne l'alerte en premier ?"
+  ],
+  "references": [
+   {
+    "titre": "Challenges and Opportunities of System-Level Prognostics",
+    "annee": 2021,
+    "auteurs": "Kim et al.",
+    "revue": "Sensors",
+    "citations": 45,
+    "url": "https://doi.org/10.3390/s21227655",
+    "theme": "la prédiction des pannes de turboréacteurs par analyse de capteurs"
+   },
+   {
+    "titre": "Prognostic and Health Management of Critical Aircraft Systems and Components: An Overview",
+    "annee": 2023,
+    "auteurs": "Fu & Avdelidis",
+    "revue": "Sensors",
+    "citations": 121,
+    "url": "https://doi.org/10.3390/s23198124",
+    "theme": "la prédiction des pannes de turboréacteurs par analyse de capteurs"
+   },
+   {
+    "titre": "Prognostics and Health Management of Industrial Assets: Current Progress and Road Ahead",
+    "annee": 2020,
+    "auteurs": "Biggio & Kastanis",
+    "revue": "Frontiers in Artificial Intelligence",
+    "citations": 132,
+    "url": "https://doi.org/10.3389/frai.2020.578613",
+    "theme": "la prédiction des pannes de turboréacteurs par analyse de capteurs"
+   },
+   {
+    "titre": "A Systematic Review of Anomaly and Fault Detection Using Machine Learning for Industrial Machinery",
+    "annee": 2026,
+    "auteurs": "Zaidi et al.",
+    "revue": "Algorithms",
+    "citations": 37,
+    "url": "https://doi.org/10.3390/a19020108",
+    "theme": "la maintenance prédictive par détection d'anomalies industrielles"
+   },
+   {
+    "titre": "Detection of Mechanical Failures in Industrial Machines Using Overlapping Acoustic Anomalies: A Systematic Literature Review",
+    "annee": 2022,
+    "auteurs": "Qurthobi et al.",
+    "revue": "Sensors",
+    "citations": 46,
+    "url": "https://doi.org/10.3390/s22103888",
+    "theme": "la maintenance prédictive par détection d'anomalies industrielles"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 5 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

@@ -1,0 +1,1138 @@
+{
+ "id": "2026-11-25_0330_fault",
+ "date": "2026-11-25T03:34",
+ "sujet": "Détection d'anomalies et pannes",
+ "question": "Les anomalies et pannes sont-elles annoncées par des signaux précurseurs, et quels capteurs les trahissent en premier ?",
+ "keywords": [
+  "fault",
+  "machine failure",
+  "engine failure",
+  "predictive maintenance",
+  "bearing",
+  "turbofan",
+  "steel plates",
+  "gas drift",
+  "anomaly",
+  "vibration",
+  "intrusion",
+  "aps failure"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des capteurs de moteurs et de machines industrielles met en évidence de fortes corrélations entre les variables opérationnelles (vitesse et couple, températures de processus) ainsi qu'une forte prédictibilité de la durée de vie restante (RUL) par rapport au temps de cycle. Ces relations confirment la redondance et la cohérence des flux de données multivariés pour la maintenance prédictive. L'examen des profils d'anomalies montre que des déviations notables sur les capteurs thermiques et de pression trahissent précocement l'usure ou le dysfonctionnement.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation négative entre la vitesse de rotation et le couple sur les machines, traduisant la charge mécanique de fonctionnement.",
+    "hypothese": "Le lien entre Rotational speed et Torque change-t-il selon le type de défaillance (Type) ?"
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre les capteurs s_9 et s_14 du turboréacteur, indiquant une colinéarité dans la mesure de performance interne.",
+    "hypothese": "Le lien entre s_9 et s_14 change-t-il selon time_cycles ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la température de l'air et la température du processus, reflétant l'échauffement thermique global de la machine.",
+    "hypothese": "Le lien entre Air temperature et Process temperature change-t-il selon le Tool wear ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Corrélation négative marquée entre deux capteurs internes (s_11 et s_12) du turboréacteur.",
+    "hypothese": "Le lien entre s_11 et s_12 change-t-il selon le niveau de RUL ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Forte colinéarité entre les capteurs s_4 et s_11 reflétant la dynamique de dégradation du moteur.",
+    "hypothese": "Le lien entre s_4 et s_11 change-t-il selon setting_1 ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre les capteurs s_8 et s_13 du turboréacteur.",
+    "hypothese": "Le lien entre s_8 et s_13 change-t-il selon time_cycles ?"
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Corrélation négative entre les capteurs s_7 et s_11.",
+    "hypothese": "Le lien entre s_7 et s_11 change-t-il selon RUL ?"
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Corrélation négative entre les capteurs s_4 et s_12.",
+    "hypothese": "Le lien entre s_4 et s_12 change-t-il selon setting_2 ?"
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation positive entre les capteurs s_7 et s_12.",
+    "hypothese": "Le lien entre s_7 et s_12 change-t-il selon time_cycles ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien négatif fort entre le nombre de cycles et la durée de vie restante (RUL), logique mais non linéaire sur toute la période.",
+    "hypothese": "Le lien entre time_cycles et RUL change-t-il selon setting_1 ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Description statistique des variables qui caractérisent les anomalies identifiées dans le dataset machine-failure.",
+    "hypothese": ""
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Description des capteurs (température d'huile, pressions) distinguant les anomalies dans le dataset predictive-maintenance-engine.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Étudier l'évolution non linéaire de la dégradation des capteurs par rapport au RUL dans les moteurs turbofan",
+   "Croiser les données de température et de pression pour identifier les seuils critiques d'alerte précoce",
+   "Analyser l'impact des conditions de fonctionnement (settings) sur la stabilité des corrélations entre capteurs"
+  ],
+  "nouveautes": {
+   "72": {
+    "id": "H72",
+    "nouveaute": "deja_connu",
+    "explication": "La biométrie vocale et l'identification des locuteurs sont des sujets largement documentés dans la littérature en traitement de la parole."
+   },
+   "73": {
+    "id": "H73",
+    "nouveaute": "partiellement_etudie",
+    "explication": "L'analyse de distribution et l'anonymisation des locuteurs ont fait l'objet de travaux récents, mais l'interaction fine avec des critères de métadonnées de type split reste peu explorée à grande échelle."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-08_02_2026",
+    "x": "Rotational speed",
+    "y": "Torque",
+    "groupe": "Type",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+    "requete_biblio": "rotational speed torque machine failure type correlation"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:LucasThil/nasa_turbofan_degradation_FD001",
+    "x": "time_cycles",
+    "y": "RUL",
+    "seuil": 150.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre time_cycles et RUL est-il plus fort au-dessus du seuil de 150.0 cycles ?",
+    "requete_biblio": "turbofan remaining useful life degradation threshold cycles"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:SSS18/predictive-maintenance-engine-data",
+    "x": "lub_oil_temp",
+    "y": "coolant_temp",
+    "groupe": "engine_condition",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre lub_oil_temp et coolant_temp change-t-il selon l'engine_condition ?",
+    "requete_biblio": "engine lubrication oil temperature coolant temperature condition"
+   },
+   {
+    "type": "seuil",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-08_02_2026",
+    "x": "Tool wear",
+    "y": "Torque",
+    "seuil": 150.0,
+    "forme": "saut",
+    "plus_fort": "au_dessus",
+    "enonce": "Le Torque montre-t-il un saut à partir d'un seuil de Tool wear de 150.0 ?",
+    "requete_biblio": "tool wear torque anomaly predictive maintenance threshold"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "correlation",
+   "vars": "Rotational speed ~ Torque",
+   "stat": -0.917,
+   "score": 0.7337768509024002,
+   "detail": {
+    "spearman": -0.917,
+    "pearson": -0.875,
+    "n": 3987,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.92 sur 4013 lignes (découverte : -0.92)"
+   },
+   "confirme": 1.0,
+   "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation négative entre la vitesse de rotation et le couple sur les machines, traduisant la charge mécanique de fonctionnement.",
+    "hypothese": "Le lien entre Rotational speed et Torque change-t-il selon le type de défaillance (Type) ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_9 ~ s_14",
+   "stat": 0.885,
+   "score": 0.7077011128311123,
+   "detail": {
+    "spearman": 0.885,
+    "pearson": 0.961,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.89 sur 10380 lignes (découverte : +0.89)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre les capteurs s_9 et s_14 du turboréacteur, indiquant une colinéarité dans la mesure de performance interne.",
+    "hypothese": "Le lien entre s_9 et s_14 change-t-il selon time_cycles ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Air temperature ~ Process temperature",
+   "stat": 0.865,
+   "score": 0.6919440358354345,
+   "detail": {
+    "spearman": 0.865,
+    "pearson": 0.876,
+    "n": 3987,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.87 sur 4013 lignes (découverte : +0.86)"
+   },
+   "confirme": 1.0,
+   "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre la température de l'air et la température du processus, reflétant l'échauffement thermique global de la machine.",
+    "hypothese": "Le lien entre Air temperature et Process temperature change-t-il selon le Tool wear ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_11 ~ s_12",
+   "stat": -0.829,
+   "score": 0.6631540446064222,
+   "detail": {
+    "spearman": -0.829,
+    "pearson": -0.845,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.83 sur 10380 lignes (découverte : -0.83)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Corrélation négative marquée entre deux capteurs internes (s_11 et s_12) du turboréacteur.",
+    "hypothese": "Le lien entre s_11 et s_12 change-t-il selon le niveau de RUL ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_4 ~ s_11",
+   "stat": 0.809,
+   "score": 0.6468876415882474,
+   "detail": {
+    "spearman": 0.809,
+    "pearson": 0.827,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.81 sur 10380 lignes (découverte : +0.81)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Forte colinéarité entre les capteurs s_4 et s_11 reflétant la dynamique de dégradation du moteur.",
+    "hypothese": "Le lien entre s_4 et s_11 change-t-il selon setting_1 ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_8 ~ s_13",
+   "stat": 0.807,
+   "score": 0.6456171367184809,
+   "detail": {
+    "spearman": 0.807,
+    "pearson": 0.826,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.81 sur 10380 lignes (découverte : +0.81)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation entre les capteurs s_8 et s_13 du turboréacteur.",
+    "hypothese": "Le lien entre s_8 et s_13 change-t-il selon time_cycles ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_7 ~ s_11",
+   "stat": -0.803,
+   "score": 0.6420741067677717,
+   "detail": {
+    "spearman": -0.803,
+    "pearson": -0.819,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.81 sur 10380 lignes (découverte : -0.80)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "pertinent",
+    "explication": "Corrélation négative entre les capteurs s_7 et s_11.",
+    "hypothese": "Le lien entre s_7 et s_11 change-t-il selon RUL ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_4 ~ s_12",
+   "stat": -0.797,
+   "score": 0.6379009021837054,
+   "detail": {
+    "spearman": -0.797,
+    "pearson": -0.815,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.80 sur 10380 lignes (découverte : -0.80)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "pertinent",
+    "explication": "Corrélation négative entre les capteurs s_4 et s_12.",
+    "hypothese": "Le lien entre s_4 et s_12 change-t-il selon setting_2 ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "s_7 ~ s_12",
+   "stat": 0.795,
+   "score": 0.6358520481732266,
+   "detail": {
+    "spearman": 0.795,
+    "pearson": 0.812,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.79 sur 10380 lignes (découverte : +0.80)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation positive entre les capteurs s_7 et s_12.",
+    "hypothese": "Le lien entre s_7 et s_12 change-t-il selon time_cycles ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "time_cycles ~ RUL",
+   "stat": -0.787,
+   "score": 0.6297974700881236,
+   "detail": {
+    "spearman": -0.787,
+    "pearson": -0.736,
+    "n": 10251,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = -0.79 sur 10380 lignes (découverte : -0.79)"
+   },
+   "confirme": 1.0,
+   "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Lien négatif fort entre le nombre de cycles et la durée de vie restante (RUL), logique mais non linéaire sur toute la période.",
+    "hypothese": "Le lien entre time_cycles et RUL change-t-il selon setting_1 ?"
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ Rotational speed, Torque, Tool wear",
+   "stat": 2.4,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 80,
+    "sur": 3987,
+    "variables_qui_les_distinguent": "Rotational speed (2.4 σ), Torque (1.2 σ), Tool wear (0.4 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "trivial",
+    "explication": "Description statistique des variables qui caractérisent les anomalies identifiées dans le dataset machine-failure.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "profil_anomalies",
+   "vars": "anomalies ~ lub_oil_temp, fuel_pressure, coolant_pressure",
+   "stat": 1.47,
+   "score": 0.3,
+   "detail": {
+    "n_anomalies": 154,
+    "sur": 7683,
+    "variables_qui_les_distinguent": "lub_oil_temp (1.5 σ), fuel_pressure (1.4 σ), coolant_pressure (1.1 σ)",
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "SSS18/predictive-maintenance-engine-data",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "trivial",
+    "explication": "Description des capteurs (température d'huile, pressions) distinguant les anomalies dans le dataset predictive-maintenance-engine.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "LucasThil/nasa_turbofan_degradation_FD001",
+    "target": null,
+    "description": "CMAPSS Jet Engine Simulated Data FD001 - NASA This dataset contains simulated data from the CMAPSS (Commercial Modular Aero-Propulsion System Simulation) Jet Engine by NASA, FD001. Train trjectories: 100 Test trajectories: 100 Conditions: ONE (Sea Level) Fault Modes: ONE (HPC Degradation) Sensor Descriptions Sensor ID Description Units ----------- -------------------------------------------- -----",
+    "fichier": "data/train-00000-of-00001-e1e9f7eca1c74261.parquet",
+    "url": "https://huggingface.co/datasets/LucasThil/nasa_turbofan_degradation_FD001",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 10251,
+     "confirmation": 10380
+    },
+    "did": "hf:LucasThil/nasa_turbofan_degradation_FD001",
+    "colonnes": {
+     "num": [
+      "unit_number",
+      "time_cycles",
+      "setting_1",
+      "setting_2",
+      "s_2",
+      "s_3",
+      "s_4",
+      "s_6",
+      "s_7",
+      "s_8",
+      "s_9",
+      "s_11",
+      "s_12",
+      "s_13",
+      "s_14",
+      "s_15",
+      "s_17",
+      "s_20",
+      "s_21",
+      "RUL"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 20631,
+   "colonnes": 27,
+   "fig": "2026-11-25_LucasThil_nasa_turbofan_degradation_FD00.png",
+   "n_findings": 93,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "s_9 ~ s_14",
+     "stat": 0.885,
+     "score": 0.7077011128311123,
+     "detail": {
+      "spearman": 0.885,
+      "pearson": 0.961,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.89 sur 10380 lignes (découverte : +0.89)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre les capteurs s_9 et s_14 du turboréacteur, indiquant une colinéarité dans la mesure de performance interne.",
+      "hypothese": "Le lien entre s_9 et s_14 change-t-il selon time_cycles ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_11 ~ s_12",
+     "stat": -0.829,
+     "score": 0.6631540446064222,
+     "detail": {
+      "spearman": -0.829,
+      "pearson": -0.845,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.83 sur 10380 lignes (découverte : -0.83)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "Corrélation négative marquée entre deux capteurs internes (s_11 et s_12) du turboréacteur.",
+      "hypothese": "Le lien entre s_11 et s_12 change-t-il selon le niveau de RUL ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_4 ~ s_11",
+     "stat": 0.809,
+     "score": 0.6468876415882474,
+     "detail": {
+      "spearman": 0.809,
+      "pearson": 0.827,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.81 sur 10380 lignes (découverte : +0.81)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Forte colinéarité entre les capteurs s_4 et s_11 reflétant la dynamique de dégradation du moteur.",
+      "hypothese": "Le lien entre s_4 et s_11 change-t-il selon setting_1 ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_8 ~ s_13",
+     "stat": 0.807,
+     "score": 0.6456171367184809,
+     "detail": {
+      "spearman": 0.807,
+      "pearson": 0.826,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.81 sur 10380 lignes (découverte : +0.81)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre les capteurs s_8 et s_13 du turboréacteur.",
+      "hypothese": "Le lien entre s_8 et s_13 change-t-il selon time_cycles ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_7 ~ s_11",
+     "stat": -0.803,
+     "score": 0.6420741067677717,
+     "detail": {
+      "spearman": -0.803,
+      "pearson": -0.819,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.81 sur 10380 lignes (découverte : -0.80)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "pertinent",
+      "explication": "Corrélation négative entre les capteurs s_7 et s_11.",
+      "hypothese": "Le lien entre s_7 et s_11 change-t-il selon RUL ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_4 ~ s_12",
+     "stat": -0.797,
+     "score": 0.6379009021837054,
+     "detail": {
+      "spearman": -0.797,
+      "pearson": -0.815,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.80 sur 10380 lignes (découverte : -0.80)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "pertinent",
+      "explication": "Corrélation négative entre les capteurs s_4 et s_12.",
+      "hypothese": "Le lien entre s_4 et s_12 change-t-il selon setting_2 ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_7 ~ s_12",
+     "stat": 0.795,
+     "score": 0.6358520481732266,
+     "detail": {
+      "spearman": 0.795,
+      "pearson": 0.812,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.79 sur 10380 lignes (découverte : +0.80)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation positive entre les capteurs s_7 et s_12.",
+      "hypothese": "Le lien entre s_7 et s_12 change-t-il selon time_cycles ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "time_cycles ~ RUL",
+     "stat": -0.787,
+     "score": 0.6297974700881236,
+     "detail": {
+      "spearman": -0.787,
+      "pearson": -0.736,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.79 sur 10380 lignes (découverte : -0.79)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "Lien négatif fort entre le nombre de cycles et la durée de vie restante (RUL), logique mais non linéaire sur toute la période.",
+      "hypothese": "Le lien entre time_cycles et RUL change-t-il selon setting_1 ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_8 ~ s_11",
+     "stat": 0.779,
+     "score": 0.6230311848522637,
+     "detail": {
+      "spearman": 0.779,
+      "pearson": 0.784,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.78 sur 10380 lignes (découverte : +0.78)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_8 ~ s_12",
+     "stat": -0.777,
+     "score": 0.6214915772385107,
+     "detail": {
+      "spearman": -0.777,
+      "pearson": -0.789,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.77 sur 10380 lignes (découverte : -0.78)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_11 ~ s_13",
+     "stat": 0.774,
+     "score": 0.6195584026527174,
+     "detail": {
+      "spearman": 0.774,
+      "pearson": 0.781,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.78 sur 10380 lignes (découverte : +0.77)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_12 ~ s_13",
+     "stat": -0.773,
+     "score": 0.6183045365053573,
+     "detail": {
+      "spearman": -0.773,
+      "pearson": -0.786,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.78 sur 10380 lignes (découverte : -0.77)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_4 ~ s_7",
+     "stat": -0.773,
+     "score": 0.6180081835782478,
+     "detail": {
+      "spearman": -0.773,
+      "pearson": -0.792,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.77 sur 10380 lignes (découverte : -0.77)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_11 ~ s_15",
+     "stat": 0.755,
+     "score": 0.6036814927308958,
+     "detail": {
+      "spearman": 0.755,
+      "pearson": 0.776,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.76 sur 10380 lignes (découverte : +0.76)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    },
+    {
+     "kind": "correlation",
+     "vars": "s_7 ~ s_13",
+     "stat": -0.752,
+     "score": 0.6018998619978982,
+     "detail": {
+      "spearman": -0.752,
+      "pearson": -0.764,
+      "n": 10251,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.76 sur 10380 lignes (découverte : -0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "LucasThil/nasa_turbofan_degradation_FD001"
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "nagapavan525/machine-failure-prediction-08_02_2026",
+    "target": null,
+    "description": "",
+    "fichier": "Xtrain.csv",
+    "url": "https://huggingface.co/datasets/nagapavan525/machine-failure-prediction-08_02_2026",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 3987,
+     "confirmation": 4013
+    },
+    "did": "hf:nagapavan525/machine-failure-prediction-08_02_2026",
+    "colonnes": {
+     "num": [
+      "Type",
+      "Air temperature",
+      "Process temperature",
+      "Rotational speed",
+      "Torque",
+      "Tool wear"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 8000,
+   "colonnes": 6,
+   "fig": "2026-11-25_nagapavan525_machine_failure_prediction_.png",
+   "n_findings": 3,
+   "findings": [
+    {
+     "kind": "correlation",
+     "vars": "Rotational speed ~ Torque",
+     "stat": -0.917,
+     "score": 0.7337768509024002,
+     "detail": {
+      "spearman": -0.917,
+      "pearson": -0.875,
+      "n": 3987,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = -0.92 sur 4013 lignes (découverte : -0.92)"
+     },
+     "confirme": 1.0,
+     "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation négative entre la vitesse de rotation et le couple sur les machines, traduisant la charge mécanique de fonctionnement.",
+      "hypothese": "Le lien entre Rotational speed et Torque change-t-il selon le type de défaillance (Type) ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Air temperature ~ Process temperature",
+     "stat": 0.865,
+     "score": 0.6919440358354345,
+     "detail": {
+      "spearman": 0.865,
+      "pearson": 0.876,
+      "n": 3987,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.87 sur 4013 lignes (découverte : +0.86)"
+     },
+     "confirme": 1.0,
+     "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation entre la température de l'air et la température du processus, reflétant l'échauffement thermique global de la machine.",
+      "hypothese": "Le lien entre Air temperature et Process temperature change-t-il selon le Tool wear ?"
+     }
+    },
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ Rotational speed, Torque, Tool wear",
+     "stat": 2.4,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 80,
+      "sur": 3987,
+      "variables_qui_les_distinguent": "Rotational speed (2.4 σ), Torque (1.2 σ), Tool wear (0.4 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "nagapavan525/machine-failure-prediction-08_02_2026",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "trivial",
+      "explication": "Description statistique des variables qui caractérisent les anomalies identifiées dans le dataset machine-failure.",
+      "hypothese": ""
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "SSS18/predictive-maintenance-engine-data",
+    "target": null,
+    "description": "Predictive Maintenance – Engine Sensor Dataset This dataset contains multivariate time-series sensor data collected from engines. It is used for predictive maintenance modeling, where the objective is to predict engine failure events based on operational settings and sensor readings. Files: - raw_data.csv: Raw engine sensor dataset This dataset is versioned and stored on Hugging Face to ensure rep",
+    "fichier": "train.csv",
+    "url": "https://huggingface.co/datasets/SSS18/predictive-maintenance-engine-data",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 7683,
+     "confirmation": 7945
+    },
+    "did": "hf:SSS18/predictive-maintenance-engine-data",
+    "colonnes": {
+     "num": [
+      "engine_rpm",
+      "lub_oil_pressure",
+      "fuel_pressure",
+      "coolant_pressure",
+      "lub_oil_temp",
+      "coolant_temp",
+      "engine_condition"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 15628,
+   "colonnes": 7,
+   "fig": null,
+   "n_findings": 1,
+   "findings": [
+    {
+     "kind": "profil_anomalies",
+     "vars": "anomalies ~ lub_oil_temp, fuel_pressure, coolant_pressure",
+     "stat": 1.47,
+     "score": 0.3,
+     "detail": {
+      "n_anomalies": 154,
+      "sur": 7683,
+      "variables_qui_les_distinguent": "lub_oil_temp (1.5 σ), fuel_pressure (1.4 σ), coolant_pressure (1.1 σ)",
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "SSS18/predictive-maintenance-engine-data",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "trivial",
+      "explication": "Description des capteurs (température d'huile, pressions) distinguant les anomalies dans le dataset predictive-maintenance-engine.",
+      "hypothese": ""
+     }
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "avillarroel/machine-failure-logs",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "faultarena/FaultArena",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "EitaNis/nln-emp-compressor-bearing",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "aykutkabaoglu/uav-flight-anomaly-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 72,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:Tabahi/yt-cc-speakers-6spk",
+    "cible": "spkr",
+    "variables": [
+     "split"
+    ],
+    "groupe": "channel_url",
+    "enonce": "Peut-on prédire spkr avec seulement split en regroupant par channel_url ?",
+    "requete_biblio": [
+     "speaker recognition youtube corpus",
+     "voice biometric identification channels"
+    ]
+   },
+   "statut": "non testable",
+   "resume": "window shape cannot be larger than input array shape [Testé sur : moitié de confirmation (2318 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "donnees_test": "moitié de confirmation (2318 lignes jamais vues à l'exploration)"
+   },
+   "sujet": "Ce que dit la voix",
+   "biblio": [
+    {
+     "titre": "Voice biometrics",
+     "annee": 2000,
+     "citations": 130,
+     "url": "https://doi.org/10.1145/348941.348995"
+    },
+    {
+     "titre": "Voice and Speaker Identification: Advances in Forensic Phonetics and Neural Biometrics",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.59646/704/17"
+    },
+    {
+     "titre": "Look who's talking [voice biometrics]",
+     "annee": 2007,
+     "citations": 2,
+     "url": "https://doi.org/10.1049/et:20070101"
+    },
+    {
+     "titre": "Technologies of Biometric Identification of a Person by Voice and Other Modalities",
+     "annee": 2012,
+     "citations": 19,
+     "url": "https://doi.org/10.18698/2308-6033-2012-3-91"
+    },
+    {
+     "titre": "Securing the voice channel: Advanced voice biometric authentication for contact centers",
+     "annee": 2025,
+     "citations": 0,
+     "url": "https://doi.org/10.30574/wjarr.2025.26.2.1950"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "L'énoncé est correct mais le test a échoué à cause d'une erreur technique sur la taille de la fenêtre d'analyse.",
+    "reformulation": "Peut-on prédire l'intervenant (spkr) en utilisant uniquement la variable split, avec une validation croisée par groupe (channel_url) ?",
+    "diagnostic_statistique": "Le test n'a pas pu être exécuté en raison d'une erreur de dimension (window shape cannot be larger than input array shape), bloquant le calcul des métriques.",
+    "modele_recommande": "Modèle de classification supervisée (ex: Random Forest ou Régression Logistique) avec validation croisée groupée (GroupKFold sur channel_url).",
+    "robustesse": "La taille de l'échantillon (2318 lignes) est correcte, mais le risque de fuite de données par canal (channel_url) nécessite impérativement une validation par groupe.",
+    "interpretation_domaine": "En biométrie vocale, prédire un locuteur à partir de métadonnées de découpage (split) sans utiliser les caractéristiques acoustiques risque de capter des artefacts de la source plutôt que la voix.",
+    "action_pipeline": "Corriger le paramétrage de la taille de la fenêtre d'analyse pour éviter l'erreur de dimension avant de relancer le pipeline.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La biométrie vocale et l'identification des locuteurs sont des sujets largement documentés dans la littérature en traitement de la parole.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 73,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:Tabahi/yt-cc-speakers-6spk",
+    "x": "spkr",
+    "y": "creator",
+    "groupe": "split",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre spkr et creator change-t-il selon split ?",
+    "requete_biblio": [
+     "speaker metadata analysis youtube",
+     "voice dataset speaker distribution"
+    ]
+   },
+   "statut": "non testable",
+   "resume": "pas assez de données dans les sous-groupes [Testé sur : moitié de confirmation (2318 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "donnees_test": "moitié de confirmation (2318 lignes jamais vues à l'exploration)"
+   },
+   "sujet": "Ce que dit la voix",
+   "biblio": [
+    {
+     "titre": "Pseudo-Speaker Distribution Learning in Voice Anonymization",
+     "annee": 2025,
+     "citations": 11,
+     "url": "https://doi.org/10.1109/taslp.2024.3519879"
+    },
+    {
+     "titre": "VoxCeleb: A Large-Scale Speaker Identification Dataset",
+     "annee": 2017,
+     "citations": 3128,
+     "url": "https://doi.org/10.21437/interspeech.2017-950"
+    },
+    {
+     "titre": "Voice Conversion Augmentation for Speaker Recognition on Defective Datasets",
+     "annee": 2025,
+     "citations": 9,
+     "url": "https://doi.org/10.1109/apsipaasc65261.2025.11249009"
+    },
+    {
+     "titre": "Voice Separation with an Unknown Number of Multiple Speakers",
+     "annee": 2020,
+     "citations": 191,
+     "url": "https://doi.org/10.48550/arxiv.2003.01531"
+    },
+    {
+     "titre": "Ava Active Speaker: An Audio-Visual Dataset for Active Speaker Detection",
+     "annee": 2020,
+     "citations": 233,
+     "url": "https://doi.org/10.1109/icassp40776.2020.9053900"
+    }
+   ],
+   "expertise": {
+    "avis": "A_TESTER_AUTREMENT",
+    "qualite_formulation": "La formulation est correcte et questionne une modération (« Le lien entre spkr et creator change-t-il selon split ? »), mais les variables étant catégorielles, il s'agit d'une analyse d'association conditionnelle (ex: test du Chi-deux stratifié) plutôt que d'un simple lien linéaire.",
+    "reformulation": "L'association entre les locuteurs (spkr) et les créateurs (creator) varie-t-elle selon le sous-ensemble de données (split) ?",
+    "diagnostic_statistique": "Test non réalisable en l'état car l'algorithme signale un échantillon insuffisant ou des sous-groupes vides lors de la stratification par la variable 'split'.",
+    "modele_recommande": "Test du Chi-deux de contingence stratifié ou régression logistique multinomiale avec interaction selon la structure des catégories.",
+    "robustesse": "La taille de l'échantillon global (2318 lignes) est correcte, mais le croisement des catégories de 'spkr', 'creator' et 'split' génère des cellules vides ou à effectifs trop faibles, invalidant les tests statistiques traditionnels.",
+    "interpretation_domaine": "En analyse de métadonnées audio (type VoxCeleb ou YouTube CC), certains créateurs n'apparaissent que dans un seul split (train/test/val), ce qui empêche d'évaluer la stabilité de la distribution des locuteurs d'un split à l'autre.",
+    "action_pipeline": "Ajouter un filtre préalable pour exclure les catégories ayant un effectif minimum insuffisant par sous-groupe avant de lancer le test de modération.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "partiellement_etudie",
+   "nouveaute_expl": "L'analyse de distribution et l'anonymisation des locuteurs ont fait l'objet de travaux récents, mais l'interaction fine avec des critères de métadonnées de type split reste peu explorée à grande échelle.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non testable"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : A_TESTER_AUTREMENT"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà partiellement étudié"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
