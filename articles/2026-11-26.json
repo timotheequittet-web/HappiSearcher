@@ -1,0 +1,136 @@
+{
+ "date": "2026-11-26",
+ "faits": {
+  "date": "2026-11-26",
+  "date_longue": "26 novembre 2026",
+  "sujets": [
+   "Astronomie et physique"
+  ],
+  "questions": [
+   "Quelles régularités physiques émergent des mesures (étoiles, pulsars, particules), et quels objets anormaux méritent un second regard ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "juliensimon/sdss-asteroid-taxonomy",
+    "lignes": 107466,
+    "colonnes": 30,
+    "resultats_bruts": 59,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 16,
+  "hypotheses_testees": [
+   {
+    "id": "H74",
+    "enonce": "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans nagapavan525/machine-failure-prediction-08_02_2026, la corrélation Rotational speed~Torque vaut -0.92 pour « Type = 1 » contre -0.92 pour « Type = 2 » (écart 0.00, p = 0.72).",
+    "bloque_a": null,
+    "litterature": "La relation inverse entre couple et vitesse de rotation est une loi physique fondamentale de la mécanique des machines, indépendante de la catégorie de machine."
+   },
+   {
+    "id": "H75",
+    "enonce": "Le lien entre time_cycles et RUL est-il plus fort au-dessus du seuil de 150.0 cycles ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans LucasThil/nasa_turbofan_degradation_FD001, la corrélation time_cycles~RUL vaut -0.20 pour « time_cycles > 150 » contre -0.71 pour « time_cycles ≤ 150 » (p = 1.3e-211) : effet INVERSE de celui prédit.",
+    "bloque_a": null,
+    "litterature": "Dans le jeu de données C-MAPSS, la durée de vie résiduelle est modélisée par une dégradation constante au début puis linéaire ensuite, ce qui explique l'inversion du comportement linéaire aux faibles cycles."
+   },
+   {
+    "id": "H76",
+    "enonce": "Le lien entre lub_oil_temp et coolant_temp change-t-il selon l'engine_condition ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans SSS18/predictive-maintenance-engine-data, la corrélation lub_oil_temp~coolant_temp vaut +0.09 pour « engine_condition = 1 » contre +0.05 pour « engine_condition = 0 » (écart 0.04, p = 0.1).",
+    "bloque_a": null,
+    "litterature": "L'équilibre thermique entre le circuit de refroidissement et le lubrifiant est un couplage thermique standard dans un bloc moteur qui n'est pas altéré par un simple drapeau d'état."
+   },
+   {
+    "id": "H77",
+    "enonce": "Le Torque montre-t-il un saut à partir d'un seuil de Tool wear de 150.0 ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans nagapavan525/machine-failure-prediction-08_02_2026, Torque vaut en moyenne 39.9 juste en dessous de Tool wear = 150 et 39.9 juste au-dessus (écart +0.00 écart-type, p = 0.97, fenêtre ±37.9).",
+    "bloque_a": null,
+    "litterature": "L'usure d'un outil évolue de manière continue et progressive, sans saut discontinu de couple à un seuil arbitraire de 150 unités."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 4
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 3,
+  "nouvelles_hypotheses": [
+   "La réflectance log_refl_z montre-t-elle un saut au passage du demi-grand axe propre de 2.5 UA (lacune 3:1 marquant la transition entre ceintures interne silicatée et médiane carbonée) ?",
+   "Peut-on prédire la classe taxonomique n_class des astéroïdes avec seulement les quatre réflectances SDSS log_refl_u, log_refl_r, log_refl_i et log_refl_z ?",
+   "Le lien entre proper_eccentricity et sin_proper_inclination change-t-il selon le demi-grand axe propre proper_semimajor_au au seuil de 2.82 UA ?"
+  ],
+  "runs": [
+   "2026-11-26_0330_pulsar"
+  ]
+ },
+ "en_chiffres": [
+  "1 dataset analysé, 16 écartés (illisibles, hors sujet ou indisponibles)",
+  "4 hypothèses testées : 4 réfutée",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "3 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête nocturne : quand la mécanique résiste à l'analyse",
+ "chapo": "Cette nuit, la Raspberry a mené une enquête minutieuse sur les régularités physiques et les mesures de machines, mettant à l'épreuve 4 hypothèses.",
+ "paragraphes": [
+  "L'investigation nocturne s'est penchée sur la question des régularités physiques et des mesures issues d'étoiles, de pulsars, de particules et d'équipements mécaniques. Pour mener à bien cette vérification, 4 hypothèses ont été rigoureusement testées par la Raspberry. Aucune de ces pistes n'a résisté à l'épreuve des données, se soldant toutes par un statut de réfutation. Ce constat s'avère toutefois être une information utile pour comprendre le comportement des systèmes étudiés.",
+  "Parmi les pistes examinées, la relation entre la vitesse de rotation et le couple n'affichent pas de variation selon le type de machine, affichant une corrélation de -0.92 pour la catégorie 1 tout comme pour la catégorie 2. De même, le lien entre les cycles temporels et la durée de vie résiduelle a présenté un comportement inattendu avec un effet inverse à celui qui était prédit pour les seuils inférieurs à 150.0 cycles. Enfin, l'analyse du couple par rapport à l'usure de l'outil n'a révélé aucun saut discontinu au seuil fixé à 150.0. Malgré ces réfutations, 3 nouvelles hypothèses ont pu être formulées pour de futures explorations concernant notamment la réflectance et l'excentricité des astéroïdes."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "la taxonomie et l'analyse spectrale des astéroïdes",
+    "requetes": [
+     "asteroid taxonomy spectral classification review",
+     "asteroid spectral surveys classification"
+    ]
+   },
+   {
+    "theme": "la caractérisation des populations d'astéroïdes",
+    "requetes": [
+     "sdss asteroid survey classification methods",
+     "asteroid population studies database"
+    ]
+   }
+  ],
+  "titre": "Astéroïdes et objets du système solaire",
+  "paragraphes": [
+   "Les astéroïdes, c'est-à-dire de petits corps rocheux du système solaire, incluent des objets de transition qui possèdent à la fois des propriétés d'astéroïdes et de comètes [1]. Ces corps présentent des compositions primitives et permettent l'éjection de matière dans l'espace [1]. D'autres astéroïdes, comme (16) Psyche, ont longtemps été considérés comme presque entièrement métalliques, mais de nouvelles données de densité et de signatures spectrales indiquent qu'il s'agit plutôt d'un monde mixte de métal et de silicate [2].",
+   "La recherche actuelle peine parfois à résoudre les contradictions dans les ensembles de propriétés physiques de certains de ces objets anormaux [2]. L'analyse de leurs caractéristiques spectrales et de leur densité aide à préciser la nature de ces populations singulières [2]. Les mesures et les observations accumulées permettent d'identifier les régularités physiques et les singularités qui méritent un examen approfondi."
+  ],
+  "references": [
+   {
+    "titre": "Asteroid–comet continuum objects in the solar system",
+    "annee": 2017,
+    "auteurs": "Hsieh",
+    "revue": "Philosophical Transactions of the Royal Society A Mathematical Physical and Engineering Sciences",
+    "citations": 37,
+    "url": "https://doi.org/10.1098/rsta.2016.0259",
+    "theme": "la taxonomie et l'analyse spectrale des astéroïdes"
+   },
+   {
+    "titre": "Observations, Meteorites, and Models: A Preflight Assessment of the Composition and Formation of (16) Psyche",
+    "annee": 2020,
+    "auteurs": "Elkins-Tanton et al.",
+    "revue": "Journal of Geophysical Research Planets",
+    "citations": 128,
+    "url": "https://doi.org/10.1029/2019je006296",
+    "theme": "la taxonomie et l'analyse spectrale des astéroïdes"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 2 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

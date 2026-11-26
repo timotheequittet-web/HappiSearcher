@@ -1,0 +1,1167 @@
+{
+ "id": "2026-11-26_0330_pulsar",
+ "date": "2026-11-26T03:40",
+ "sujet": "Astronomie et physique",
+ "question": "Quelles régularités physiques émergent des mesures (étoiles, pulsars, particules), et quels objets anormaux méritent un second regard ?",
+ "keywords": [
+  "pulsar",
+  "galaxy",
+  "star",
+  "sdss",
+  "quasar",
+  "exoplanet",
+  "magic telescope",
+  "higgs",
+  "solar flare",
+  "gamma"
+ ],
+ "analyse": {
+  "synthese": "L'exploration du catalogue taxonomique des astéroïdes du SDSS met en évidence de très fortes interdépendances entre les incertitudes photométriques des différentes bandes (notamment u, i et z) ainsi qu'avec le drapeau de mauvaise qualité. Ces corrélations sont essentiellement méthodologiques et instrumentales, la précision de mesure dépendant conjointement du flux global de l'objet et du bruit du détecteur. Les analyses à venir doivent se concentrer sur les relations astrophysiques réelles liant les couleurs spectrales à la dynamique orbitale (ceinture interne vs externe, lacunes de résonance).",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Les erreurs de mesure dans les bandes extrêmes u et z augmentent conjointement lorsque l'astéroïde est faiblement lumineux ou observé par mauvais temps.",
+    "hypothese": ""
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "trivial",
+    "explication": "L'incertitude photométrique en bande g covarie naturellement avec celle en bande z selon la magnitude apparente de la cible.",
+    "hypothese": ""
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Les erreurs sur les flux u et g sont couplées par les conditions atmosphériques et l'éclat global de l'objet.",
+    "hypothese": ""
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'une corrélation mécanique entre barres d'erreur photométriques contiguës pour une même observation.",
+    "hypothese": ""
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Deux bandes spectrales proches (g et r) partagent les mêmes incertitudes d'étalonnage et de bruit de fond de ciel.",
+    "hypothese": ""
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Le couplage des erreurs entre les filtres infrarouges i et z reflète la baisse de sensibilité commune dans le rouge du SDSS.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Le drapeau bad_flag signale directement les objets ayant un rapport signal sur bruit médiocre, d'où la forte corrélation avec l'erreur en z.",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "La corrélation entre les erreurs photométriques en r et z découle directement de la brillance de l'astéroïde.",
+    "hypothese": ""
+   }
+  },
+  "pistes": [
+   "Tester si la transition de composition minéralogique (réflectances SDSS) présente une discontinuité nette aux frontières des lacunes de résonance de Kirkwood.",
+   "Évaluer l'efficacité de la séparation taxonomique des astéroïdes à partir des seules couleurs infrarouges et optiques.",
+   "Analyser si le couplage dynamique entre inclinaison et excentricité propre diffère selon la distance au Soleil dans la ceinture principale."
+  ],
+  "nouveautes": {
+   "74": {
+    "id": "H74",
+    "nouveaute": "deja_connu",
+    "explication": "La relation inverse entre couple et vitesse de rotation est une loi physique fondamentale de la mécanique des machines, indépendante de la catégorie de machine."
+   },
+   "75": {
+    "id": "H75",
+    "nouveaute": "deja_connu",
+    "explication": "Dans le jeu de données C-MAPSS, la durée de vie résiduelle est modélisée par une dégradation constante au début puis linéaire ensuite, ce qui explique l'inversion du comportement linéaire aux faibles cycles."
+   },
+   "76": {
+    "id": "H76",
+    "nouveaute": "deja_connu",
+    "explication": "L'équilibre thermique entre le circuit de refroidissement et le lubrifiant est un couplage thermique standard dans un bloc moteur qui n'est pas altéré par un simple drapeau d'état."
+   },
+   "77": {
+    "id": "H77",
+    "nouveaute": "deja_connu",
+    "explication": "L'usure d'un outil évolue de manière continue et progressive, sans saut discontinu de couple à un seuil arbitraire de 150 unités."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "seuil",
+    "dataset_id": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "x": "proper_semimajor_au",
+    "y": "log_refl_z",
+    "seuil": 2.5,
+    "forme": "saut",
+    "plus_fort": "en_dessous",
+    "enonce": "La réflectance log_refl_z montre-t-elle un saut au passage du demi-grand axe propre de 2.5 UA (lacune 3:1 marquant la transition entre ceintures interne silicatée et médiane carbonée) ?",
+    "requete_biblio": "asteroid taxonomy SDSS reflectance semimajor axis Kirkwood"
+   },
+   {
+    "type": "prediction",
+    "dataset_id": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "cible": "n_class",
+    "variables": [
+     "log_refl_u",
+     "log_refl_r",
+     "log_refl_i",
+     "log_refl_z"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la classe taxonomique n_class des astéroïdes avec seulement les quatre réflectances SDSS log_refl_u, log_refl_r, log_refl_i et log_refl_z ?",
+    "requete_biblio": "SDSS asteroid taxonomic classification reflectance colors machine learning"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "x": "proper_eccentricity",
+    "y": "sin_proper_inclination",
+    "groupe": "proper_semimajor_au",
+    "seuil": 2.82,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre proper_eccentricity et sin_proper_inclination change-t-il selon le demi-grand axe propre proper_semimajor_au au seuil de 2.82 UA ?",
+    "requete_biblio": "proper orbital elements eccentricity inclination asteroid main belt"
+   }
+  ],
+  "modele": "gemini-3.8-flash"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_u ~ log_refl_err_z",
+   "stat": 0.461,
+   "score": 0.9607011136743637,
+   "detail": {
+    "spearman": 0.751,
+    "pearson": 0.29,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.74 sur 20000 lignes (découverte : +0.75)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "trivial",
+    "explication": "Les erreurs de mesure dans les bandes extrêmes u et z augmentent conjointement lorsque l'astéroïde est faiblement lumineux ou observé par mauvais temps.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_g ~ log_refl_err_z",
+   "stat": 0.443,
+   "score": 0.9429300697071141,
+   "detail": {
+    "spearman": 0.477,
+    "pearson": 0.034,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.46 sur 20000 lignes (découverte : +0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "trivial",
+    "explication": "L'incertitude photométrique en bande g covarie naturellement avec celle en bande z selon la magnitude apparente de la cible.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_u ~ log_refl_err_g",
+   "stat": 0.421,
+   "score": 0.9208259434882052,
+   "detail": {
+    "spearman": 0.516,
+    "pearson": 0.095,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.51 sur 20000 lignes (découverte : +0.52)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "trivial",
+    "explication": "Les erreurs sur les flux u et g sont couplées par les conditions atmosphériques et l'éclat global de l'objet.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_g ~ log_refl_err_i",
+   "stat": 0.379,
+   "score": 0.8786955017252902,
+   "detail": {
+    "spearman": 0.482,
+    "pearson": 0.104,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.47 sur 20000 lignes (découverte : +0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "trivial",
+    "explication": "Il s'agit d'une corrélation mécanique entre barres d'erreur photométriques contiguës pour une même observation.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_g ~ log_refl_err_r",
+   "stat": 0.365,
+   "score": 0.864533521260108,
+   "detail": {
+    "spearman": 0.471,
+    "pearson": 0.106,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.47 sur 20000 lignes (découverte : +0.47)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "trivial",
+    "explication": "Deux bandes spectrales proches (g et r) partagent les mêmes incertitudes d'étalonnage et de bruit de fond de ciel.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_i ~ log_refl_err_z",
+   "stat": 0.304,
+   "score": 0.8038674960128656,
+   "detail": {
+    "spearman": 0.657,
+    "pearson": 0.353,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.66 sur 20000 lignes (découverte : +0.66)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "trivial",
+    "explication": "Le couplage des erreurs entre les filtres infrarouges i et z reflète la baisse de sensibilité commune dans le rouge du SDSS.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "bad_flag ~ log_refl_err_z",
+   "stat": 0.277,
+   "score": 0.7769213717559857,
+   "detail": {
+    "spearman": 0.612,
+    "pearson": 0.335,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.61 sur 20000 lignes (découverte : +0.61)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Le drapeau bad_flag signale directement les objets ayant un rapport signal sur bruit médiocre, d'où la forte corrélation avec l'erreur en z.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "log_refl_err_r ~ log_refl_err_z",
+   "stat": 0.27,
+   "score": 0.7699736080756354,
+   "detail": {
+    "spearman": 0.575,
+    "pearson": 0.305,
+    "n": 20000,
+    "confirmation": "confirmé — ρ = +0.58 sur 20000 lignes (découverte : +0.57)"
+   },
+   "confirme": 1.0,
+   "dataset": "juliensimon/sdss-asteroid-taxonomy",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "La corrélation entre les erreurs photométriques en r et z découle directement de la brillance de l'astéroïde.",
+    "hypothese": ""
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "juliensimon/sdss-asteroid-taxonomy",
+    "target": null,
+    "description": "SDSS-based Asteroid Taxonomy Part of the Orbital Mechanics Datasets (https://huggingface.co/collections/juliensimon/orbital-mechanics-datasets-69c24caca4ab3934c9856994) collection on Hugging Face. Compositional taxonomy for 107,466 SDSS photometric observations of 63,468 asteroids, classified using the scheme of Carvano et al. (2010). Each observation includes SDSS u'g'r'i'z' log-reflectances, a t",
+    "fichier": "data/sdss_asteroid_taxonomy.parquet",
+    "url": "https://huggingface.co/datasets/juliensimon/sdss-asteroid-taxonomy",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 53559,
+     "confirmation": 20000
+    },
+    "did": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "colonnes": {
+     "num": [
+      "ast_number",
+      "score",
+      "bad_flag",
+      "log_refl_u",
+      "log_refl_err_u",
+      "log_refl_err_g",
+      "log_refl_r",
+      "log_refl_err_r",
+      "log_refl_i",
+      "log_refl_err_i",
+      "log_refl_z",
+      "log_refl_err_z",
+      "score_best",
+      "n_class",
+      "method",
+      "abs_mag_h",
+      "proper_semimajor_au",
+      "proper_eccentricity",
+      "sin_proper_inclination",
+      "osc_semimajor_au",
+      "osc_eccentricity",
+      "osc_inclination_deg"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 107466,
+   "colonnes": 30,
+   "fig": "2026-11-26_juliensimon_sdss_asteroid_taxonomy.png",
+   "n_findings": 59,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_u ~ log_refl_err_z",
+     "stat": 0.461,
+     "score": 0.9607011136743637,
+     "detail": {
+      "spearman": 0.751,
+      "pearson": 0.29,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.74 sur 20000 lignes (découverte : +0.75)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "trivial",
+      "explication": "Les erreurs de mesure dans les bandes extrêmes u et z augmentent conjointement lorsque l'astéroïde est faiblement lumineux ou observé par mauvais temps.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_g ~ log_refl_err_z",
+     "stat": 0.443,
+     "score": 0.9429300697071141,
+     "detail": {
+      "spearman": 0.477,
+      "pearson": 0.034,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.46 sur 20000 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "trivial",
+      "explication": "L'incertitude photométrique en bande g covarie naturellement avec celle en bande z selon la magnitude apparente de la cible.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_u ~ log_refl_err_g",
+     "stat": 0.421,
+     "score": 0.9208259434882052,
+     "detail": {
+      "spearman": 0.516,
+      "pearson": 0.095,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.51 sur 20000 lignes (découverte : +0.52)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "trivial",
+      "explication": "Les erreurs sur les flux u et g sont couplées par les conditions atmosphériques et l'éclat global de l'objet.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_g ~ log_refl_err_i",
+     "stat": 0.379,
+     "score": 0.8786955017252902,
+     "detail": {
+      "spearman": 0.482,
+      "pearson": 0.104,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.47 sur 20000 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "trivial",
+      "explication": "Il s'agit d'une corrélation mécanique entre barres d'erreur photométriques contiguës pour une même observation.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_g ~ log_refl_err_r",
+     "stat": 0.365,
+     "score": 0.864533521260108,
+     "detail": {
+      "spearman": 0.471,
+      "pearson": 0.106,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.47 sur 20000 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "trivial",
+      "explication": "Deux bandes spectrales proches (g et r) partagent les mêmes incertitudes d'étalonnage et de bruit de fond de ciel.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_i ~ log_refl_err_z",
+     "stat": 0.304,
+     "score": 0.8038674960128656,
+     "detail": {
+      "spearman": 0.657,
+      "pearson": 0.353,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.66 sur 20000 lignes (découverte : +0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "trivial",
+      "explication": "Le couplage des erreurs entre les filtres infrarouges i et z reflète la baisse de sensibilité commune dans le rouge du SDSS.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "bad_flag ~ log_refl_err_z",
+     "stat": 0.277,
+     "score": 0.7769213717559857,
+     "detail": {
+      "spearman": 0.612,
+      "pearson": 0.335,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.61 sur 20000 lignes (découverte : +0.61)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Le drapeau bad_flag signale directement les objets ayant un rapport signal sur bruit médiocre, d'où la forte corrélation avec l'erreur en z.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_r ~ log_refl_err_z",
+     "stat": 0.27,
+     "score": 0.7699736080756354,
+     "detail": {
+      "spearman": 0.575,
+      "pearson": 0.305,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.58 sur 20000 lignes (découverte : +0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "La corrélation entre les erreurs photométriques en r et z découle directement de la brillance de l'astéroïde.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "ast_number ~ log_refl_err_z",
+     "stat": 0.259,
+     "score": 0.758673763696051,
+     "detail": {
+      "spearman": 0.489,
+      "pearson": 0.23,
+      "n": 14543,
+      "confirmation": "confirmé — ρ = +0.49 sur 14577 lignes (découverte : +0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_z ~ score_best",
+     "stat": 0.251,
+     "score": 0.7506466668808008,
+     "detail": {
+      "spearman": -0.57,
+      "pearson": -0.319,
+      "n": 14543,
+      "confirmation": "confirmé — ρ = -0.56 sur 14577 lignes (découverte : -0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "score ~ log_refl_err_g",
+     "stat": 0.25,
+     "score": 0.7495488537010804,
+     "detail": {
+      "spearman": -0.491,
+      "pearson": -0.242,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = -0.48 sur 20000 lignes (découverte : -0.49)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "score ~ log_refl_err_z",
+     "stat": 0.245,
+     "score": 0.7448634063715142,
+     "detail": {
+      "spearman": -0.658,
+      "pearson": -0.413,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = -0.66 sur 20000 lignes (découverte : -0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    },
+    {
+     "kind": "correlation",
+     "vars": "log_refl_r ~ log_refl_i",
+     "stat": 0.91,
+     "score": 0.7276746795533947,
+     "detail": {
+      "spearman": 0.91,
+      "pearson": 0.923,
+      "n": 20000,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.91 sur 20000 lignes (découverte : +0.91)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "bad_flag ~ log_refl_err_u",
+     "stat": 0.226,
+     "score": 0.7262700184112602,
+     "detail": {
+      "spearman": 0.655,
+      "pearson": 0.428,
+      "n": 20000,
+      "confirmation": "confirmé — ρ = +0.65 sur 20000 lignes (découverte : +0.66)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "log_refl_err_z ~ abs_mag_h",
+     "stat": 0.22,
+     "score": 0.7201419539066402,
+     "detail": {
+      "spearman": 0.461,
+      "pearson": 0.241,
+      "n": 14543,
+      "confirmation": "confirmé — ρ = +0.46 sur 14577 lignes (découverte : +0.46)"
+     },
+     "confirme": 1.0,
+     "dataset": "juliensimon/sdss-asteroid-taxonomy"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_images",
+   "ref": "inaf-oact-ai/solar-flare-hmi-datasplits",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "VISHALMEENAMEENA/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=VISHALMEENAMEENA%2Fautotrain-data-galaxy_classification"
+  },
+  {
+   "source": "hf_images",
+   "ref": "marwa000000000/SDSS-GalaxyZoo2-Preprocessed",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/splits?dataset=marwa000000000%2FSDSS-GalaxyZoo2-Preprocessed"
+  },
+  {
+   "source": "hf_images",
+   "ref": "roth1414/galaxy-vit-gz-desi-dirichlet-predictions",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Arp4nj4iswal/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=Arp4nj4iswal%2Fautotrain-data-galaxy_classification&con"
+  },
+  {
+   "source": "hf_images",
+   "ref": "Xanadu00/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=Xanadu00%2Fautotrain-data-galaxy_classification&config="
+  },
+  {
+   "source": "hf_images",
+   "ref": "JayjitSingha/autotrain-data-galaxy_classification",
+   "erreur": "501 Server Error: Not Implemented for url: https://datasets-server.huggingface.co/rows?dataset=JayjitSingha%2Fautotrain-data-galaxy_classification&con"
+  },
+  {
+   "source": "hf_images",
+   "ref": "mrJordi0/galaxy-zoo-dataset",
+   "erreur": "pas de colonne image + étiquette de classe"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "dtrizna/QuasarNix",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "eyad-silx/Quasar-3.7-Dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "inaf-oact-ai/solar-flare-hmi-dataset",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "UniverseTBD/mmu_sdss_dr17",
+   "erreur": "unhashable type: 'dict'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "ruiyicheng/exoplanet_transiting_light_curve_hands_on-data",
+   "erreur": "trop petit ((496, 2))"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "sjh11/QuasarVetter-SFT-806",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "yzhuang/autotree_automl_MagicTelescope_gosdt_l512_d3_sd2",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "inaf-oact-ai/solar-flare-hmi-datasplits",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 74,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-08_02_2026",
+    "x": "Rotational speed",
+    "y": "Torque",
+    "groupe": "Type",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Rotational speed et Torque change-t-il selon le Type de machine ?",
+    "requete_biblio": "rotational speed torque machine failure type correlation"
+   },
+   "statut": "réfutée",
+   "resume": "Dans nagapavan525/machine-failure-prediction-08_02_2026, la corrélation Rotational speed~Torque vaut -0.92 pour « Type = 1 » contre -0.92 pour « Type = 2 » (écart 0.00, p = 0.72). [Testé sur : moitié de confirmation (4013 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "Type = 1": {
+      "rho": -0.917,
+      "pearson": -0.875,
+      "n": 2395
+     },
+     "Type = 2": {
+      "rho": -0.919,
+      "pearson": -0.879,
+      "n": 1207
+     },
+     "Type = 0": {
+      "rho": -0.918,
+      "pearson": -0.884,
+      "n": 411
+     }
+    },
+    "p_difference": 0.719,
+    "donnees_test": "moitié de confirmation (4013 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.72, seuil corrigé 0.025 (4 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "INDUSTRIAL MACHINE FAILURE PATTERN ANALYSIS FOR AUTOMATED DEFECT DIAGNOSIS IN ADVANCED MANUFACTURING SYSTEMS",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://openalex.org/W7222908901"
+    },
+    {
+     "titre": "Experimental Investigation of the Effects of Rotational Speed and Weight on Bit on Drillstring Vibrations, Torque and Rate of Penetration",
+     "annee": 2017,
+     "citations": 24,
+     "url": "https://doi.org/10.2118/188427-ms"
+    },
+    {
+     "titre": "Machine Learning-Based Predictive Maintenance for Manufacturing: Optimizing Failure Detection with Sensor-Based Models",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.70251/hyjr2348.43410418"
+    },
+    {
+     "titre": "Machine Learning-Based Predictive Maintenance and Fault Diagnosis for Intelligent Mechanical Systems",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.59543/jidmis.v3.2184"
+    },
+    {
+     "titre": "Novel Miniature Motors for Wide Speed and Torque Ranges",
+     "annee": 2014,
+     "citations": 2,
+     "url": "https://doi.org/10.3929/ethz-a-010433774"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Bonne. La question porte correctement sur la modération d'une association sans utiliser de terme causal abusif.",
+    "reformulation": "",
+    "diagnostic_statistique": "La corrélation négative est très forte et quasi identique dans tous les groupes (rho ~ -0.92, p = 0.72). L'écart entre Spearman et Pearson reste faible (< 0.05), indiquant une relation monotone cohérente.",
+    "modele_recommande": "Régression avec terme d'interaction : Torque ~ Rotational_speed * Type",
+    "robustesse": "Très bonne. L'échantillon de confirmation est grand (n = 4 013) et la puissance statistique est amplement suffisante pour rejeter une différence de corrélation.",
+    "interpretation_domaine": "Résultat attendu en ingénierie mécanique. La relation inverse entre couple et vitesse de rotation découle directement de la puissance moteur (Puissance = Couple x Vitesse), une contrainte physique qui ne varie pas selon la catégorie de machine.",
+    "action_pipeline": "Intégrer des priors physiques connus (ex. lois de puissance moteur) pour éviter de tester la modération d'invariants physiques fondamentaux.",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La relation inverse entre couple et vitesse de rotation est une loi physique fondamentale de la mécanique des machines, indépendante de la catégorie de machine.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 75,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:LucasThil/nasa_turbofan_degradation_FD001",
+    "x": "time_cycles",
+    "y": "RUL",
+    "seuil": 150.0,
+    "forme": "pente",
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre time_cycles et RUL est-il plus fort au-dessus du seuil de 150.0 cycles ?",
+    "requete_biblio": "turbofan remaining useful life degradation threshold cycles"
+   },
+   "statut": "réfutée",
+   "resume": "Dans LucasThil/nasa_turbofan_degradation_FD001, la corrélation time_cycles~RUL vaut -0.20 pour « time_cycles > 150 » contre -0.71 pour « time_cycles ≤ 150 » (p = 1.3e-211) : effet INVERSE de celui prédit. [Testé sur : moitié de confirmation (10380 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "time_cycles ≤ 150": {
+      "rho": -0.708,
+      "pearson": -0.68,
+      "n": 7522
+     },
+     "time_cycles > 150": {
+      "rho": -0.198,
+      "pearson": -0.182,
+      "n": 2858
+     }
+    },
+    "groupe_predit_plus_fort": "time_cycles > 150",
+    "p_difference": 1.25e-211,
+    "donnees_test": "moitié de confirmation (10380 lignes jamais vues à l'exploration)",
+    "holm": "p = 1.3e-211, seuil corrigé 0.013 (4 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "A deep learning-based prognostic approach for predicting turbofan engine degradation and remaining useful life",
+     "annee": 2025,
+     "citations": 68,
+     "url": "https://doi.org/10.1038/s41598-025-09155-z"
+    },
+    {
+     "titre": "A Deep Learning Model for Remaining Useful Life Prediction of Aircraft Turbofan Engine on C-MAPSS Dataset",
+     "annee": 2022,
+     "citations": 157,
+     "url": "https://doi.org/10.1109/access.2022.3203406"
+    },
+    {
+     "titre": "Echo State Network for the Remaining Useful Life Prediction of a Turbofan Engine",
+     "annee": 2016,
+     "citations": 49,
+     "url": "https://doi.org/10.36001/phme.2016.v3i1.1623"
+    },
+    {
+     "titre": "A kernel principal component analysis–based degradation model and remaining useful life estimation for the turbofan engine",
+     "annee": 2016,
+     "citations": 23,
+     "url": "https://doi.org/10.1177/1687814016650169"
+    },
+    {
+     "titre": "Optimizing Maintenance Schedules of Turbofan Engines Using Remaining Useful Life ( RUL) Prediction",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.5281/zenodo.21454409"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Formulation correcte et prudente, mais conceptuellement discutable car elle ignore la structure longitudinale par moteur.",
+    "reformulation": "",
+    "diagnostic_statistique": "L'effet est l'inverse de celui prédit : la corrélation passe de -0,71 (≤ 150) à -0,20 (> 150) avec p quasi nulle. Les écarts |Spearman - Pearson| sont faibles (< 0,03), montrant une cohérence linéaire locale.",
+    "modele_recommande": "Modèle linéaire mixte avec pente aléatoire par moteur (unit_nr) ou modèle de survie à risques proportionnels.",
+    "robustesse": "Faible validité du test : les données sont groupées par moteur (non-indépendance). De plus, un biais de survie massif apparaît après 150 cycles car les moteurs à durée de vie courte ont déjà disparu.",
+    "interpretation_domaine": "Par définition, pour un moteur donné, RUL = cycle_final - time_cycles (corrélation parfaite de -1). L'atténuation apparente de la corrélation globale au-delà de 150 cycles est un artefact d'agrégation et de restriction de variance dû à l'attrition des moteurs.",
+    "action_pipeline": "Interdire le calcul de corrélations simples entre le temps et la RUL sans prise en compte de l'identifiant d'unité (unit_number) pour éviter l'erreur écologique.",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "Dans le jeu de données C-MAPSS, la durée de vie résiduelle est modélisée par une dégradation constante au début puis linéaire ensuite, ce qui explique l'inversion du comportement linéaire aux faibles cycles.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 76,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:SSS18/predictive-maintenance-engine-data",
+    "x": "lub_oil_temp",
+    "y": "coolant_temp",
+    "groupe": "engine_condition",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre lub_oil_temp et coolant_temp change-t-il selon l'engine_condition ?",
+    "requete_biblio": "engine lubrication oil temperature coolant temperature condition"
+   },
+   "statut": "réfutée",
+   "resume": "Dans SSS18/predictive-maintenance-engine-data, la corrélation lub_oil_temp~coolant_temp vaut +0.09 pour « engine_condition = 1 » contre +0.05 pour « engine_condition = 0 » (écart 0.04, p = 0.1). [Testé sur : moitié de confirmation (7945 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "engine_condition = 1": {
+      "rho": 0.091,
+      "pearson": 0.091,
+      "n": 5003
+     },
+     "engine_condition = 0": {
+      "rho": 0.053,
+      "pearson": 0.04,
+      "n": 2942
+     }
+    },
+    "p_difference": 0.1,
+    "donnees_test": "moitié de confirmation (7945 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.1, seuil corrigé 0.017 (4 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "A Study of Fuel Economy and Exhaust Emission according to Engine Coolant and Oil Temperature",
+     "annee": 2013,
+     "citations": 21,
+     "url": "https://doi.org/10.1299/jtst.8.255"
+    },
+    {
+     "titre": "Experimental Research of Forced Diesel Engine with Oil Temperature Control System in Cold Ambient Conditions",
+     "annee": 2016,
+     "citations": 4,
+     "url": "https://doi.org/10.1016/j.proeng.2016.07.227"
+    },
+    {
+     "titre": "Effect of Coolant Temperature on Performance and Emissions of a Compression Ignition Engine Running on Conventional Diesel and Hydrotreated Vegetable Oil (HVO)",
+     "annee": 2022,
+     "citations": 25,
+     "url": "https://doi.org/10.3390/en16010144"
+    },
+    {
+     "titre": "Cold-start NOx emissions: Diesel and waste lubricating oil as a fuel additive",
+     "annee": 2020,
+     "citations": 47,
+     "url": "https://doi.org/10.1016/j.fuel.2020.119430"
+    },
+    {
+     "titre": "A Model for Evaporative Consumption of Lubricating Oil in Reciprocating Engines",
+     "annee": 1992,
+     "citations": 28,
+     "url": "https://doi.org/10.4271/922202"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Excellente, formulation neutre et adaptée à une question de modération observationnelle.",
+    "reformulation": "",
+    "diagnostic_statistique": "Corrélations quasi nulles dans les deux groupes (r < 0.10) et différence non significative (p = 0.10 face au seuil ajusté de 0.017). Pas de divergence Pearson/Spearman, ce qui exclut une non-linéarité masquée.",
+    "modele_recommande": "Régression avec interaction : coolant_temp ~ lub_oil_temp * engine_condition",
+    "robustesse": "Taille d'échantillon très confortable (N = 7945) offrant une excellente puissance. L'hypothèse est réfutée sans ambiguïté statistique. Attention toutefois au caractère souvent synthétique de ce jeu de données.",
+    "interpretation_domaine": "En thermique moteur, huile et liquide de refroidissement interagissent, mais la régulation thermostatique découple souvent leurs variations en régime stabilisé. L'état d'avarie du moteur ne modifie pas cette relation ici.",
+    "action_pipeline": "Ajouter un filtre préalable pour ne pas tester de modération de corrélation quand les liaisons bivariées de base sont négligeables (|r| < 0.10).",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'équilibre thermique entre le circuit de refroidissement et le lubrifiant est un couplage thermique standard dans un bloc moteur qui n'est pas altéré par un simple drapeau d'état.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 77,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:nagapavan525/machine-failure-prediction-08_02_2026",
+    "x": "Tool wear",
+    "y": "Torque",
+    "seuil": 150.0,
+    "forme": "saut",
+    "plus_fort": "au_dessus",
+    "enonce": "Le Torque montre-t-il un saut à partir d'un seuil de Tool wear de 150.0 ?",
+    "requete_biblio": "tool wear torque anomaly predictive maintenance threshold"
+   },
+   "statut": "réfutée",
+   "resume": "Dans nagapavan525/machine-failure-prediction-08_02_2026, Torque vaut en moyenne 39.9 juste en dessous de Tool wear = 150 et 39.9 juste au-dessus (écart +0.00 écart-type, p = 0.97, fenêtre ±37.9). [Testé sur : moitié de confirmation (4013 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "moy_dessous": 39.916326530612245,
+    "moy_dessus": 39.92130637636081,
+    "n_dessous": 735,
+    "n_dessus": 643,
+    "p": 0.969,
+    "donnees_test": "moitié de confirmation (4013 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.97, seuil corrigé 0.05 (4 tests cette nuit)"
+   },
+   "sujet": "Détection d'anomalies et pannes",
+   "biblio": [
+    {
+     "titre": "Predictive Maintenance Application on Machine Overstrain Failure with Node-Red and Isolation Forest Anomaly Detection",
+     "annee": 2023,
+     "citations": 17,
+     "url": "https://doi.org/10.1109/comnetsat59769.2023.10420613"
+    },
+    {
+     "titre": "Predictive Maintenance With Machine Learning",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://openalex.org/W7160729827"
+    },
+    {
+     "titre": "AI-Driven Predictive Maintenance in Infrastructure and Facilities Management",
+     "annee": 2025,
+     "citations": 15,
+     "url": "https://doi.org/10.4108/airo.9975"
+    },
+    {
+     "titre": "Anomaly and Fault Detection and Predictive Maintenance: a Review on Industrial Applications",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.36244/icj.2026.5.3"
+    },
+    {
+     "titre": "Explainable Predictive Maintenance",
+     "annee": 2023,
+     "citations": 61,
+     "url": "https://doi.org/10.48550/arxiv.2306.05120"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "Très bonne. L'énoncé correspond exactement au test de discontinuité réalisé.",
+    "reformulation": "",
+    "diagnostic_statistique": "Absence totale d'effet. La différence de moyenne est quasi nulle (+0.005 Nm, p = 0.97) avec des effectifs confortables (735 et 643 observations).",
+    "modele_recommande": "Régression sur discontinuité (RDD) avec terme linéaire de chaque côté ou GAM lissé",
+    "robustesse": "Excellente robustesse statistique sur le jeu de confirmation indépendant. Puissance largement suffisante pour rejeter l'existence d'un saut.",
+    "interpretation_domaine": "En usinage, l'usure de l'outil s'accumule de façon continue. Bien qu'une usure élevée combinée à un couple fort déclenche des pannes (surcontrainte), l'usure seule ne modifie pas brusquement la consigne de couple du moteur.",
+    "action_pipeline": "Orienter la détection de seuils d'usure vers la prédiction des défaillances (pannes) ou tester l'interaction Torque * Tool wear, plutôt qu'une relation directe entre ces deux variables indépendantes du procédé.",
+    "modele": "gemini-3.8-flash"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'usure d'un outil évolue de manière continue et progressive, sans saut discontinu de couple à un seuil arbitraire de 150 unités.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}
