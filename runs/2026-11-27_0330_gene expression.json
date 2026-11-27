@@ -1,0 +1,1261 @@
+{
+ "id": "2026-11-27_0330_gene expression",
+ "date": "2026-11-27T03:37",
+ "sujet": "Biologie et génomique",
+ "question": "Quelles signatures moléculaires (gènes, protéines) distinguent les groupes biologiques, et lesquelles sont inattendues ?",
+ "keywords": [
+  "gene expression",
+  "protein",
+  "yeast",
+  "ecoli",
+  "microbiome",
+  "splice",
+  "dna",
+  "mice protein",
+  "leukemia",
+  "cell"
+ ],
+ "analyse": {
+  "synthese": "L'analyse des jeux de données biologiques met en évidence de fortes corrélations d'expression entre différents types cellulaires de la moelle osseuse et des poumons, ainsi qu'une prédictibilité robuste des classes de cancer à partir de caractéristiques d'imagerie microscopique. Les résultats confirmés soulignent des structures moléculaires et morphologiques cohérentes, offrant des pistes pour caractériser les signatures cellulaires.",
+  "verdicts": {
+   "F1": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation d'expression entre granulocytes de la moelle et monocytes intermédiaires du poumon, confirmée sur données indépendantes.",
+    "hypothese": "Le lien d'expression entre Marrow.granulocyte et Lung.intermediate monocyte change-t-il selon l'âge de la souris ?"
+   },
+   "F2": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Lien robuste entre progéniteurs érythroïdes (proerythroblast) et granulocytes dans la moelle osseuse.",
+    "hypothese": "Le lien entre Marrow.proerythroblast et Marrow.granulocyte change-t-il selon l'expression de gènes de différenciation ?"
+   },
+   "F3": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'entropie des images de microscopie est significativement liée à la classe (cancer vs normal).",
+    "hypothese": "L'entropie des images permet-elle de prédire la malignité cellulaire au-delà de la simple classification binaire ?"
+   },
+   "F4": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Corrélation élevée entre progéniteurs mégacaryocytes-érythroïdes et granulocytes.",
+    "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.granulocyte change-t-il selon le tissu analysé ?"
+   },
+   "F5": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Corrélation confirmée entre progéniteurs de la moelle et monocytes pulmonaires.",
+    "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Lung.intermediate monocyte change-t-il selon le statut immunitaire ?"
+   },
+   "F6": {
+    "id": "F6",
+    "verdict": "artefact",
+    "explication": "Présence de paires d'images quasi-identiques dans le dataset d'imagerie, relevant d'un artéfact de duplication.",
+    "hypothese": ""
+   },
+   "F7": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Redondance avec le résultat F1 (même paire de variables mesurée par corrélation linéaire au lieu de non-linéaire).",
+    "hypothese": ""
+   },
+   "F8": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Redondance directe avec le résultat F2.",
+    "hypothese": ""
+   },
+   "F9": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "La composante bleue des images microscopiques montre une liaison significative avec la classe (cancer vs normal).",
+    "hypothese": "La valeur de la composante bleue change-t-elle selon le protocole de coloration des cellules ?"
+   },
+   "F10": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Corrélation entre progéniteurs myéloïdes et lymphocytes B précoces dans la moelle.",
+    "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.late pro-B cell change-t-il selon l'âge ?"
+   },
+   "F11": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Lien d'expression intéressant entre monocytes pulmonaires et lymphocytes B du muscle.",
+    "hypothese": "Le lien entre Lung.intermediate monocyte et Limb_Muscle.B cell change-t-il selon le niveau d'inflammation ?"
+   },
+   "F12": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "Les statistiques visuelles permettent de prédire efficacement la classe de cancer à partir des images.",
+    "hypothese": "Peut-on prédire la classe avec seulement les statistiques visuelles globales dans des images de microscopie cellulaire ?"
+   }
+  },
+  "pistes": [
+   "Analyser les réseaux de co-expression entre types cellulaires immunitaires à travers différents tissus.",
+   "Développer des classifieurs basés sur des descripteurs texturaux pour l'imagerie du cancer.",
+   "Étudier l'impact des artefacts de duplication d'images sur la robustesse des modèles de deep learning."
+  ],
+  "nouveautes": {
+   "78": {
+    "id": "H78",
+    "nouveaute": "deja_connu",
+    "explication": "La structure de la ceinture d'astéroïdes et la lacune 3:1 sont largement documentées en astronomie."
+   },
+   "79": {
+    "id": "H79",
+    "nouveaute": "deja_connu",
+    "explication": "La classification taxonomique des astéroïdes par photométrie SDSS est un problème classique de machine learning."
+   },
+   "80": {
+    "id": "H80",
+    "nouveaute": "deja_connu",
+    "explication": "L'étude des éléments propres et de la structure dynamique de la ceinture d'astéroïdes est un sujet mature."
+   }
+  },
+  "hypotheses": [
+   {
+    "type": "sous_groupe",
+    "dataset_id": "longevity-db/gene-expression-single-cell-mouse",
+    "x": "Marrow.granulocyte",
+    "y": "Lung.intermediate monocyte",
+    "groupe": "BAT.B cell",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Marrow.granulocyte et Lung.intermediate monocyte change-t-il selon le niveau de BAT.B cell ?",
+    "requete_biblio": "single cell gene expression granulocyte monocyte mouse"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "longevity-db/gene-expression-single-cell-mouse",
+    "x": "Marrow.proerythroblast",
+    "y": "Marrow.granulocyte",
+    "groupe": "Brain_Myeloid.macrophage",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Marrow.proerythroblast et Marrow.granulocyte change-t-il selon le niveau de Brain_Myeloid.macrophage ?",
+    "requete_biblio": "bone marrow proerythroblast granulocyte correlation"
+   },
+   {
+    "type": "sous_groupe",
+    "dataset_id": "longevity-db/gene-expression-single-cell-mouse",
+    "x": "Marrow.megakaryocyte-erythroid progenitor cell",
+    "y": "Marrow.late pro-B cell",
+    "groupe": "Bladder.leukocyte",
+    "seuil": null,
+    "plus_fort": null,
+    "enonce": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.late pro-B cell change-t-il selon le niveau de Bladder.leukocyte ?",
+    "requete_biblio": "megakaryocyte erythroid progenitor B cell single cell"
+   }
+  ],
+  "modele": "gemini-3.5-flash-lite"
+ },
+ "note_llm": null,
+ "top": [
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Marrow.granulocyte ~ Lung.intermediate monocyte",
+   "stat": 0.206,
+   "score": 0.7057022913838495,
+   "detail": {
+    "spearman": 0.566,
+    "pearson": 0.36,
+    "n": 6991,
+    "confirmation": "confirmé — ρ = +0.56 sur 6931 lignes (découverte : +0.57)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F1",
+   "avis": {
+    "id": "F1",
+    "verdict": "pertinent",
+    "explication": "Forte corrélation d'expression entre granulocytes de la moelle et monocytes intermédiaires du poumon, confirmée sur données indépendantes.",
+    "hypothese": "Le lien d'expression entre Marrow.granulocyte et Lung.intermediate monocyte change-t-il selon l'âge de la souris ?"
+   }
+  },
+  {
+   "kind": "relation_monotone_non_lineaire",
+   "vars": "Marrow.proerythroblast ~ Marrow.granulocyte",
+   "stat": 0.205,
+   "score": 0.7054226327746089,
+   "detail": {
+    "spearman": 0.522,
+    "pearson": 0.317,
+    "n": 6450,
+    "confirmation": "confirmé — ρ = +0.52 sur 6337 lignes (découverte : +0.52)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F2",
+   "avis": {
+    "id": "F2",
+    "verdict": "pertinent",
+    "explication": "Lien robuste entre progéniteurs érythroïdes (proerythroblast) et granulocytes dans la moelle osseuse.",
+    "hypothese": "Le lien entre Marrow.proerythroblast et Marrow.granulocyte change-t-il selon l'expression de gènes de différenciation ?"
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "entropie -> classe",
+   "stat": 0.324,
+   "score": 0.6235315745959114,
+   "detail": {
+    "eta2": 0.324,
+    "p": 1.6e-14,
+    "famille": "normalisé",
+    "classe_min": "cancer (4.075)",
+    "classe_max": "normal (4.289)",
+    "confirmation": "confirmé — η² = 0.34, p = 4.4e-15 sur 179 autres images (découverte : 0.324)"
+   },
+   "confirme": 1.0,
+   "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+   "id": "F3",
+   "avis": {
+    "id": "F3",
+    "verdict": "pertinent",
+    "explication": "L'entropie des images de microscopie est significativement liée à la classe (cancer vs normal).",
+    "hypothese": "L'entropie des images permet-elle de prédire la malignité cellulaire au-delà de la simple classification binaire ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.granulocyte",
+   "stat": 0.584,
+   "score": 0.4672044508209896,
+   "detail": {
+    "spearman": 0.584,
+    "pearson": 0.385,
+    "n": 7469,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.59 sur 7373 lignes (découverte : +0.58)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F4",
+   "avis": {
+    "id": "F4",
+    "verdict": "pertinent",
+    "explication": "Corrélation élevée entre progéniteurs mégacaryocytes-érythroïdes et granulocytes.",
+    "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.granulocyte change-t-il selon le tissu analysé ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Lung.intermediate monocyte",
+   "stat": 0.583,
+   "score": 0.46642532574689705,
+   "detail": {
+    "spearman": 0.583,
+    "pearson": 0.412,
+    "n": 6622,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.57 sur 6544 lignes (découverte : +0.58)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F5",
+   "avis": {
+    "id": "F5",
+    "verdict": "pertinent",
+    "explication": "Corrélation confirmée entre progéniteurs de la moelle et monocytes pulmonaires.",
+    "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Lung.intermediate monocyte change-t-il selon le statut immunitaire ?"
+   }
+  },
+  {
+   "kind": "quasi_doublons",
+   "vars": "images",
+   "stat": 15,
+   "score": 0.4657458563535911,
+   "detail": {
+    "paires_quasi_identiques": 15,
+    "images_concernees": 30,
+    "sur": 181,
+    "confirmation": "non applicable — résultat descriptif"
+   },
+   "confirme": null,
+   "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+   "id": "F6",
+   "avis": {
+    "id": "F6",
+    "verdict": "artefact",
+    "explication": "Présence de paires d'images quasi-identiques dans le dataset d'imagerie, relevant d'un artéfact de duplication.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Marrow.granulocyte ~ Lung.intermediate monocyte",
+   "stat": 0.566,
+   "score": 0.45286335929804933,
+   "detail": {
+    "spearman": 0.566,
+    "pearson": 0.36,
+    "n": 6991,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.56 sur 6931 lignes (découverte : +0.57)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F7",
+   "avis": {
+    "id": "F7",
+    "verdict": "trivial",
+    "explication": "Redondance avec le résultat F1 (même paire de variables mesurée par corrélation linéaire au lieu de non-linéaire).",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Marrow.proerythroblast ~ Marrow.granulocyte",
+   "stat": 0.522,
+   "score": 0.4177125685844738,
+   "detail": {
+    "spearman": 0.522,
+    "pearson": 0.317,
+    "n": 6450,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.52 sur 6337 lignes (découverte : +0.52)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F8",
+   "avis": {
+    "id": "F8",
+    "verdict": "trivial",
+    "explication": "Redondance directe avec le résultat F2.",
+    "hypothese": ""
+   }
+  },
+  {
+   "kind": "image_caracteristique_liee_a_la_classe",
+   "vars": "bleu -> classe",
+   "stat": 0.11100000143051147,
+   "score": 0.41058146953582764,
+   "detail": {
+    "eta2": 0.11100000143051147,
+    "p": 5.1e-06,
+    "famille": "couleur",
+    "classe_min": "normal (0.025)",
+    "classe_max": "cancer (0.038)",
+    "confirmation": "confirmé — η² = 0.09, p = 4.3e-05 sur 179 autres images (découverte : 0.11100000143051147)"
+   },
+   "confirme": 1.0,
+   "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+   "id": "F9",
+   "avis": {
+    "id": "F9",
+    "verdict": "pertinent",
+    "explication": "La composante bleue des images microscopiques montre une liaison significative avec la classe (cancer vs normal).",
+    "hypothese": "La valeur de la composante bleue change-t-elle selon le protocole de coloration des cellules ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.late pro-B cell",
+   "stat": 0.51,
+   "score": 0.4079922060678337,
+   "detail": {
+    "spearman": 0.51,
+    "pearson": 0.383,
+    "n": 7211,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.51 sur 7123 lignes (découverte : +0.51)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F10",
+   "avis": {
+    "id": "F10",
+    "verdict": "pertinent",
+    "explication": "Corrélation entre progéniteurs myéloïdes et lymphocytes B précoces dans la moelle.",
+    "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.late pro-B cell change-t-il selon l'âge ?"
+   }
+  },
+  {
+   "kind": "correlation",
+   "vars": "Lung.intermediate monocyte ~ Limb_Muscle.B cell",
+   "stat": 0.484,
+   "score": 0.38748303403858914,
+   "detail": {
+    "spearman": 0.484,
+    "pearson": 0.346,
+    "n": 6666,
+    "q": 0.0,
+    "confirmation": "confirmé — ρ = +0.49 sur 6618 lignes (découverte : +0.48)"
+   },
+   "confirme": 1.0,
+   "dataset": "longevity-db/gene-expression-single-cell-mouse",
+   "id": "F11",
+   "avis": {
+    "id": "F11",
+    "verdict": "pertinent",
+    "explication": "Lien d'expression intéressant entre monocytes pulmonaires et lymphocytes B du muscle.",
+    "hypothese": "Le lien entre Lung.intermediate monocyte et Limb_Muscle.B cell change-t-il selon le niveau d'inflammation ?"
+   }
+  },
+  {
+   "kind": "classe_predictible_par_stats_simples",
+   "vars": "17 stats visuelles -> classe",
+   "stat": 0.751,
+   "score": 0.3685738737086617,
+   "detail": {
+    "balanced_accuracy_toutes": 0.751,
+    "balanced_accuracy_normalisees_seules": 0.684,
+    "hasard": 0.5,
+    "n_images": 181,
+    "confirmation": "confirmé — précision 0.79 sur d'autres images (hasard 0.50)"
+   },
+   "confirme": true,
+   "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+   "id": "F12",
+   "avis": {
+    "id": "F12",
+    "verdict": "pertinent",
+    "explication": "Les statistiques visuelles permettent de prédire efficacement la classe de cancer à partir des images.",
+    "hypothese": "Peut-on prédire la classe avec seulement les statistiques visuelles globales dans des images de microscopie cellulaire ?"
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "meta": {
+    "name": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+    "labels": [
+     "cancer",
+     "normal"
+    ],
+    "total_rows": 1133,
+    "url": "https://huggingface.co/datasets/Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+    "niveaux_de_gris": false,
+    "moities": {
+     "decouverte": 181,
+     "confirmation": 179
+    }
+   },
+   "lignes": 360,
+   "colonnes": 17,
+   "fig": "2026-11-27_Jiabang_Single_cell_Microscopy_Images_fo.png",
+   "n_findings": 4,
+   "findings": [
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "entropie -> classe",
+     "stat": 0.324,
+     "score": 0.6235315745959114,
+     "detail": {
+      "eta2": 0.324,
+      "p": 1.6e-14,
+      "famille": "normalisé",
+      "classe_min": "cancer (4.075)",
+      "classe_max": "normal (4.289)",
+      "confirmation": "confirmé — η² = 0.34, p = 4.4e-15 sur 179 autres images (découverte : 0.324)"
+     },
+     "confirme": 1.0,
+     "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+     "id": "F3",
+     "avis": {
+      "id": "F3",
+      "verdict": "pertinent",
+      "explication": "L'entropie des images de microscopie est significativement liée à la classe (cancer vs normal).",
+      "hypothese": "L'entropie des images permet-elle de prédire la malignité cellulaire au-delà de la simple classification binaire ?"
+     }
+    },
+    {
+     "kind": "quasi_doublons",
+     "vars": "images",
+     "stat": 15,
+     "score": 0.4657458563535911,
+     "detail": {
+      "paires_quasi_identiques": 15,
+      "images_concernees": 30,
+      "sur": 181,
+      "confirmation": "non applicable — résultat descriptif"
+     },
+     "confirme": null,
+     "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+     "id": "F6",
+     "avis": {
+      "id": "F6",
+      "verdict": "artefact",
+      "explication": "Présence de paires d'images quasi-identiques dans le dataset d'imagerie, relevant d'un artéfact de duplication.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "image_caracteristique_liee_a_la_classe",
+     "vars": "bleu -> classe",
+     "stat": 0.11100000143051147,
+     "score": 0.41058146953582764,
+     "detail": {
+      "eta2": 0.11100000143051147,
+      "p": 5.1e-06,
+      "famille": "couleur",
+      "classe_min": "normal (0.025)",
+      "classe_max": "cancer (0.038)",
+      "confirmation": "confirmé — η² = 0.09, p = 4.3e-05 sur 179 autres images (découverte : 0.11100000143051147)"
+     },
+     "confirme": 1.0,
+     "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+     "id": "F9",
+     "avis": {
+      "id": "F9",
+      "verdict": "pertinent",
+      "explication": "La composante bleue des images microscopiques montre une liaison significative avec la classe (cancer vs normal).",
+      "hypothese": "La valeur de la composante bleue change-t-elle selon le protocole de coloration des cellules ?"
+     }
+    },
+    {
+     "kind": "classe_predictible_par_stats_simples",
+     "vars": "17 stats visuelles -> classe",
+     "stat": 0.751,
+     "score": 0.3685738737086617,
+     "detail": {
+      "balanced_accuracy_toutes": 0.751,
+      "balanced_accuracy_normalisees_seules": 0.684,
+      "hasard": 0.5,
+      "n_images": 181,
+      "confirmation": "confirmé — précision 0.79 sur d'autres images (hasard 0.50)"
+     },
+     "confirme": true,
+     "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+     "id": "F12",
+     "avis": {
+      "id": "F12",
+      "verdict": "pertinent",
+      "explication": "Les statistiques visuelles permettent de prédire efficacement la classe de cancer à partir des images.",
+      "hypothese": "Peut-on prédire la classe avec seulement les statistiques visuelles globales dans des images de microscopie cellulaire ?"
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "name": "Gaborandi/Acute_Lymphoblastic_Leukemia_pubmed_abstracts",
+    "target": null,
+    "description": "- This Dataset has been downloaded from PubMed - It has abstracts and titles that are related to acute lymphoblastic leukemia - the data has been cleaned before uploading - it could be used for any NLP task, such as Domain Adaptation",
+    "fichier": "ALL.csv",
+    "url": "https://huggingface.co/datasets/Gaborandi/Acute_Lymphoblastic_Leukemia_pubmed_abstracts",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 4443,
+     "confirmation": 4374
+    },
+    "did": "hf:Gaborandi/Acute_Lymphoblastic_Leukemia_pubmed_abstracts",
+    "colonnes": {
+     "num": [
+      "pubmed_id"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 8817,
+   "colonnes": 3,
+   "fig": null,
+   "n_findings": 0,
+   "findings": []
+  },
+  {
+   "meta": {
+    "name": "longevity-db/gene-expression-single-cell-mouse",
+    "target": null,
+    "description": "A single-cell transcriptomic atlas characterizes ageing tissues in the mouse Code to download and process this dataset is available in: https://github.com/seanome/2025-longevity-x-ai-hackathon Dataset structure is originally from AnnData (https://anndata.readthedocs.io/en/latest/index.html). Descriptions of each data file is below. Data Files This dataset contains multiple parquet files, one for e",
+    "fichier": "expression_dge_result.tissue_cell.raw_p.parquet",
+    "url": "https://huggingface.co/datasets/longevity-db/gene-expression-single-cell-mouse",
+    "meta_cols": {},
+    "moities": {
+     "decouverte": 10092,
+     "confirmation": 10024
+    },
+    "did": "hf:longevity-db/gene-expression-single-cell-mouse",
+    "colonnes": {
+     "num": [
+      "Aorta.aortic endothelial cell",
+      "Aorta.fibroblast of cardiac tissue",
+      "Aorta.professional antigen presenting cell",
+      "BAT.B cell",
+      "BAT.T cell",
+      "BAT.endothelial cell",
+      "BAT.mesenchymal stem cell of adipose",
+      "BAT.myeloid cell",
+      "Bladder.bladder cell",
+      "Bladder.bladder urothelial cell",
+      "Bladder.endothelial cell",
+      "Bladder.leukocyte",
+      "Brain_Myeloid.macrophage",
+      "Brain_Myeloid.microglial cell",
+      "Brain_Non-Myeloid.astrocyte",
+      "Brain_Non-Myeloid.brain pericyte",
+      "Brain_Non-Myeloid.endothelial cell",
+      "Brain_Non-Myeloid.interneuron",
+      "Brain_Non-Myeloid.neuron",
+      "Brain_Non-Myeloid.oligodendrocyte",
+      "Brain_Non-Myeloid.oligodendrocyte precursor cell",
+      "Diaphragm.B cell",
+      "Diaphragm.endothelial cell",
+      "Diaphragm.macrophage",
+      "Diaphragm.mesenchymal stem cell"
+     ],
+     "groupes": []
+    }
+   },
+   "lignes": 20116,
+   "colonnes": 196,
+   "fig": "2026-11-27_longevity_db_gene_expression_single_cell.png",
+   "n_findings": 22,
+   "findings": [
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Marrow.granulocyte ~ Lung.intermediate monocyte",
+     "stat": 0.206,
+     "score": 0.7057022913838495,
+     "detail": {
+      "spearman": 0.566,
+      "pearson": 0.36,
+      "n": 6991,
+      "confirmation": "confirmé — ρ = +0.56 sur 6931 lignes (découverte : +0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F1",
+     "avis": {
+      "id": "F1",
+      "verdict": "pertinent",
+      "explication": "Forte corrélation d'expression entre granulocytes de la moelle et monocytes intermédiaires du poumon, confirmée sur données indépendantes.",
+      "hypothese": "Le lien d'expression entre Marrow.granulocyte et Lung.intermediate monocyte change-t-il selon l'âge de la souris ?"
+     }
+    },
+    {
+     "kind": "relation_monotone_non_lineaire",
+     "vars": "Marrow.proerythroblast ~ Marrow.granulocyte",
+     "stat": 0.205,
+     "score": 0.7054226327746089,
+     "detail": {
+      "spearman": 0.522,
+      "pearson": 0.317,
+      "n": 6450,
+      "confirmation": "confirmé — ρ = +0.52 sur 6337 lignes (découverte : +0.52)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F2",
+     "avis": {
+      "id": "F2",
+      "verdict": "pertinent",
+      "explication": "Lien robuste entre progéniteurs érythroïdes (proerythroblast) et granulocytes dans la moelle osseuse.",
+      "hypothese": "Le lien entre Marrow.proerythroblast et Marrow.granulocyte change-t-il selon l'expression de gènes de différenciation ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.granulocyte",
+     "stat": 0.584,
+     "score": 0.4672044508209896,
+     "detail": {
+      "spearman": 0.584,
+      "pearson": 0.385,
+      "n": 7469,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.59 sur 7373 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F4",
+     "avis": {
+      "id": "F4",
+      "verdict": "pertinent",
+      "explication": "Corrélation élevée entre progéniteurs mégacaryocytes-érythroïdes et granulocytes.",
+      "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.granulocyte change-t-il selon le tissu analysé ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Lung.intermediate monocyte",
+     "stat": 0.583,
+     "score": 0.46642532574689705,
+     "detail": {
+      "spearman": 0.583,
+      "pearson": 0.412,
+      "n": 6622,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.57 sur 6544 lignes (découverte : +0.58)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F5",
+     "avis": {
+      "id": "F5",
+      "verdict": "pertinent",
+      "explication": "Corrélation confirmée entre progéniteurs de la moelle et monocytes pulmonaires.",
+      "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Lung.intermediate monocyte change-t-il selon le statut immunitaire ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.granulocyte ~ Lung.intermediate monocyte",
+     "stat": 0.566,
+     "score": 0.45286335929804933,
+     "detail": {
+      "spearman": 0.566,
+      "pearson": 0.36,
+      "n": 6991,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.56 sur 6931 lignes (découverte : +0.57)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F7",
+     "avis": {
+      "id": "F7",
+      "verdict": "trivial",
+      "explication": "Redondance avec le résultat F1 (même paire de variables mesurée par corrélation linéaire au lieu de non-linéaire).",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.proerythroblast ~ Marrow.granulocyte",
+     "stat": 0.522,
+     "score": 0.4177125685844738,
+     "detail": {
+      "spearman": 0.522,
+      "pearson": 0.317,
+      "n": 6450,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.52 sur 6337 lignes (découverte : +0.52)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F8",
+     "avis": {
+      "id": "F8",
+      "verdict": "trivial",
+      "explication": "Redondance directe avec le résultat F2.",
+      "hypothese": ""
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.late pro-B cell",
+     "stat": 0.51,
+     "score": 0.4079922060678337,
+     "detail": {
+      "spearman": 0.51,
+      "pearson": 0.383,
+      "n": 7211,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.51 sur 7123 lignes (découverte : +0.51)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F10",
+     "avis": {
+      "id": "F10",
+      "verdict": "pertinent",
+      "explication": "Corrélation entre progéniteurs myéloïdes et lymphocytes B précoces dans la moelle.",
+      "hypothese": "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.late pro-B cell change-t-il selon l'âge ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Lung.intermediate monocyte ~ Limb_Muscle.B cell",
+     "stat": 0.484,
+     "score": 0.38748303403858914,
+     "detail": {
+      "spearman": 0.484,
+      "pearson": 0.346,
+      "n": 6666,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.49 sur 6618 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse",
+     "id": "F11",
+     "avis": {
+      "id": "F11",
+      "verdict": "pertinent",
+      "explication": "Lien d'expression intéressant entre monocytes pulmonaires et lymphocytes B du muscle.",
+      "hypothese": "Le lien entre Lung.intermediate monocyte et Limb_Muscle.B cell change-t-il selon le niveau d'inflammation ?"
+     }
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.proerythroblast ~ Lung.intermediate monocyte",
+     "stat": 0.48,
+     "score": 0.3840370497916225,
+     "detail": {
+      "spearman": 0.48,
+      "pearson": 0.321,
+      "n": 6086,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.48 sur 5970 lignes (découverte : +0.48)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Spleen.mature NK T cell ~ Lung.intermediate monocyte",
+     "stat": 0.467,
+     "score": 0.37320487296318844,
+     "detail": {
+      "spearman": 0.467,
+      "pearson": 0.32,
+      "n": 6382,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.46 sur 6301 lignes (découverte : +0.47)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.granulocyte ~ Spleen.granulocyte",
+     "stat": 0.451,
+     "score": 0.36104865116407237,
+     "detail": {
+      "spearman": 0.451,
+      "pearson": 0.307,
+      "n": 6792,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.45 sur 6670 lignes (découverte : +0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.erythroblast",
+     "stat": 0.448,
+     "score": 0.35850347688748896,
+     "detail": {
+      "spearman": 0.448,
+      "pearson": 0.347,
+      "n": 6407,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.45 sur 6265 lignes (découverte : +0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.proerythroblast",
+     "stat": 0.446,
+     "score": 0.35692156859532587,
+     "detail": {
+      "spearman": 0.446,
+      "pearson": 0.27,
+      "n": 6315,
+      "q": 1.5e-304,
+      "confirmation": "confirmé — ρ = +0.46 sur 6177 lignes (découverte : +0.45)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Lung.intermediate monocyte ~ Liver.endothelial cell of hepatic sinusoid",
+     "stat": 0.439,
+     "score": 0.35110635803222406,
+     "detail": {
+      "spearman": 0.439,
+      "pearson": 0.325,
+      "n": 6795,
+      "q": 0.0,
+      "confirmation": "confirmé — ρ = +0.43 sur 6712 lignes (découverte : +0.44)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    },
+    {
+     "kind": "correlation",
+     "vars": "Marrow.megakaryocyte-erythroid progenitor cell ~ Limb_Muscle.B cell",
+     "stat": 0.419,
+     "score": 0.3354078118201546,
+     "detail": {
+      "spearman": 0.419,
+      "pearson": 0.266,
+      "n": 6953,
+      "q": 3.9e-292,
+      "confirmation": "confirmé — ρ = +0.43 sur 6858 lignes (découverte : +0.42)"
+     },
+     "confirme": 1.0,
+     "dataset": "longevity-db/gene-expression-single-cell-mouse"
+    }
+   ]
+  }
+ ],
+ "echecs": [
+  {
+   "source": "hf_tabular",
+   "ref": "tattabio/ecoli_pdb_benchmark",
+   "erreur": "unhashable type: 'numpy.ndarray'"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "DnaRnaProteins/ctc-cell-cycle-hela",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "tom-ellis-lab/yeast-RNA-seq",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "tattabio/e_coli_rnas",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "RosettaCommons/ProteinMPNN",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "ctaxnagomi/claude-protein-binder-design-dgui-corpus",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  },
+  {
+   "source": "hf_tabular",
+   "ref": "srtcompbio/claude-protein-binder-design",
+   "erreur": "aucun fichier de données tabulaires exploitable (parquet/csv ≤ 60 Mo)"
+  }
+ ],
+ "hypotheses_testees": [
+  {
+   "id": 78,
+   "spec": {
+    "type": "seuil",
+    "dataset_id": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "x": "proper_semimajor_au",
+    "y": "log_refl_z",
+    "seuil": 2.5,
+    "forme": "saut",
+    "plus_fort": "en_dessous",
+    "enonce": "La réflectance log_refl_z montre-t-elle un saut au passage du demi-grand axe propre de 2.5 UA (lacune 3:1 marquant la transition entre ceintures interne silicatée et médiane carbonée) ?",
+    "requete_biblio": "asteroid taxonomy SDSS reflectance semimajor axis Kirkwood"
+   },
+   "statut": "réfutée",
+   "resume": "Dans juliensimon/sdss-asteroid-taxonomy, log_refl_z vaut en moyenne 1.06 juste en dessous de proper_semimajor_au = 2.5 et 1.09 juste au-dessus (écart +0.40 écart-type, p = 3.1e-152, fenêtre ±0.248). [Testé sur : moitié de confirmation (53907 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "moy_dessous": 1.064376951243014,
+    "moy_dessus": 1.0871915272338912,
+    "n_dessous": 10378,
+    "n_dessus": 11236,
+    "p": 3.12e-152,
+    "donnees_test": "moitié de confirmation (53907 lignes jamais vues à l'exploration)",
+    "holm": "p = 3.1e-152, seuil corrigé 0.017 (3 tests cette nuit)"
+   },
+   "sujet": "Astronomie et physique",
+   "biblio": [
+    {
+     "titre": "Introducing the Eulalia and new Polana asteroid families: Re-assessing primitive asteroid families in the inner Main Belt",
+     "annee": 2013,
+     "citations": 164,
+     "url": "https://doi.org/10.1016/j.icarus.2013.03.005"
+    },
+    {
+     "titre": "Spectral properties of near-Earth and Mars-crossing asteroids using Sloan photometry",
+     "annee": 2016,
+     "citations": 92,
+     "url": "https://doi.org/10.1016/j.icarus.2015.12.047"
+    },
+    {
+     "titre": "Identification and Dynamical Properties of Asteroid Families",
+     "annee": 2015,
+     "citations": 219,
+     "url": "https://doi.org/10.2458/azu_uapress_9780816532131-ch016"
+    },
+    {
+     "titre": "A Taxonomic Characterization of Targets in the Emirates Mission to the Asteroid Belt",
+     "annee": 2026,
+     "citations": 0,
+     "url": "https://doi.org/10.3847/psj/aeb41a"
+    },
+    {
+     "titre": "Techniques for asteroid spectroscopy",
+     "annee": 2012,
+     "citations": 7,
+     "url": "https://openalex.org/W2470466619"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé postule un saut avec une réflectance plus basse au-dessus de 2.5 UA, mais les résultats montrent l'inverse (la moyenne est légèrement plus élevée au-dessus).",
+    "reformulation": "La réflectance log_refl_z présente-t-elle une variation significative au passage du demi-grand axe propre de 2.5 UA marquant la transition entre ceintures d'astéroïdes ?",
+    "diagnostic_statistique": "Le test de différence de moyennes est hautement significatif (p < 1e-100) en raison de la grande taille d'échantillon (n > 21000), mais l'effet observé est inverse à l'hypothèse initiale (moyenne supérieure au-dessus de 2.5 UA au lieu d'être plus basse).",
+    "modele_recommande": "Régression par morceaux (segmented regression) ou modèle additif généralisé (GAM) pour capturer la transition continue ou discontinue autour du seuil.",
+    "robustesse": "La taille des groupes est excellente (> 10000 observations par groupe). Cependant, un effet statistiquement significatif avec un si grand échantillon ne garantit pas une pertinence physique majeure si l'écart absolu reste minime.",
+    "interpretation_domaine": "La lacune de Kirkwood 3:1 à 2.5 UA marque bien une séparation dynamique majeure dans la ceinture d'astéroïdes entre les astéroïdes silicatés (internes) et carbonés (externes). Toutefois, la réflectance spectrale varie de manière complexe et continue, et un simple test de seuil binaire masque la diversité taxonomique réelle.",
+    "action_pipeline": "Corriger le sens attendu du saut dans le générateur d'hypothèses (plus haut au lieu de plus bas) ou tester un modèle de discontinuité de régression (RDD).",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La structure de la ceinture d'astéroïdes et la lacune 3:1 sont largement documentées en astronomie.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 79,
+   "spec": {
+    "type": "prediction",
+    "dataset_id": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "cible": "n_class",
+    "variables": [
+     "log_refl_u",
+     "log_refl_r",
+     "log_refl_i",
+     "log_refl_z"
+    ],
+    "groupe": null,
+    "enonce": "Peut-on prédire la classe taxonomique n_class des astéroïdes avec seulement les quatre réflectances SDSS log_refl_u, log_refl_r, log_refl_i et log_refl_z ?",
+    "requete_biblio": "SDSS asteroid taxonomic classification reflectance colors machine learning"
+   },
+   "statut": "non concluante",
+   "resume": "Dans juliensimon/sdss-asteroid-taxonomy, prédire n_class avec log_refl_u, log_refl_r, log_refl_i, log_refl_z donne balanced_accuracy = 0.13 (hasard ≈ 0.13, p = 0.095 sur 20 permutations, validation aléatoire). [Testé sur : moitié de confirmation (53907 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "balanced_accuracy": 0.134,
+    "hasard": 0.126,
+    "p_permutation": 0.0952,
+    "p_z": 0.00643,
+    "validation": "aléatoire",
+    "n": 5000,
+    "donnees_test": "moitié de confirmation (53907 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.0064, seuil corrigé 0.025 (3 tests cette nuit)"
+   },
+   "sujet": "Astronomie et physique",
+   "biblio": [
+    {
+     "titre": "Taxonomic classification of asteroids based on MOVIS near-infrared colors",
+     "annee": 2018,
+     "citations": 76,
+     "url": "https://doi.org/10.1051/0004-6361/201833023"
+    },
+    {
+     "titre": "A new approach to feature-based asteroid taxonomy in 3D color space: I. SDSS photometric system",
+     "annee": 2022,
+     "citations": 6,
+     "url": "https://doi.org/10.1051/0004-6361/202039551"
+    },
+    {
+     "titre": "Zero-phase angle asteroid taxonomy classification using unsupervised machine learning algorithms",
+     "annee": 2022,
+     "citations": 20,
+     "url": "https://doi.org/10.1051/0004-6361/202243428"
+    },
+    {
+     "titre": "Comparison of machine learning algorithms used to classify the asteroids observed by all-sky surveys",
+     "annee": 2022,
+     "citations": 16,
+     "url": "https://doi.org/10.1051/0004-6361/202243889"
+    },
+    {
+     "titre": "Distribution and spectrophotometric classification of basaltic asteroids",
+     "annee": 2019,
+     "citations": 14,
+     "url": "https://doi.org/10.1093/mnras/stz3284"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé correspond bien au test prédictif effectué, mais l'utilisation du terme 'prédire' implique une performance supérieure au hasard, ce qui n'est pas le cas ici.",
+    "reformulation": "",
+    "diagnostic_statistique": "La balanced accuracy obtenue est de 0.134, ce qui est strictement équivalent au niveau du hasard (0.126) sur ce jeu de données multiclasses, avec une p-valeur non significative (p = 0.095). Le modèle n'apprend rien.",
+    "modele_recommande": "Random Forest ou XGBoost multiclasse avec features dérivées (indices de couleur u-r, r-i, i-z)",
+    "robustesse": "Testé sur un échantillon de confirmation robuste (5000 lignes, validé sur 53907 lignes), mais les variables brutes de réflectance log ne suffisent pas sans transformations en pentes spectrales ou indices de couleur.",
+    "interpretation_domaine": "En astronomie, la taxonomie des astéroïdes repose traditionnellement sur les pentes spectrales et les indices de couleur (différences de magnitudes ou rapports de flux comme u-g, g-r, r-i) plutôt que sur les réflectances logarithmiques absolues seules, qui sont sensibles aux conditions d'observation et de phase.",
+    "action_pipeline": "Ajouter la génération automatique d'indices de couleur (différences entre bandes) pour les datasets photométriques avant de tester des modèles de classification.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "La classification taxonomique des astéroïdes par photométrie SDSS est un problème classique de machine learning.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "non concluante"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "spec": {
+    "type": "sous_groupe",
+    "dataset_id": "hf:juliensimon/sdss-asteroid-taxonomy",
+    "x": "proper_eccentricity",
+    "y": "sin_proper_inclination",
+    "groupe": "proper_semimajor_au",
+    "seuil": 2.82,
+    "plus_fort": "au_dessus",
+    "enonce": "Le lien entre proper_eccentricity et sin_proper_inclination change-t-il selon le demi-grand axe propre proper_semimajor_au au seuil de 2.82 UA ?",
+    "requete_biblio": "proper orbital elements eccentricity inclination asteroid main belt"
+   },
+   "statut": "réfutée",
+   "resume": "Dans juliensimon/sdss-asteroid-taxonomy, la corrélation proper_eccentricity~sin_proper_inclination vaut -0.00 pour « proper_semimajor_au > 2.82 » contre +0.01 pour « proper_semimajor_au ≤ 2.82 » (p = 0.34). [Testé sur : moitié de confirmation (53907 lignes jamais vues à l'exploration)]",
+   "stats": {
+    "groupes": {
+     "proper_semimajor_au ≤ 2.82": {
+      "rho": 0.01,
+      "pearson": 0.047,
+      "n": 26429
+     },
+     "proper_semimajor_au > 2.82": {
+      "rho": -0.001,
+      "pearson": 0.014,
+      "n": 10644
+     }
+    },
+    "groupe_predit_plus_fort": "proper_semimajor_au > 2.82",
+    "p_difference": 0.338,
+    "donnees_test": "moitié de confirmation (53907 lignes jamais vues à l'exploration)",
+    "holm": "p = 0.34, seuil corrigé 0.05 (3 tests cette nuit)"
+   },
+   "sujet": "Astronomie et physique",
+   "biblio": [
+    {
+     "titre": "Asteroid Proper Elements and the Dynamical Structure of the Asteroid Main Belt",
+     "annee": 1994,
+     "citations": 231,
+     "url": "https://doi.org/10.1006/icar.1994.1020"
+    },
+    {
+     "titre": "Synthetic Proper Elements for Outer Main Belt Asteroids",
+     "annee": 2000,
+     "citations": 135,
+     "url": "https://doi.org/10.1023/a:1011187405509"
+    },
+    {
+     "titre": "The Trojan asteroid belt: Proper elements, stability, chaos and families",
+     "annee": 1993,
+     "citations": 136,
+     "url": "https://doi.org/10.1007/bf00692462"
+    },
+    {
+     "titre": "Synthetic Proper Elements for Outer Main Belt Asteroids",
+     "annee": 2001,
+     "citations": 16,
+     "url": "https://doi.org/10.1007/978-94-017-2414-2_2"
+    },
+    {
+     "titre": "The Trojan Asteroid Belt: Proper Elements, Stability, Chaos and Families",
+     "annee": 1993,
+     "citations": 14,
+     "url": "https://doi.org/10.1007/978-94-011-1902-3_6"
+    }
+   ],
+   "expertise": {
+    "avis": "NON",
+    "qualite_formulation": "L'énoncé formule correctement une question de modération par un seuil sur le demi-grand axe.",
+    "reformulation": "",
+    "diagnostic_statistique": "Les coefficients de corrélation de Pearson et de Spearman sont quasi nuls (proches de 0) dans les deux sous-groupes, et la différence n'est pas significative (p = 0.34). La non-linéarité n'est pas en cause ici, c'est une absence totale de relation linéaire.",
+    "modele_recommande": "Aucun modèle pertinent car il n'y a pas de signal statistique entre ces variables.",
+    "robustesse": "Testé sur un échantillon de confirmation important (> 37000 observations cumulées dans les deux groupes), garantissant une bonne puissance statistique. Le résultat est robuste et indique une absence d'effet.",
+    "interpretation_domaine": "En mécanique céleste, les éléments propres (excentricité, inclinaison, demi-grand axe) caractérisent les orbites des astéroïdes de la ceinture principale. Bien que la résonance de mean-motion (comme celle de Kirkwood à 2.82 UA) structure la ceinture, la corrélation globale directe entre excentricité propre et inclinaison propre n'est pas modulée simplement par ce seuil de manière linéaire.",
+    "action_pipeline": "Éviter de tester des séparations arbitraires sur le demi-grand axe sans prérequis théorique fort liant l'excentricité et l'inclinaison.",
+    "modele": "gemini-3.5-flash-lite"
+   },
+   "nouveaute": "deja_connu",
+   "nouveaute_expl": "L'étude des éléments propres et de la structure dynamique de la ceinture d'astéroïdes est un sujet mature.",
+   "pertinence": {
+    "niveau": 0,
+    "decouverte": false,
+    "etapes": [
+     {
+      "nom": "Réel",
+      "ok": false,
+      "note": "réfutée"
+     },
+     {
+      "nom": "Interprétable",
+      "ok": true,
+      "note": "variables nommées"
+     },
+     {
+      "nom": "Non trivial",
+      "ok": false,
+      "note": "avis d'expert : NON"
+     },
+     {
+      "nom": "Non artefactuel",
+      "ok": null,
+      "note": "non vérifié"
+     },
+     {
+      "nom": "Nouveau",
+      "ok": false,
+      "note": "déjà connu"
+     },
+     {
+      "nom": "Généralisable",
+      "ok": null,
+      "note": "non vérifié"
+     }
+    ]
+   }
+  }
+ ]
+}

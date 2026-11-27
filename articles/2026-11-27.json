@@ -1,0 +1,213 @@
+{
+ "date": "2026-11-27",
+ "faits": {
+  "date": "2026-11-27",
+  "date_longue": "27 novembre 2026",
+  "sujets": [
+   "Biologie et génomique"
+  ],
+  "questions": [
+   "Quelles signatures moléculaires (gènes, protéines) distinguent les groupes biologiques, et lesquelles sont inattendues ?"
+  ],
+  "datasets_analyses": [
+   {
+    "nom": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+    "lignes": 360,
+    "colonnes": 17,
+    "resultats_bruts": 4,
+    "confirmes_sur_moitie_independante": 3
+   },
+   {
+    "nom": "Gaborandi/Acute_Lymphoblastic_Leukemia_pubmed_abstracts",
+    "lignes": 8817,
+    "colonnes": 3,
+    "resultats_bruts": 0,
+    "confirmes_sur_moitie_independante": 0
+   },
+   {
+    "nom": "longevity-db/gene-expression-single-cell-mouse",
+    "lignes": 20116,
+    "colonnes": 196,
+    "resultats_bruts": 22,
+    "confirmes_sur_moitie_independante": 15
+   }
+  ],
+  "datasets_ecartes": 7,
+  "hypotheses_testees": [
+   {
+    "id": "H78",
+    "enonce": "La réflectance log_refl_z montre-t-elle un saut au passage du demi-grand axe propre de 2.5 UA (lacune 3:1 marquant la transition entre ceintures interne silicatée et médiane carbonée) ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans juliensimon/sdss-asteroid-taxonomy, log_refl_z vaut en moyenne 1.06 juste en dessous de proper_semimajor_au = 2.5 et 1.09 juste au-dessus (écart +0.40 écart-type, p = 3.1e-152, fenêtre ±0.248).",
+    "bloque_a": null,
+    "litterature": "La structure de la ceinture d'astéroïdes et la lacune 3:1 sont largement documentées en astronomie."
+   },
+   {
+    "id": "H79",
+    "enonce": "Peut-on prédire la classe taxonomique n_class des astéroïdes avec seulement les quatre réflectances SDSS log_refl_u, log_refl_r, log_refl_i et log_refl_z ?",
+    "statut": "non concluante",
+    "niveau": 0,
+    "qualification": "non concluante",
+    "resultat": "Dans juliensimon/sdss-asteroid-taxonomy, prédire n_class avec log_refl_u, log_refl_r, log_refl_i, log_refl_z donne balanced_accuracy = 0.13 (hasard ≈ 0.13, p = 0.095 sur 20 permutations, validation aléatoire).",
+    "bloque_a": null,
+    "litterature": "La classification taxonomique des astéroïdes par photométrie SDSS est un problème classique de machine learning."
+   },
+   {
+    "id": "H80",
+    "enonce": "Le lien entre proper_eccentricity et sin_proper_inclination change-t-il selon le demi-grand axe propre proper_semimajor_au au seuil de 2.82 UA ?",
+    "statut": "réfutée",
+    "niveau": 0,
+    "qualification": "réfutée",
+    "resultat": "Dans juliensimon/sdss-asteroid-taxonomy, la corrélation proper_eccentricity~sin_proper_inclination vaut -0.00 pour « proper_semimajor_au > 2.82 » contre +0.01 pour « proper_semimajor_au ≤ 2.82 » (p = 0.34).",
+    "bloque_a": null,
+    "litterature": "L'étude des éléments propres et de la structure dynamique de la ceinture d'astéroïdes est un sujet mature."
+   }
+  ],
+  "bilan_tests": {
+   "réfutée": 2,
+   "non concluante": 1
+  },
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [
+   {
+    "dataset": "longevity-db/gene-expression-single-cell-mouse",
+    "variables": "Marrow.granulocyte ~ Lung.intermediate monocyte",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Forte corrélation d'expression entre granulocytes de la moelle et monocytes intermédiaires du poumon, confirmée sur données indépendantes.",
+    "detail": "confirmé — ρ = +0.56 sur 6931 lignes (découverte : +0.57)"
+   },
+   {
+    "dataset": "longevity-db/gene-expression-single-cell-mouse",
+    "variables": "Marrow.proerythroblast ~ Marrow.granulocyte",
+    "type": "relation_monotone_non_lineaire",
+    "explication": "Lien robuste entre progéniteurs érythroïdes (proerythroblast) et granulocytes dans la moelle osseuse.",
+    "detail": "confirmé — ρ = +0.52 sur 6337 lignes (découverte : +0.52)"
+   },
+   {
+    "dataset": "Jiabang/Single-cell_Microscopy_Images_for_Cancer_Classification",
+    "variables": "entropie -> classe",
+    "type": "image_caracteristique_liee_a_la_classe",
+    "explication": "L'entropie des images de microscopie est significativement liée à la classe (cancer vs normal).",
+    "detail": "confirmé — η² = 0.34, p = 4.4e-15 sur 179 autres images (découverte : 0.324)"
+   },
+   {
+    "dataset": "longevity-db/gene-expression-single-cell-mouse",
+    "variables": "Marrow.megakaryocyte-erythroid progenitor cell ~ Marrow.granulocyte",
+    "type": "correlation",
+    "explication": "Corrélation élevée entre progéniteurs mégacaryocytes-érythroïdes et granulocytes.",
+    "detail": "confirmé — ρ = +0.59 sur 7373 lignes (découverte : +0.58)"
+   },
+   {
+    "dataset": "longevity-db/gene-expression-single-cell-mouse",
+    "variables": "Marrow.megakaryocyte-erythroid progenitor cell ~ Lung.intermediate monocyte",
+    "type": "correlation",
+    "explication": "Corrélation confirmée entre progéniteurs de la moelle et monocytes pulmonaires.",
+    "detail": "confirmé — ρ = +0.57 sur 6544 lignes (découverte : +0.58)"
+   }
+  ],
+  "nombre_nouvelles_hypotheses": 3,
+  "nouvelles_hypotheses": [
+   "Le lien entre Marrow.granulocyte et Lung.intermediate monocyte change-t-il selon le niveau de BAT.B cell ?",
+   "Le lien entre Marrow.proerythroblast et Marrow.granulocyte change-t-il selon le niveau de Brain_Myeloid.macrophage ?",
+   "Le lien entre Marrow.megakaryocyte-erythroid progenitor cell et Marrow.late pro-B cell change-t-il selon le niveau de Bladder.leukocyte ?"
+  ],
+  "runs": [
+   "2026-11-27_0330_gene expression"
+  ]
+ },
+ "en_chiffres": [
+  "3 datasets analysés, 7 écartés (illisibles, hors sujet ou indisponibles)",
+  "3 hypothèses testées : 2 réfutée, 1 non concluante",
+  "0 résultat solide (niveau ≥ 3/6)",
+  "3 nouvelles hypothèses pour la nuit prochaine"
+ ],
+ "titre": "Enquête génomique et cellulaire : exploration des signatures moléculaires",
+ "chapo": "Cette nuit, la Raspberry Pi a enquêté sur les signatures moléculaires et cellulaires en analysant plusieurs jeux de données biologiques.",
+ "paragraphes": [
+  "L'investigation s'est penchée sur les liens entre différentes populations cellulaires. Une forte corrélation d'expression a été identifiée entre les granulocytes de la moelle et les monocytes intermédiaires du poumon, ainsi qu'entre les progéniteurs mégacaryocytes-érythroïdes et les granulocytes. De la même manière, un lien robuste a été observé entre les progéniteurs érythroïdes et les granulocytes dans la moelle osseuse, tout comme entre les progéniteurs de la moelle et les monocytes pulmonaires. Du côté de l'imagerie, l'entropie des images de microscopie présente un lien significatif avec la classe, qu'il s'agisse de cellules cancéreuses ou normales. Toutes ces pistes ont été confirmées sur des moitiés indépendantes de données.",
+  "Parallèlement, la Raspberry a testé 3 hypothèses concernant la dynamique d'astéroïdes et la classification photométrique, qui se sont soldées par des réfutations ou des non-conclusions. Ces tests infirmés fournissent toutefois des informations utiles pour orienter les futures recherches, aucun résultat de niveau 3 ou plus n'ayant été validé au cours de cette session."
+ ],
+ "redaction": "rédigé par gemini-3.5-flash-lite, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "signatures moléculaires et différenciation des cellules souches hématopoïétiques",
+    "requetes": [
+     "single cell bone marrow progenitors",
+     "hematopoietic stem cell gene expression"
+    ]
+   },
+   {
+    "theme": "classification des images de microscopie pour le cancer par entropie",
+    "requetes": [
+     "cancer classification microscopy image entropy",
+     "single cell microscopy analysis"
+    ]
+   }
+  ],
+  "titre": "Les cellules et l'analyse d'images",
+  "paragraphes": [
+   "Le système hématopoïétique, c'est-à-dire l'ensemble des tissus et cellules qui fabriquent le sang, est régulé par des microenvironnements précis nommés niches situés dans la moelle osseuse [1]. La recherche étudie comment ces niches contrôlent les cellules souches et comment des molécules d'adhérence participent au maintien de ces cellules [1, 2]. Par ailleurs, les cellules stromales mésenchymateuses de la moelle osseuse, c'est-à-dire des cellules souches capables de se transformer en différents types tissulaires, font l'objet de classifications pour mieux comprendre leur rôle [3].",
+   "Pour analyser les tissus, l'imagerie médicale et la microscopie jouent un rôle central dans l'étude des cancers, notamment du sein [4, 5]. L'intelligence artificielle, à travers des méthodes d'apprentissage automatique où l'ordinateur apprend à reconnaître des motifs, est largement utilisée pour classifier ces images médicales [4, 5]. La microscopie à force atomique permet également d'observer les cellules vivantes à très petite échelle et d'analyser leurs propriétés physiques [6]. Ces techniques d'analyse visuelle et moléculaire aident à mieux comprendre les signatures cellulaires et les différences entre les groupes biologiques."
+  ],
+  "references": [
+   {
+    "titre": "Bone Marrow Niches of Hematopoietic Stem and Progenitor Cells",
+    "annee": 2022,
+    "auteurs": "Kandarakov et al.",
+    "revue": "International Journal of Molecular Sciences",
+    "citations": 119,
+    "url": "https://doi.org/10.3390/ijms23084462",
+    "theme": "signatures moléculaires et différenciation des cellules souches hématopoïétiques"
+   },
+   {
+    "titre": "Potential Adhesion Mechanisms for Localisation of Haemopoietic Progenitors to Bone Marrow Stroma",
+    "annee": 1994,
+    "auteurs": "Simmons et al.",
+    "revue": "Leukemia & lymphoma/Leukemia and lymphoma",
+    "citations": 109,
+    "url": "https://doi.org/10.3109/10428199409073776",
+    "theme": "signatures moléculaires et différenciation des cellules souches hématopoïétiques"
+   },
+   {
+    "titre": "Bone Marrow Mesenchymal Stromal Cells: Identification, Classification, and Differentiation",
+    "annee": 2022,
+    "auteurs": "Gao et al.",
+    "revue": "Frontiers in Cell and Developmental Biology",
+    "citations": 160,
+    "url": "https://doi.org/10.3389/fcell.2021.787118",
+    "theme": "signatures moléculaires et différenciation des cellules souches hématopoïétiques"
+   },
+   {
+    "titre": "Involvement of Machine Learning for Breast Cancer Image Classification: A Survey",
+    "annee": 2017,
+    "auteurs": "Nahid & Kong",
+    "revue": "Computational and Mathematical Methods in Medicine",
+    "citations": 161,
+    "url": "https://doi.org/10.1155/2017/3781951",
+    "theme": "classification des images de microscopie pour le cancer par entropie"
+   },
+   {
+    "titre": "Deep Learning in Selected Cancers’ Image Analysis—A Survey",
+    "annee": 2020,
+    "auteurs": "Debelee et al.",
+    "revue": "Journal of Imaging",
+    "citations": 89,
+    "url": "https://doi.org/10.3390/jimaging6110121",
+    "theme": "classification des images de microscopie pour le cancer par entropie"
+   },
+   {
+    "titre": "Application of atomic force microscopy in cancer research",
+    "annee": 2018,
+    "auteurs": "Deng et al.",
+    "revue": "Journal of Nanobiotechnology",
+    "citations": 239,
+    "url": "https://doi.org/10.1186/s12951-018-0428-0",
+    "theme": "classification des images de microscopie pour le cancer par entropie"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}
