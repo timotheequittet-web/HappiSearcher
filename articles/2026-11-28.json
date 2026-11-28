@@ -1,0 +1,115 @@
+{
+ "date": "2026-11-28",
+ "faits": {
+  "date": "2026-11-28",
+  "date_longue": "28 novembre 2026",
+  "sujets": [
+   "Écriture et geste"
+  ],
+  "questions": [
+   "Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?"
+  ],
+  "datasets_analyses": [],
+  "datasets_ecartes": 0,
+  "hypotheses_testees": [],
+  "bilan_tests": {},
+  "resultats_solides": [],
+  "decouvertes_confirmees_jugees_pertinentes": [],
+  "nombre_nouvelles_hypotheses": 0,
+  "nouvelles_hypotheses": [],
+  "runs": [
+   "2026-11-28_0330_handwriting"
+  ]
+ },
+ "en_chiffres": [
+  "0 dataset analysé",
+  "0 résultat solide (niveau ≥ 3/6)"
+ ],
+ "titre": "Écriture et gestes : une nuit d'enquête sans données analysées",
+ "chapo": "Dans la nuit du 28 novembre 2026, la Raspberry s'est penchée sur le thème de l'écriture et du geste. Malgré le lancement d'une session de calcul, aucun jeu de données n'a pu être analysé pour répondre aux questions posées.",
+ "paragraphes": [
+  "L'enquête du jour abordait une question bien précise : notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ? Pour tenter d'éclairer cette interrogation, la Raspberry a lancé l'opération 2026-11-28_0330_handwriting. Toutefois, le bilan nocturne indique que 0 jeu de données n'a été analysé, et 0 jeu de données n'a été écarté.",
+  "Sans données à examiner, le bilan des tests demeure totalement vide. Aucune hypothèse n'a été testée, et aucun résultat solide à ce stade n'a pu émerger. De la même manière, la Raspberry n'a enregistré aucune piste confirmée ni aucune nouvelle hypothèse, laissant ce compteur à 0. L'enquête reste donc au point de départ pour ce sujet, faute d'observations exploitées lors de ce cycle."
+ ],
+ "redaction": "rédigé par gemini-3.8-flash, chiffres vérifiés automatiquement",
+ "etat_art": {
+  "themes": [
+   {
+    "theme": "l'analyse cinématique de l'écriture manuscrite pour la biométrie et le diagnostic",
+    "requetes": [
+     "handwriting kinematics biometric identification review",
+     "handwriting dynamics state assessment survey"
+    ]
+   },
+   {
+    "theme": "la reconnaissance des états émotionnels par la dynamique des gestes",
+    "requetes": [
+     "gesture dynamics emotional state recognition review",
+     "behavioral gesture kinematics recognition survey"
+    ]
+   }
+  ],
+  "titre": "L'écriture et les mouvements sous l'œil de la science",
+  "paragraphes": [
+   "L'écriture manuscrite et les mouvements font intervenir des capacités de planification et de coordination [1]. Certaines maladies neurodégénératives, c'est-à-dire des affections qui touchent progressivement le système nerveux, modifient la motricité fine nécessaire pour écrire [1, 2]. Par exemple, la maladie de Parkinson perturbe la vitesse et la fluidité des tracés [2]. La recherche sait analyser ces dynamiques grâce à des outils informatiques pour détecter des modifications subtiles [2, 3].",
+   "Par ailleurs, la détection des états émotionnels repose sur la capture de signaux humains à l'aide de capteurs biométriques [4]. Les chercheurs étudient ces signaux pour identifier la manière dont les émotions influencent les réponses physiologiques et les interactions [5, 6]. Dès lors, la manière dont nous traçons nos lignes et exprimons nos mouvements trahit-elle ce que nous sommes et ce que nous ressentons ?"
+  ],
+  "references": [
+   {
+    "titre": "Dynamic Handwriting Analysis for the Assessment of Neurodegenerative Diseases: A Pattern Recognition Perspective",
+    "annee": 2018,
+    "auteurs": "Impedovo & Pirlo",
+    "revue": "IEEE Reviews in Biomedical Engineering",
+    "citations": 205,
+    "url": "https://doi.org/10.1109/rbme.2018.2840679",
+    "theme": "l'analyse cinématique de l'écriture manuscrite pour la biométrie et le diagnostic"
+   },
+   {
+    "titre": "Writing the Future: Artificial Intelligence, Handwriting, and Early Biomarkers for Parkinson’s Disease Diagnosis and Monitoring",
+    "annee": 2025,
+    "auteurs": "Marano et al.",
+    "revue": "Biomedicines",
+    "citations": 37,
+    "url": "https://doi.org/10.3390/biomedicines13071764",
+    "theme": "l'analyse cinématique de l'écriture manuscrite pour la biométrie et le diagnostic"
+   },
+   {
+    "titre": "Application of Deep Learning Models for Automated Identification of Parkinson’s Disease: A Review (2011–2021)",
+    "annee": 2021,
+    "auteurs": "Loh et al.",
+    "revue": "Sensors",
+    "citations": 146,
+    "url": "https://doi.org/10.3390/s21217034",
+    "theme": "l'analyse cinématique de l'écriture manuscrite pour la biométrie et le diagnostic"
+   },
+   {
+    "titre": "A Review of AI Cloud and Edge Sensors, Methods, and Applications for the Recognition of Emotional, Affective and Physiological States",
+    "annee": 2022,
+    "auteurs": "Kaklauskas et al.",
+    "revue": "Sensors",
+    "citations": 91,
+    "url": "https://doi.org/10.3390/s22207824",
+    "theme": "la reconnaissance des états émotionnels par la dynamique des gestes"
+   },
+   {
+    "titre": "A Review of Emotion Recognition Using Physiological Signals",
+    "annee": 2018,
+    "auteurs": "Shu et al.",
+    "revue": "Sensors",
+    "citations": 1136,
+    "url": "https://doi.org/10.3390/s18072074",
+    "theme": "la reconnaissance des états émotionnels par la dynamique des gestes"
+   },
+   {
+    "titre": "EEG-Based Emotion Recognition: A State-of-the-Art Review of Current Trends and Opportunities",
+    "annee": 2020,
+    "auteurs": "Suhaimi et al.",
+    "revue": "Computational Intelligence and Neuroscience",
+    "citations": 468,
+    "url": "https://doi.org/10.1155/2020/8875426",
+    "theme": "la reconnaissance des états émotionnels par la dynamique des gestes"
+   }
+  ],
+  "redaction": "Rédigé par gemini-3.5-flash-lite à partir des seuls résumés des 6 articles cités (OpenAlex) ; références, chiffres et fidélité aux résumés contrôlés automatiquement"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "id": "2026-11-28_0330_handwriting",
+ "date": "2026-11-28T03:30",
+ "sujet": "Écriture et geste",
+ "question": "Notre écriture et nos gestes trahissent-ils notre identité ou notre état, au-delà de ce qu'on écrit ?",
+ "keywords": [
+  "handwriting",
+  "pendigits",
+  "signature verification",
+  "gesture",
+  "keystroke",
+  "mouse dynamics",
+  "optdigits"
+ ],
+ "analyse": null,
+ "note_llm": "LLM désactivé ou aucune découverte",
+ "top": [],
+ "datasets": [],
+ "echecs": [],
+ "hypotheses_testees": []
+}
